@@ -1,0 +1,175 @@
+{
+  "@@locale": "en",
+  "appTitle": "Studyfy",
+  "landingBadge": "Built for language schools",
+  "landingHeroLead": "Everything your school needs to",
+  "landingHeroWordTeach": "teach",
+  "landingHeroWordSchedule": "schedule",
+  "landingHeroWordTest": "test",
+  "landingHeroWordGrow": "grow",
+  "landingHeroWordSuffix": "",
+  "landingHeroSub": "Organize subjects and levels, build image-rich tests, schedule weekly sessions and see every student's results — all in one calm, beautiful place.",
+  "landingChipSessions": "Group & individual sessions",
+  "landingChipTests": "Tests with images & video",
+  "landingChipGrading": "Instant grading",
+  "landingMockTimetable": "This week",
+  "landingMockToday": "Today",
+  "landingMockGroup": "Group",
+  "landingMockIndividual": "Individual",
+  "landingMockResult": "Test result",
+  "landingMockCorrect": "Correct answers",
+  "landingMockQuestion": "What is “apple” in French?",
+  "landingFeatureTestsTitle": "Tests & questions",
+  "landingFeatureTestsDesc": "Multiple-choice or free-text questions, each with an optional image and video.",
+  "landingFeatureTimetableTitle": "Weekly timetable",
+  "landingFeatureTimetableDesc": "Recurring group and individual slots, with today's session and what's next at a glance.",
+  "landingRolesTitle": "Made for everyone, in their own way",
+  "landingTeachersTitle": "For teachers",
+  "landingTeachersPoint1": "Manage subjects, levels and tests",
+  "landingTeachersPoint2": "Register students and build groups",
+  "landingTeachersPoint3": "Schedule weekly sessions",
+  "landingTeachersPoint4": "Review every result in detail",
+  "landingStudentsTitle": "For students",
+  "landingStudentsPoint1": "See your weekly timetable",
+  "landingStudentsPoint2": "Know when your next session is",
+  "landingStudentsPoint3": "Review your results question by question",
+  "landingCtaTitle": "Ready to get started?",
+  "landingCtaSub": "Sign in and organize your school.",
+  "signIn": "Sign in",
+  "registrationButton": "Registration",
+  "registrationTitle": "Get in touch",
+  "registrationSub": "Leave your email and phone number and we'll contact you soon.",
+  "registrationEmailLabel": "Email",
+  "registrationPhoneLabel": "Phone number",
+  "registrationPhonePlaceholder": "+374 55 123456",
+  "registrationSubmit": "Send request",
+  "registrationSending": "Sending…",
+  "registrationSuccessTitle": "Thank you!",
+  "registrationSuccessText": "We've received your request and will contact you soon.",
+  "registrationClose": "Close",
+  "registrationInvalidEmail": "Enter a valid email address.",
+  "registrationInvalidPhone": "Enter a valid phone number (e.g. +374 55 123456).",
+  "errorGeneric": "Something went wrong. Please try again.",
+  "errorServerUnavailable": "Server unavailable. Please try again.",
+  "registrationTooMany": "Too many requests. Try again in {time}.",
+  "durationSeconds": "{n} seconds",
+  "durationMinutes": "{n} minutes",
+  "onboardingSkip": "Skip",
+  "onboardingNext": "Next",
+  "languageLabel": "Language",
+  "loginComingSoon": "The sign-in screen is coming next.",
+  "onboardingReplay": "Watch the intro again",
+  "@registrationTooMany": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "@durationSeconds": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "@durationMinutes": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "loginWelcome": "Welcome back 👋",
+  "loginSubtitle": "Sign in to continue your learning journey.",
+  "loginEmail": "Email",
+  "loginPassword": "Password",
+  "loginForgot": "Forgot?",
+  "passwordShow": "Show",
+  "passwordHide": "Hide",
+  "loginRemember": "Keep me signed in",
+  "loginSignIn": "Sign in",
+  "loginSigningIn": "Signing in…",
+  "loginInvalid": "Incorrect email or password.",
+  "loginUnavailable": "Server unavailable. Please try again.",
+  "loginTooMany": "Too many attempts. Please try again later.",
+  "loginRetryIn": "Try again in {time}",
+  "loginResetPassword": "Reset your password",
+  "loginResetUnlocks": "Resetting your password unlocks your account right away.",
+  "loginInactive": "Your organization is inactive. Please contact support.",
+  "loginResetSuccess": "Password reset. Log in with the new one.",
+  "loginWordLearn": "Learn",
+  "loginWordDiscover": "Discover",
+  "loginWordGrow": "Grow",
+  "loginWordAchieve": "Achieve",
+  "forgotTitle": "Reset your password",
+  "forgotSubtitle": "Enter your email and we'll send you a 6-digit code to reset it.",
+  "forgotEmailLabel": "Email",
+  "forgotSubmit": "Send code",
+  "forgotSending": "Sending…",
+  "forgotBackToLogin": "Back to sign in",
+  "forgotTooMany": "Too many attempts. Try again in {minutes} minutes.",
+  "forgotStep2Title": "Enter the code",
+  "forgotStep2Subtitle": "Check {email} for a 6-digit code, then set your new password.",
+  "forgotChangeEmail": "Use a different email",
+  "forgotCodeLabel": "Code from the email",
+  "forgotCodePlaceholder": "000000",
+  "forgotCodeInvalid": "Enter the 6-digit code from the email.",
+  "forgotPasswordLabel": "New password",
+  "forgotConfirmLabel": "Confirm new password",
+  "forgotPasswordRule": "8–32 characters: letters, digits and !@#$%^&*.",
+  "forgotMismatch": "Passwords don't match.",
+  "forgotSubmitReset": "Reset password",
+  "forgotResetting": "Resetting…",
+  "forgotResendCode": "Send a new code",
+  "forgotResendCodeIn": "Send a new code ({seconds}s)",
+  "forgotResendSent": "A new code is on its way.",
+  "homeWelcome": "Welcome back, {name}",
+  "logout": "Log out",
+  "logoutConfirmTitle": "Log out of Studyfy?",
+  "logoutConfirmDescription": "You'll need to sign in again to access your account.",
+  "cancel": "Cancel",
+  "forgotCodeIncorrect": "The code is incorrect or has expired. Check the email or request a new one.",
+  "loginAdminNotSupported": "Administrator accounts are managed on the Studyfy website. This app is for teachers and students.",
+  "loginSessionExpired": "Your session has ended. Please sign in again.",
+  "roleTeacher": "Teacher",
+  "roleStudent": "Student",
+  "roleAdmin": "Administrator",
+  "loginNewSchool": "New school? Get in touch",
+  "@loginRetryIn": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "@forgotTooMany": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "@forgotStep2Subtitle": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "@forgotResendCodeIn": {
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "@homeWelcome": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "loginPasswordRequired": "Enter your password."
+}

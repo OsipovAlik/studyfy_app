@@ -1,30 +1,79 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:studify/main.dart';
+import 'support/fakes.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('first launch shows onboarding; Sign in leads to login', (
+    tester,
+  ) async {
+    final app = await TestApp.create(prefs: {});
+    await tester.pumpWidget(app.widget);
+    await settle(tester);
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    expect(find.text('Built for language schools'), findsOneWidget);
+    expect(find.text('Sign in'), findsNothing);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
+    await tester.tap(find.text('Skip'));
+    await settle(tester);
+
+    expect(find.text('Sign in'), findsOneWidget);
+    expect(find.text('Registration'), findsOneWidget);
+
+    await tester.tap(find.text('Sign in'));
+    await settle(tester);
+
+    expect(find.text('Welcome back 👋'), findsOneWidget);
+  });
+
+  testWidgets('Registration opens the contact form', (tester) async {
+    final app = await TestApp.create(prefs: {});
+    await tester.pumpWidget(app.widget);
+    await settle(tester);
+
+    await tester.tap(find.text('Skip'));
+    await settle(tester);
+    await tester.tap(find.text('Registration'));
+    await settle(tester);
+
+    expect(find.text('Get in touch'), findsOneWidget);
+
+    await tester.tap(find.text('Send request'));
     await tester.pump();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    expect(find.text('Enter a valid email address.'), findsOneWidget);
+    expect(
+      find.text('Enter a valid phone number (e.g. +374 55 123456).'),
+      findsOneWidget,
+    );
+  });
+
+  for (final code in ['hy', 'en', 'fr', 'ru']) {
+    testWidgets('all slides fit a small phone in "$code"', (tester) async {
+      tester.view.physicalSize = const Size(360, 640);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
+
+      final app = await TestApp.create(prefs: {'language_code': code});
+      await tester.pumpWidget(app.widget);
+      await settle(tester);
+
+      for (var page = 0; page < 3; page++) {
+        await tester.tap(find.byType(FilledButton));
+        await settle(tester);
+      }
+      // Last slide: Sign in + Registration.
+      expect(find.byType(OutlinedButton), findsOneWidget);
+    });
+  }
+
+  testWidgets('every signed-out launch starts with onboarding', (tester) async {
+    // Even after the user has been through it and opened login before.
+    final app = await TestApp.create(prefs: {'onboarding_seen': true});
+    await tester.pumpWidget(app.widget);
+    await settle(tester);
+
+    expect(find.byType(PageView), findsOneWidget);
+    expect(find.text('Built for language schools'), findsOneWidget);
   });
 }

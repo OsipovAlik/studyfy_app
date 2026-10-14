@@ -1,0 +1,2 @@
+# Fail fast instead of waiting 10 minutes for a stuck test.
+timeout: 1m

@@ -1,0 +1,398 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
+import 'app_localizations.dart';
+
+// ignore_for_file: type=lint
+
+/// The translations for French (`fr`).
+class AppLocalizationsFr extends AppLocalizations {
+  AppLocalizationsFr([String locale = 'fr']) : super(locale);
+
+  @override
+  String get appTitle => 'Studyfy';
+
+  @override
+  String get landingBadge => 'Conçu pour les écoles de langues';
+
+  @override
+  String get landingHeroLead => 'Tout ce qu\'il faut à votre école pour';
+
+  @override
+  String get landingHeroWordTeach => 'enseigner';
+
+  @override
+  String get landingHeroWordSchedule => 'planifier';
+
+  @override
+  String get landingHeroWordTest => 'évaluer';
+
+  @override
+  String get landingHeroWordGrow => 'grandir';
+
+  @override
+  String get landingHeroWordSuffix => '';
+
+  @override
+  String get landingHeroSub =>
+      'Organisez matières et niveaux, créez des tests illustrés, planifiez les cours de la semaine et suivez les résultats de chaque élève — le tout dans un seul espace, simple et agréable.';
+
+  @override
+  String get landingChipSessions => 'Cours collectifs et individuels';
+
+  @override
+  String get landingChipTests => 'Tests avec images et vidéos';
+
+  @override
+  String get landingChipGrading => 'Correction instantanée';
+
+  @override
+  String get landingMockTimetable => 'Cette semaine';
+
+  @override
+  String get landingMockToday => 'Aujourd\'hui';
+
+  @override
+  String get landingMockGroup => 'Groupe';
+
+  @override
+  String get landingMockIndividual => 'Individuel';
+
+  @override
+  String get landingMockResult => 'Résultat du test';
+
+  @override
+  String get landingMockCorrect => 'Bonnes réponses';
+
+  @override
+  String get landingMockQuestion => 'Comment dit-on « apple » en français ?';
+
+  @override
+  String get landingFeatureTestsTitle => 'Tests et questions';
+
+  @override
+  String get landingFeatureTestsDesc =>
+      'Questions à choix multiples ou à réponse libre, chacune avec une image et une vidéo facultatives.';
+
+  @override
+  String get landingFeatureTimetableTitle => 'Emploi du temps de la semaine';
+
+  @override
+  String get landingFeatureTimetableDesc =>
+      'Créneaux récurrents collectifs et individuels, avec le cours du jour et le suivant en un coup d\'œil.';
+
+  @override
+  String get landingRolesTitle => 'Pensé pour chacun, selon ses besoins';
+
+  @override
+  String get landingTeachersTitle => 'Pour les enseignants';
+
+  @override
+  String get landingTeachersPoint1 =>
+      'Gérez les matières, les niveaux et les tests';
+
+  @override
+  String get landingTeachersPoint2 =>
+      'Inscrivez des élèves et formez des groupes';
+
+  @override
+  String get landingTeachersPoint3 => 'Planifiez les cours de la semaine';
+
+  @override
+  String get landingTeachersPoint4 => 'Examinez chaque résultat en détail';
+
+  @override
+  String get landingStudentsTitle => 'Pour les élèves';
+
+  @override
+  String get landingStudentsPoint1 =>
+      'Consultez votre emploi du temps de la semaine';
+
+  @override
+  String get landingStudentsPoint2 =>
+      'Sachez quand a lieu votre prochain cours';
+
+  @override
+  String get landingStudentsPoint3 =>
+      'Revoyez vos résultats question par question';
+
+  @override
+  String get landingCtaTitle => 'Envie de vous lancer ?';
+
+  @override
+  String get landingCtaSub => 'Connectez-vous et organisez votre école.';
+
+  @override
+  String get signIn => 'Se connecter';
+
+  @override
+  String get registrationButton => 'Inscription';
+
+  @override
+  String get registrationTitle => 'Contactez-nous';
+
+  @override
+  String get registrationSub =>
+      'Laissez votre e-mail et votre numéro de téléphone, nous vous recontacterons rapidement.';
+
+  @override
+  String get registrationEmailLabel => 'E-mail';
+
+  @override
+  String get registrationPhoneLabel => 'Numéro de téléphone';
+
+  @override
+  String get registrationPhonePlaceholder => '+374 55 123456';
+
+  @override
+  String get registrationSubmit => 'Envoyer la demande';
+
+  @override
+  String get registrationSending => 'Envoi…';
+
+  @override
+  String get registrationSuccessTitle => 'Merci !';
+
+  @override
+  String get registrationSuccessText =>
+      'Nous avons bien reçu votre demande et vous recontacterons rapidement.';
+
+  @override
+  String get registrationClose => 'Fermer';
+
+  @override
+  String get registrationInvalidEmail => 'Saisissez une adresse e-mail valide.';
+
+  @override
+  String get registrationInvalidPhone =>
+      'Saisissez un numéro de téléphone valide (ex. : +374 55 123456).';
+
+  @override
+  String get errorGeneric => 'Une erreur s\'est produite. Veuillez réessayer.';
+
+  @override
+  String get errorServerUnavailable =>
+      'Serveur indisponible. Veuillez réessayer.';
+
+  @override
+  String registrationTooMany(String time) {
+    return 'Trop de demandes. Réessayez dans $time.';
+  }
+
+  @override
+  String durationSeconds(int n) {
+    return '$n secondes';
+  }
+
+  @override
+  String durationMinutes(int n) {
+    return '$n minutes';
+  }
+
+  @override
+  String get onboardingSkip => 'Passer';
+
+  @override
+  String get onboardingNext => 'Suivant';
+
+  @override
+  String get languageLabel => 'Langue';
+
+  @override
+  String get loginComingSoon => 'L\'écran de connexion arrive bientôt.';
+
+  @override
+  String get onboardingReplay => 'Revoir la présentation';
+
+  @override
+  String get loginWelcome => 'Bon retour parmi nous 👋';
+
+  @override
+  String get loginSubtitle =>
+      'Connectez-vous pour poursuivre votre apprentissage.';
+
+  @override
+  String get loginEmail => 'E-mail';
+
+  @override
+  String get loginPassword => 'Mot de passe';
+
+  @override
+  String get loginForgot => 'Mot de passe oublié ?';
+
+  @override
+  String get passwordShow => 'Afficher';
+
+  @override
+  String get passwordHide => 'Masquer';
+
+  @override
+  String get loginRemember => 'Rester connecté';
+
+  @override
+  String get loginSignIn => 'Se connecter';
+
+  @override
+  String get loginSigningIn => 'Connexion…';
+
+  @override
+  String get loginInvalid => 'E-mail ou mot de passe incorrect.';
+
+  @override
+  String get loginUnavailable => 'Serveur indisponible. Veuillez réessayer.';
+
+  @override
+  String get loginTooMany =>
+      'Trop de tentatives. Veuillez réessayer plus tard.';
+
+  @override
+  String loginRetryIn(String time) {
+    return 'Réessayez dans $time';
+  }
+
+  @override
+  String get loginResetPassword => 'Réinitialiser le mot de passe';
+
+  @override
+  String get loginResetUnlocks =>
+      'La réinitialisation du mot de passe débloque votre compte immédiatement.';
+
+  @override
+  String get loginInactive =>
+      'Votre organisation est inactive. Veuillez contacter l\'assistance.';
+
+  @override
+  String get loginResetSuccess =>
+      'Mot de passe réinitialisé. Connectez-vous avec le nouveau.';
+
+  @override
+  String get loginWordLearn => 'Apprenez';
+
+  @override
+  String get loginWordDiscover => 'Découvrez';
+
+  @override
+  String get loginWordGrow => 'Progressez';
+
+  @override
+  String get loginWordAchieve => 'Réussissez';
+
+  @override
+  String get forgotTitle => 'Réinitialiser votre mot de passe';
+
+  @override
+  String get forgotSubtitle =>
+      'Saisissez votre e-mail et nous vous enverrons un code à 6 chiffres pour le réinitialiser.';
+
+  @override
+  String get forgotEmailLabel => 'E-mail';
+
+  @override
+  String get forgotSubmit => 'Envoyer le code';
+
+  @override
+  String get forgotSending => 'Envoi…';
+
+  @override
+  String get forgotBackToLogin => 'Retour à la connexion';
+
+  @override
+  String forgotTooMany(int minutes) {
+    return 'Trop de tentatives. Réessayez dans $minutes minutes.';
+  }
+
+  @override
+  String get forgotStep2Title => 'Saisissez le code';
+
+  @override
+  String forgotStep2Subtitle(String email) {
+    return 'Vérifiez $email pour un code à 6 chiffres, puis choisissez votre nouveau mot de passe.';
+  }
+
+  @override
+  String get forgotChangeEmail => 'Utiliser une autre adresse e-mail';
+
+  @override
+  String get forgotCodeLabel => 'Code reçu par e-mail';
+
+  @override
+  String get forgotCodePlaceholder => '000000';
+
+  @override
+  String get forgotCodeInvalid =>
+      'Saisissez le code à 6 chiffres reçu par e-mail.';
+
+  @override
+  String get forgotPasswordLabel => 'Nouveau mot de passe';
+
+  @override
+  String get forgotConfirmLabel => 'Confirmer le nouveau mot de passe';
+
+  @override
+  String get forgotPasswordRule =>
+      '8 à 32 caractères : lettres, chiffres et !@#\$%^&*.';
+
+  @override
+  String get forgotMismatch => 'Les mots de passe ne correspondent pas.';
+
+  @override
+  String get forgotSubmitReset => 'Réinitialiser le mot de passe';
+
+  @override
+  String get forgotResetting => 'Réinitialisation…';
+
+  @override
+  String get forgotResendCode => 'Envoyer un nouveau code';
+
+  @override
+  String forgotResendCodeIn(int seconds) {
+    return 'Envoyer un nouveau code ($seconds s)';
+  }
+
+  @override
+  String get forgotResendSent => 'Un nouveau code est en route.';
+
+  @override
+  String homeWelcome(String name) {
+    return 'Bon retour, $name';
+  }
+
+  @override
+  String get logout => 'Se déconnecter';
+
+  @override
+  String get logoutConfirmTitle => 'Se déconnecter de Studyfy ?';
+
+  @override
+  String get logoutConfirmDescription =>
+      'Vous devrez vous reconnecter pour accéder à votre compte.';
+
+  @override
+  String get cancel => 'Annuler';
+
+  @override
+  String get forgotCodeIncorrect =>
+      'Le code est incorrect ou a expiré. Vérifiez l\'e-mail ou demandez-en un nouveau.';
+
+  @override
+  String get loginAdminNotSupported =>
+      'Les comptes administrateur se gèrent sur le site Studyfy. Cette application est destinée aux enseignants et aux élèves.';
+
+  @override
+  String get loginSessionExpired =>
+      'Votre session a pris fin. Veuillez vous reconnecter.';
+
+  @override
+  String get roleTeacher => 'Enseignant';
+
+  @override
+  String get roleStudent => 'Élève';
+
+  @override
+  String get roleAdmin => 'Administrateur';
+
+  @override
+  String get loginNewSchool => 'Nouvelle école ? Contactez-nous';
+
+  @override
+  String get loginPasswordRequired => 'Saisissez votre mot de passe.';
+}
