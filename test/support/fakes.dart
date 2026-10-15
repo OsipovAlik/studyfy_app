@@ -130,7 +130,22 @@ class TestApp {
     // As in the app: fonts come from assets only.
     GoogleFonts.config.allowRuntimeFetching = false;
     await AppTheme.preloadFonts();
-    final api = FakeApi();
+    final api = FakeApi()
+      // Home and Sessions load the schedule as soon as they appear;
+      // default to an empty one so tests that don't care about it don't
+      // need to stub these routes themselves.
+      ..on('GET /session/my', [
+        const FakeResponse(200, {'sessions': <Object?>[]}),
+      ])
+      ..on('GET /session/list', [
+        const FakeResponse(200, {'sessions': <Object?>[]}),
+      ])
+      ..on('GET /group/list', [
+        const FakeResponse(200, {'groups': <Object?>[]}),
+      ])
+      ..on('GET /students', [
+        const FakeResponse(200, {'users': <Object?>[]}),
+      ]);
     final storage = MemorySessionStorage(session);
     final dependencies = await AppDependencies.create(
       preferences: AppPreferences(await SharedPreferences.getInstance()),

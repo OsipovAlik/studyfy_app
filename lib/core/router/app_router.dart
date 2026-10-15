@@ -6,6 +6,7 @@ import 'package:studify/features/home/home_screen.dart';
 import 'package:studify/features/legal/legal_screen.dart';
 import 'package:studify/features/onboarding/onboarding_screen.dart';
 import 'package:studify/features/profile/profile_screen.dart';
+import 'package:studify/features/sessions/sessions_screen.dart';
 import 'package:studify/features/settings/settings_screen.dart';
 import 'package:studify/features/shell/main_shell.dart';
 import 'package:studify/features/shell/tab_screens.dart';

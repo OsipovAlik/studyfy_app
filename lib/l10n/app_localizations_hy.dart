@@ -444,4 +444,309 @@ class AppLocalizationsHy extends AppLocalizations {
   @override
   String get homeSubtitle =>
       'Եվս մեկ շաբաթ՝ հրաշալի առաջընթացով։ Շարունակե՛ք նույն ոգով։';
+
+  @override
+  String get homeTimetableTitle => 'Շաբաթվա ժամանակացույց';
+
+  @override
+  String get homeTimetableSubtitle => 'Կրկնվող պարապմունքները ըստ օրերի։';
+
+  @override
+  String get homeTimetableViewCalendar => 'Ամբողջ օրացույցը';
+
+  @override
+  String get homeTimetableNextSession => 'Հաջորդ պարապմունքը';
+
+  @override
+  String get homeTimetableEmptyTitle => 'Պարապմունքներ դեռ չկան';
+
+  @override
+  String get homeTimetableLoadError => 'Չհաջողվեց բեռնել ժամանակացույցը։';
+
+  @override
+  String get homeTimetableLiveNow => 'Ընթանում է հիմա';
+
+  @override
+  String get sessionToday => 'Այսօր';
+
+  @override
+  String get sessionNoSessionsDay => 'Պարապմունք չկա';
+
+  @override
+  String get sessionMorning => 'Առավոտ (մինչև 12:00)';
+
+  @override
+  String get sessionAfternoon => 'Ցերեկ (12:00–17:00)';
+
+  @override
+  String get sessionEvening => 'Երեկո (17:00-ից)';
+
+  @override
+  String get sessionJoinCall => 'Միանալ զանգին';
+
+  @override
+  String get sessionTypeGroup => 'Խմբային';
+
+  @override
+  String get sessionTypeIndividual => 'Անհատական';
+
+  @override
+  String sessionUnknownGroup(int id) {
+    return 'Խումբ #$id';
+  }
+
+  @override
+  String sessionUnknownStudent(int id) {
+    return 'Աշակերտ #$id';
+  }
+
+  @override
+  String get weekdayMonday => 'Երկուշաբթի';
+
+  @override
+  String get weekdayTuesday => 'Երեքշաբթի';
+
+  @override
+  String get weekdayWednesday => 'Չորեքշաբթի';
+
+  @override
+  String get weekdayThursday => 'Հինգշաբթի';
+
+  @override
+  String get weekdayFriday => 'Ուրբաթ';
+
+  @override
+  String get weekdaySaturday => 'Շաբաթ';
+
+  @override
+  String get weekdaySunday => 'Կիրակի';
+
+  @override
+  String get sessionsTitle => 'Պարապմունքներ';
+
+  @override
+  String get sessionsSubtitle =>
+      'Շաբաթական կրկնվող խմբային և անհատական պարապմունքներ։';
+
+  @override
+  String get sessionsEmptyTitle => 'Պարապմունքներ դեռ չկան';
+
+  @override
+  String get sessionsLoadError => 'Չհաջողվեց բեռնել պարապմունքները։';
+
+  @override
+  String get callPageTitle => 'Տեսազանգ';
+
+  @override
+  String get callLobbyTitle => 'Պատրա՞ստ եք միանալ';
+
+  @override
+  String get callLobbySubtitle =>
+      'Մուտք գործելուց առաջ ստուգեք տեսախցիկը և խոսափողը։';
+
+  @override
+  String get callGroupSession => 'Խմբային դաս';
+
+  @override
+  String get callIndividualSession => 'Անհատական դաս';
+
+  @override
+  String callWeekly(String day, String time) {
+    return '$day, ժամը $time, ամեն շաբաթ';
+  }
+
+  @override
+  String get callJoinNow => 'Միանալ';
+
+  @override
+  String get callJoining => 'Միացում…';
+
+  @override
+  String callJoinAs(String name) {
+    return 'Դուք կմիանաք որպես $name';
+  }
+
+  @override
+  String get callHostNote => 'Դուք կմիանաք որպես այս դասի կազմակերպիչը։';
+
+  @override
+  String get callOneDeviceNote =>
+      'Այստեղ միանալը կավարտի ձեր զանգը մյուս ներդիրներում կամ սարքերում։';
+
+  @override
+  String get callCameraOff => 'Տեսախցիկն անջատված է';
+
+  @override
+  String get callCameraBlocked =>
+      'Տեսախցիկի հասանելիությունն արգելափակված է։ Թույլատրեք այն հեռախոսի կարգավորումներում, որպեսզի մյուսները ձեզ տեսնեն։';
+
+  @override
+  String get callMicBlocked =>
+      'Խոսափողի հասանելիությունն արգելափակված է։ Թույլատրեք այն հեռախոսի կարգավորումներում, որպեսզի մյուսները ձեզ լսեն։';
+
+  @override
+  String get callDeviceBusy =>
+      'Տեսախցիկը կամ խոսափողը չհաջողվեց միացնել։ Հնարավոր է՝ այն օգտագործվում է այլ ծրագրի կողմից։';
+
+  @override
+  String get callTurnOnMic => 'Միացնել խոսափողը';
+
+  @override
+  String get callTurnOffMic => 'Անջատել խոսափողը';
+
+  @override
+  String get callTurnOnCamera => 'Միացնել տեսախցիկը';
+
+  @override
+  String get callTurnOffCamera => 'Անջատել տեսախցիկը';
+
+  @override
+  String get callSwitchCamera => 'Փոխել տեսախցիկը';
+
+  @override
+  String get callSwitchCameraError => 'Չհաջողվեց փոխել տեսախցիկը։';
+
+  @override
+  String get callShowParticipants => 'Մասնակիցներ';
+
+  @override
+  String get callLeave => 'Լքել զանգը';
+
+  @override
+  String get callLive => 'Ուղիղ';
+
+  @override
+  String get callYou => 'Դուք';
+
+  @override
+  String get callHost => 'Կազմակերպիչ';
+
+  @override
+  String callInCall(int count) {
+    return 'Զանգում՝ $count';
+  }
+
+  @override
+  String get callAloneTitle => 'Դուք այստեղ միայնակ եք';
+
+  @override
+  String get callAloneDescription => 'Մյուսները կհայտնվեն միանալուն պես։';
+
+  @override
+  String get callReconnecting => 'Կապը կորավ։ Վերամիացում…';
+
+  @override
+  String get callPoorConnection => 'Թույլ կապ';
+
+  @override
+  String get callMuted => 'Խոսափողն անջատված է';
+
+  @override
+  String callJoinedToast(String name) {
+    return '$name — միացավ';
+  }
+
+  @override
+  String callLeftToast(String name) {
+    return '$name — դուրս եկավ';
+  }
+
+  @override
+  String get callMutedByHost => 'Կազմակերպիչն անջատեց ձեր խոսափողը։';
+
+  @override
+  String get callMediaError => 'Տեսախցիկը կամ խոսափողը չհաջողվեց միացնել։';
+
+  @override
+  String get callLeftTitle => 'Դուք լքեցիք զանգը';
+
+  @override
+  String get callLeftDescription => 'Կարող եք կրկին միանալ ցանկացած պահի։';
+
+  @override
+  String get callDuplicateTitle => 'Դուք միացաք այլ ներդիրից կամ սարքից';
+
+  @override
+  String get callDuplicateDescription =>
+      'Զանգը կարող է բաց լինել միայն մեկ տեղում, ուստի այստեղ այն անջատվեց։';
+
+  @override
+  String get callRemovedTitle => 'Ձեզ հեռացրին զանգից';
+
+  @override
+  String get callRemovedDescription => 'Կազմակերպիչը ձեզ հեռացրեց այս զանգից։';
+
+  @override
+  String get callEndedTitle => 'Զանգն ավարտվեց';
+
+  @override
+  String get callEndedDescription => 'Կազմակերպիչը փակեց սենյակը։';
+
+  @override
+  String get callLostTitle => 'Կապը կորավ';
+
+  @override
+  String get callLostDescription => 'Չհաջողվեց ձեզ կրկին միացնել զանգին։';
+
+  @override
+  String get callForbiddenTitle => 'Դուք չեք կարող միանալ այս զանգին';
+
+  @override
+  String get callForbiddenDescription =>
+      'Միանալ կարող են միայն այս դասի ուսուցիչներն ու աշակերտները։';
+
+  @override
+  String get callUnavailableTitle => 'Տեսազանգերը դեռ հասանելի չեն';
+
+  @override
+  String get callUnavailableDescription =>
+      'Տեսազանգերը կարգավորված չեն սերվերում։ Խնդրում ենք փորձել ավելի ուշ։';
+
+  @override
+  String get callErrorTitle => 'Չհաջողվեց միանալ զանգին';
+
+  @override
+  String get callErrorDescription => 'Ստուգեք ինտերնետ կապը և կրկին փորձեք։';
+
+  @override
+  String get callNotFoundTitle => 'Դասը չի գտնվել';
+
+  @override
+  String get callNotFoundDescription =>
+      'Հնարավոր է՝ այն ջնջվել է, կամ դուք դրա մասնակից չեք։';
+
+  @override
+  String get callRejoin => 'Կրկին միանալ';
+
+  @override
+  String get callTryAgain => 'Կրկին փորձել';
+
+  @override
+  String get sessionsSegmentGroups => 'Խմբեր';
+
+  @override
+  String get sessionsFilterAllTypes => 'Բոլոր տեսակները';
+
+  @override
+  String get sessionsFilterAllDays => 'Բոլոր օրերը';
+
+  @override
+  String get sessionsNoMatches => 'Այս ֆիլտրերին համապատասխան պարապմունք չկա։';
+
+  @override
+  String get groupsTitle => 'Խմբեր';
+
+  @override
+  String get groupsSubtitle => 'Աշակերտների կրկին օգտագործվող ցուցակներ։';
+
+  @override
+  String get groupsEmptyTitle => 'Խմբեր դեռ չկան';
+
+  @override
+  String get groupsLoadError => 'Չհաջողվեց բեռնել խմբերը։';
+
+  @override
+  String groupMembers(int count) {
+    return '$count անդամ';
+  }
 }

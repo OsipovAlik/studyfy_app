@@ -440,4 +440,309 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get homeSubtitle => 'Another week of amazing progress. Keep going!';
+
+  @override
+  String get homeTimetableTitle => 'This week\'s timetable';
+
+  @override
+  String get homeTimetableSubtitle => 'Recurring sessions by day.';
+
+  @override
+  String get homeTimetableViewCalendar => 'View full calendar';
+
+  @override
+  String get homeTimetableNextSession => 'Next session';
+
+  @override
+  String get homeTimetableEmptyTitle => 'No sessions yet';
+
+  @override
+  String get homeTimetableLoadError => 'Could not load the timetable.';
+
+  @override
+  String get homeTimetableLiveNow => 'Happening now';
+
+  @override
+  String get sessionToday => 'Today';
+
+  @override
+  String get sessionNoSessionsDay => 'No sessions';
+
+  @override
+  String get sessionMorning => 'Morning (before 12:00)';
+
+  @override
+  String get sessionAfternoon => 'Afternoon (12:00–17:00)';
+
+  @override
+  String get sessionEvening => 'Evening (from 17:00)';
+
+  @override
+  String get sessionJoinCall => 'Join call';
+
+  @override
+  String get sessionTypeGroup => 'Group';
+
+  @override
+  String get sessionTypeIndividual => 'Individual';
+
+  @override
+  String sessionUnknownGroup(int id) {
+    return 'Group #$id';
+  }
+
+  @override
+  String sessionUnknownStudent(int id) {
+    return 'Student #$id';
+  }
+
+  @override
+  String get weekdayMonday => 'Monday';
+
+  @override
+  String get weekdayTuesday => 'Tuesday';
+
+  @override
+  String get weekdayWednesday => 'Wednesday';
+
+  @override
+  String get weekdayThursday => 'Thursday';
+
+  @override
+  String get weekdayFriday => 'Friday';
+
+  @override
+  String get weekdaySaturday => 'Saturday';
+
+  @override
+  String get weekdaySunday => 'Sunday';
+
+  @override
+  String get sessionsTitle => 'Sessions';
+
+  @override
+  String get sessionsSubtitle =>
+      'Weekly recurring group and individual sessions.';
+
+  @override
+  String get sessionsEmptyTitle => 'No sessions yet';
+
+  @override
+  String get sessionsLoadError => 'Could not load sessions.';
+
+  @override
+  String get callPageTitle => 'Video call';
+
+  @override
+  String get callLobbyTitle => 'Ready to join?';
+
+  @override
+  String get callLobbySubtitle =>
+      'Check your camera and microphone before you go in.';
+
+  @override
+  String get callGroupSession => 'Group session';
+
+  @override
+  String get callIndividualSession => 'Individual session';
+
+  @override
+  String callWeekly(String day, String time) {
+    return 'Every $day at $time';
+  }
+
+  @override
+  String get callJoinNow => 'Join now';
+
+  @override
+  String get callJoining => 'Joining…';
+
+  @override
+  String callJoinAs(String name) {
+    return 'You\'ll join as $name';
+  }
+
+  @override
+  String get callHostNote => 'You\'ll join as the host of this class.';
+
+  @override
+  String get callOneDeviceNote =>
+      'Joining here ends your call on any other tab or device.';
+
+  @override
+  String get callCameraOff => 'Your camera is off';
+
+  @override
+  String get callCameraBlocked =>
+      'Camera access is blocked. Allow it in your phone\'s settings so others can see you.';
+
+  @override
+  String get callMicBlocked =>
+      'Microphone access is blocked. Allow it in your phone\'s settings so others can hear you.';
+
+  @override
+  String get callDeviceBusy =>
+      'Your camera or microphone couldn\'t start. It may be in use by another app.';
+
+  @override
+  String get callTurnOnMic => 'Turn on microphone';
+
+  @override
+  String get callTurnOffMic => 'Turn off microphone';
+
+  @override
+  String get callTurnOnCamera => 'Turn on camera';
+
+  @override
+  String get callTurnOffCamera => 'Turn off camera';
+
+  @override
+  String get callSwitchCamera => 'Switch camera';
+
+  @override
+  String get callSwitchCameraError => 'Couldn\'t switch camera.';
+
+  @override
+  String get callShowParticipants => 'Participants';
+
+  @override
+  String get callLeave => 'Leave call';
+
+  @override
+  String get callLive => 'Live';
+
+  @override
+  String get callYou => 'You';
+
+  @override
+  String get callHost => 'Host';
+
+  @override
+  String callInCall(int count) {
+    return '$count in call';
+  }
+
+  @override
+  String get callAloneTitle => 'You\'re the only one here';
+
+  @override
+  String get callAloneDescription => 'Others will appear as soon as they join.';
+
+  @override
+  String get callReconnecting => 'Connection lost. Reconnecting…';
+
+  @override
+  String get callPoorConnection => 'Poor connection';
+
+  @override
+  String get callMuted => 'Muted';
+
+  @override
+  String callJoinedToast(String name) {
+    return '$name joined';
+  }
+
+  @override
+  String callLeftToast(String name) {
+    return '$name left';
+  }
+
+  @override
+  String get callMutedByHost => 'The host muted your microphone.';
+
+  @override
+  String get callMediaError => 'Your camera or microphone couldn\'t start.';
+
+  @override
+  String get callLeftTitle => 'You left the call';
+
+  @override
+  String get callLeftDescription => 'You can rejoin at any time.';
+
+  @override
+  String get callDuplicateTitle => 'You joined from another tab or device';
+
+  @override
+  String get callDuplicateDescription =>
+      'A call can only be open in one place at a time, so this one was disconnected.';
+
+  @override
+  String get callRemovedTitle => 'You were removed from the call';
+
+  @override
+  String get callRemovedDescription => 'The host removed you from this call.';
+
+  @override
+  String get callEndedTitle => 'The call has ended';
+
+  @override
+  String get callEndedDescription => 'The host closed this room.';
+
+  @override
+  String get callLostTitle => 'Connection lost';
+
+  @override
+  String get callLostDescription => 'We couldn\'t reconnect you to the call.';
+
+  @override
+  String get callForbiddenTitle => 'You can\'t join this call';
+
+  @override
+  String get callForbiddenDescription =>
+      'Only this session\'s teachers and students can join.';
+
+  @override
+  String get callUnavailableTitle => 'Video calls aren\'t available yet';
+
+  @override
+  String get callUnavailableDescription =>
+      'Video calls aren\'t set up on the server. Please try again later.';
+
+  @override
+  String get callErrorTitle => 'Couldn\'t join the call';
+
+  @override
+  String get callErrorDescription => 'Check your connection and try again.';
+
+  @override
+  String get callNotFoundTitle => 'Session not found';
+
+  @override
+  String get callNotFoundDescription =>
+      'It may have been deleted, or you\'re not part of it.';
+
+  @override
+  String get callRejoin => 'Rejoin';
+
+  @override
+  String get callTryAgain => 'Try again';
+
+  @override
+  String get sessionsSegmentGroups => 'Groups';
+
+  @override
+  String get sessionsFilterAllTypes => 'All types';
+
+  @override
+  String get sessionsFilterAllDays => 'All days';
+
+  @override
+  String get sessionsNoMatches => 'No sessions match these filters.';
+
+  @override
+  String get groupsTitle => 'Groups';
+
+  @override
+  String get groupsSubtitle => 'Reusable rosters of students.';
+
+  @override
+  String get groupsEmptyTitle => 'No groups yet';
+
+  @override
+  String get groupsLoadError => 'Could not load groups.';
+
+  @override
+  String groupMembers(int count) {
+    return '$count members';
+  }
 }

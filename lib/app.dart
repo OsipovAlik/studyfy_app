@@ -11,6 +11,8 @@ import 'package:studify/features/auth/auth_controller.dart';
 import 'package:studify/features/auth/data/auth_repository.dart';
 import 'package:studify/features/auth/data/session_storage.dart';
 import 'package:studify/features/contact/contact_repository.dart';
+import 'package:studify/features/sessions/data/sessions_repository.dart';
+import 'package:studify/features/sessions/timetable_controller.dart';
 import 'package:studify/l10n/app_localizations.dart';
 
 /// Long-lived services, created once at startup (see `main.dart`).
@@ -84,6 +86,13 @@ class _StudyfyAppState extends State<StudyfyApp> {
           create: (_) => ThemeController(deps.preferences),
         ),
         Provider(create: (_) => ContactRepository(deps.client)),
+        Provider(create: (_) => SessionsRepository(deps.client)),
+        ChangeNotifierProvider(
+          create: (context) => TimetableController(
+            repository: context.read<SessionsRepository>(),
+            auth: deps.auth,
+          ),
+        ),
       ],
       child: Consumer2<LocaleController, ThemeController>(
         builder: (context, localeController, themeController, _) =>

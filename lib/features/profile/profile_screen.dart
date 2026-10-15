@@ -155,7 +155,10 @@ class _Avatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final initials = [user.name, user.surname].where((part) => part.isNotEmpty).map((part) => part.characters.first.toUpperCase()).join();
+    final initials = [user.name, user.surname]
+        .where((part) => part.isNotEmpty)
+        .map((part) => part.characters.first.toUpperCase())
+        .join();
     return Container(
       width: 56,
       height: 56,

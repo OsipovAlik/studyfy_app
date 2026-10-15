@@ -17,9 +17,8 @@ Future<void> main() async {
     preferences: AppPreferences(await SharedPreferences.getInstance()),
     sessionStorage: SessionStorage(),
   );
-  
-  runApp(StudyfyApp(dependencies: dependencies));
 
+  runApp(StudyfyApp(dependencies: dependencies));
 
   unawaited(dependencies.auth.refreshProfile());
 }

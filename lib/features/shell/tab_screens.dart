@@ -10,13 +10,6 @@ class SubjectsScreen extends StatelessWidget {
   Widget build(BuildContext context) => const Scaffold();
 }
 
-class SessionsScreen extends StatelessWidget {
-  const SessionsScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) => const Scaffold();
-}
-
 class HomeworkScreen extends StatelessWidget {
   const HomeworkScreen({super.key});
 

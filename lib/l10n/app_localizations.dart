@@ -905,6 +905,564 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Another week of amazing progress. Keep going!'**
   String get homeSubtitle;
+
+  /// No description provided for @homeTimetableTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'This week\'s timetable'**
+  String get homeTimetableTitle;
+
+  /// No description provided for @homeTimetableSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Recurring sessions by day.'**
+  String get homeTimetableSubtitle;
+
+  /// No description provided for @homeTimetableViewCalendar.
+  ///
+  /// In en, this message translates to:
+  /// **'View full calendar'**
+  String get homeTimetableViewCalendar;
+
+  /// No description provided for @homeTimetableNextSession.
+  ///
+  /// In en, this message translates to:
+  /// **'Next session'**
+  String get homeTimetableNextSession;
+
+  /// No description provided for @homeTimetableEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No sessions yet'**
+  String get homeTimetableEmptyTitle;
+
+  /// No description provided for @homeTimetableLoadError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not load the timetable.'**
+  String get homeTimetableLoadError;
+
+  /// No description provided for @homeTimetableLiveNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Happening now'**
+  String get homeTimetableLiveNow;
+
+  /// No description provided for @sessionToday.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get sessionToday;
+
+  /// No description provided for @sessionNoSessionsDay.
+  ///
+  /// In en, this message translates to:
+  /// **'No sessions'**
+  String get sessionNoSessionsDay;
+
+  /// No description provided for @sessionMorning.
+  ///
+  /// In en, this message translates to:
+  /// **'Morning (before 12:00)'**
+  String get sessionMorning;
+
+  /// No description provided for @sessionAfternoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Afternoon (12:00–17:00)'**
+  String get sessionAfternoon;
+
+  /// No description provided for @sessionEvening.
+  ///
+  /// In en, this message translates to:
+  /// **'Evening (from 17:00)'**
+  String get sessionEvening;
+
+  /// No description provided for @sessionJoinCall.
+  ///
+  /// In en, this message translates to:
+  /// **'Join call'**
+  String get sessionJoinCall;
+
+  /// No description provided for @sessionTypeGroup.
+  ///
+  /// In en, this message translates to:
+  /// **'Group'**
+  String get sessionTypeGroup;
+
+  /// No description provided for @sessionTypeIndividual.
+  ///
+  /// In en, this message translates to:
+  /// **'Individual'**
+  String get sessionTypeIndividual;
+
+  /// No description provided for @sessionUnknownGroup.
+  ///
+  /// In en, this message translates to:
+  /// **'Group #{id}'**
+  String sessionUnknownGroup(int id);
+
+  /// No description provided for @sessionUnknownStudent.
+  ///
+  /// In en, this message translates to:
+  /// **'Student #{id}'**
+  String sessionUnknownStudent(int id);
+
+  /// No description provided for @weekdayMonday.
+  ///
+  /// In en, this message translates to:
+  /// **'Monday'**
+  String get weekdayMonday;
+
+  /// No description provided for @weekdayTuesday.
+  ///
+  /// In en, this message translates to:
+  /// **'Tuesday'**
+  String get weekdayTuesday;
+
+  /// No description provided for @weekdayWednesday.
+  ///
+  /// In en, this message translates to:
+  /// **'Wednesday'**
+  String get weekdayWednesday;
+
+  /// No description provided for @weekdayThursday.
+  ///
+  /// In en, this message translates to:
+  /// **'Thursday'**
+  String get weekdayThursday;
+
+  /// No description provided for @weekdayFriday.
+  ///
+  /// In en, this message translates to:
+  /// **'Friday'**
+  String get weekdayFriday;
+
+  /// No description provided for @weekdaySaturday.
+  ///
+  /// In en, this message translates to:
+  /// **'Saturday'**
+  String get weekdaySaturday;
+
+  /// No description provided for @weekdaySunday.
+  ///
+  /// In en, this message translates to:
+  /// **'Sunday'**
+  String get weekdaySunday;
+
+  /// No description provided for @sessionsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sessions'**
+  String get sessionsTitle;
+
+  /// No description provided for @sessionsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly recurring group and individual sessions.'**
+  String get sessionsSubtitle;
+
+  /// No description provided for @sessionsEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No sessions yet'**
+  String get sessionsEmptyTitle;
+
+  /// No description provided for @sessionsLoadError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not load sessions.'**
+  String get sessionsLoadError;
+
+  /// No description provided for @callPageTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Video call'**
+  String get callPageTitle;
+
+  /// No description provided for @callLobbyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Ready to join?'**
+  String get callLobbyTitle;
+
+  /// No description provided for @callLobbySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Check your camera and microphone before you go in.'**
+  String get callLobbySubtitle;
+
+  /// No description provided for @callGroupSession.
+  ///
+  /// In en, this message translates to:
+  /// **'Group session'**
+  String get callGroupSession;
+
+  /// No description provided for @callIndividualSession.
+  ///
+  /// In en, this message translates to:
+  /// **'Individual session'**
+  String get callIndividualSession;
+
+  /// No description provided for @callWeekly.
+  ///
+  /// In en, this message translates to:
+  /// **'Every {day} at {time}'**
+  String callWeekly(String day, String time);
+
+  /// No description provided for @callJoinNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Join now'**
+  String get callJoinNow;
+
+  /// No description provided for @callJoining.
+  ///
+  /// In en, this message translates to:
+  /// **'Joining…'**
+  String get callJoining;
+
+  /// No description provided for @callJoinAs.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'ll join as {name}'**
+  String callJoinAs(String name);
+
+  /// No description provided for @callHostNote.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'ll join as the host of this class.'**
+  String get callHostNote;
+
+  /// No description provided for @callOneDeviceNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Joining here ends your call on any other tab or device.'**
+  String get callOneDeviceNote;
+
+  /// No description provided for @callCameraOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Your camera is off'**
+  String get callCameraOff;
+
+  /// No description provided for @callCameraBlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Camera access is blocked. Allow it in your phone\'s settings so others can see you.'**
+  String get callCameraBlocked;
+
+  /// No description provided for @callMicBlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Microphone access is blocked. Allow it in your phone\'s settings so others can hear you.'**
+  String get callMicBlocked;
+
+  /// No description provided for @callDeviceBusy.
+  ///
+  /// In en, this message translates to:
+  /// **'Your camera or microphone couldn\'t start. It may be in use by another app.'**
+  String get callDeviceBusy;
+
+  /// No description provided for @callTurnOnMic.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn on microphone'**
+  String get callTurnOnMic;
+
+  /// No description provided for @callTurnOffMic.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn off microphone'**
+  String get callTurnOffMic;
+
+  /// No description provided for @callTurnOnCamera.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn on camera'**
+  String get callTurnOnCamera;
+
+  /// No description provided for @callTurnOffCamera.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn off camera'**
+  String get callTurnOffCamera;
+
+  /// No description provided for @callSwitchCamera.
+  ///
+  /// In en, this message translates to:
+  /// **'Switch camera'**
+  String get callSwitchCamera;
+
+  /// No description provided for @callSwitchCameraError.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t switch camera.'**
+  String get callSwitchCameraError;
+
+  /// No description provided for @callShowParticipants.
+  ///
+  /// In en, this message translates to:
+  /// **'Participants'**
+  String get callShowParticipants;
+
+  /// No description provided for @callLeave.
+  ///
+  /// In en, this message translates to:
+  /// **'Leave call'**
+  String get callLeave;
+
+  /// No description provided for @callLive.
+  ///
+  /// In en, this message translates to:
+  /// **'Live'**
+  String get callLive;
+
+  /// No description provided for @callYou.
+  ///
+  /// In en, this message translates to:
+  /// **'You'**
+  String get callYou;
+
+  /// No description provided for @callHost.
+  ///
+  /// In en, this message translates to:
+  /// **'Host'**
+  String get callHost;
+
+  /// No description provided for @callInCall.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} in call'**
+  String callInCall(int count);
+
+  /// No description provided for @callAloneTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re the only one here'**
+  String get callAloneTitle;
+
+  /// No description provided for @callAloneDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Others will appear as soon as they join.'**
+  String get callAloneDescription;
+
+  /// No description provided for @callReconnecting.
+  ///
+  /// In en, this message translates to:
+  /// **'Connection lost. Reconnecting…'**
+  String get callReconnecting;
+
+  /// No description provided for @callPoorConnection.
+  ///
+  /// In en, this message translates to:
+  /// **'Poor connection'**
+  String get callPoorConnection;
+
+  /// No description provided for @callMuted.
+  ///
+  /// In en, this message translates to:
+  /// **'Muted'**
+  String get callMuted;
+
+  /// No description provided for @callJoinedToast.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} joined'**
+  String callJoinedToast(String name);
+
+  /// No description provided for @callLeftToast.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} left'**
+  String callLeftToast(String name);
+
+  /// No description provided for @callMutedByHost.
+  ///
+  /// In en, this message translates to:
+  /// **'The host muted your microphone.'**
+  String get callMutedByHost;
+
+  /// No description provided for @callMediaError.
+  ///
+  /// In en, this message translates to:
+  /// **'Your camera or microphone couldn\'t start.'**
+  String get callMediaError;
+
+  /// No description provided for @callLeftTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'You left the call'**
+  String get callLeftTitle;
+
+  /// No description provided for @callLeftDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'You can rejoin at any time.'**
+  String get callLeftDescription;
+
+  /// No description provided for @callDuplicateTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'You joined from another tab or device'**
+  String get callDuplicateTitle;
+
+  /// No description provided for @callDuplicateDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'A call can only be open in one place at a time, so this one was disconnected.'**
+  String get callDuplicateDescription;
+
+  /// No description provided for @callRemovedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'You were removed from the call'**
+  String get callRemovedTitle;
+
+  /// No description provided for @callRemovedDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'The host removed you from this call.'**
+  String get callRemovedDescription;
+
+  /// No description provided for @callEndedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'The call has ended'**
+  String get callEndedTitle;
+
+  /// No description provided for @callEndedDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'The host closed this room.'**
+  String get callEndedDescription;
+
+  /// No description provided for @callLostTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Connection lost'**
+  String get callLostTitle;
+
+  /// No description provided for @callLostDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'We couldn\'t reconnect you to the call.'**
+  String get callLostDescription;
+
+  /// No description provided for @callForbiddenTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'You can\'t join this call'**
+  String get callForbiddenTitle;
+
+  /// No description provided for @callForbiddenDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Only this session\'s teachers and students can join.'**
+  String get callForbiddenDescription;
+
+  /// No description provided for @callUnavailableTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Video calls aren\'t available yet'**
+  String get callUnavailableTitle;
+
+  /// No description provided for @callUnavailableDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Video calls aren\'t set up on the server. Please try again later.'**
+  String get callUnavailableDescription;
+
+  /// No description provided for @callErrorTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t join the call'**
+  String get callErrorTitle;
+
+  /// No description provided for @callErrorDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Check your connection and try again.'**
+  String get callErrorDescription;
+
+  /// No description provided for @callNotFoundTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Session not found'**
+  String get callNotFoundTitle;
+
+  /// No description provided for @callNotFoundDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'It may have been deleted, or you\'re not part of it.'**
+  String get callNotFoundDescription;
+
+  /// No description provided for @callRejoin.
+  ///
+  /// In en, this message translates to:
+  /// **'Rejoin'**
+  String get callRejoin;
+
+  /// No description provided for @callTryAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Try again'**
+  String get callTryAgain;
+
+  /// No description provided for @sessionsSegmentGroups.
+  ///
+  /// In en, this message translates to:
+  /// **'Groups'**
+  String get sessionsSegmentGroups;
+
+  /// No description provided for @sessionsFilterAllTypes.
+  ///
+  /// In en, this message translates to:
+  /// **'All types'**
+  String get sessionsFilterAllTypes;
+
+  /// No description provided for @sessionsFilterAllDays.
+  ///
+  /// In en, this message translates to:
+  /// **'All days'**
+  String get sessionsFilterAllDays;
+
+  /// No description provided for @sessionsNoMatches.
+  ///
+  /// In en, this message translates to:
+  /// **'No sessions match these filters.'**
+  String get sessionsNoMatches;
+
+  /// No description provided for @groupsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Groups'**
+  String get groupsTitle;
+
+  /// No description provided for @groupsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reusable rosters of students.'**
+  String get groupsSubtitle;
+
+  /// No description provided for @groupsEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No groups yet'**
+  String get groupsEmptyTitle;
+
+  /// No description provided for @groupsLoadError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not load groups.'**
+  String get groupsLoadError;
+
+  /// No description provided for @groupMembers.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} members'**
+  String groupMembers(int count);
 }
 
 class _AppLocalizationsDelegate

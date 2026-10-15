@@ -17,7 +17,9 @@ class WelcomeBanner extends StatelessWidget {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
     final foreground = isDark ? Colors.white : AppColors.indigo950;
-    final muted = isDark ? Colors.white.withValues(alpha: 0.62) : AppColors.stone700;
+    final muted = isDark
+        ? Colors.white.withValues(alpha: 0.62)
+        : AppColors.stone700;
 
     return ClipRRect(
       borderRadius: BorderRadius.circular(22),
@@ -26,21 +28,29 @@ class WelcomeBanner extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(22),
           border: Border.all(
-            color: isDark ? Colors.white.withValues(alpha: 0.1) : AppColors.indigo200,
+            color: isDark
+                ? Colors.white.withValues(alpha: 0.1)
+                : AppColors.indigo200,
           ),
         ),
         child: Stack(
           children: [
             Positioned.fill(
               child: SvgPicture.asset(
-                isDark ? 'assets/svg/banner-default-dark.svg' : 'assets/svg/banner-default-light.svg',
+                isDark
+                    ? 'assets/svg/banner-default-dark.svg'
+                    : 'assets/svg/banner-default-light.svg',
                 fit: BoxFit.cover,
                 alignment: Alignment.center,
               ),
             ),
             // Fills the whole banner, however tall the text makes it.
             Positioned.fill(
-              child: ColoredBox(color: isDark ? Colors.black.withOpacity(0.5) : Colors.white.withValues(alpha: 0.5)),
+              child: ColoredBox(
+                color: isDark
+                    ? Colors.black.withOpacity(0.5)
+                    : Colors.white.withValues(alpha: 0.5),
+              ),
             ),
             ConstrainedBox(
               constraints: const BoxConstraints(minHeight: 160),
@@ -56,13 +66,18 @@ class WelcomeBanner extends StatelessWidget {
                         Icon(
                           CupertinoIcons.paperplane,
                           size: 22,
-                          color: isDark ? AppColors.indigo300 : AppColors.indigo600,
+                          color: isDark
+                              ? AppColors.indigo300
+                              : AppColors.indigo600,
                         ),
                         const SizedBox(width: 14),
                         Expanded(
                           child: Text(
                             '${l10n.homeWelcome(user.name)} 👋',
-                            style: theme.textTheme.headlineSmall?.copyWith(color: foreground, fontSize: 18),
+                            style: theme.textTheme.headlineSmall?.copyWith(
+                              color: foreground,
+                              fontSize: 18,
+                            ),
                           ),
                         ),
                       ],
@@ -70,7 +85,10 @@ class WelcomeBanner extends StatelessWidget {
                     const SizedBox(height: 12),
                     Text(
                       l10n.homeSubtitle,
-                      style: theme.textTheme.bodyLarge?.copyWith(color: muted, fontSize: 14),
+                      style: theme.textTheme.bodyLarge?.copyWith(
+                        color: muted,
+                        fontSize: 14,
+                      ),
                     ),
                     if (user.partnerName.isNotEmpty) ...[
                       const SizedBox(height: 14),
@@ -107,10 +125,14 @@ class _SchoolChip extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 7),
       decoration: BoxDecoration(
-        color: isDark ? Colors.white.withValues(alpha: 0.08) : Colors.white.withValues(alpha: 0.75),
+        color: isDark
+            ? Colors.white.withValues(alpha: 0.08)
+            : Colors.white.withValues(alpha: 0.75),
         borderRadius: BorderRadius.circular(999),
         border: Border.all(
-          color: isDark ? Colors.white.withValues(alpha: 0.14) : AppColors.indigo200,
+          color: isDark
+              ? Colors.white.withValues(alpha: 0.14)
+              : AppColors.indigo200,
         ),
       ),
       child: Text(

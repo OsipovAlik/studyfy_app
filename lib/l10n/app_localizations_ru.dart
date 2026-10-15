@@ -443,4 +443,311 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get homeSubtitle =>
       'Ещё одна неделя отличного прогресса. Так держать!';
+
+  @override
+  String get homeTimetableTitle => 'Расписание на эту неделю';
+
+  @override
+  String get homeTimetableSubtitle => 'Регулярные занятия по дням.';
+
+  @override
+  String get homeTimetableViewCalendar => 'Весь календарь';
+
+  @override
+  String get homeTimetableNextSession => 'Следующее занятие';
+
+  @override
+  String get homeTimetableEmptyTitle => 'Занятий пока нет';
+
+  @override
+  String get homeTimetableLoadError => 'Не удалось загрузить расписание.';
+
+  @override
+  String get homeTimetableLiveNow => 'Идёт сейчас';
+
+  @override
+  String get sessionToday => 'Сегодня';
+
+  @override
+  String get sessionNoSessionsDay => 'Нет занятий';
+
+  @override
+  String get sessionMorning => 'Утро (до 12:00)';
+
+  @override
+  String get sessionAfternoon => 'День (12:00–17:00)';
+
+  @override
+  String get sessionEvening => 'Вечер (с 17:00)';
+
+  @override
+  String get sessionJoinCall => 'Войти в звонок';
+
+  @override
+  String get sessionTypeGroup => 'Групповое';
+
+  @override
+  String get sessionTypeIndividual => 'Индивидуальное';
+
+  @override
+  String sessionUnknownGroup(int id) {
+    return 'Группа №$id';
+  }
+
+  @override
+  String sessionUnknownStudent(int id) {
+    return 'Ученик №$id';
+  }
+
+  @override
+  String get weekdayMonday => 'Понедельник';
+
+  @override
+  String get weekdayTuesday => 'Вторник';
+
+  @override
+  String get weekdayWednesday => 'Среда';
+
+  @override
+  String get weekdayThursday => 'Четверг';
+
+  @override
+  String get weekdayFriday => 'Пятница';
+
+  @override
+  String get weekdaySaturday => 'Суббота';
+
+  @override
+  String get weekdaySunday => 'Воскресенье';
+
+  @override
+  String get sessionsTitle => 'Занятия';
+
+  @override
+  String get sessionsSubtitle =>
+      'Регулярные групповые и индивидуальные занятия на неделе.';
+
+  @override
+  String get sessionsEmptyTitle => 'Занятий пока нет';
+
+  @override
+  String get sessionsLoadError => 'Не удалось загрузить занятия.';
+
+  @override
+  String get callPageTitle => 'Видеозвонок';
+
+  @override
+  String get callLobbyTitle => 'Готовы присоединиться?';
+
+  @override
+  String get callLobbySubtitle => 'Проверьте камеру и микрофон перед входом.';
+
+  @override
+  String get callGroupSession => 'Групповое занятие';
+
+  @override
+  String get callIndividualSession => 'Индивидуальное занятие';
+
+  @override
+  String callWeekly(String day, String time) {
+    return '$day, $time — каждую неделю';
+  }
+
+  @override
+  String get callJoinNow => 'Присоединиться';
+
+  @override
+  String get callJoining => 'Подключение…';
+
+  @override
+  String callJoinAs(String name) {
+    return 'Вы войдёте как $name';
+  }
+
+  @override
+  String get callHostNote => 'Вы войдёте как организатор этого занятия.';
+
+  @override
+  String get callOneDeviceNote =>
+      'Если войти здесь, звонок на другой вкладке или устройстве завершится.';
+
+  @override
+  String get callCameraOff => 'Камера выключена';
+
+  @override
+  String get callCameraBlocked =>
+      'Доступ к камере заблокирован. Разрешите его в настройках телефона, чтобы другие вас видели.';
+
+  @override
+  String get callMicBlocked =>
+      'Доступ к микрофону заблокирован. Разрешите его в настройках телефона, чтобы другие вас слышали.';
+
+  @override
+  String get callDeviceBusy =>
+      'Не удалось запустить камеру или микрофон. Возможно, они заняты другим приложением.';
+
+  @override
+  String get callTurnOnMic => 'Включить микрофон';
+
+  @override
+  String get callTurnOffMic => 'Выключить микрофон';
+
+  @override
+  String get callTurnOnCamera => 'Включить камеру';
+
+  @override
+  String get callTurnOffCamera => 'Выключить камеру';
+
+  @override
+  String get callSwitchCamera => 'Переключить камеру';
+
+  @override
+  String get callSwitchCameraError => 'Не удалось переключить камеру.';
+
+  @override
+  String get callShowParticipants => 'Участники';
+
+  @override
+  String get callLeave => 'Выйти из звонка';
+
+  @override
+  String get callLive => 'В эфире';
+
+  @override
+  String get callYou => 'Вы';
+
+  @override
+  String get callHost => 'Организатор';
+
+  @override
+  String callInCall(int count) {
+    return 'В звонке: $count';
+  }
+
+  @override
+  String get callAloneTitle => 'Вы здесь пока один';
+
+  @override
+  String get callAloneDescription =>
+      'Остальные появятся, как только присоединятся.';
+
+  @override
+  String get callReconnecting => 'Соединение потеряно. Переподключение…';
+
+  @override
+  String get callPoorConnection => 'Плохое соединение';
+
+  @override
+  String get callMuted => 'Микрофон выключен';
+
+  @override
+  String callJoinedToast(String name) {
+    return '$name в звонке';
+  }
+
+  @override
+  String callLeftToast(String name) {
+    return '$name покидает звонок';
+  }
+
+  @override
+  String get callMutedByHost => 'Организатор выключил ваш микрофон.';
+
+  @override
+  String get callMediaError => 'Не удалось запустить камеру или микрофон.';
+
+  @override
+  String get callLeftTitle => 'Вы вышли из звонка';
+
+  @override
+  String get callLeftDescription => 'Вы можете вернуться в любой момент.';
+
+  @override
+  String get callDuplicateTitle => 'Вы вошли с другой вкладки или устройства';
+
+  @override
+  String get callDuplicateDescription =>
+      'Звонок может быть открыт только в одном месте, поэтому здесь он был отключён.';
+
+  @override
+  String get callRemovedTitle => 'Вас удалили из звонка';
+
+  @override
+  String get callRemovedDescription =>
+      'Организатор удалил вас из этого звонка.';
+
+  @override
+  String get callEndedTitle => 'Звонок завершён';
+
+  @override
+  String get callEndedDescription => 'Организатор закрыл комнату.';
+
+  @override
+  String get callLostTitle => 'Соединение потеряно';
+
+  @override
+  String get callLostDescription => 'Не удалось снова подключить вас к звонку.';
+
+  @override
+  String get callForbiddenTitle => 'Вы не можете присоединиться к этому звонку';
+
+  @override
+  String get callForbiddenDescription =>
+      'Присоединиться могут только преподаватели и ученики этого занятия.';
+
+  @override
+  String get callUnavailableTitle => 'Видеозвонки пока недоступны';
+
+  @override
+  String get callUnavailableDescription =>
+      'Видеозвонки не настроены на сервере. Попробуйте позже.';
+
+  @override
+  String get callErrorTitle => 'Не удалось присоединиться к звонку';
+
+  @override
+  String get callErrorDescription =>
+      'Проверьте подключение и попробуйте ещё раз.';
+
+  @override
+  String get callNotFoundTitle => 'Занятие не найдено';
+
+  @override
+  String get callNotFoundDescription =>
+      'Возможно, оно удалено или вы в нём не участвуете.';
+
+  @override
+  String get callRejoin => 'Присоединиться снова';
+
+  @override
+  String get callTryAgain => 'Попробовать снова';
+
+  @override
+  String get sessionsSegmentGroups => 'Группы';
+
+  @override
+  String get sessionsFilterAllTypes => 'Все типы';
+
+  @override
+  String get sessionsFilterAllDays => 'Все дни';
+
+  @override
+  String get sessionsNoMatches => 'Нет занятий, подходящих под эти фильтры.';
+
+  @override
+  String get groupsTitle => 'Группы';
+
+  @override
+  String get groupsSubtitle => 'Списки учеников для повторного использования.';
+
+  @override
+  String get groupsEmptyTitle => 'Групп пока нет';
+
+  @override
+  String get groupsLoadError => 'Не удалось загрузить группы.';
+
+  @override
+  String groupMembers(int count) {
+    return 'Участников: $count';
+  }
 }

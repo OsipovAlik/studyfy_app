@@ -192,5 +192,157 @@
     "description": "Theme option that follows the device setting."
   },
   "tabHome": "Home",
-  "homeSubtitle": "Another week of amazing progress. Keep going!"
+  "homeSubtitle": "Another week of amazing progress. Keep going!",
+  "homeTimetableTitle": "This week's timetable",
+  "homeTimetableSubtitle": "Recurring sessions by day.",
+  "homeTimetableViewCalendar": "View full calendar",
+  "homeTimetableNextSession": "Next session",
+  "homeTimetableEmptyTitle": "No sessions yet",
+  "homeTimetableLoadError": "Could not load the timetable.",
+  "homeTimetableLiveNow": "Happening now",
+  "sessionToday": "Today",
+  "sessionNoSessionsDay": "No sessions",
+  "sessionMorning": "Morning (before 12:00)",
+  "sessionAfternoon": "Afternoon (12:00–17:00)",
+  "sessionEvening": "Evening (from 17:00)",
+  "sessionJoinCall": "Join call",
+  "sessionTypeGroup": "Group",
+  "sessionTypeIndividual": "Individual",
+  "sessionUnknownGroup": "Group #{id}",
+  "sessionUnknownStudent": "Student #{id}",
+  "weekdayMonday": "Monday",
+  "weekdayTuesday": "Tuesday",
+  "weekdayWednesday": "Wednesday",
+  "weekdayThursday": "Thursday",
+  "weekdayFriday": "Friday",
+  "weekdaySaturday": "Saturday",
+  "weekdaySunday": "Sunday",
+  "sessionsTitle": "Sessions",
+  "sessionsSubtitle": "Weekly recurring group and individual sessions.",
+  "sessionsEmptyTitle": "No sessions yet",
+  "sessionsLoadError": "Could not load sessions.",
+  "callPageTitle": "Video call",
+  "callLobbyTitle": "Ready to join?",
+  "callLobbySubtitle": "Check your camera and microphone before you go in.",
+  "callGroupSession": "Group session",
+  "callIndividualSession": "Individual session",
+  "callWeekly": "Every {day} at {time}",
+  "callJoinNow": "Join now",
+  "callJoining": "Joining…",
+  "callJoinAs": "You'll join as {name}",
+  "callHostNote": "You'll join as the host of this class.",
+  "callOneDeviceNote": "Joining here ends your call on any other tab or device.",
+  "callCameraOff": "Your camera is off",
+  "callCameraBlocked": "Camera access is blocked. Allow it in your phone's settings so others can see you.",
+  "callMicBlocked": "Microphone access is blocked. Allow it in your phone's settings so others can hear you.",
+  "callDeviceBusy": "Your camera or microphone couldn't start. It may be in use by another app.",
+  "callTurnOnMic": "Turn on microphone",
+  "callTurnOffMic": "Turn off microphone",
+  "callTurnOnCamera": "Turn on camera",
+  "callTurnOffCamera": "Turn off camera",
+  "callSwitchCamera": "Switch camera",
+  "callSwitchCameraError": "Couldn't switch camera.",
+  "callShowParticipants": "Participants",
+  "callLeave": "Leave call",
+  "callLive": "Live",
+  "callYou": "You",
+  "callHost": "Host",
+  "callInCall": "{count} in call",
+  "callAloneTitle": "You're the only one here",
+  "callAloneDescription": "Others will appear as soon as they join.",
+  "callReconnecting": "Connection lost. Reconnecting…",
+  "callPoorConnection": "Poor connection",
+  "callMuted": "Muted",
+  "callJoinedToast": "{name} joined",
+  "callLeftToast": "{name} left",
+  "callMutedByHost": "The host muted your microphone.",
+  "callMediaError": "Your camera or microphone couldn't start.",
+  "callLeftTitle": "You left the call",
+  "callLeftDescription": "You can rejoin at any time.",
+  "callDuplicateTitle": "You joined from another tab or device",
+  "callDuplicateDescription": "A call can only be open in one place at a time, so this one was disconnected.",
+  "callRemovedTitle": "You were removed from the call",
+  "callRemovedDescription": "The host removed you from this call.",
+  "callEndedTitle": "The call has ended",
+  "callEndedDescription": "The host closed this room.",
+  "callLostTitle": "Connection lost",
+  "callLostDescription": "We couldn't reconnect you to the call.",
+  "callForbiddenTitle": "You can't join this call",
+  "callForbiddenDescription": "Only this session's teachers and students can join.",
+  "callUnavailableTitle": "Video calls aren't available yet",
+  "callUnavailableDescription": "Video calls aren't set up on the server. Please try again later.",
+  "callErrorTitle": "Couldn't join the call",
+  "callErrorDescription": "Check your connection and try again.",
+  "callNotFoundTitle": "Session not found",
+  "callNotFoundDescription": "It may have been deleted, or you're not part of it.",
+  "callRejoin": "Rejoin",
+  "callTryAgain": "Try again",
+  "@callWeekly": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "@callJoinAs": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@callInCall": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@callJoinedToast": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@callLeftToast": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@sessionUnknownGroup": {
+    "placeholders": {
+      "id": {
+        "type": "int"
+      }
+    }
+  },
+  "@sessionUnknownStudent": {
+    "placeholders": {
+      "id": {
+        "type": "int"
+      }
+    }
+  },
+  "sessionsSegmentGroups": "Groups",
+  "sessionsFilterAllTypes": "All types",
+  "sessionsFilterAllDays": "All days",
+  "sessionsNoMatches": "No sessions match these filters.",
+  "groupsTitle": "Groups",
+  "groupsSubtitle": "Reusable rosters of students.",
+  "groupsEmptyTitle": "No groups yet",
+  "groupsLoadError": "Could not load groups.",
+  "groupMembers": "{count} members",
+  "@groupMembers": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

@@ -1,12 +1,27 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:studify/core/widgets/brand_backdrop.dart';
 import 'package:studify/features/auth/auth_controller.dart';
+import 'package:studify/features/home/widgets/weekly_timetable_card.dart';
 import 'package:studify/features/home/widgets/welcome_banner.dart';
+import 'package:studify/features/sessions/timetable_controller.dart';
 
-/// The Home tab: the welcome banner, for now.
-class HomeScreen extends StatelessWidget {
+/// The Home tab: the welcome banner and this week's timetable.
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    super.initState();
+    unawaited(context.read<TimetableController>().ensureLoaded());
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +36,11 @@ class HomeScreen extends StatelessWidget {
           SafeArea(
             child: ListView(
               padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
-              children: [WelcomeBanner(user: user)],
+              children: [
+                WelcomeBanner(user: user),
+                const SizedBox(height: 16),
+                const WeeklyTimetableCard(),
+              ],
             ),
           ),
         ],
