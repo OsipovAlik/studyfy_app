@@ -10,16 +10,16 @@ import 'package:studify/features/auth/data/session_storage.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // Nunito ships in assets/google_fonts/; never fetch fonts from the web.
   GoogleFonts.config.allowRuntimeFetching = false;
   await AppTheme.preloadFonts();
+
   final dependencies = await AppDependencies.create(
     preferences: AppPreferences(await SharedPreferences.getInstance()),
     sessionStorage: SessionStorage(),
   );
+  
   runApp(StudyfyApp(dependencies: dependencies));
 
-  // A saved session opens straight to the home screen; check in the
-  // background that its token still works (a 401 signs the user out).
+
   unawaited(dependencies.auth.refreshProfile());
 }

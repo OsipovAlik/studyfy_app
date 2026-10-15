@@ -17,7 +17,7 @@ class WelcomeBanner extends StatelessWidget {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
     final foreground = isDark ? Colors.white : AppColors.indigo950;
-    final muted = isDark ? Colors.white.withValues(alpha: 0.82) : AppColors.stone700;
+    final muted = isDark ? Colors.white.withValues(alpha: 0.62) : AppColors.stone700;
 
     return ClipRRect(
       borderRadius: BorderRadius.circular(22),
@@ -38,6 +38,10 @@ class WelcomeBanner extends StatelessWidget {
                 alignment: Alignment.center,
               ),
             ),
+            // Fills the whole banner, however tall the text makes it.
+            Positioned.fill(
+              child: ColoredBox(color: isDark ? Colors.black.withOpacity(0.5) : Colors.white.withValues(alpha: 0.5)),
+            ),
             ConstrainedBox(
               constraints: const BoxConstraints(minHeight: 160),
               child: Padding(
@@ -47,19 +51,18 @@ class WelcomeBanner extends StatelessWidget {
                   children: [
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
                           CupertinoIcons.paperplane,
-                          size: 28,
+                          size: 22,
                           color: isDark ? AppColors.indigo300 : AppColors.indigo600,
                         ),
                         const SizedBox(width: 14),
                         Expanded(
                           child: Text(
                             '${l10n.homeWelcome(user.name)} 👋',
-                            style: theme.textTheme.headlineSmall?.copyWith(
-                              color: foreground,
-                            ),
+                            style: theme.textTheme.headlineSmall?.copyWith(color: foreground, fontSize: 18),
                           ),
                         ),
                       ],
@@ -67,7 +70,7 @@ class WelcomeBanner extends StatelessWidget {
                     const SizedBox(height: 12),
                     Text(
                       l10n.homeSubtitle,
-                      style: theme.textTheme.bodyLarge?.copyWith(color: muted),
+                      style: theme.textTheme.bodyLarge?.copyWith(color: muted, fontSize: 14),
                     ),
                     if (user.partnerName.isNotEmpty) ...[
                       const SizedBox(height: 14),
