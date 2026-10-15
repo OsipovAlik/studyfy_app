@@ -171,5 +171,26 @@
       }
     }
   },
-  "loginPasswordRequired": "Enter your password."
+  "loginPasswordRequired": "Enter your password.",
+  "tabSubjects": "Subjects",
+  "tabSessions": "Sessions",
+  "tabHomework": "Homework",
+  "tabMyHomework": "My homework",
+  "profileRole": "Role",
+  "profileSchool": "School",
+  "profileEmail": "Email",
+  "profileMemberSince": "Member since",
+  "tabProfile": "Profile",
+  "settingsTitle": "Settings",
+  "settingsAppearance": "Appearance",
+  "themeSystem": "System",
+  "themeLight": "Light",
+  "themeDark": "Dark",
+  "privacyPolicy": "Privacy policy",
+  "termsOfUse": "Terms of use",
+  "@themeSystem": {
+    "description": "Theme option that follows the device setting."
+  },
+  "tabHome": "Home",
+  "homeSubtitle": "Another week of amazing progress. Keep going!"
 }

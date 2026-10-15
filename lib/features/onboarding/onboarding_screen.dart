@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:studify/core/router/app_router.dart';
@@ -90,11 +91,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           runSpacing: 8,
                           children: [
                             InfoChip(
-                              icon: Icons.perm_media_outlined,
+                              icon: CupertinoIcons.photo_on_rectangle,
                               label: l10n.landingChipTests,
                             ),
                             InfoChip(
-                              icon: Icons.bolt_rounded,
+                              icon: CupertinoIcons.bolt_fill,
                               label: l10n.landingChipGrading,
                             ),
                           ],
@@ -105,7 +106,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         title: SlideTitle(l10n.landingFeatureTimetableTitle),
                         body: SlideBody(l10n.landingFeatureTimetableDesc),
                         footer: InfoChip(
-                          icon: Icons.event_repeat_rounded,
+                          icon: CupertinoIcons.repeat,
                           label: l10n.landingChipSessions,
                         ),
                       ),
@@ -213,7 +214,7 @@ class _NextRow extends StatelessWidget {
             children: [
               Text(AppLocalizations.of(context).onboardingNext),
               const SizedBox(width: 8),
-              const Icon(Icons.arrow_forward_rounded, size: 20),
+              const Icon(CupertinoIcons.arrow_right, size: 20),
             ],
           ),
         ),

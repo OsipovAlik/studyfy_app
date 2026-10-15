@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:studify/core/theme/app_colors.dart';
@@ -41,7 +42,7 @@ class _QuestionCard extends StatelessWidget {
           Row(
             children: [
               _IconTile(
-                icon: Icons.image_outlined,
+                icon: CupertinoIcons.photo,
                 color: scheme.primary,
                 background: scheme.primaryContainer,
               ),
@@ -114,7 +115,7 @@ class _AnswerOption extends StatelessWidget {
           Expanded(child: Text(text, style: theme.textTheme.bodyMedium)),
           if (correct)
             const Icon(
-              Icons.check_circle_rounded,
+              CupertinoIcons.checkmark_circle_fill,
               color: AppColors.emerald500,
               size: 20,
             ),
@@ -219,7 +220,7 @@ class TimetableMock extends StatelessWidget {
             Row(
               children: [
                 _IconTile(
-                  icon: Icons.calendar_month_rounded,
+                  icon: CupertinoIcons.calendar,
                   color: scheme.primary,
                   background: scheme.primaryContainer,
                 ),
@@ -255,7 +256,7 @@ class TimetableMock extends StatelessWidget {
               time: '09:00',
               title: 'Beginners',
               tag: l10n.landingMockGroup,
-              icon: Icons.groups_rounded,
+              icon: CupertinoIcons.person_3_fill,
               color: AppColors.indigo500,
               live: true,
             ),
@@ -264,7 +265,7 @@ class TimetableMock extends StatelessWidget {
               time: '18:30',
               title: 'Anna K.',
               tag: l10n.landingMockIndividual,
-              icon: Icons.person_rounded,
+              icon: CupertinoIcons.person_fill,
               color: AppColors.emerald500,
             ),
           ],
@@ -396,7 +397,7 @@ class _SessionTile extends StatelessWidget {
               height: 36,
               decoration: BoxDecoration(color: color, shape: BoxShape.circle),
               child: const Icon(
-                Icons.videocam_rounded,
+                CupertinoIcons.videocam_fill,
                 color: Colors.white,
                 size: 20,
               ),
@@ -421,7 +422,7 @@ class RolesMock extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           _RoleCard(
-            icon: Icons.co_present_rounded,
+            icon: CupertinoIcons.person_crop_rectangle_fill,
             color: AppColors.indigo500,
             title: l10n.landingTeachersTitle,
             points: [
@@ -433,7 +434,7 @@ class RolesMock extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           _RoleCard(
-            icon: Icons.backpack_rounded,
+            icon: CupertinoIcons.pencil,
             color: AppColors.emerald500,
             title: l10n.landingStudentsTitle,
             points: [
@@ -489,7 +490,7 @@ class _RoleCard extends StatelessWidget {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Icon(Icons.check_rounded, size: 18, color: color),
+                  Icon(CupertinoIcons.checkmark_alt, size: 18, color: color),
                   const SizedBox(width: 8),
                   Expanded(
                     child: Text(point, style: theme.textTheme.bodyMedium),

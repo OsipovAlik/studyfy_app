@@ -389,4 +389,59 @@ class AppLocalizationsHy extends AppLocalizations {
 
   @override
   String get loginPasswordRequired => 'Մուտքագրեք գաղտնաբառը։';
+
+  @override
+  String get tabSubjects => 'Առարկաներ';
+
+  @override
+  String get tabSessions => 'Պարապմունքներ';
+
+  @override
+  String get tabHomework => 'Տնային առաջադրանքներ';
+
+  @override
+  String get tabMyHomework => 'Իմ առաջադրանքները';
+
+  @override
+  String get profileRole => 'Դեր';
+
+  @override
+  String get profileSchool => 'Ուսումնական կենտրոն';
+
+  @override
+  String get profileEmail => 'Էլ. փոստ';
+
+  @override
+  String get profileMemberSince => 'Անդամ է';
+
+  @override
+  String get tabProfile => 'Պրոֆիլ';
+
+  @override
+  String get settingsTitle => 'Կարգավորումներ';
+
+  @override
+  String get settingsAppearance => 'Տեսք';
+
+  @override
+  String get themeSystem => 'Համակարգային';
+
+  @override
+  String get themeLight => 'Լուսավոր';
+
+  @override
+  String get themeDark => 'Մութ';
+
+  @override
+  String get privacyPolicy => 'Գաղտնիության քաղաքականություն';
+
+  @override
+  String get termsOfUse => 'Օգտագործման պայմաններ';
+
+  @override
+  String get tabHome => 'Գլխավոր';
+
+  @override
+  String get homeSubtitle =>
+      'Եվս մեկ շաբաթ՝ հրաշալի առաջընթացով։ Շարունակե՛ք նույն ոգով։';
 }

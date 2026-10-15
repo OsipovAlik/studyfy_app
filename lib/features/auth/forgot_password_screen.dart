@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
@@ -229,7 +230,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         Center(
           child: TextButton.icon(
             onPressed: _busy ? null : _backToLogin,
-            icon: const Icon(Icons.arrow_back_rounded, size: 18),
+            icon: const Icon(CupertinoIcons.back, size: 18),
             label: Text(l10n.forgotBackToLogin),
           ),
         ),
@@ -255,7 +256,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
             decoration: InputDecoration(
               labelText: l10n.forgotEmailLabel,
               hintText: 'you@example.com',
-              prefixIcon: const Icon(Icons.mail_outline_rounded),
+              prefixIcon: const Icon(CupertinoIcons.mail),
             ),
             validator: (value) => AuthValidators.isEmail(value ?? '')
                 ? null
@@ -295,7 +296,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               decoration: InputDecoration(
                 labelText: l10n.forgotCodeLabel,
                 hintText: l10n.forgotCodePlaceholder,
-                prefixIcon: const Icon(Icons.pin_outlined),
+                prefixIcon: const Icon(CupertinoIcons.number),
               ),
               validator: (value) => AuthValidators.isResetCode(value ?? '')
                   ? null

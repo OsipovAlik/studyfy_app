@@ -388,4 +388,59 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get loginPasswordRequired => 'Введите пароль.';
+
+  @override
+  String get tabSubjects => 'Предметы';
+
+  @override
+  String get tabSessions => 'Занятия';
+
+  @override
+  String get tabHomework => 'Домашние задания';
+
+  @override
+  String get tabMyHomework => 'Мои задания';
+
+  @override
+  String get profileRole => 'Роль';
+
+  @override
+  String get profileSchool => 'Учебный центр';
+
+  @override
+  String get profileEmail => 'E-mail';
+
+  @override
+  String get profileMemberSince => 'С нами с';
+
+  @override
+  String get tabProfile => 'Профиль';
+
+  @override
+  String get settingsTitle => 'Настройки';
+
+  @override
+  String get settingsAppearance => 'Оформление';
+
+  @override
+  String get themeSystem => 'Системная';
+
+  @override
+  String get themeLight => 'Светлая';
+
+  @override
+  String get themeDark => 'Тёмная';
+
+  @override
+  String get privacyPolicy => 'Политика конфиденциальности';
+
+  @override
+  String get termsOfUse => 'Условия использования';
+
+  @override
+  String get tabHome => 'Главная';
+
+  @override
+  String get homeSubtitle =>
+      'Ещё одна неделя отличного прогресса. Так держать!';
 }

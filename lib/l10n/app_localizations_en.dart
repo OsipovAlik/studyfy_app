@@ -386,4 +386,58 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get loginPasswordRequired => 'Enter your password.';
+
+  @override
+  String get tabSubjects => 'Subjects';
+
+  @override
+  String get tabSessions => 'Sessions';
+
+  @override
+  String get tabHomework => 'Homework';
+
+  @override
+  String get tabMyHomework => 'My homework';
+
+  @override
+  String get profileRole => 'Role';
+
+  @override
+  String get profileSchool => 'School';
+
+  @override
+  String get profileEmail => 'Email';
+
+  @override
+  String get profileMemberSince => 'Member since';
+
+  @override
+  String get tabProfile => 'Profile';
+
+  @override
+  String get settingsTitle => 'Settings';
+
+  @override
+  String get settingsAppearance => 'Appearance';
+
+  @override
+  String get themeSystem => 'System';
+
+  @override
+  String get themeLight => 'Light';
+
+  @override
+  String get themeDark => 'Dark';
+
+  @override
+  String get privacyPolicy => 'Privacy policy';
+
+  @override
+  String get termsOfUse => 'Terms of use';
+
+  @override
+  String get tabHome => 'Home';
+
+  @override
+  String get homeSubtitle => 'Another week of amazing progress. Keep going!';
 }

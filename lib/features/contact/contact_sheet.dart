@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:studify/core/network/api_exception.dart';
@@ -123,7 +124,7 @@ class _ContactSheetState extends State<ContactSheet> {
             autocorrect: false,
             decoration: InputDecoration(
               labelText: l10n.registrationEmailLabel,
-              prefixIcon: const Icon(Icons.mail_outline_rounded),
+              prefixIcon: const Icon(CupertinoIcons.mail),
             ),
             validator: (value) => _emailPattern.hasMatch(value?.trim() ?? '')
                 ? null
@@ -140,7 +141,7 @@ class _ContactSheetState extends State<ContactSheet> {
             decoration: InputDecoration(
               labelText: l10n.registrationPhoneLabel,
               hintText: l10n.registrationPhonePlaceholder,
-              prefixIcon: const Icon(Icons.phone_outlined),
+              prefixIcon: const Icon(CupertinoIcons.phone),
             ),
             validator: (value) {
               final digits = (value ?? '').replaceAll(_phoneSeparators, '');
@@ -198,7 +199,7 @@ class _ContactSheetState extends State<ContactSheet> {
               shape: BoxShape.circle,
             ),
             child: const Icon(
-              Icons.check_rounded,
+              CupertinoIcons.checkmark_alt,
               color: Colors.white,
               size: 40,
             ),

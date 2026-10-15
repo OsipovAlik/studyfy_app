@@ -6,6 +6,7 @@ import 'package:studify/core/network/api_client.dart';
 import 'package:studify/core/router/app_router.dart';
 import 'package:studify/core/storage/app_preferences.dart';
 import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/core/theme/theme_controller.dart';
 import 'package:studify/features/auth/auth_controller.dart';
 import 'package:studify/features/auth/data/auth_repository.dart';
 import 'package:studify/features/auth/data/session_storage.dart';
@@ -79,24 +80,30 @@ class _StudyfyAppState extends State<StudyfyApp> {
         ChangeNotifierProvider(
           create: (_) => LocaleController(deps.preferences),
         ),
+        ChangeNotifierProvider(
+          create: (_) => ThemeController(deps.preferences),
+        ),
         Provider(create: (_) => ContactRepository(deps.client)),
       ],
-      child: Consumer<LocaleController>(
-        builder: (context, localeController, _) => MaterialApp.router(
-          onGenerateTitle: (context) => AppLocalizations.of(context).appTitle,
-          debugShowCheckedModeBanner: false,
-          theme: AppTheme.light,
-          darkTheme: AppTheme.dark,
-          locale: localeController.locale,
-          // Armenian first: the fallback when the device language is
-          // not one of ours.
-          supportedLocales: [
-            for (final language in LocaleController.languages)
-              Locale(language.code),
-          ],
-          localizationsDelegates: AppLocalizations.localizationsDelegates,
-          routerConfig: _router,
-        ),
+      child: Consumer2<LocaleController, ThemeController>(
+        builder: (context, localeController, themeController, _) =>
+            MaterialApp.router(
+              onGenerateTitle: (context) =>
+                  AppLocalizations.of(context).appTitle,
+              debugShowCheckedModeBanner: false,
+              theme: AppTheme.light,
+              darkTheme: AppTheme.dark,
+              themeMode: themeController.mode,
+              locale: localeController.locale,
+              // Armenian first: the fallback when the device language is
+              // not one of ours.
+              supportedLocales: [
+                for (final language in LocaleController.languages)
+                  Locale(language.code),
+              ],
+              localizationsDelegates: AppLocalizations.localizationsDelegates,
+              routerConfig: _router,
+            ),
       ),
     );
   }

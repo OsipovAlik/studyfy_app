@@ -395,4 +395,59 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get loginPasswordRequired => 'Saisissez votre mot de passe.';
+
+  @override
+  String get tabSubjects => 'Matières';
+
+  @override
+  String get tabSessions => 'Cours';
+
+  @override
+  String get tabHomework => 'Devoirs';
+
+  @override
+  String get tabMyHomework => 'Mes devoirs';
+
+  @override
+  String get profileRole => 'Rôle';
+
+  @override
+  String get profileSchool => 'École';
+
+  @override
+  String get profileEmail => 'E-mail';
+
+  @override
+  String get profileMemberSince => 'Membre depuis';
+
+  @override
+  String get tabProfile => 'Profil';
+
+  @override
+  String get settingsTitle => 'Paramètres';
+
+  @override
+  String get settingsAppearance => 'Apparence';
+
+  @override
+  String get themeSystem => 'Système';
+
+  @override
+  String get themeLight => 'Clair';
+
+  @override
+  String get themeDark => 'Sombre';
+
+  @override
+  String get privacyPolicy => 'Politique de confidentialité';
+
+  @override
+  String get termsOfUse => 'Conditions d\'utilisation';
+
+  @override
+  String get tabHome => 'Accueil';
+
+  @override
+  String get homeSubtitle =>
+      'Encore une semaine de beaux progrès. Continuez comme ça !';
 }

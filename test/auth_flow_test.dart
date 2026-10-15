@@ -37,9 +37,12 @@ void main() {
 
     await _signIn(tester);
 
+    // Lands on the first tab; the profile shows who signed in.
+    expect(find.text('Subjects'), findsWidgets);
+    await tester.tap(find.text('Profile'));
+    await settle(tester);
     expect(find.text('Welcome back, Tina'), findsOneWidget);
-    expect(find.text('Teacher'), findsOneWidget);
-    expect(find.text('Acme Language School'), findsOneWidget);
+    expect(find.text('tina@example.com'), findsOneWidget);
     expect(app.storage.session?.token, 'tok');
   });
 
@@ -235,7 +238,7 @@ void main() {
     ]);
     await tester.pumpWidget(app.widget);
     await settle(tester);
-    expect(find.text('Welcome back, Tina'), findsOneWidget);
+    expect(find.text('Subjects'), findsWidgets);
 
     unawaited(app.dependencies.auth.refreshProfile());
     await settle(tester);
@@ -258,7 +261,11 @@ void main() {
     await tester.pumpWidget(app.widget);
     await settle(tester);
 
-    await tester.tap(find.byTooltip('Log out'));
+    await tester.tap(find.text('Profile'));
+    await settle(tester);
+    await tester.ensureVisible(find.widgetWithText(OutlinedButton, 'Log out'));
+    await settle(tester);
+    await tester.tap(find.widgetWithText(OutlinedButton, 'Log out'));
     await settle(tester);
     expect(find.text('Log out of Studyfy?'), findsOneWidget);
 

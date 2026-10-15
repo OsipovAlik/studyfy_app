@@ -797,6 +797,114 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Enter your password.'**
   String get loginPasswordRequired;
+
+  /// No description provided for @tabSubjects.
+  ///
+  /// In en, this message translates to:
+  /// **'Subjects'**
+  String get tabSubjects;
+
+  /// No description provided for @tabSessions.
+  ///
+  /// In en, this message translates to:
+  /// **'Sessions'**
+  String get tabSessions;
+
+  /// No description provided for @tabHomework.
+  ///
+  /// In en, this message translates to:
+  /// **'Homework'**
+  String get tabHomework;
+
+  /// No description provided for @tabMyHomework.
+  ///
+  /// In en, this message translates to:
+  /// **'My homework'**
+  String get tabMyHomework;
+
+  /// No description provided for @profileRole.
+  ///
+  /// In en, this message translates to:
+  /// **'Role'**
+  String get profileRole;
+
+  /// No description provided for @profileSchool.
+  ///
+  /// In en, this message translates to:
+  /// **'School'**
+  String get profileSchool;
+
+  /// No description provided for @profileEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get profileEmail;
+
+  /// No description provided for @profileMemberSince.
+  ///
+  /// In en, this message translates to:
+  /// **'Member since'**
+  String get profileMemberSince;
+
+  /// No description provided for @tabProfile.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get tabProfile;
+
+  /// No description provided for @settingsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settingsTitle;
+
+  /// No description provided for @settingsAppearance.
+  ///
+  /// In en, this message translates to:
+  /// **'Appearance'**
+  String get settingsAppearance;
+
+  /// Theme option that follows the device setting.
+  ///
+  /// In en, this message translates to:
+  /// **'System'**
+  String get themeSystem;
+
+  /// No description provided for @themeLight.
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get themeLight;
+
+  /// No description provided for @themeDark.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark'**
+  String get themeDark;
+
+  /// No description provided for @privacyPolicy.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy policy'**
+  String get privacyPolicy;
+
+  /// No description provided for @termsOfUse.
+  ///
+  /// In en, this message translates to:
+  /// **'Terms of use'**
+  String get termsOfUse;
+
+  /// No description provided for @tabHome.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get tabHome;
+
+  /// No description provided for @homeSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Another week of amazing progress. Keep going!'**
+  String get homeSubtitle;
 }
 
 class _AppLocalizationsDelegate

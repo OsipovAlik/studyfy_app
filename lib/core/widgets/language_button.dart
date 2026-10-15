@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:studify/core/l10n/locale_controller.dart';
@@ -39,7 +40,7 @@ class LanguageButton extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Icon(
-                  Icons.language_rounded,
+                  CupertinoIcons.globe,
                   size: 18,
                   color: theme.colorScheme.onSurfaceVariant,
                 ),
@@ -92,7 +93,7 @@ class LanguageButton extends StatelessWidget {
                   ),
                   trailing: language.code == current
                       ? Icon(
-                          Icons.check_circle_rounded,
+                          CupertinoIcons.checkmark_circle_fill,
                           color: theme.colorScheme.primary,
                         )
                       : null,

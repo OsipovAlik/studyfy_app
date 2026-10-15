@@ -1,18 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:studify/core/theme/app_colors.dart';
 
-/// The bundled fonts are variable fonts, so a weight has to be applied
-/// as a `wght` variation as well as a [FontWeight].
+/// Use this to change a text weight: it also switches to the Nunito file of
+/// that weight (each weight is a separate font), and sets the `wght` axis
+/// of the variable Armenian fallback font.
 extension FontWeightX on TextStyle {
-  TextStyle weight(FontWeight weight) => copyWith(
-    fontWeight: weight,
-    fontVariations: [FontVariation.weight(weight.value.toDouble())],
+  TextStyle weight(FontWeight weight) => AppTheme.nunito(
+    copyWith(
+      fontWeight: weight,
+      fontVariations: [FontVariation.weight(weight.value.toDouble())],
+    ),
   );
 }
 
 abstract final class AppTheme {
-  static const fontFamily = 'Geist';
+  /// Nunito, bundled in `assets/google_fonts/` (never downloaded).
+  static final String fontFamily = GoogleFonts.nunito().fontFamily!;
+
+  /// Nunito has no Armenian letters; they come from Noto Sans Armenian.
   static const fontFallback = ['NotoSansArmenian'];
+
+  /// [style] in Nunito at its own weight, keeping the Armenian fallback
+  /// (google_fonts replaces the fallback list with its own).
+  static TextStyle nunito(TextStyle style) =>
+      GoogleFonts.nunito(textStyle: style).copyWith(
+        fontFamilyFallback: fontFallback,
+      );
+
+  /// Loads every Nunito weight the themes use. Call before the first
+  /// frame: a font that finishes loading between layout and paint trips
+  /// a TextPainter assert, and text would briefly show in the wrong font.
+  static Future<void> preloadFonts() {
+    light;
+    dark;
+    return GoogleFonts.pendingFonts();
+  }
 
   static ThemeData get light => _build(
     const ColorScheme(
@@ -147,8 +170,6 @@ abstract final class AppTheme {
       double height = 1.3,
       double letterSpacing = 0,
     }) => TextStyle(
-      fontFamily: fontFamily,
-      fontFamilyFallback: fontFallback,
       fontSize: size,
       height: height,
       letterSpacing: letterSpacing,
@@ -175,15 +196,15 @@ abstract final class AppTheme {
         height: 1.2,
         letterSpacing: -0.4,
       ),
-      titleLarge: style(20, FontWeight.w600, letterSpacing: -0.2),
-      titleMedium: style(16, FontWeight.w600),
-      titleSmall: style(14, FontWeight.w600),
+      titleLarge: style(20, FontWeight.w700, letterSpacing: -0.2),
+      titleMedium: style(16, FontWeight.w700),
+      titleSmall: style(14, FontWeight.w700),
       bodyLarge: style(16, FontWeight.w400, height: 1.5),
       bodyMedium: style(14, FontWeight.w400, height: 1.45),
       bodySmall: style(12, FontWeight.w400, height: 1.4),
-      labelLarge: style(14, FontWeight.w600),
-      labelMedium: style(12, FontWeight.w600),
-      labelSmall: style(11, FontWeight.w500, letterSpacing: 0.2),
+      labelLarge: style(14, FontWeight.w700),
+      labelMedium: style(12, FontWeight.w700),
+      labelSmall: style(11, FontWeight.w600, letterSpacing: 0.2),
     );
   }
 }

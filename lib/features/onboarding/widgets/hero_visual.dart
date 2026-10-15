@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math' as math;
 
+import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:studify/core/theme/app_colors.dart';
 
@@ -242,7 +243,7 @@ class HeroBadge extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Icon(Icons.auto_awesome_rounded, size: 16, color: scheme.primary),
+          Icon(CupertinoIcons.sparkles, size: 16, color: scheme.primary),
           const SizedBox(width: 6),
           Flexible(
             child: Text(

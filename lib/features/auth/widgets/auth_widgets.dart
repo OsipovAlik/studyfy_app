@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:studify/core/theme/app_colors.dart';
 import 'package:studify/core/widgets/brand_backdrop.dart';
@@ -57,7 +58,7 @@ class AuthScaffold extends StatelessWidget {
                           tooltip: MaterialLocalizations.of(
                             context,
                           ).backButtonTooltip,
-                          icon: const BackButtonIcon(),
+                          icon: const Icon(CupertinoIcons.back),
                         )
                       else
                         const SizedBox(width: 8),
@@ -175,14 +176,12 @@ class _PasswordFieldState extends State<PasswordField> {
         labelText: widget.label,
         helperText: widget.helperText,
         helperMaxLines: 2,
-        prefixIcon: const Icon(Icons.lock_outline_rounded),
+        prefixIcon: const Icon(CupertinoIcons.lock),
         suffixIcon: IconButton(
           tooltip: _obscured ? l10n.passwordShow : l10n.passwordHide,
           onPressed: () => setState(() => _obscured = !_obscured),
           icon: Icon(
-            _obscured
-                ? Icons.visibility_outlined
-                : Icons.visibility_off_outlined,
+            _obscured ? CupertinoIcons.eye : CupertinoIcons.eye_slash,
           ),
         ),
       ),
@@ -210,10 +209,13 @@ class NoticeBanner extends StatelessWidget {
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
     final (Color color, IconData icon) = switch (tone) {
-      NoticeTone.success => (AppColors.emerald500, Icons.check_circle_rounded),
-      NoticeTone.error => (scheme.error, Icons.error_outline_rounded),
-      NoticeTone.warning => (AppColors.amber500, Icons.schedule_rounded),
-      NoticeTone.info => (scheme.primary, Icons.info_outline_rounded),
+      NoticeTone.success => (
+        AppColors.emerald500,
+        CupertinoIcons.checkmark_circle_fill,
+      ),
+      NoticeTone.error => (scheme.error, CupertinoIcons.exclamationmark_circle),
+      NoticeTone.warning => (AppColors.amber500, CupertinoIcons.clock),
+      NoticeTone.info => (scheme.primary, CupertinoIcons.info_circle),
     };
 
     return Semantics(

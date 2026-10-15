@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:clock/clock.dart';
+import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
@@ -176,7 +177,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     decoration: InputDecoration(
                       labelText: l10n.loginEmail,
                       hintText: 'you@example.com',
-                      prefixIcon: const Icon(Icons.mail_outline_rounded),
+                      prefixIcon: const Icon(CupertinoIcons.mail),
                     ),
                     validator: (value) => AuthValidators.isEmail(value ?? '')
                         ? null
