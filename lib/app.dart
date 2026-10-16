@@ -11,9 +11,15 @@ import 'package:studify/features/auth/auth_controller.dart';
 import 'package:studify/features/auth/data/auth_repository.dart';
 import 'package:studify/features/auth/data/session_storage.dart';
 import 'package:studify/features/contact/contact_repository.dart';
+import 'package:studify/features/home/home_stats_controller.dart';
+import 'package:studify/features/home/weekly_activity_controller.dart';
+import 'package:studify/features/results/data/results_repository.dart';
+import 'package:studify/features/results/results_list_controller.dart';
 import 'package:studify/features/sessions/data/sessions_repository.dart';
 import 'package:studify/features/sessions/timetable_controller.dart';
 import 'package:studify/features/students/data/students_repository.dart';
+import 'package:studify/features/students/students_controller.dart';
+import 'package:studify/features/subjects/data/subjects_repository.dart';
 import 'package:studify/l10n/app_localizations.dart';
 
 /// Long-lived services, created once at startup (see `main.dart`).
@@ -89,9 +95,38 @@ class _StudyfyAppState extends State<StudyfyApp> {
         Provider(create: (_) => ContactRepository(deps.client)),
         Provider(create: (_) => SessionsRepository(deps.client)),
         Provider(create: (_) => StudentsRepository(deps.client)),
+        Provider(create: (_) => SubjectsRepository(deps.client)),
+        Provider(create: (_) => ResultsRepository(deps.client)),
         ChangeNotifierProvider(
           create: (context) => TimetableController(
             repository: context.read<SessionsRepository>(),
+            auth: deps.auth,
+          ),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => HomeStatsController(
+            subjects: context.read<SubjectsRepository>(),
+            students: context.read<StudentsRepository>(),
+            timetable: context.read<TimetableController>(),
+            auth: deps.auth,
+          ),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ResultsListController(
+            results: context.read<ResultsRepository>(),
+            students: context.read<StudentsRepository>(),
+            auth: deps.auth,
+          ),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => WeeklyActivityController(
+            resultsList: context.read<ResultsListController>(),
+          ),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => StudentsController(
+            students: context.read<StudentsRepository>(),
+            subjects: context.read<SubjectsRepository>(),
             auth: deps.auth,
           ),
         ),

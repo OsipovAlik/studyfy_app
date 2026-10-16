@@ -147,12 +147,12 @@ class _GlassNavItem extends StatelessWidget {
               curve: Curves.easeOutCubic,
               width: selected ? 58 : 40,
               height: 30,
-              decoration: BoxDecoration(
-                color: selected
-                    ? scheme.primary.withValues(alpha: 0.14)
-                    : Colors.transparent,
-                borderRadius: BorderRadius.circular(15),
-              ),
+              // decoration: BoxDecoration(
+              //   color: selected
+              //       ? scheme.primary.withValues(alpha: 0.14)
+              //       : Colors.transparent,
+              //   borderRadius: BorderRadius.circular(15),
+              // ),
               child: AnimatedSwitcher(
                 duration: duration,
                 child: Icon(

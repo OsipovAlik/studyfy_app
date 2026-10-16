@@ -7,6 +7,8 @@ import 'package:studify/features/home/home_screen.dart';
 import 'package:studify/features/legal/legal_screen.dart';
 import 'package:studify/features/onboarding/onboarding_screen.dart';
 import 'package:studify/features/profile/profile_screen.dart';
+import 'package:studify/features/results/result_detail_screen.dart';
+import 'package:studify/features/results/results_screen.dart';
 import 'package:studify/features/sessions/group_detail_screen.dart';
 import 'package:studify/features/sessions/sessions_screen.dart';
 import 'package:studify/features/settings/settings_screen.dart';
@@ -33,6 +35,9 @@ abstract final class AppRoutes {
   static const settings = '/profile/settings';
   static const privacyPolicy = '/profile/privacy';
   static const termsOfUse = '/profile/terms';
+
+  // Opened from the Home tab's "This week's activity" card.
+  static const results = '/home/results';
 
   /// Where a signed-in user lands.
   static const String home = homeTab;
@@ -88,6 +93,20 @@ GoRouter createRouter({required AuthController auth}) {
               GoRoute(
                 path: AppRoutes.homeTab,
                 builder: (context, state) => const HomeScreen(),
+                routes: [
+                  GoRoute(
+                    path: 'results',
+                    builder: (context, state) => const ResultsScreen(),
+                    routes: [
+                      GoRoute(
+                        path: ':id',
+                        builder: (context, state) => ResultDetailScreen(
+                          resultId: int.parse(state.pathParameters['id']!),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ],
           ),

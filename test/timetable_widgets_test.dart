@@ -139,8 +139,7 @@ void main() {
       ]);
       await tester.pumpWidget(app.widget);
       await settle(tester);
-      await tester.tap(find.text('Sessions'));
-      await settle(tester);
+      await tapNavTab(tester, 'Sessions');
 
       await tester.tap(find.text('Groups'));
       await settle(tester);

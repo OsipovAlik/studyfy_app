@@ -1805,6 +1805,294 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'It may have already been deleted.'**
   String get groupDetailNotFoundDescription;
+
+  /// No description provided for @homeStatsNewThisWeek.
+  ///
+  /// In en, this message translates to:
+  /// **'+{count} this week'**
+  String homeStatsNewThisWeek(int count);
+
+  /// No description provided for @homeActivityTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'This week\'s activity'**
+  String get homeActivityTitle;
+
+  /// No description provided for @homeActivityEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No attempts yet this week.'**
+  String get homeActivityEmpty;
+
+  /// No description provided for @homeActivityDetails.
+  ///
+  /// In en, this message translates to:
+  /// **'View details'**
+  String get homeActivityDetails;
+
+  /// No description provided for @homeActivityAttempts.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} attempts'**
+  String homeActivityAttempts(int count);
+
+  /// No description provided for @homeActivityTotal.
+  ///
+  /// In en, this message translates to:
+  /// **'Attempts'**
+  String get homeActivityTotal;
+
+  /// No description provided for @homeActivityAverage.
+  ///
+  /// In en, this message translates to:
+  /// **'Avg. score'**
+  String get homeActivityAverage;
+
+  /// No description provided for @homeActivityBest.
+  ///
+  /// In en, this message translates to:
+  /// **'Best score'**
+  String get homeActivityBest;
+
+  /// No description provided for @resultsRecentTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Recent results'**
+  String get resultsRecentTitle;
+
+  /// No description provided for @resultsViewAll.
+  ///
+  /// In en, this message translates to:
+  /// **'View all'**
+  String get resultsViewAll;
+
+  /// No description provided for @resultsPageTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Results'**
+  String get resultsPageTitle;
+
+  /// No description provided for @resultsPageSubtitleTeacher.
+  ///
+  /// In en, this message translates to:
+  /// **'Test attempts by your students.'**
+  String get resultsPageSubtitleTeacher;
+
+  /// No description provided for @resultsPageSubtitleStudent.
+  ///
+  /// In en, this message translates to:
+  /// **'Your test attempts.'**
+  String get resultsPageSubtitleStudent;
+
+  /// No description provided for @resultsFilterAllStudents.
+  ///
+  /// In en, this message translates to:
+  /// **'All students'**
+  String get resultsFilterAllStudents;
+
+  /// No description provided for @resultsFilterAllTests.
+  ///
+  /// In en, this message translates to:
+  /// **'All tests'**
+  String get resultsFilterAllTests;
+
+  /// No description provided for @resultsAverage.
+  ///
+  /// In en, this message translates to:
+  /// **'Average'**
+  String get resultsAverage;
+
+  /// No description provided for @resultsBest.
+  ///
+  /// In en, this message translates to:
+  /// **'Best'**
+  String get resultsBest;
+
+  /// No description provided for @resultsEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No results yet.'**
+  String get resultsEmptyTitle;
+
+  /// No description provided for @resultsLoadError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not load results.'**
+  String get resultsLoadError;
+
+  /// No description provided for @resultsUnknownTest.
+  ///
+  /// In en, this message translates to:
+  /// **'Test #{id}'**
+  String resultsUnknownTest(int id);
+
+  /// No description provided for @resultDetailYourAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Your answer'**
+  String get resultDetailYourAnswer;
+
+  /// No description provided for @resultDetailCorrectAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Correct answer'**
+  String get resultDetailCorrectAnswer;
+
+  /// No description provided for @resultDetailCorrect.
+  ///
+  /// In en, this message translates to:
+  /// **'Correct'**
+  String get resultDetailCorrect;
+
+  /// No description provided for @resultDetailIncorrect.
+  ///
+  /// In en, this message translates to:
+  /// **'Incorrect'**
+  String get resultDetailIncorrect;
+
+  /// No description provided for @resultDetailNotFoundTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Result not found'**
+  String get resultDetailNotFoundTitle;
+
+  /// No description provided for @studentsAddStudent.
+  ///
+  /// In en, this message translates to:
+  /// **'Add student'**
+  String get studentsAddStudent;
+
+  /// No description provided for @studentsEmptyDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Click “Add student” to register the first one.'**
+  String get studentsEmptyDescription;
+
+  /// No description provided for @studentsFilterAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All subjects'**
+  String get studentsFilterAll;
+
+  /// No description provided for @studentsNameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get studentsNameLabel;
+
+  /// No description provided for @studentsSurnameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Surname (optional)'**
+  String get studentsSurnameLabel;
+
+  /// No description provided for @studentsEmailLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get studentsEmailLabel;
+
+  /// No description provided for @studentsPasswordLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get studentsPasswordLabel;
+
+  /// No description provided for @studentsPasswordHint.
+  ///
+  /// In en, this message translates to:
+  /// **'8–32 characters: letters, numbers or !@#\$%^&*'**
+  String get studentsPasswordHint;
+
+  /// No description provided for @studentsSubjectLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Subject'**
+  String get studentsSubjectLabel;
+
+  /// No description provided for @studentsNoSubjects.
+  ///
+  /// In en, this message translates to:
+  /// **'Create a subject first before registering a student.'**
+  String get studentsNoSubjects;
+
+  /// No description provided for @studentsCreate.
+  ///
+  /// In en, this message translates to:
+  /// **'Register student'**
+  String get studentsCreate;
+
+  /// No description provided for @studentsSaving.
+  ///
+  /// In en, this message translates to:
+  /// **'Saving…'**
+  String get studentsSaving;
+
+  /// No description provided for @studentsCreateError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not register student.'**
+  String get studentsCreateError;
+
+  /// No description provided for @studentsEmailTaken.
+  ///
+  /// In en, this message translates to:
+  /// **'That email is already registered.'**
+  String get studentsEmailTaken;
+
+  /// No description provided for @studentsDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get studentsDelete;
+
+  /// No description provided for @studentsDeleteConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete \"{name}\"?'**
+  String studentsDeleteConfirmTitle(String name);
+
+  /// No description provided for @studentsDeleteConfirmDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'This can\'t be undone.'**
+  String get studentsDeleteConfirmDescription;
+
+  /// No description provided for @studentsDeletePasswordPrompt.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm your password to continue.'**
+  String get studentsDeletePasswordPrompt;
+
+  /// No description provided for @studentsDeletePasswordIncorrect.
+  ///
+  /// In en, this message translates to:
+  /// **'That password is incorrect.'**
+  String get studentsDeletePasswordIncorrect;
+
+  /// No description provided for @studentsDeleteForbidden.
+  ///
+  /// In en, this message translates to:
+  /// **'This student also studies another teacher\'s subject — only the school\'s owner can delete them.'**
+  String get studentsDeleteForbidden;
+
+  /// No description provided for @studentsDeleting.
+  ///
+  /// In en, this message translates to:
+  /// **'Deleting…'**
+  String get studentsDeleting;
+
+  /// No description provided for @studentsDeleteError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not delete student.'**
+  String get studentsDeleteError;
+
+  /// No description provided for @studentsServerUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Server unavailable. Please try again.'**
+  String get studentsServerUnavailable;
 }
 
 class _AppLocalizationsDelegate

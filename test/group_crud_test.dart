@@ -10,8 +10,7 @@ StoredSession _session(Map<String, Object?> json) =>
     StoredSession(token: 'tok', user: UserProfile.fromJson(json));
 
 Future<void> _openGroupsTab(WidgetTester tester) async {
-  await tester.tap(find.text('Sessions'));
-  await settle(tester);
+  await tapNavTab(tester, 'Sessions');
   await tester.tap(find.text('Groups'));
   await settle(tester);
 }

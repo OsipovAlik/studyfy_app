@@ -930,4 +930,162 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get groupDetailNotFoundDescription => 'Возможно, она уже удалена.';
+
+  @override
+  String homeStatsNewThisWeek(int count) {
+    return '+$count на этой неделе';
+  }
+
+  @override
+  String get homeActivityTitle => 'Активность за неделю';
+
+  @override
+  String get homeActivityEmpty => 'На этой неделе попыток пока нет.';
+
+  @override
+  String get homeActivityDetails => 'Подробнее';
+
+  @override
+  String homeActivityAttempts(int count) {
+    return 'Попыток: $count';
+  }
+
+  @override
+  String get homeActivityTotal => 'Попытки';
+
+  @override
+  String get homeActivityAverage => 'Средний балл';
+
+  @override
+  String get homeActivityBest => 'Лучший результат';
+
+  @override
+  String get resultsRecentTitle => 'Последние результаты';
+
+  @override
+  String get resultsViewAll => 'Смотреть все';
+
+  @override
+  String get resultsPageTitle => 'Результаты';
+
+  @override
+  String get resultsPageSubtitleTeacher => 'Попытки тестов ваших учеников.';
+
+  @override
+  String get resultsPageSubtitleStudent => 'Ваши попытки тестов.';
+
+  @override
+  String get resultsFilterAllStudents => 'Все ученики';
+
+  @override
+  String get resultsFilterAllTests => 'Все тесты';
+
+  @override
+  String get resultsAverage => 'Средний';
+
+  @override
+  String get resultsBest => 'Лучший';
+
+  @override
+  String get resultsEmptyTitle => 'Результатов пока нет.';
+
+  @override
+  String get resultsLoadError => 'Не удалось загрузить результаты.';
+
+  @override
+  String resultsUnknownTest(int id) {
+    return 'Тест #$id';
+  }
+
+  @override
+  String get resultDetailYourAnswer => 'Ваш ответ';
+
+  @override
+  String get resultDetailCorrectAnswer => 'Правильный ответ';
+
+  @override
+  String get resultDetailCorrect => 'Верно';
+
+  @override
+  String get resultDetailIncorrect => 'Неверно';
+
+  @override
+  String get resultDetailNotFoundTitle => 'Результат не найден';
+
+  @override
+  String get studentsAddStudent => 'Добавить ученика';
+
+  @override
+  String get studentsEmptyDescription =>
+      'Нажмите «Добавить ученика», чтобы зарегистрировать первого.';
+
+  @override
+  String get studentsFilterAll => 'Все предметы';
+
+  @override
+  String get studentsNameLabel => 'Имя';
+
+  @override
+  String get studentsSurnameLabel => 'Фамилия (необязательно)';
+
+  @override
+  String get studentsEmailLabel => 'E-mail';
+
+  @override
+  String get studentsPasswordLabel => 'Пароль';
+
+  @override
+  String get studentsPasswordHint => '8–32 символа: буквы, цифры или !@#\$%^&*';
+
+  @override
+  String get studentsSubjectLabel => 'Предмет';
+
+  @override
+  String get studentsNoSubjects =>
+      'Сначала создайте предмет, а затем регистрируйте ученика.';
+
+  @override
+  String get studentsCreate => 'Зарегистрировать ученика';
+
+  @override
+  String get studentsSaving => 'Сохранение…';
+
+  @override
+  String get studentsCreateError => 'Не удалось зарегистрировать ученика.';
+
+  @override
+  String get studentsEmailTaken => 'Этот e-mail уже зарегистрирован.';
+
+  @override
+  String get studentsDelete => 'Удалить';
+
+  @override
+  String studentsDeleteConfirmTitle(String name) {
+    return 'Удалить «$name»?';
+  }
+
+  @override
+  String get studentsDeleteConfirmDescription =>
+      'Это действие нельзя отменить.';
+
+  @override
+  String get studentsDeletePasswordPrompt =>
+      'Подтвердите пароль, чтобы продолжить.';
+
+  @override
+  String get studentsDeletePasswordIncorrect => 'Неверный пароль.';
+
+  @override
+  String get studentsDeleteForbidden =>
+      'Этот ученик также учится у другого учителя — удалить его может только владелец школы.';
+
+  @override
+  String get studentsDeleting => 'Удаление…';
+
+  @override
+  String get studentsDeleteError => 'Не удалось удалить ученика.';
+
+  @override
+  String get studentsServerUnavailable =>
+      'Сервер недоступен. Попробуйте ещё раз.';
 }

@@ -51,6 +51,7 @@ class ClassSession {
     required this.startTime,
     this.groupId,
     this.studentId,
+    this.createdAt,
   });
 
   factory ClassSession.fromJson(Map<String, dynamic> json) => ClassSession(
@@ -60,6 +61,7 @@ class ClassSession {
     startTime: json['startTime'] as String? ?? '00:00',
     groupId: (json['groupId'] as num?)?.toInt(),
     studentId: (json['studentId'] as num?)?.toInt(),
+    createdAt: DateTime.tryParse(json['created_at'] as String? ?? ''),
   );
 
   final int id;
@@ -71,6 +73,7 @@ class ClassSession {
   final String startTime;
   final int? groupId;
   final int? studentId;
+  final DateTime? createdAt;
 
   /// Minutes since midnight, for sorting and "next session" math.
   int get startMinutes {

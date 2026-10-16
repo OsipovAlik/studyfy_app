@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:studify/core/widgets/brand_backdrop.dart';
 import 'package:studify/features/auth/auth_controller.dart';
+import 'package:studify/features/home/home_stats_controller.dart';
+import 'package:studify/features/home/weekly_activity_controller.dart';
+import 'package:studify/features/home/widgets/home_stats_grid.dart';
+import 'package:studify/features/home/widgets/weekly_activity_card.dart';
 import 'package:studify/features/home/widgets/weekly_timetable_card.dart';
 import 'package:studify/features/home/widgets/welcome_banner.dart';
 import 'package:studify/features/sessions/timetable_controller.dart';
@@ -21,6 +25,8 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
     unawaited(context.read<TimetableController>().ensureLoaded());
+    unawaited(context.read<HomeStatsController>().ensureLoaded());
+    unawaited(context.read<WeeklyActivityController>().ensureLoaded());
   }
 
   @override
@@ -39,7 +45,10 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 WelcomeBanner(user: user),
                 const SizedBox(height: 16),
+                const HomeStatsGrid(),
                 const WeeklyTimetableCard(),
+                const SizedBox(height: 16),
+                const WeeklyActivityCard(),
               ],
             ),
           ),

@@ -4,17 +4,20 @@ class Group {
     required this.id,
     required this.name,
     required this.memberCount,
+    this.createdAt,
   });
 
   factory Group.fromJson(Map<String, dynamic> json) => Group(
     id: (json['ID'] as num?)?.toInt() ?? 0,
     name: json['name'] as String? ?? '',
     memberCount: (json['memberCount'] as num?)?.toInt() ?? 0,
+    createdAt: DateTime.tryParse(json['created_at'] as String? ?? ''),
   );
 
   final int id;
   final String name;
   final int memberCount;
+  final DateTime? createdAt;
 }
 
 /// One student in a [GroupDetail]'s roster.

@@ -928,4 +928,162 @@ class AppLocalizationsHy extends AppLocalizations {
   @override
   String get groupDetailNotFoundDescription =>
       'Այն կարող է արդեն ջնջված լինել։';
+
+  @override
+  String homeStatsNewThisWeek(int count) {
+    return '+$count այս շաբաթ';
+  }
+
+  @override
+  String get homeActivityTitle => 'Այս շաբաթվա ակտիվությունը';
+
+  @override
+  String get homeActivityEmpty => 'Այս շաբաթ դեռ փորձեր չկան։';
+
+  @override
+  String get homeActivityDetails => 'Մանրամասն';
+
+  @override
+  String homeActivityAttempts(int count) {
+    return '$count փորձ';
+  }
+
+  @override
+  String get homeActivityTotal => 'Փորձեր';
+
+  @override
+  String get homeActivityAverage => 'Միջին արդյունք';
+
+  @override
+  String get homeActivityBest => 'Լավագույն արդյունք';
+
+  @override
+  String get resultsRecentTitle => 'Վերջին արդյունքները';
+
+  @override
+  String get resultsViewAll => 'Տեսնել բոլորը';
+
+  @override
+  String get resultsPageTitle => 'Արդյունքներ';
+
+  @override
+  String get resultsPageSubtitleTeacher => 'Ձեր աշակերտների թեստային փորձերը։';
+
+  @override
+  String get resultsPageSubtitleStudent => 'Ձեր թեստային փորձերը։';
+
+  @override
+  String get resultsFilterAllStudents => 'Բոլոր աշակերտները';
+
+  @override
+  String get resultsFilterAllTests => 'Բոլոր թեստերը';
+
+  @override
+  String get resultsAverage => 'Միջին';
+
+  @override
+  String get resultsBest => 'Լավագույն';
+
+  @override
+  String get resultsEmptyTitle => 'Արդյունքներ դեռ չկան։';
+
+  @override
+  String get resultsLoadError => 'Չհաջողվեց բեռնել արդյունքները։';
+
+  @override
+  String resultsUnknownTest(int id) {
+    return 'Թեստ #$id';
+  }
+
+  @override
+  String get resultDetailYourAnswer => 'Ձեր պատասխանը';
+
+  @override
+  String get resultDetailCorrectAnswer => 'Ճիշտ պատասխանը';
+
+  @override
+  String get resultDetailCorrect => 'Ճիշտ';
+
+  @override
+  String get resultDetailIncorrect => 'Սխալ';
+
+  @override
+  String get resultDetailNotFoundTitle => 'Արդյունքը չի գտնվել';
+
+  @override
+  String get studentsAddStudent => 'Ավելացնել աշակերտ';
+
+  @override
+  String get studentsEmptyDescription =>
+      'Սեղմեք «Ավելացնել աշակերտ»՝ առաջինը գրանցելու համար։';
+
+  @override
+  String get studentsFilterAll => 'Բոլոր առարկաները';
+
+  @override
+  String get studentsNameLabel => 'Անուն';
+
+  @override
+  String get studentsSurnameLabel => 'Ազգանուն (կամընտիր)';
+
+  @override
+  String get studentsEmailLabel => 'Էլ. փոստ';
+
+  @override
+  String get studentsPasswordLabel => 'Գաղտնաբառ';
+
+  @override
+  String get studentsPasswordHint =>
+      '8–32 նիշ՝ լատինական տառեր, թվեր կամ !@#\$%^&*';
+
+  @override
+  String get studentsSubjectLabel => 'Առարկա';
+
+  @override
+  String get studentsNoSubjects =>
+      'Աշակերտ գրանցելու համար նախ ստեղծեք առարկա։';
+
+  @override
+  String get studentsCreate => 'Գրանցել աշակերտին';
+
+  @override
+  String get studentsSaving => 'Պահպանվում է…';
+
+  @override
+  String get studentsCreateError => 'Չհաջողվեց գրանցել աշակերտին։';
+
+  @override
+  String get studentsEmailTaken => 'Այս էլ. հասցեն արդեն գրանցված է։';
+
+  @override
+  String get studentsDelete => 'Ջնջել';
+
+  @override
+  String studentsDeleteConfirmTitle(String name) {
+    return 'Ջնջե՞լ «$name» աշակերտին։';
+  }
+
+  @override
+  String get studentsDeleteConfirmDescription =>
+      'Այս գործողությունը հնարավոր չէ հետարկել։';
+
+  @override
+  String get studentsDeletePasswordPrompt =>
+      'Հաստատելու համար մուտքագրեք ձեր գաղտնաբառը։';
+
+  @override
+  String get studentsDeletePasswordIncorrect => 'Գաղտնաբառը սխալ է։';
+
+  @override
+  String get studentsDeleteForbidden =>
+      'Այս աշակերտը սովորում է նաև այլ ուսուցչի առարկա․ ջնջել կարող է միայն դպրոցի սեփականատերը։';
+
+  @override
+  String get studentsDeleting => 'Ջնջվում է…';
+
+  @override
+  String get studentsDeleteError => 'Չհաջողվեց ջնջել աշակերտին։';
+
+  @override
+  String get studentsServerUnavailable => 'Սերվերը հասանելի չէ։ Փորձեք կրկին։';
 }

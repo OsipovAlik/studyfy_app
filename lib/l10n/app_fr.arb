@@ -290,5 +290,81 @@
   "groupDetailRemoveMember": "Retirer",
   "groupDetailRemoveMemberError": "Impossible de retirer l'élève.",
   "groupDetailNotFoundTitle": "Groupe introuvable",
-  "groupDetailNotFoundDescription": "Il a peut-être déjà été supprimé."
+  "groupDetailNotFoundDescription": "Il a peut-être déjà été supprimé.",
+  "homeStatsNewThisWeek": "+{count} cette semaine",
+  "@homeStatsNewThisWeek": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeActivityTitle": "Activité de la semaine",
+  "homeActivityEmpty": "Aucune tentative cette semaine.",
+  "homeActivityDetails": "Voir les détails",
+  "homeActivityAttempts": "{count} tentatives",
+  "@homeActivityAttempts": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeActivityTotal": "Tentatives",
+  "homeActivityAverage": "Score moyen",
+  "homeActivityBest": "Meilleur score",
+  "resultsRecentTitle": "Résultats récents",
+  "resultsViewAll": "Tout voir",
+  "resultsPageTitle": "Résultats",
+  "resultsPageSubtitleTeacher": "Les tentatives de test de vos élèves.",
+  "resultsPageSubtitleStudent": "Vos tentatives de test.",
+  "resultsFilterAllStudents": "Tous les élèves",
+  "resultsFilterAllTests": "Tous les tests",
+  "resultsAverage": "Moyenne",
+  "resultsBest": "Meilleur",
+  "resultsEmptyTitle": "Aucun résultat pour l’instant.",
+  "resultsLoadError": "Impossible de charger les résultats.",
+  "resultsUnknownTest": "Test #{id}",
+  "@resultsUnknownTest": {
+    "placeholders": {
+      "id": {
+        "type": "int"
+      }
+    }
+  },
+  "resultDetailYourAnswer": "Votre réponse",
+  "resultDetailCorrectAnswer": "Bonne réponse",
+  "resultDetailCorrect": "Correct",
+  "resultDetailIncorrect": "Incorrect",
+  "resultDetailNotFoundTitle": "Résultat introuvable",
+  "studentsAddStudent": "Ajouter un élève",
+  "studentsEmptyDescription": "Cliquez sur « Ajouter un élève » pour inscrire le premier.",
+  "studentsFilterAll": "Toutes les matières",
+  "studentsNameLabel": "Prénom",
+  "studentsSurnameLabel": "Nom (facultatif)",
+  "studentsEmailLabel": "E-mail",
+  "studentsPasswordLabel": "Mot de passe",
+  "studentsPasswordHint": "8 à 32 caractères : lettres, chiffres ou !@#$%^&*",
+  "studentsSubjectLabel": "Matière",
+  "studentsNoSubjects": "Créez d'abord une matière avant d'inscrire un élève.",
+  "studentsCreate": "Inscrire l'élève",
+  "studentsSaving": "Enregistrement…",
+  "studentsCreateError": "Impossible d'inscrire l'élève.",
+  "studentsEmailTaken": "Cette adresse e-mail est déjà enregistrée.",
+  "studentsDelete": "Supprimer",
+  "studentsDeleteConfirmTitle": "Supprimer « {name} » ?",
+  "@studentsDeleteConfirmTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "studentsDeleteConfirmDescription": "Cette action est irréversible.",
+  "studentsDeletePasswordPrompt": "Confirmez votre mot de passe pour continuer.",
+  "studentsDeletePasswordIncorrect": "Ce mot de passe est incorrect.",
+  "studentsDeleteForbidden": "Cet élève suit aussi la matière d'un autre enseignant : seul le propriétaire de l'école peut le supprimer.",
+  "studentsDeleting": "Suppression…",
+  "studentsDeleteError": "Impossible de supprimer l'élève.",
+  "studentsServerUnavailable": "Serveur indisponible. Veuillez réessayer."
 }

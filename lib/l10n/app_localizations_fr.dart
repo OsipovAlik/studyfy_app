@@ -945,4 +945,165 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get groupDetailNotFoundDescription =>
       'Il a peut-être déjà été supprimé.';
+
+  @override
+  String homeStatsNewThisWeek(int count) {
+    return '+$count cette semaine';
+  }
+
+  @override
+  String get homeActivityTitle => 'Activité de la semaine';
+
+  @override
+  String get homeActivityEmpty => 'Aucune tentative cette semaine.';
+
+  @override
+  String get homeActivityDetails => 'Voir les détails';
+
+  @override
+  String homeActivityAttempts(int count) {
+    return '$count tentatives';
+  }
+
+  @override
+  String get homeActivityTotal => 'Tentatives';
+
+  @override
+  String get homeActivityAverage => 'Score moyen';
+
+  @override
+  String get homeActivityBest => 'Meilleur score';
+
+  @override
+  String get resultsRecentTitle => 'Résultats récents';
+
+  @override
+  String get resultsViewAll => 'Tout voir';
+
+  @override
+  String get resultsPageTitle => 'Résultats';
+
+  @override
+  String get resultsPageSubtitleTeacher =>
+      'Les tentatives de test de vos élèves.';
+
+  @override
+  String get resultsPageSubtitleStudent => 'Vos tentatives de test.';
+
+  @override
+  String get resultsFilterAllStudents => 'Tous les élèves';
+
+  @override
+  String get resultsFilterAllTests => 'Tous les tests';
+
+  @override
+  String get resultsAverage => 'Moyenne';
+
+  @override
+  String get resultsBest => 'Meilleur';
+
+  @override
+  String get resultsEmptyTitle => 'Aucun résultat pour l’instant.';
+
+  @override
+  String get resultsLoadError => 'Impossible de charger les résultats.';
+
+  @override
+  String resultsUnknownTest(int id) {
+    return 'Test #$id';
+  }
+
+  @override
+  String get resultDetailYourAnswer => 'Votre réponse';
+
+  @override
+  String get resultDetailCorrectAnswer => 'Bonne réponse';
+
+  @override
+  String get resultDetailCorrect => 'Correct';
+
+  @override
+  String get resultDetailIncorrect => 'Incorrect';
+
+  @override
+  String get resultDetailNotFoundTitle => 'Résultat introuvable';
+
+  @override
+  String get studentsAddStudent => 'Ajouter un élève';
+
+  @override
+  String get studentsEmptyDescription =>
+      'Cliquez sur « Ajouter un élève » pour inscrire le premier.';
+
+  @override
+  String get studentsFilterAll => 'Toutes les matières';
+
+  @override
+  String get studentsNameLabel => 'Prénom';
+
+  @override
+  String get studentsSurnameLabel => 'Nom (facultatif)';
+
+  @override
+  String get studentsEmailLabel => 'E-mail';
+
+  @override
+  String get studentsPasswordLabel => 'Mot de passe';
+
+  @override
+  String get studentsPasswordHint =>
+      '8 à 32 caractères : lettres, chiffres ou !@#\$%^&*';
+
+  @override
+  String get studentsSubjectLabel => 'Matière';
+
+  @override
+  String get studentsNoSubjects =>
+      'Créez d\'abord une matière avant d\'inscrire un élève.';
+
+  @override
+  String get studentsCreate => 'Inscrire l\'élève';
+
+  @override
+  String get studentsSaving => 'Enregistrement…';
+
+  @override
+  String get studentsCreateError => 'Impossible d\'inscrire l\'élève.';
+
+  @override
+  String get studentsEmailTaken => 'Cette adresse e-mail est déjà enregistrée.';
+
+  @override
+  String get studentsDelete => 'Supprimer';
+
+  @override
+  String studentsDeleteConfirmTitle(String name) {
+    return 'Supprimer « $name » ?';
+  }
+
+  @override
+  String get studentsDeleteConfirmDescription =>
+      'Cette action est irréversible.';
+
+  @override
+  String get studentsDeletePasswordPrompt =>
+      'Confirmez votre mot de passe pour continuer.';
+
+  @override
+  String get studentsDeletePasswordIncorrect =>
+      'Ce mot de passe est incorrect.';
+
+  @override
+  String get studentsDeleteForbidden =>
+      'Cet élève suit aussi la matière d\'un autre enseignant : seul le propriétaire de l\'école peut le supprimer.';
+
+  @override
+  String get studentsDeleting => 'Suppression…';
+
+  @override
+  String get studentsDeleteError => 'Impossible de supprimer l\'élève.';
+
+  @override
+  String get studentsServerUnavailable =>
+      'Serveur indisponible. Veuillez réessayer.';
 }

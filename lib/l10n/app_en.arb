@@ -408,5 +408,81 @@
   "groupDetailRemoveMember": "Remove",
   "groupDetailRemoveMemberError": "Could not remove student.",
   "groupDetailNotFoundTitle": "Group not found",
-  "groupDetailNotFoundDescription": "It may have already been deleted."
+  "groupDetailNotFoundDescription": "It may have already been deleted.",
+  "homeStatsNewThisWeek": "+{count} this week",
+  "@homeStatsNewThisWeek": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeActivityTitle": "This week's activity",
+  "homeActivityEmpty": "No attempts yet this week.",
+  "homeActivityDetails": "View details",
+  "homeActivityAttempts": "{count} attempts",
+  "@homeActivityAttempts": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeActivityTotal": "Attempts",
+  "homeActivityAverage": "Avg. score",
+  "homeActivityBest": "Best score",
+  "resultsRecentTitle": "Recent results",
+  "resultsViewAll": "View all",
+  "resultsPageTitle": "Results",
+  "resultsPageSubtitleTeacher": "Test attempts by your students.",
+  "resultsPageSubtitleStudent": "Your test attempts.",
+  "resultsFilterAllStudents": "All students",
+  "resultsFilterAllTests": "All tests",
+  "resultsAverage": "Average",
+  "resultsBest": "Best",
+  "resultsEmptyTitle": "No results yet.",
+  "resultsLoadError": "Could not load results.",
+  "resultsUnknownTest": "Test #{id}",
+  "@resultsUnknownTest": {
+    "placeholders": {
+      "id": {
+        "type": "int"
+      }
+    }
+  },
+  "resultDetailYourAnswer": "Your answer",
+  "resultDetailCorrectAnswer": "Correct answer",
+  "resultDetailCorrect": "Correct",
+  "resultDetailIncorrect": "Incorrect",
+  "resultDetailNotFoundTitle": "Result not found",
+  "studentsAddStudent": "Add student",
+  "studentsEmptyDescription": "Click “Add student” to register the first one.",
+  "studentsFilterAll": "All subjects",
+  "studentsNameLabel": "Name",
+  "studentsSurnameLabel": "Surname (optional)",
+  "studentsEmailLabel": "Email",
+  "studentsPasswordLabel": "Password",
+  "studentsPasswordHint": "8–32 characters: letters, numbers or !@#$%^&*",
+  "studentsSubjectLabel": "Subject",
+  "studentsNoSubjects": "Create a subject first before registering a student.",
+  "studentsCreate": "Register student",
+  "studentsSaving": "Saving…",
+  "studentsCreateError": "Could not register student.",
+  "studentsEmailTaken": "That email is already registered.",
+  "studentsDelete": "Delete",
+  "studentsDeleteConfirmTitle": "Delete \"{name}\"?",
+  "@studentsDeleteConfirmTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "studentsDeleteConfirmDescription": "This can't be undone.",
+  "studentsDeletePasswordPrompt": "Confirm your password to continue.",
+  "studentsDeletePasswordIncorrect": "That password is incorrect.",
+  "studentsDeleteForbidden": "This student also studies another teacher's subject — only the school's owner can delete them.",
+  "studentsDeleting": "Deleting…",
+  "studentsDeleteError": "Could not delete student.",
+  "studentsServerUnavailable": "Server unavailable. Please try again."
 }

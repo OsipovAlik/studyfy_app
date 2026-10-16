@@ -28,6 +28,9 @@ abstract final class AppColors {
   static const stone900 = Color(0xFF1C1917);
   static const stone950 = Color(0xFF0C0A09);
 
+  // Blue — used for the Students stat tile.
+  static const blue500 = Color(0xFF2B7FFF);
+
   // Emerald — success, correct answers.
   static const emerald50 = Color(0xFFECFDF5);
   static const emerald400 = Color(0xFF00D294);

@@ -9,16 +9,19 @@ import 'support/fakes.dart';
 StoredSession _session(Map<String, Object?> json) =>
     StoredSession(token: 'tok', user: UserProfile.fromJson(json));
 
-Future<void> _openSessions(WidgetTester tester) async {
-  await tester.tap(find.text('Sessions'));
-  await settle(tester);
-}
+Future<void> _openSessions(WidgetTester tester) =>
+    tapNavTab(tester, 'Sessions');
 
 /// Fills in the Material time picker's input-mode fields and confirms.
+/// Forces AM explicitly: the picker starts on whatever period the real
+/// wall clock is in (it isn't on the fake `clock`, unlike the rest of
+/// the app), so leaving it alone would make `02:30` mean 14:30 half the
+/// day.
 Future<void> _pickAnyTime(WidgetTester tester) async {
   final fields = find.byType(TextFormField);
   await tester.enterText(fields.at(0), '02');
   await tester.enterText(fields.at(1), '30');
+  await tester.tap(find.text('AM'));
   await tester.tap(find.text('OK'));
   await settle(tester);
 }

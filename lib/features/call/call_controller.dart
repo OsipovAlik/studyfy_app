@@ -132,11 +132,22 @@ class CallController extends ChangeNotifier {
           _cameraEnabled = false;
         }
       } else {
-        await _previewTrack?.stop();
+        // Stopping (not just muting) releases the camera; drop the
+        // reference too, so turning the camera back on creates a fresh
+        // track instead of reusing — and failing to restart — this one.
+        final track = _previewTrack;
+        _previewTrack = null;
+        await track?.stop();
+        await track?.dispose();
       }
     } else {
       try {
-        await room.localParticipant?.setCameraEnabled(_cameraEnabled);
+        await room.localParticipant?.setCameraEnabled(
+          _cameraEnabled,
+          cameraCaptureOptions: CameraCaptureOptions(
+            cameraPosition: _cameraPosition,
+          ),
+        );
       } on Exception catch (error) {
         debugPrint('setCameraEnabled failed: $error');
         _cameraEnabled = false;
@@ -146,18 +157,54 @@ class CallController extends ChangeNotifier {
   }
 
   Future<void> switchCamera() async {
+    // Nothing is capturing while the camera is hidden — the track was
+    // stopped (lobby) or unpublished (in-call), so there's nothing to
+    // restart with a new position. Just remember the choice for next
+    // time the camera comes on.
     _cameraPosition = _cameraPosition.switched();
-    final published = _room?.localParticipant
-        ?.getTrackPublicationBySource(TrackSource.camera)
-        ?.track;
+    if (!_cameraEnabled) {
+      notifyListeners();
+      return;
+    }
+
+    final room = _room;
     try {
-      if (published is LocalVideoTrack) {
-        await published.setCameraPosition(_cameraPosition);
+      if (room != null) {
+        // setCameraEnabled() only creates a track with these options for
+        // a brand-new publication — for a camera that's already
+        // published (true here) it just mutes/unmutes the existing
+        // track, which restarts on the *same* camera it already had.
+        // That looked like "switching" only because the local tile
+        // force-mirrors regardless of which camera is active; the
+        // picture itself never changed. setCameraPosition() is the
+        // SDK's own call for this: it restarts the already-published
+        // track with the new position.
+        final publication = room.localParticipant?.getTrackPublicationBySource(
+          TrackSource.camera,
+        );
+        final track = publication?.track;
+        if (track is LocalVideoTrack) {
+          await track.setCameraPosition(_cameraPosition);
+        }
       } else if (_previewTrack != null) {
-        await _previewTrack!.setCameraPosition(_cameraPosition);
+        // The lobby preview was never published, so it has no sender —
+        // LocalVideoTrack.setCameraPosition() always throws
+        // TrackCreateException('could not restart track') on it. Swap
+        // in a freshly captured track instead.
+        final old = _previewTrack;
+        _previewTrack = null;
+        await old?.stop();
+        await old?.dispose();
+        _previewTrack = await LocalVideoTrack.createCameraTrack(
+          CameraCaptureOptions(cameraPosition: _cameraPosition),
+        );
       }
     } on Exception catch (error) {
       debugPrint('switchCamera failed: $error');
+      // Whichever branch this came from, the camera isn't capturing any
+      // more: the lobby preview failed to recreate, or it was disabled
+      // for the in-call re-publish and that re-publish itself failed.
+      _cameraEnabled = false;
     }
     notifyListeners();
   }

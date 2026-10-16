@@ -67,8 +67,11 @@ class ApiClient {
     bool auth = true,
   }) => _send('PATCH', path, data: data, auth: auth);
 
-  Future<Map<String, dynamic>> delete(String path, {bool auth = true}) =>
-      _send('DELETE', path, auth: auth);
+  Future<Map<String, dynamic>> delete(
+    String path, {
+    Object? data,
+    bool auth = true,
+  }) => _send('DELETE', path, data: data, auth: auth);
 
   Future<Map<String, dynamic>> _send(
     String method,

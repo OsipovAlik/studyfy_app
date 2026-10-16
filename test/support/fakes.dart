@@ -13,6 +13,7 @@ import 'package:studify/core/network/api_client.dart';
 import 'package:studify/core/storage/app_preferences.dart';
 import 'package:studify/core/theme/app_theme.dart';
 import 'package:studify/features/auth/data/session_storage.dart';
+import 'package:studify/features/shell/glass_nav_bar.dart';
 
 /// A canned API answer.
 class FakeResponse {
@@ -145,6 +146,15 @@ class TestApp {
       ])
       ..on('GET /students', [
         const FakeResponse(200, {'users': <Object?>[]}),
+      ])
+      ..on('GET /subject/list', [
+        const FakeResponse(200, {'subjects': <Object?>[]}),
+      ])
+      ..on('GET /result/list', [
+        const FakeResponse(200, {'results': <Object?>[]}),
+      ])
+      ..on('GET /test/list', [
+        const FakeResponse(200, {'tests': <Object?>[]}),
       ]);
     final storage = MemorySessionStorage(session);
     final dependencies = await AppDependencies.create(
@@ -168,6 +178,16 @@ Future<void> settle(WidgetTester tester, {int frames = 20}) async {
   for (var i = 0; i < frames; i++) {
     await tester.pump(const Duration(milliseconds: 60));
   }
+}
+
+/// Taps a bottom-bar tab by its label. Plain `find.text(label)` can also
+/// match other text on the current screen (e.g. the home overview grid
+/// repeats the tab labels), so this looks only inside [GlassNavBar].
+Future<void> tapNavTab(WidgetTester tester, String label) async {
+  await tester.tap(
+    find.descendant(of: find.byType(GlassNavBar), matching: find.text(label)),
+  );
+  await settle(tester);
 }
 
 /// Signed-out launches start on the onboarding; jump to the login screen.

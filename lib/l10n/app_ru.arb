@@ -290,5 +290,81 @@
   "groupDetailRemoveMember": "Убрать",
   "groupDetailRemoveMemberError": "Не удалось убрать ученика.",
   "groupDetailNotFoundTitle": "Группа не найдена",
-  "groupDetailNotFoundDescription": "Возможно, она уже удалена."
+  "groupDetailNotFoundDescription": "Возможно, она уже удалена.",
+  "homeStatsNewThisWeek": "+{count} на этой неделе",
+  "@homeStatsNewThisWeek": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeActivityTitle": "Активность за неделю",
+  "homeActivityEmpty": "На этой неделе попыток пока нет.",
+  "homeActivityDetails": "Подробнее",
+  "homeActivityAttempts": "Попыток: {count}",
+  "@homeActivityAttempts": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "homeActivityTotal": "Попытки",
+  "homeActivityAverage": "Средний балл",
+  "homeActivityBest": "Лучший результат",
+  "resultsRecentTitle": "Последние результаты",
+  "resultsViewAll": "Смотреть все",
+  "resultsPageTitle": "Результаты",
+  "resultsPageSubtitleTeacher": "Попытки тестов ваших учеников.",
+  "resultsPageSubtitleStudent": "Ваши попытки тестов.",
+  "resultsFilterAllStudents": "Все ученики",
+  "resultsFilterAllTests": "Все тесты",
+  "resultsAverage": "Средний",
+  "resultsBest": "Лучший",
+  "resultsEmptyTitle": "Результатов пока нет.",
+  "resultsLoadError": "Не удалось загрузить результаты.",
+  "resultsUnknownTest": "Тест #{id}",
+  "@resultsUnknownTest": {
+    "placeholders": {
+      "id": {
+        "type": "int"
+      }
+    }
+  },
+  "resultDetailYourAnswer": "Ваш ответ",
+  "resultDetailCorrectAnswer": "Правильный ответ",
+  "resultDetailCorrect": "Верно",
+  "resultDetailIncorrect": "Неверно",
+  "resultDetailNotFoundTitle": "Результат не найден",
+  "studentsAddStudent": "Добавить ученика",
+  "studentsEmptyDescription": "Нажмите «Добавить ученика», чтобы зарегистрировать первого.",
+  "studentsFilterAll": "Все предметы",
+  "studentsNameLabel": "Имя",
+  "studentsSurnameLabel": "Фамилия (необязательно)",
+  "studentsEmailLabel": "E-mail",
+  "studentsPasswordLabel": "Пароль",
+  "studentsPasswordHint": "8–32 символа: буквы, цифры или !@#$%^&*",
+  "studentsSubjectLabel": "Предмет",
+  "studentsNoSubjects": "Сначала создайте предмет, а затем регистрируйте ученика.",
+  "studentsCreate": "Зарегистрировать ученика",
+  "studentsSaving": "Сохранение…",
+  "studentsCreateError": "Не удалось зарегистрировать ученика.",
+  "studentsEmailTaken": "Этот e-mail уже зарегистрирован.",
+  "studentsDelete": "Удалить",
+  "studentsDeleteConfirmTitle": "Удалить «{name}»?",
+  "@studentsDeleteConfirmTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "studentsDeleteConfirmDescription": "Это действие нельзя отменить.",
+  "studentsDeletePasswordPrompt": "Подтвердите пароль, чтобы продолжить.",
+  "studentsDeletePasswordIncorrect": "Неверный пароль.",
+  "studentsDeleteForbidden": "Этот ученик также учится у другого учителя — удалить его может только владелец школы.",
+  "studentsDeleting": "Удаление…",
+  "studentsDeleteError": "Не удалось удалить ученика.",
+  "studentsServerUnavailable": "Сервер недоступен. Попробуйте ещё раз."
 }

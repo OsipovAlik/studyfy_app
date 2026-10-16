@@ -924,4 +924,162 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get groupDetailNotFoundDescription =>
       'It may have already been deleted.';
+
+  @override
+  String homeStatsNewThisWeek(int count) {
+    return '+$count this week';
+  }
+
+  @override
+  String get homeActivityTitle => 'This week\'s activity';
+
+  @override
+  String get homeActivityEmpty => 'No attempts yet this week.';
+
+  @override
+  String get homeActivityDetails => 'View details';
+
+  @override
+  String homeActivityAttempts(int count) {
+    return '$count attempts';
+  }
+
+  @override
+  String get homeActivityTotal => 'Attempts';
+
+  @override
+  String get homeActivityAverage => 'Avg. score';
+
+  @override
+  String get homeActivityBest => 'Best score';
+
+  @override
+  String get resultsRecentTitle => 'Recent results';
+
+  @override
+  String get resultsViewAll => 'View all';
+
+  @override
+  String get resultsPageTitle => 'Results';
+
+  @override
+  String get resultsPageSubtitleTeacher => 'Test attempts by your students.';
+
+  @override
+  String get resultsPageSubtitleStudent => 'Your test attempts.';
+
+  @override
+  String get resultsFilterAllStudents => 'All students';
+
+  @override
+  String get resultsFilterAllTests => 'All tests';
+
+  @override
+  String get resultsAverage => 'Average';
+
+  @override
+  String get resultsBest => 'Best';
+
+  @override
+  String get resultsEmptyTitle => 'No results yet.';
+
+  @override
+  String get resultsLoadError => 'Could not load results.';
+
+  @override
+  String resultsUnknownTest(int id) {
+    return 'Test #$id';
+  }
+
+  @override
+  String get resultDetailYourAnswer => 'Your answer';
+
+  @override
+  String get resultDetailCorrectAnswer => 'Correct answer';
+
+  @override
+  String get resultDetailCorrect => 'Correct';
+
+  @override
+  String get resultDetailIncorrect => 'Incorrect';
+
+  @override
+  String get resultDetailNotFoundTitle => 'Result not found';
+
+  @override
+  String get studentsAddStudent => 'Add student';
+
+  @override
+  String get studentsEmptyDescription =>
+      'Click “Add student” to register the first one.';
+
+  @override
+  String get studentsFilterAll => 'All subjects';
+
+  @override
+  String get studentsNameLabel => 'Name';
+
+  @override
+  String get studentsSurnameLabel => 'Surname (optional)';
+
+  @override
+  String get studentsEmailLabel => 'Email';
+
+  @override
+  String get studentsPasswordLabel => 'Password';
+
+  @override
+  String get studentsPasswordHint =>
+      '8–32 characters: letters, numbers or !@#\$%^&*';
+
+  @override
+  String get studentsSubjectLabel => 'Subject';
+
+  @override
+  String get studentsNoSubjects =>
+      'Create a subject first before registering a student.';
+
+  @override
+  String get studentsCreate => 'Register student';
+
+  @override
+  String get studentsSaving => 'Saving…';
+
+  @override
+  String get studentsCreateError => 'Could not register student.';
+
+  @override
+  String get studentsEmailTaken => 'That email is already registered.';
+
+  @override
+  String get studentsDelete => 'Delete';
+
+  @override
+  String studentsDeleteConfirmTitle(String name) {
+    return 'Delete \"$name\"?';
+  }
+
+  @override
+  String get studentsDeleteConfirmDescription => 'This can\'t be undone.';
+
+  @override
+  String get studentsDeletePasswordPrompt =>
+      'Confirm your password to continue.';
+
+  @override
+  String get studentsDeletePasswordIncorrect => 'That password is incorrect.';
+
+  @override
+  String get studentsDeleteForbidden =>
+      'This student also studies another teacher\'s subject — only the school\'s owner can delete them.';
+
+  @override
+  String get studentsDeleting => 'Deleting…';
+
+  @override
+  String get studentsDeleteError => 'Could not delete student.';
+
+  @override
+  String get studentsServerUnavailable =>
+      'Server unavailable. Please try again.';
 }
