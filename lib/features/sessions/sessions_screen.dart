@@ -5,9 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:studify/core/widgets/brand_backdrop.dart';
 import 'package:studify/features/sessions/domain/class_session.dart';
-import 'package:studify/features/sessions/domain/group.dart';
 import 'package:studify/features/sessions/session_display.dart';
 import 'package:studify/features/sessions/timetable_controller.dart';
+import 'package:studify/features/sessions/widgets/group_form_sheet.dart';
+import 'package:studify/features/sessions/widgets/group_row.dart';
+import 'package:studify/features/sessions/widgets/picker_pill.dart';
+import 'package:studify/features/sessions/widgets/session_form_sheet.dart';
 import 'package:studify/features/sessions/widgets/session_row.dart';
 import 'package:studify/features/sessions/widgets/time_range_legend.dart';
 import 'package:studify/l10n/app_localizations.dart';
@@ -62,14 +65,18 @@ class _SessionsScreenState extends State<SessionsScreen> {
                   onChanged: (tab) => setState(() => _tab = tab),
                 ),
                 const SizedBox(height: 16),
-                if (controller.isLoading && controller.sessions.isEmpty && controller.groups.isEmpty)
+                if (controller.isLoading &&
+                    controller.sessions.isEmpty &&
+                    controller.groups.isEmpty)
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 60),
                     child: Center(child: CircularProgressIndicator()),
                   )
                 else if (controller.hasError)
                   _ErrorState(
-                    message: _tab == _Tab.sessions ? l10n.sessionsLoadError : l10n.groupsLoadError,
+                    message: _tab == _Tab.sessions
+                        ? l10n.sessionsLoadError
+                        : l10n.groupsLoadError,
                     onRetry: controller.reload,
                   )
                 else if (_tab == _Tab.sessions)
@@ -79,9 +86,17 @@ class _SessionsScreenState extends State<SessionsScreen> {
                     dayFilter: _dayFilter,
                     onTypeChanged: (type) => setState(() => _typeFilter = type),
                     onDayChanged: (day) => setState(() => _dayFilter = day),
+                    onAdd: () => unawaited(
+                      showSessionFormSheet(context, controller: controller),
+                    ),
                   )
                 else
-                  _GroupsTab(groups: controller.groups),
+                  _GroupsTab(
+                    controller: controller,
+                    onAdd: () => unawaited(
+                      showGroupFormSheet(context, controller: controller),
+                    ),
+                  ),
               ],
             ),
           ),
@@ -123,13 +138,17 @@ class _SegmentedTabs extends StatelessWidget {
                   Icon(
                     icon,
                     size: 16,
-                    color: selected ? scheme.onPrimary : scheme.onSurfaceVariant,
+                    color: selected
+                        ? scheme.onPrimary
+                        : scheme.onSurfaceVariant,
                   ),
                   const SizedBox(width: 6),
                   Text(
                     label,
                     style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                      color: selected ? scheme.onPrimary : scheme.onSurfaceVariant,
+                      color: selected
+                          ? scheme.onPrimary
+                          : scheme.onSurfaceVariant,
                     ),
                   ),
                 ],
@@ -172,6 +191,7 @@ class _SessionsTab extends StatelessWidget {
     required this.dayFilter,
     required this.onTypeChanged,
     required this.onDayChanged,
+    required this.onAdd,
   });
 
   final TimetableController controller;
@@ -179,6 +199,7 @@ class _SessionsTab extends StatelessWidget {
   final Weekday? dayFilter;
   final ValueChanged<SessionType?> onTypeChanged;
   final ValueChanged<Weekday?> onDayChanged;
+  final VoidCallback onAdd;
 
   @override
   Widget build(BuildContext context) {
@@ -189,7 +210,10 @@ class _SessionsTab extends StatelessWidget {
       for (final day in days)
         (
           day: day,
-          sessions: controller.onDay(day).where((s) => typeFilter == null || s.type == typeFilter).toList(),
+          sessions: controller
+              .onDay(day)
+              .where((s) => typeFilter == null || s.type == typeFilter)
+              .toList(),
         ),
     ].where((section) => section.sessions.isNotEmpty).toList();
 
@@ -199,9 +223,11 @@ class _SessionsTab extends StatelessWidget {
         Row(
           children: [
             Expanded(
-              child: _FilterPill<SessionType?>(
+              child: PickerPill<SessionType?>(
                 value: typeFilter,
-                label: typeFilter == null ? l10n.sessionsFilterAllTypes : typeFilter!.label(l10n),
+                label: typeFilter == null
+                    ? l10n.sessionsFilterAllTypes
+                    : typeFilter!.label(l10n),
                 options: [
                   (value: null, label: l10n.sessionsFilterAllTypes),
                   (value: SessionType.group, label: l10n.sessionTypeGroup),
@@ -215,18 +241,32 @@ class _SessionsTab extends StatelessWidget {
             ),
             const SizedBox(width: 10),
             Expanded(
-              child: _FilterPill<Weekday?>(
+              child: PickerPill<Weekday?>(
                 value: dayFilter,
-                label: dayFilter == null ? l10n.sessionsFilterAllDays : dayFilter!.label(l10n),
+                label: dayFilter == null
+                    ? l10n.sessionsFilterAllDays
+                    : dayFilter!.label(l10n),
                 options: [
                   (value: null, label: l10n.sessionsFilterAllDays),
-                  for (final day in Weekday.values) (value: day, label: day.label(l10n)),
+                  for (final day in Weekday.values)
+                    (value: day, label: day.label(l10n)),
                 ],
                 onChanged: onDayChanged,
               ),
             ),
           ],
         ),
+        if (controller.isTeacher) ...[
+          const SizedBox(height: 10),
+          SizedBox(
+            width: double.infinity,
+            child: OutlinedButton.icon(
+              onPressed: onAdd,
+              icon: const Icon(CupertinoIcons.add, size: 18),
+              label: Text(l10n.sessionsAddSession),
+            ),
+          ),
+        ],
         const SizedBox(height: 16),
         if (controller.sessions.isEmpty)
           _EmptyState(
@@ -249,97 +289,6 @@ class _SessionsTab extends StatelessWidget {
             ),
         ],
       ],
-    );
-  }
-}
-
-class _FilterPill<T> extends StatelessWidget {
-  const _FilterPill({
-    required this.value,
-    required this.label,
-    required this.options,
-    required this.onChanged,
-  });
-
-  final T value;
-  final String label;
-  final List<({T value, String label})> options;
-  final ValueChanged<T> onChanged;
-
-  Future<void> _open(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
-    return showModalBottomSheet<void>(
-      useRootNavigator: true,
-      context: context,
-      useSafeArea: true,
-      // The day list (8 options) can be taller than the sheet's default
-      // cap; let it take more room, and scroll past that instead of
-      // overflowing.
-      isScrollControlled: true,
-      builder: (sheetContext) => SafeArea(
-        child: ConstrainedBox(
-          constraints: BoxConstraints(
-            maxHeight: MediaQuery.sizeOf(sheetContext).height * 0.6,
-          ),
-          child: ListView(
-            shrinkWrap: true,
-            padding: const EdgeInsets.symmetric(vertical: 8),
-            children: [
-              for (final option in options)
-                ListTile(
-                  title: Text(option.label),
-                  trailing: option.value == value
-                      ? Icon(
-                          CupertinoIcons.checkmark_alt,
-                          color: scheme.primary,
-                        )
-                      : null,
-                  onTap: () {
-                    Navigator.of(sheetContext).pop();
-                    onChanged(option.value);
-                  },
-                ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
-    return Material(
-      color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-      borderRadius: BorderRadius.circular(14),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(14),
-        onTap: () => _open(context),
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(14),
-            border: Border.all(color: scheme.outlineVariant),
-          ),
-          child: Row(
-            children: [
-              Expanded(
-                child: Text(
-                  label,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.bodyMedium,
-                ),
-              ),
-              Icon(
-                CupertinoIcons.chevron_down,
-                size: 14,
-                color: scheme.onSurfaceVariant,
-              ),
-            ],
-          ),
-        ),
-      ),
     );
   }
 }
@@ -405,7 +354,8 @@ class _DaySection extends StatelessWidget {
             ),
             child: Column(
               children: [
-                for (final session in sessions) SessionRow(session: session, controller: controller),
+                for (final session in sessions)
+                  SessionRow(session: session, controller: controller),
               ],
             ),
           ),
@@ -416,63 +366,78 @@ class _DaySection extends StatelessWidget {
 }
 
 class _GroupsTab extends StatelessWidget {
-  const _GroupsTab({required this.groups});
+  const _GroupsTab({required this.controller, required this.onAdd});
 
-  final List<Group> groups;
+  final TimetableController controller;
+  final VoidCallback onAdd;
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    if (groups.isEmpty) {
-      return _EmptyState(
-        icon: CupertinoIcons.person_2,
-        title: l10n.groupsEmptyTitle,
-      );
-    }
+    final groups = controller.groups;
 
-    final theme = Theme.of(context);
-    final scheme = theme.colorScheme;
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 6),
-      decoration: BoxDecoration(
-        color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(18),
-        border: Border.all(color: scheme.outlineVariant),
-      ),
-      child: Column(
-        children: [
-          for (var i = 0; i < groups.length; i++) ...[
-            if (i > 0) Divider(height: 1, color: scheme.outlineVariant),
-            ListTile(
-              leading: Container(
-                width: 38,
-                height: 38,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: scheme.primary.withValues(alpha: 0.14),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: Icon(
-                  CupertinoIcons.person_2_fill,
-                  size: 18,
-                  color: scheme.primary,
-                ),
-              ),
-              title: Text(groups[i].name, style: theme.textTheme.titleSmall),
-              subtitle: Text(l10n.groupMembers(groups[i].memberCount)),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (controller.isTeacher)
+          SizedBox(
+            width: double.infinity,
+            child: OutlinedButton.icon(
+              onPressed: onAdd,
+              icon: const Icon(CupertinoIcons.add, size: 18),
+              label: Text(l10n.groupsAddGroup),
             ),
-          ],
+          ),
+        if (groups.isEmpty)
+          _EmptyState(
+            icon: CupertinoIcons.person_2,
+            title: l10n.groupsEmptyTitle,
+            description: controller.isTeacher
+                ? l10n.groupsEmptyDescription
+                : null,
+          )
+        else ...[
+          if (controller.isTeacher) const SizedBox(height: 16),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 6),
+            decoration: BoxDecoration(
+              color: Theme.of(
+                context,
+              ).colorScheme.surfaceContainerLowest.withValues(alpha: 0.92),
+              borderRadius: BorderRadius.circular(18),
+              border: Border.all(
+                color: Theme.of(context).colorScheme.outlineVariant,
+              ),
+            ),
+            child: Column(
+              children: [
+                for (var i = 0; i < groups.length; i++) ...[
+                  if (i > 0)
+                    Divider(
+                      height: 1,
+                      color: Theme.of(context).colorScheme.outlineVariant,
+                    ),
+                  GroupRow(group: groups[i], controller: controller),
+                ],
+              ],
+            ),
+          ),
         ],
-      ),
+      ],
     );
   }
 }
 
 class _EmptyState extends StatelessWidget {
-  const _EmptyState({required this.icon, required this.title});
+  const _EmptyState({
+    required this.icon,
+    required this.title,
+    this.description,
+  });
 
   final IconData icon;
   final String title;
+  final String? description;
 
   @override
   Widget build(BuildContext context) {
@@ -498,6 +463,16 @@ class _EmptyState extends StatelessWidget {
               context,
             ).textTheme.bodyLarge?.copyWith(color: scheme.onSurfaceVariant),
           ),
+          if (description case final text?) ...[
+            const SizedBox(height: 8),
+            Text(
+              text,
+              textAlign: TextAlign.center,
+              style: Theme.of(
+                context,
+              ).textTheme.bodyMedium?.copyWith(color: scheme.onSurfaceVariant),
+            ),
+          ],
         ],
       ),
     );

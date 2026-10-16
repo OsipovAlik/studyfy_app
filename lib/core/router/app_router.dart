@@ -1,15 +1,18 @@
 import 'package:go_router/go_router.dart';
 import 'package:studify/features/auth/auth_controller.dart';
+import 'package:studify/features/auth/domain/user_profile.dart';
 import 'package:studify/features/auth/forgot_password_screen.dart';
 import 'package:studify/features/auth/login_screen.dart';
 import 'package:studify/features/home/home_screen.dart';
 import 'package:studify/features/legal/legal_screen.dart';
 import 'package:studify/features/onboarding/onboarding_screen.dart';
 import 'package:studify/features/profile/profile_screen.dart';
+import 'package:studify/features/sessions/group_detail_screen.dart';
 import 'package:studify/features/sessions/sessions_screen.dart';
 import 'package:studify/features/settings/settings_screen.dart';
 import 'package:studify/features/shell/main_shell.dart';
 import 'package:studify/features/shell/tab_screens.dart';
+import 'package:studify/features/students/students_screen.dart';
 import 'package:studify/l10n/app_localizations.dart';
 
 abstract final class AppRoutes {
@@ -17,10 +20,12 @@ abstract final class AppRoutes {
   static const login = '/login';
   static const forgotPassword = '/forgot-password';
 
-  // The five tabs of the signed-in app.
+  // The tabs of the signed-in app. Students is teacher-only (see
+  // [createRouter]'s redirect); the rest are shown to every role.
   static const homeTab = '/home';
   static const subjects = '/subjects';
   static const sessions = '/sessions';
+  static const students = '/students';
   static const homework = '/homework';
   static const profile = '/profile';
 
@@ -45,7 +50,16 @@ GoRouter createRouter({required AuthController auth}) {
     refreshListenable: auth,
     redirect: (context, state) {
       final isPublic = AppRoutes.signedOut.contains(state.matchedLocation);
-      if (auth.isSignedIn) return isPublic ? AppRoutes.home : null;
+      if (auth.isSignedIn) {
+        if (isPublic) return AppRoutes.home;
+        // Students tab is teacher-only; a student here (e.g. a stale
+        // link, or a different role signed in) is bounced home.
+        final isStudentRole = auth.user?.role != UserRole.teacher;
+        if (isStudentRole && state.matchedLocation == AppRoutes.students) {
+          return AppRoutes.home;
+        }
+        return null;
+      }
       // Logging out mid-use goes to login, where the reason is shown.
       return isPublic ? null : AppRoutes.login;
     },
@@ -90,6 +104,22 @@ GoRouter createRouter({required AuthController auth}) {
               GoRoute(
                 path: AppRoutes.sessions,
                 builder: (context, state) => const SessionsScreen(),
+                routes: [
+                  GoRoute(
+                    path: 'groups/:id',
+                    builder: (context, state) => GroupDetailScreen(
+                      groupId: int.parse(state.pathParameters['id']!),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: AppRoutes.students,
+                builder: (context, state) => const StudentsScreen(),
               ),
             ],
           ),

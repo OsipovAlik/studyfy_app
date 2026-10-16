@@ -762,4 +762,187 @@ class AppLocalizationsFr extends AppLocalizations {
   String groupMembers(int count) {
     return '$count membre(s)';
   }
+
+  @override
+  String get tabStudents => 'Élèves';
+
+  @override
+  String get studentsTitle => 'Élèves';
+
+  @override
+  String get studentsSubtitle => 'Les élèves de votre partenaire.';
+
+  @override
+  String get studentsEmptyTitle => 'Aucun élève pour l\'instant';
+
+  @override
+  String get studentsLoadError => 'Impossible de charger les élèves.';
+
+  @override
+  String get sessionsAddSession => 'Ajouter un cours';
+
+  @override
+  String get sessionsAddModalTitle => 'Ajouter un cours';
+
+  @override
+  String get sessionsEditModalTitle => 'Modifier le cours';
+
+  @override
+  String get sessionsCreate => 'Créer le cours';
+
+  @override
+  String get sessionsSave => 'Enregistrer les modifications';
+
+  @override
+  String get sessionsSaving => 'Enregistrement…';
+
+  @override
+  String get sessionsEdit => 'Modifier';
+
+  @override
+  String get sessionsDelete => 'Supprimer';
+
+  @override
+  String get sessionsDeleteConfirmTitle => 'Supprimer ce cours ?';
+
+  @override
+  String get sessionsDeleteConfirmDescription =>
+      'Cette action est irréversible.';
+
+  @override
+  String get sessionsDeleting => 'Suppression…';
+
+  @override
+  String get sessionsCreateError => 'Impossible de créer le cours.';
+
+  @override
+  String get sessionsUpdateError => 'Impossible de modifier le cours.';
+
+  @override
+  String get sessionsDeleteError => 'Impossible de supprimer le cours.';
+
+  @override
+  String get sessionsServerUnavailable =>
+      'Serveur indisponible. Veuillez réessayer.';
+
+  @override
+  String get sessionsNoGroups =>
+      'Créez d\'abord un groupe pour planifier un cours collectif.';
+
+  @override
+  String get sessionsNoStudents =>
+      'Inscrivez d\'abord un élève pour planifier un cours individuel.';
+
+  @override
+  String get sessionsTypeLabel => 'Type';
+
+  @override
+  String get sessionsGroupLabel => 'Groupe';
+
+  @override
+  String get sessionsStudentLabel => 'Élève';
+
+  @override
+  String get sessionsDayLabel => 'Jour de la semaine';
+
+  @override
+  String get sessionsTimeLabel => 'Heure de début';
+
+  @override
+  String get groupsAddGroup => 'Ajouter un groupe';
+
+  @override
+  String get groupsEmptyDescription =>
+      'Cliquez sur « Ajouter un groupe » pour créer le premier.';
+
+  @override
+  String get groupsNameLabel => 'Nom';
+
+  @override
+  String get groupsNamePlaceholder => 'ex. : Débutants du mardi';
+
+  @override
+  String get groupsMembersLabel => 'Élèves (facultatif)';
+
+  @override
+  String get groupsNoStudentsHint => 'Aucun élève inscrit pour l\'instant.';
+
+  @override
+  String get groupsAddModalTitle => 'Ajouter un groupe';
+
+  @override
+  String get groupsRenameModalTitle => 'Renommer le groupe';
+
+  @override
+  String get groupsCreate => 'Créer le groupe';
+
+  @override
+  String get groupsSave => 'Enregistrer les modifications';
+
+  @override
+  String get groupsSaving => 'Enregistrement…';
+
+  @override
+  String get groupsRename => 'Renommer';
+
+  @override
+  String get groupsDelete => 'Supprimer';
+
+  @override
+  String groupsDeleteConfirmTitle(String name) {
+    return 'Supprimer « $name » ?';
+  }
+
+  @override
+  String get groupsDeleteConfirmDescription =>
+      'Les cours de ce groupe seront aussi supprimés. Cette action est irréversible.';
+
+  @override
+  String get groupsDeleting => 'Suppression…';
+
+  @override
+  String get groupsCreateError => 'Impossible de créer le groupe.';
+
+  @override
+  String get groupsUpdateError => 'Impossible de modifier le groupe.';
+
+  @override
+  String get groupsDeleteError => 'Impossible de supprimer le groupe.';
+
+  @override
+  String get groupsServerUnavailable =>
+      'Serveur indisponible. Veuillez réessayer.';
+
+  @override
+  String get groupDetailMembersTitle => 'Membres';
+
+  @override
+  String get groupDetailNoMembers =>
+      'Aucun élève dans ce groupe pour l’instant.';
+
+  @override
+  String get groupDetailAddMember => 'Ajouter';
+
+  @override
+  String get groupDetailSelectStudent => 'Élève';
+
+  @override
+  String get groupDetailAllAdded =>
+      'Tous les élèves font déjà partie de ce groupe.';
+
+  @override
+  String get groupDetailAddMemberError => 'Impossible d\'ajouter l\'élève.';
+
+  @override
+  String get groupDetailRemoveMember => 'Retirer';
+
+  @override
+  String get groupDetailRemoveMemberError => 'Impossible de retirer l\'élève.';
+
+  @override
+  String get groupDetailNotFoundTitle => 'Groupe introuvable';
+
+  @override
+  String get groupDetailNotFoundDescription =>
+      'Il a peut-être déjà été supprimé.';
 }

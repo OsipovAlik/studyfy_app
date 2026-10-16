@@ -745,4 +745,183 @@ class AppLocalizationsEn extends AppLocalizations {
   String groupMembers(int count) {
     return '$count members';
   }
+
+  @override
+  String get tabStudents => 'Students';
+
+  @override
+  String get studentsTitle => 'Students';
+
+  @override
+  String get studentsSubtitle => 'Students of your partner.';
+
+  @override
+  String get studentsEmptyTitle => 'No students yet';
+
+  @override
+  String get studentsLoadError => 'Could not load students.';
+
+  @override
+  String get sessionsAddSession => 'Add session';
+
+  @override
+  String get sessionsAddModalTitle => 'Add session';
+
+  @override
+  String get sessionsEditModalTitle => 'Edit session';
+
+  @override
+  String get sessionsCreate => 'Create session';
+
+  @override
+  String get sessionsSave => 'Save changes';
+
+  @override
+  String get sessionsSaving => 'Saving…';
+
+  @override
+  String get sessionsEdit => 'Edit';
+
+  @override
+  String get sessionsDelete => 'Delete';
+
+  @override
+  String get sessionsDeleteConfirmTitle => 'Delete this session?';
+
+  @override
+  String get sessionsDeleteConfirmDescription => 'This can\'t be undone.';
+
+  @override
+  String get sessionsDeleting => 'Deleting…';
+
+  @override
+  String get sessionsCreateError => 'Could not create session.';
+
+  @override
+  String get sessionsUpdateError => 'Could not update session.';
+
+  @override
+  String get sessionsDeleteError => 'Could not delete session.';
+
+  @override
+  String get sessionsServerUnavailable =>
+      'Server unavailable. Please try again.';
+
+  @override
+  String get sessionsNoGroups =>
+      'Create a group first to schedule a group session.';
+
+  @override
+  String get sessionsNoStudents =>
+      'Register a student first to schedule an individual session.';
+
+  @override
+  String get sessionsTypeLabel => 'Type';
+
+  @override
+  String get sessionsGroupLabel => 'Group';
+
+  @override
+  String get sessionsStudentLabel => 'Student';
+
+  @override
+  String get sessionsDayLabel => 'Day of the week';
+
+  @override
+  String get sessionsTimeLabel => 'Start time';
+
+  @override
+  String get groupsAddGroup => 'Add group';
+
+  @override
+  String get groupsEmptyDescription =>
+      'Click “Add group” to create your first one.';
+
+  @override
+  String get groupsNameLabel => 'Name';
+
+  @override
+  String get groupsNamePlaceholder => 'e.g. Beginners Tuesday';
+
+  @override
+  String get groupsMembersLabel => 'Students (optional)';
+
+  @override
+  String get groupsNoStudentsHint => 'No students registered yet.';
+
+  @override
+  String get groupsAddModalTitle => 'Add group';
+
+  @override
+  String get groupsRenameModalTitle => 'Rename group';
+
+  @override
+  String get groupsCreate => 'Create group';
+
+  @override
+  String get groupsSave => 'Save changes';
+
+  @override
+  String get groupsSaving => 'Saving…';
+
+  @override
+  String get groupsRename => 'Rename';
+
+  @override
+  String get groupsDelete => 'Delete';
+
+  @override
+  String groupsDeleteConfirmTitle(String name) {
+    return 'Delete \"$name\"?';
+  }
+
+  @override
+  String get groupsDeleteConfirmDescription =>
+      'This also deletes the group\'s sessions. This can\'t be undone.';
+
+  @override
+  String get groupsDeleting => 'Deleting…';
+
+  @override
+  String get groupsCreateError => 'Could not create group.';
+
+  @override
+  String get groupsUpdateError => 'Could not update group.';
+
+  @override
+  String get groupsDeleteError => 'Could not delete group.';
+
+  @override
+  String get groupsServerUnavailable => 'Server unavailable. Please try again.';
+
+  @override
+  String get groupDetailMembersTitle => 'Members';
+
+  @override
+  String get groupDetailNoMembers => 'No students in this group yet.';
+
+  @override
+  String get groupDetailAddMember => 'Add';
+
+  @override
+  String get groupDetailSelectStudent => 'Student';
+
+  @override
+  String get groupDetailAllAdded => 'All students are already in this group.';
+
+  @override
+  String get groupDetailAddMemberError => 'Could not add student.';
+
+  @override
+  String get groupDetailRemoveMember => 'Remove';
+
+  @override
+  String get groupDetailRemoveMemberError => 'Could not remove student.';
+
+  @override
+  String get groupDetailNotFoundTitle => 'Group not found';
+
+  @override
+  String get groupDetailNotFoundDescription =>
+      'It may have already been deleted.';
 }

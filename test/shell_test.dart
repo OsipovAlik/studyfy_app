@@ -101,6 +101,64 @@ void main() {
     expect(_barItem('My homework'), findsNothing);
   });
 
+  testWidgets('only a teacher sees the Students tab', (tester) async {
+    final app = await TestApp.create(session: _session(_studentJson));
+    await tester.pumpWidget(app.widget);
+    await settle(tester);
+    expect(_barItem('Students'), findsNothing);
+  });
+
+  testWidgets('a teacher opens Students and sees the roster', (
+    tester,
+  ) async {
+    final app = await TestApp.create(session: _session(teacherJson));
+    app.api.on('GET /students', [
+      const FakeResponse(200, {
+        'users': [
+          {
+            'ID': 4,
+            'name': 'John',
+            'surname': 'Doe',
+            'email': 'john@example.com',
+            'role': 'student',
+          },
+          {
+            'ID': 3,
+            'name': 'Tina',
+            'surname': 'Teach',
+            'email': 'tina@example.com',
+            'role': 'teacher',
+          },
+        ],
+      }),
+    ]);
+    await tester.pumpWidget(app.widget);
+    await settle(tester);
+
+    expect(_barItem('Students'), findsOneWidget);
+    await tester.tap(_barItem('Students'));
+    await settle(tester);
+
+    expect(find.text('John Doe'), findsOneWidget);
+    expect(find.text('john@example.com'), findsOneWidget);
+    // The teacher in the same response is filtered out.
+    expect(find.text('Tina Teach'), findsNothing);
+  });
+
+  testWidgets('a student is bounced home from the Students route', (
+    tester,
+  ) async {
+    final app = await TestApp.create(session: _session(_studentJson));
+    await tester.pumpWidget(app.widget);
+    await settle(tester);
+
+    GoRouter.of(tester.element(find.byType(GlassNavBar))).go('/students');
+    await settle(tester);
+
+    final router = GoRouter.of(tester.element(find.byType(GlassNavBar)));
+    expect(router.state.matchedLocation, '/home');
+  });
+
   testWidgets('page content stays clear of the floating bar', (tester) async {
     final app = await TestApp.create(session: _session(_studentJson));
     await tester.pumpWidget(app.widget);
@@ -213,7 +271,17 @@ void main() {
       await tester.pumpWidget(app.widget);
       await settle(tester);
 
-      for (var i = 0; i < 5; i++) {
+      // A teacher sees all 6 tabs, Students included.
+      final itemCount = tester
+          .widgetList(
+            find.descendant(
+              of: find.byType(GlassNavBar),
+              matching: find.byType(InkResponse),
+            ),
+          )
+          .length;
+      expect(itemCount, 6);
+      for (var i = 0; i < itemCount; i++) {
         await tester.tap(
           find
               .descendant(

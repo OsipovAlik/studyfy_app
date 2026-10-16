@@ -750,4 +750,184 @@ class AppLocalizationsRu extends AppLocalizations {
   String groupMembers(int count) {
     return 'Участников: $count';
   }
+
+  @override
+  String get tabStudents => 'Ученики';
+
+  @override
+  String get studentsTitle => 'Ученики';
+
+  @override
+  String get studentsSubtitle => 'Ученики вашего партнёра.';
+
+  @override
+  String get studentsEmptyTitle => 'Учеников пока нет';
+
+  @override
+  String get studentsLoadError => 'Не удалось загрузить учеников.';
+
+  @override
+  String get sessionsAddSession => 'Добавить занятие';
+
+  @override
+  String get sessionsAddModalTitle => 'Добавить занятие';
+
+  @override
+  String get sessionsEditModalTitle => 'Редактировать занятие';
+
+  @override
+  String get sessionsCreate => 'Создать занятие';
+
+  @override
+  String get sessionsSave => 'Сохранить изменения';
+
+  @override
+  String get sessionsSaving => 'Сохранение…';
+
+  @override
+  String get sessionsEdit => 'Редактировать';
+
+  @override
+  String get sessionsDelete => 'Удалить';
+
+  @override
+  String get sessionsDeleteConfirmTitle => 'Удалить это занятие?';
+
+  @override
+  String get sessionsDeleteConfirmDescription =>
+      'Это действие нельзя отменить.';
+
+  @override
+  String get sessionsDeleting => 'Удаление…';
+
+  @override
+  String get sessionsCreateError => 'Не удалось создать занятие.';
+
+  @override
+  String get sessionsUpdateError => 'Не удалось изменить занятие.';
+
+  @override
+  String get sessionsDeleteError => 'Не удалось удалить занятие.';
+
+  @override
+  String get sessionsServerUnavailable =>
+      'Сервер недоступен. Попробуйте ещё раз.';
+
+  @override
+  String get sessionsNoGroups =>
+      'Сначала создайте группу, чтобы запланировать групповое занятие.';
+
+  @override
+  String get sessionsNoStudents =>
+      'Сначала зарегистрируйте ученика, чтобы запланировать индивидуальное занятие.';
+
+  @override
+  String get sessionsTypeLabel => 'Тип';
+
+  @override
+  String get sessionsGroupLabel => 'Группа';
+
+  @override
+  String get sessionsStudentLabel => 'Ученик';
+
+  @override
+  String get sessionsDayLabel => 'День недели';
+
+  @override
+  String get sessionsTimeLabel => 'Время начала';
+
+  @override
+  String get groupsAddGroup => 'Добавить группу';
+
+  @override
+  String get groupsEmptyDescription =>
+      'Нажмите «Добавить группу», чтобы создать первую.';
+
+  @override
+  String get groupsNameLabel => 'Название';
+
+  @override
+  String get groupsNamePlaceholder => 'Напр.: Начинающие, вторник';
+
+  @override
+  String get groupsMembersLabel => 'Ученики (необязательно)';
+
+  @override
+  String get groupsNoStudentsHint => 'Зарегистрированных учеников пока нет.';
+
+  @override
+  String get groupsAddModalTitle => 'Добавить группу';
+
+  @override
+  String get groupsRenameModalTitle => 'Переименовать группу';
+
+  @override
+  String get groupsCreate => 'Создать группу';
+
+  @override
+  String get groupsSave => 'Сохранить изменения';
+
+  @override
+  String get groupsSaving => 'Сохранение…';
+
+  @override
+  String get groupsRename => 'Переименовать';
+
+  @override
+  String get groupsDelete => 'Удалить';
+
+  @override
+  String groupsDeleteConfirmTitle(String name) {
+    return 'Удалить «$name»?';
+  }
+
+  @override
+  String get groupsDeleteConfirmDescription =>
+      'Занятия этой группы тоже будут удалены. Это действие нельзя отменить.';
+
+  @override
+  String get groupsDeleting => 'Удаление…';
+
+  @override
+  String get groupsCreateError => 'Не удалось создать группу.';
+
+  @override
+  String get groupsUpdateError => 'Не удалось изменить группу.';
+
+  @override
+  String get groupsDeleteError => 'Не удалось удалить группу.';
+
+  @override
+  String get groupsServerUnavailable =>
+      'Сервер недоступен. Попробуйте ещё раз.';
+
+  @override
+  String get groupDetailMembersTitle => 'Участники';
+
+  @override
+  String get groupDetailNoMembers => 'В этой группе пока нет учеников.';
+
+  @override
+  String get groupDetailAddMember => 'Добавить';
+
+  @override
+  String get groupDetailSelectStudent => 'Ученик';
+
+  @override
+  String get groupDetailAllAdded => 'Все ученики уже в этой группе.';
+
+  @override
+  String get groupDetailAddMemberError => 'Не удалось добавить ученика.';
+
+  @override
+  String get groupDetailRemoveMember => 'Убрать';
+
+  @override
+  String get groupDetailRemoveMemberError => 'Не удалось убрать ученика.';
+
+  @override
+  String get groupDetailNotFoundTitle => 'Группа не найдена';
+
+  @override
+  String get groupDetailNotFoundDescription => 'Возможно, она уже удалена.';
 }

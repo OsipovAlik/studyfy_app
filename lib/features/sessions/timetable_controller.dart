@@ -66,6 +66,11 @@ class TimetableController extends ChangeNotifier {
   /// signed-in role).
   List<Group> get groups => _groups;
 
+  /// Student id → full name, for the add/edit session form's picker
+  /// (empty for a student, who never loads this; see [_load]).
+  Map<int, String> get studentNames => _studentNames;
+
+  bool get isTeacher => _isTeacher;
   bool get _isTeacher => _auth.user?.role == UserRole.teacher;
 
   @override
@@ -195,4 +200,41 @@ class TimetableController extends ChangeNotifier {
   }
 
   Future<CallTicket> join(int sessionId) => _repository.join(sessionId);
+
+  /// Creates a session, then reloads the list. Lets [ApiException]
+  /// through so the form can show the server's own validation message.
+  Future<void> createSession(SessionDraft draft) async {
+    await _repository.createSession(draft);
+    await reload();
+  }
+
+  Future<void> updateSession(int sessionId, SessionDraft draft) async {
+    await _repository.updateSession(sessionId, draft);
+    await reload();
+  }
+
+  Future<void> deleteSession(int sessionId) async {
+    await _repository.deleteSession(sessionId);
+    await reload();
+  }
+
+  /// Creates a group, then reloads the list. Lets [ApiException] through
+  /// so the form can show the server's own validation message.
+  Future<void> createGroup({
+    required String name,
+    List<int>? studentIds,
+  }) async {
+    await _repository.createGroup(name: name, studentIds: studentIds);
+    await reload();
+  }
+
+  Future<void> renameGroup(int groupId, String name) async {
+    await _repository.renameGroup(groupId, name);
+    await reload();
+  }
+
+  Future<void> deleteGroup(int groupId) async {
+    await _repository.deleteGroup(groupId);
+    await reload();
+  }
 }

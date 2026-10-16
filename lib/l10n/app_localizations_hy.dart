@@ -749,4 +749,183 @@ class AppLocalizationsHy extends AppLocalizations {
   String groupMembers(int count) {
     return '$count անդամ';
   }
+
+  @override
+  String get tabStudents => 'Աշակերտներ';
+
+  @override
+  String get studentsTitle => 'Աշակերտներ';
+
+  @override
+  String get studentsSubtitle => 'Ձեր գործընկերոջ աշակերտները։';
+
+  @override
+  String get studentsEmptyTitle => 'Աշակերտներ դեռ չկան';
+
+  @override
+  String get studentsLoadError => 'Չհաջողվեց բեռնել աշակերտներին։';
+
+  @override
+  String get sessionsAddSession => 'Ավելացնել պարապմունք';
+
+  @override
+  String get sessionsAddModalTitle => 'Ավելացնել պարապմունք';
+
+  @override
+  String get sessionsEditModalTitle => 'Խմբագրել պարապմունքը';
+
+  @override
+  String get sessionsCreate => 'Ստեղծել պարապմունքը';
+
+  @override
+  String get sessionsSave => 'Պահպանել փոփոխությունները';
+
+  @override
+  String get sessionsSaving => 'Պահպանվում է…';
+
+  @override
+  String get sessionsEdit => 'Խմբագրել';
+
+  @override
+  String get sessionsDelete => 'Ջնջել';
+
+  @override
+  String get sessionsDeleteConfirmTitle => 'Ջնջե՞լ այս պարապմունքը։';
+
+  @override
+  String get sessionsDeleteConfirmDescription =>
+      'Այս գործողությունը հնարավոր չէ հետարկել։';
+
+  @override
+  String get sessionsDeleting => 'Ջնջվում է…';
+
+  @override
+  String get sessionsCreateError => 'Չհաջողվեց ստեղծել պարապմունքը։';
+
+  @override
+  String get sessionsUpdateError => 'Չհաջողվեց թարմացնել պարապմունքը։';
+
+  @override
+  String get sessionsDeleteError => 'Չհաջողվեց ջնջել պարապմունքը։';
+
+  @override
+  String get sessionsServerUnavailable => 'Սերվերը հասանելի չէ։ Փորձեք կրկին։';
+
+  @override
+  String get sessionsNoGroups =>
+      'Խմբային պարապմունք պլանավորելու համար նախ ստեղծեք խումբ։';
+
+  @override
+  String get sessionsNoStudents =>
+      'Անհատական պարապմունք պլանավորելու համար նախ գրանցեք աշակերտ։';
+
+  @override
+  String get sessionsTypeLabel => 'Տեսակ';
+
+  @override
+  String get sessionsGroupLabel => 'Խումբ';
+
+  @override
+  String get sessionsStudentLabel => 'Աշակերտ';
+
+  @override
+  String get sessionsDayLabel => 'Շաբաթվա օր';
+
+  @override
+  String get sessionsTimeLabel => 'Սկսելու ժամը';
+
+  @override
+  String get groupsAddGroup => 'Ավելացնել խումբ';
+
+  @override
+  String get groupsEmptyDescription =>
+      'Սեղմեք «Ավելացնել խումբ»՝ առաջինը ստեղծելու համար։';
+
+  @override
+  String get groupsNameLabel => 'Անվանում';
+
+  @override
+  String get groupsNamePlaceholder => 'օր.՝ Երեքշաբթի, սկսնակներ';
+
+  @override
+  String get groupsMembersLabel => 'Աշակերտներ (կամընտիր)';
+
+  @override
+  String get groupsNoStudentsHint => 'Աշակերտներ դեռ գրանցված չեն։';
+
+  @override
+  String get groupsAddModalTitle => 'Ավելացնել խումբ';
+
+  @override
+  String get groupsRenameModalTitle => 'Վերանվանել խումբը';
+
+  @override
+  String get groupsCreate => 'Ստեղծել խումբը';
+
+  @override
+  String get groupsSave => 'Պահպանել փոփոխությունները';
+
+  @override
+  String get groupsSaving => 'Պահպանվում է…';
+
+  @override
+  String get groupsRename => 'Վերանվանել';
+
+  @override
+  String get groupsDelete => 'Ջնջել';
+
+  @override
+  String groupsDeleteConfirmTitle(String name) {
+    return 'Ջնջե՞լ «$name» խումբը։';
+  }
+
+  @override
+  String get groupsDeleteConfirmDescription =>
+      'Կջնջվեն նաև խմբի պարապմունքները։ Այս գործողությունը հնարավոր չէ հետարկել։';
+
+  @override
+  String get groupsDeleting => 'Ջնջվում է…';
+
+  @override
+  String get groupsCreateError => 'Չհաջողվեց ստեղծել խումբը։';
+
+  @override
+  String get groupsUpdateError => 'Չհաջողվեց թարմացնել խումբը։';
+
+  @override
+  String get groupsDeleteError => 'Չհաջողվեց ջնջել խումբը։';
+
+  @override
+  String get groupsServerUnavailable => 'Սերվերը հասանելի չէ։ Փորձեք կրկին։';
+
+  @override
+  String get groupDetailMembersTitle => 'Անդամներ';
+
+  @override
+  String get groupDetailNoMembers => 'Այս խմբում դեռ աշակերտներ չկան։';
+
+  @override
+  String get groupDetailAddMember => 'Ավելացնել';
+
+  @override
+  String get groupDetailSelectStudent => 'Աշակերտ';
+
+  @override
+  String get groupDetailAllAdded => 'Բոլոր աշակերտներն արդեն խմբում են։';
+
+  @override
+  String get groupDetailAddMemberError => 'Չհաջողվեց ավելացնել աշակերտին։';
+
+  @override
+  String get groupDetailRemoveMember => 'Հեռացնել';
+
+  @override
+  String get groupDetailRemoveMemberError => 'Չհաջողվեց հեռացնել աշակերտին։';
+
+  @override
+  String get groupDetailNotFoundTitle => 'Խումբը չի գտնվել';
+
+  @override
+  String get groupDetailNotFoundDescription =>
+      'Այն կարող է արդեն ջնջված լինել։';
 }

@@ -1463,6 +1463,348 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count} members'**
   String groupMembers(int count);
+
+  /// No description provided for @tabStudents.
+  ///
+  /// In en, this message translates to:
+  /// **'Students'**
+  String get tabStudents;
+
+  /// No description provided for @studentsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Students'**
+  String get studentsTitle;
+
+  /// No description provided for @studentsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Students of your partner.'**
+  String get studentsSubtitle;
+
+  /// No description provided for @studentsEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No students yet'**
+  String get studentsEmptyTitle;
+
+  /// No description provided for @studentsLoadError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not load students.'**
+  String get studentsLoadError;
+
+  /// No description provided for @sessionsAddSession.
+  ///
+  /// In en, this message translates to:
+  /// **'Add session'**
+  String get sessionsAddSession;
+
+  /// No description provided for @sessionsAddModalTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add session'**
+  String get sessionsAddModalTitle;
+
+  /// No description provided for @sessionsEditModalTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit session'**
+  String get sessionsEditModalTitle;
+
+  /// No description provided for @sessionsCreate.
+  ///
+  /// In en, this message translates to:
+  /// **'Create session'**
+  String get sessionsCreate;
+
+  /// No description provided for @sessionsSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save changes'**
+  String get sessionsSave;
+
+  /// No description provided for @sessionsSaving.
+  ///
+  /// In en, this message translates to:
+  /// **'Saving…'**
+  String get sessionsSaving;
+
+  /// No description provided for @sessionsEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get sessionsEdit;
+
+  /// No description provided for @sessionsDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get sessionsDelete;
+
+  /// No description provided for @sessionsDeleteConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this session?'**
+  String get sessionsDeleteConfirmTitle;
+
+  /// No description provided for @sessionsDeleteConfirmDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'This can\'t be undone.'**
+  String get sessionsDeleteConfirmDescription;
+
+  /// No description provided for @sessionsDeleting.
+  ///
+  /// In en, this message translates to:
+  /// **'Deleting…'**
+  String get sessionsDeleting;
+
+  /// No description provided for @sessionsCreateError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not create session.'**
+  String get sessionsCreateError;
+
+  /// No description provided for @sessionsUpdateError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not update session.'**
+  String get sessionsUpdateError;
+
+  /// No description provided for @sessionsDeleteError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not delete session.'**
+  String get sessionsDeleteError;
+
+  /// No description provided for @sessionsServerUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Server unavailable. Please try again.'**
+  String get sessionsServerUnavailable;
+
+  /// No description provided for @sessionsNoGroups.
+  ///
+  /// In en, this message translates to:
+  /// **'Create a group first to schedule a group session.'**
+  String get sessionsNoGroups;
+
+  /// No description provided for @sessionsNoStudents.
+  ///
+  /// In en, this message translates to:
+  /// **'Register a student first to schedule an individual session.'**
+  String get sessionsNoStudents;
+
+  /// No description provided for @sessionsTypeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Type'**
+  String get sessionsTypeLabel;
+
+  /// No description provided for @sessionsGroupLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Group'**
+  String get sessionsGroupLabel;
+
+  /// No description provided for @sessionsStudentLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Student'**
+  String get sessionsStudentLabel;
+
+  /// No description provided for @sessionsDayLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Day of the week'**
+  String get sessionsDayLabel;
+
+  /// No description provided for @sessionsTimeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Start time'**
+  String get sessionsTimeLabel;
+
+  /// No description provided for @groupsAddGroup.
+  ///
+  /// In en, this message translates to:
+  /// **'Add group'**
+  String get groupsAddGroup;
+
+  /// No description provided for @groupsEmptyDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Click “Add group” to create your first one.'**
+  String get groupsEmptyDescription;
+
+  /// No description provided for @groupsNameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get groupsNameLabel;
+
+  /// No description provided for @groupsNamePlaceholder.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Beginners Tuesday'**
+  String get groupsNamePlaceholder;
+
+  /// No description provided for @groupsMembersLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Students (optional)'**
+  String get groupsMembersLabel;
+
+  /// No description provided for @groupsNoStudentsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'No students registered yet.'**
+  String get groupsNoStudentsHint;
+
+  /// No description provided for @groupsAddModalTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add group'**
+  String get groupsAddModalTitle;
+
+  /// No description provided for @groupsRenameModalTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename group'**
+  String get groupsRenameModalTitle;
+
+  /// No description provided for @groupsCreate.
+  ///
+  /// In en, this message translates to:
+  /// **'Create group'**
+  String get groupsCreate;
+
+  /// No description provided for @groupsSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save changes'**
+  String get groupsSave;
+
+  /// No description provided for @groupsSaving.
+  ///
+  /// In en, this message translates to:
+  /// **'Saving…'**
+  String get groupsSaving;
+
+  /// No description provided for @groupsRename.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename'**
+  String get groupsRename;
+
+  /// No description provided for @groupsDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get groupsDelete;
+
+  /// No description provided for @groupsDeleteConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete \"{name}\"?'**
+  String groupsDeleteConfirmTitle(String name);
+
+  /// No description provided for @groupsDeleteConfirmDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'This also deletes the group\'s sessions. This can\'t be undone.'**
+  String get groupsDeleteConfirmDescription;
+
+  /// No description provided for @groupsDeleting.
+  ///
+  /// In en, this message translates to:
+  /// **'Deleting…'**
+  String get groupsDeleting;
+
+  /// No description provided for @groupsCreateError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not create group.'**
+  String get groupsCreateError;
+
+  /// No description provided for @groupsUpdateError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not update group.'**
+  String get groupsUpdateError;
+
+  /// No description provided for @groupsDeleteError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not delete group.'**
+  String get groupsDeleteError;
+
+  /// No description provided for @groupsServerUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Server unavailable. Please try again.'**
+  String get groupsServerUnavailable;
+
+  /// No description provided for @groupDetailMembersTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Members'**
+  String get groupDetailMembersTitle;
+
+  /// No description provided for @groupDetailNoMembers.
+  ///
+  /// In en, this message translates to:
+  /// **'No students in this group yet.'**
+  String get groupDetailNoMembers;
+
+  /// No description provided for @groupDetailAddMember.
+  ///
+  /// In en, this message translates to:
+  /// **'Add'**
+  String get groupDetailAddMember;
+
+  /// No description provided for @groupDetailSelectStudent.
+  ///
+  /// In en, this message translates to:
+  /// **'Student'**
+  String get groupDetailSelectStudent;
+
+  /// No description provided for @groupDetailAllAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'All students are already in this group.'**
+  String get groupDetailAllAdded;
+
+  /// No description provided for @groupDetailAddMemberError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not add student.'**
+  String get groupDetailAddMemberError;
+
+  /// No description provided for @groupDetailRemoveMember.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove'**
+  String get groupDetailRemoveMember;
+
+  /// No description provided for @groupDetailRemoveMemberError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not remove student.'**
+  String get groupDetailRemoveMemberError;
+
+  /// No description provided for @groupDetailNotFoundTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Group not found'**
+  String get groupDetailNotFoundTitle;
+
+  /// No description provided for @groupDetailNotFoundDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'It may have already been deleted.'**
+  String get groupDetailNotFoundDescription;
 }
 
 class _AppLocalizationsDelegate

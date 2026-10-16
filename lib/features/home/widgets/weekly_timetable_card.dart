@@ -122,7 +122,9 @@ class _NextSessionCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: isDark ? AppColors.indigo950.withValues(alpha: 0.6) : AppColors.indigo50,
+        color: isDark
+            ? AppColors.indigo950.withValues(alpha: 0.6)
+            : AppColors.indigo50,
         borderRadius: BorderRadius.circular(18),
       ),
       child: Row(
@@ -137,7 +139,9 @@ class _NextSessionCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  next.isHappeningNow ? l10n.homeTimetableLiveNow : l10n.homeTimetableNextSession,
+                  next.isHappeningNow
+                      ? l10n.homeTimetableLiveNow
+                      : l10n.homeTimetableNextSession,
                   style: theme.textTheme.labelMedium?.copyWith(
                     color: scheme.primary,
                   ),
@@ -251,7 +255,9 @@ class _DayCard extends StatelessWidget {
       width: 152,
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: isToday ? scheme.primaryContainer.withValues(alpha: 0.35) : scheme.surfaceContainerLow.withValues(alpha: 0.6),
+        color: isToday
+            ? scheme.primaryContainer.withValues(alpha: 0.35)
+            : scheme.surfaceContainerLow.withValues(alpha: 0.6),
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
           color: isToday ? scheme.primary : scheme.outlineVariant,
