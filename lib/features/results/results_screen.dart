@@ -54,6 +54,7 @@ class _ResultsScreenState extends State<ResultsScreen> {
 
     return SubPage(
       title: l10n.resultsPageTitle,
+      onRefresh: controller.reload,
       children: [
         Text(
           controller.isTeacher

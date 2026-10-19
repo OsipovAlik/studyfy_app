@@ -13,13 +13,18 @@ import 'package:studify/features/auth/data/session_storage.dart';
 import 'package:studify/features/contact/contact_repository.dart';
 import 'package:studify/features/home/home_stats_controller.dart';
 import 'package:studify/features/home/weekly_activity_controller.dart';
+import 'package:studify/features/homework/data/homework_repository.dart';
+import 'package:studify/features/homework/homework_controller.dart';
 import 'package:studify/features/results/data/results_repository.dart';
 import 'package:studify/features/results/results_list_controller.dart';
 import 'package:studify/features/sessions/data/sessions_repository.dart';
 import 'package:studify/features/sessions/timetable_controller.dart';
 import 'package:studify/features/students/data/students_repository.dart';
 import 'package:studify/features/students/students_controller.dart';
+import 'package:studify/features/subjects/data/levels_repository.dart';
 import 'package:studify/features/subjects/data/subjects_repository.dart';
+import 'package:studify/features/subjects/data/tests_repository.dart';
+import 'package:studify/features/subjects/subjects_controller.dart';
 import 'package:studify/l10n/app_localizations.dart';
 
 /// Long-lived services, created once at startup (see `main.dart`).
@@ -96,7 +101,10 @@ class _StudyfyAppState extends State<StudyfyApp> {
         Provider(create: (_) => SessionsRepository(deps.client)),
         Provider(create: (_) => StudentsRepository(deps.client)),
         Provider(create: (_) => SubjectsRepository(deps.client)),
+        Provider(create: (_) => LevelsRepository(deps.client)),
+        Provider(create: (_) => TestsRepository(deps.client)),
         Provider(create: (_) => ResultsRepository(deps.client)),
+        Provider(create: (_) => HomeworkRepository(deps.client)),
         ChangeNotifierProvider(
           create: (context) => TimetableController(
             repository: context.read<SessionsRepository>(),
@@ -127,6 +135,19 @@ class _StudyfyAppState extends State<StudyfyApp> {
           create: (context) => StudentsController(
             students: context.read<StudentsRepository>(),
             subjects: context.read<SubjectsRepository>(),
+            auth: deps.auth,
+          ),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => SubjectsController(
+            repository: context.read<SubjectsRepository>(),
+            auth: deps.auth,
+          ),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => HomeworkController(
+            homework: context.read<HomeworkRepository>(),
+            tests: context.read<TestsRepository>(),
             auth: deps.auth,
           ),
         ),

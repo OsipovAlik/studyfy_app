@@ -366,5 +366,110 @@
   "studentsDeleteForbidden": "Этот ученик также учится у другого учителя — удалить его может только владелец школы.",
   "studentsDeleting": "Удаление…",
   "studentsDeleteError": "Не удалось удалить ученика.",
-  "studentsServerUnavailable": "Сервер недоступен. Попробуйте ещё раз."
+  "studentsServerUnavailable": "Сервер недоступен. Попробуйте ещё раз.",
+  "subjectsTitle": "Предметы",
+  "subjectsSubtitle": "Предметы вашей школы.",
+  "subjectsEmptyTitle": "Предметов пока нет",
+  "subjectsEmptyDescription": "Нажмите «Добавить предмет», чтобы создать первый.",
+  "subjectsLoadError": "Не удалось загрузить предметы.",
+  "subjectsAddSubject": "Добавить предмет",
+  "subjectsNamePlaceholder": "напр., Английский",
+  "subjectsAddModalTitle": "Добавить предмет",
+  "subjectsRenameModalTitle": "Переименовать предмет",
+  "subjectsCreate": "Создать предмет",
+  "subjectsSave": "Сохранить изменения",
+  "subjectsRename": "Переименовать",
+  "subjectsDelete": "Удалить",
+  "subjectsActivate": "Активировать",
+  "subjectsDeactivate": "Деактивировать",
+  "subjectsActiveLabel": "Активен",
+  "subjectsInactiveLabel": "Неактивен",
+  "subjectsDeleteConfirmTitle": "Удалить «{name}»?",
+  "@subjectsDeleteConfirmTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "subjectsDeleteConfirmDescription": "Это также удалит его уровни, тесты и вопросы. Это действие нельзя отменить.",
+  "subjectsCreateError": "Не удалось создать предмет.",
+  "subjectsUpdateError": "Не удалось обновить предмет.",
+  "subjectsDeleteError": "Не удалось удалить предмет.",
+  "subjectsActivateError": "Не удалось обновить статус предмета.",
+  "subjectsServerUnavailable": "Сервер недоступен. Попробуйте ещё раз.",
+  "subjectDetailBackToSubjects": "Назад к предметам",
+  "subjectDetailNotFoundDescription": "Возможно, этот предмет уже удалён.",
+  "subjectDetailCreatedLabel": "Создан",
+  "subjectDetailTabTests": "Тесты",
+  "subjectDetailTabLevels": "Уровни",
+  "subjectDetailEdit": "Изменить",
+  "subjectDetailNoLevelsHint": "Добавьте уровень (напр., A1), прежде чем создавать тесты.",
+  "subjectDetailGenerateWithAi": "Создать с ИИ",
+  "subjectDetailAddTest": "Добавить тест",
+  "subjectDetailTestsEmptyTitle": "Тестов пока нет",
+  "subjectDetailTestsEmptyDescription": "Добавьте тест вручную или создайте его с помощью ИИ.",
+  "subjectDetailTestsLoadError": "Не удалось загрузить тесты.",
+  "subjectDetailAddTestModalTitle": "Добавить тест",
+  "subjectDetailEditTestModalTitle": "Изменить тест",
+  "subjectDetailTestTitlePlaceholder": "Название",
+  "subjectDetailTimeLimitLabel": "Ограничение по времени в минутах (оставьте пустым, если без ограничения)",
+  "subjectDetailTimeLimitHint": "напр., 45",
+  "subjectDetailCreateTest": "Создать тест",
+  "subjectDetailTestCreateError": "Не удалось создать тест.",
+  "subjectDetailTestUpdateError": "Не удалось обновить тест.",
+  "subjectDetailTestDeleteError": "Не удалось удалить тест.",
+  "subjectDetailDeleteTestConfirmTitle": "Удалить «{title}»?",
+  "@subjectDetailDeleteTestConfirmTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "subjectDetailDeleteTestConfirmDescription": "Это также удалит его вопросы. Это действие нельзя отменить.",
+  "subjectDetailAddLevel": "Добавить уровень",
+  "subjectDetailLevelNamePlaceholder": "напр., A1",
+  "subjectDetailAddLevelModalTitle": "Добавить уровень",
+  "subjectDetailRenameLevelModalTitle": "Переименовать уровень",
+  "subjectDetailCreateLevel": "Создать уровень",
+  "subjectDetailLevelsEmptyTitle": "Уровней пока нет",
+  "subjectDetailLevelsEmptyDescription": "Добавьте уровень (напр., A1), чтобы начать создавать тесты.",
+  "subjectDetailLevelsLoadError": "Не удалось загрузить уровни.",
+  "subjectDetailLevelCreateError": "Не удалось создать уровень.",
+  "subjectDetailLevelUpdateError": "Не удалось обновить уровень.",
+  "subjectDetailLevelDeleteError": "Не удалось удалить уровень.",
+  "subjectDetailDeleteLevelConfirmTitle": "Удалить «{name}»?",
+  "@subjectDetailDeleteLevelConfirmTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "subjectDetailDeleteLevelConfirmDescription": "Это также удалит его тесты и вопросы. Это действие нельзя отменить.",
+  "subjectDetailGenerateModalTitle": "Создать тест с ИИ",
+  "subjectDetailGenerateTopicPlaceholder": "Тема, напр., Неправильные глаголы в прошедшем времени",
+  "subjectDetailGenerateQuestionCountLabel": "Вопросы (1–30)",
+  "subjectDetailGenerateQuestionTypeMixed": "Смешанный",
+  "subjectDetailGenerateQuestionTypeMultipleChoice": "Множественный выбор",
+  "subjectDetailGenerateQuestionTypeText": "Текст",
+  "subjectDetailGenerateTitleLabel": "Название (необязательно)",
+  "subjectDetailGenerateInstructionsLabel": "Инструкции для ИИ (необязательно)",
+  "subjectDetailGenerateButton": "Создать",
+  "subjectDetailGenerating": "Создание… это может занять до минуты.",
+  "subjectDetailGenerateFailed": "Не удалось создать тест. Попробуйте ещё раз.",
+  "subjectDetailGenerateRateLimited": "Вы достигли часового лимита на создание тестов с ИИ. Попробуйте позже.",
+  "subjectDetailGenerateUnavailable": "Создание тестов с ИИ не включено для этой школы.",
+  "subjectDetailGenerateSuccess": "Создано {generated} из {requested} вопросов. Просмотрите его перед публикацией.",
+  "@subjectDetailGenerateSuccess": {
+    "placeholders": {
+      "generated": {
+        "type": "int"
+      },
+      "requested": {
+        "type": "int"
+      }
+    }
+  }
 }

@@ -54,72 +54,76 @@ class ProfileScreen extends StatelessWidget {
           const Positioned.fill(child: BrandBackdrop()),
           // The bottom safe area includes the floating tab bar.
           SafeArea(
-            child: ListView(
-              padding: const EdgeInsets.fromLTRB(24, 16, 24, 24),
-              children: [
-                Text(l10n.tabProfile, style: theme.textTheme.headlineLarge),
-                const SizedBox(height: 24),
-                _Card(
-                  child: Row(
-                    children: [
-                      _Avatar(user: user),
-                      const SizedBox(width: 16),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              l10n.homeWelcome(user.name),
-                              style: theme.textTheme.titleLarge,
-                            ),
-                            const SizedBox(height: 2),
-                            Text(
-                              user.email,
-                              style: theme.textTheme.bodyMedium?.copyWith(
-                                color: scheme.onSurfaceVariant,
+            child: RefreshIndicator(
+              onRefresh: context.read<AuthController>().refreshProfile,
+              child: ListView(
+                padding: const EdgeInsets.fromLTRB(24, 16, 24, 24),
+                physics: const AlwaysScrollableScrollPhysics(),
+                children: [
+                  Text(l10n.tabProfile, style: theme.textTheme.headlineLarge),
+                  const SizedBox(height: 24),
+                  _Card(
+                    child: Row(
+                      children: [
+                        _Avatar(user: user),
+                        const SizedBox(width: 16),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                l10n.homeWelcome(user.name),
+                                style: theme.textTheme.titleLarge,
                               ),
-                            ),
-                          ],
+                              const SizedBox(height: 2),
+                              Text(
+                                user.email,
+                                style: theme.textTheme.bodyMedium?.copyWith(
+                                  color: scheme.onSurfaceVariant,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 24),
+                  GroupedSection(
+                    children: [
+                      GroupedTile(
+                        icon: CupertinoIcons.settings,
+                        label: l10n.settingsTitle,
+                        onTap: () => context.go(AppRoutes.settings),
+                      ),
+                      GroupedTile(
+                        icon: CupertinoIcons.lock_shield_fill,
+                        color: scheme.secondary,
+                        label: l10n.privacyPolicy,
+                        onTap: () => context.go(AppRoutes.privacyPolicy),
+                      ),
+                      GroupedTile(
+                        icon: CupertinoIcons.doc_text_fill,
+                        color: scheme.tertiary,
+                        label: l10n.termsOfUse,
+                        onTap: () => context.go(AppRoutes.termsOfUse),
                       ),
                     ],
                   ),
-                ),
-                const SizedBox(height: 24),
-                GroupedSection(
-                  children: [
-                    GroupedTile(
-                      icon: CupertinoIcons.settings,
-                      label: l10n.settingsTitle,
-                      onTap: () => context.go(AppRoutes.settings),
+                  const SizedBox(height: 24),
+                  OutlinedButton.icon(
+                    onPressed: () => _confirmSignOut(context),
+                    style: OutlinedButton.styleFrom(
+                      foregroundColor: scheme.error,
+                      side: BorderSide(
+                        color: scheme.error.withValues(alpha: 0.4),
+                      ),
                     ),
-                    GroupedTile(
-                      icon: CupertinoIcons.lock_shield_fill,
-                      color: scheme.secondary,
-                      label: l10n.privacyPolicy,
-                      onTap: () => context.go(AppRoutes.privacyPolicy),
-                    ),
-                    GroupedTile(
-                      icon: CupertinoIcons.doc_text_fill,
-                      color: scheme.tertiary,
-                      label: l10n.termsOfUse,
-                      onTap: () => context.go(AppRoutes.termsOfUse),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 24),
-                OutlinedButton.icon(
-                  onPressed: () => _confirmSignOut(context),
-                  style: OutlinedButton.styleFrom(
-                    foregroundColor: scheme.error,
-                    side: BorderSide(
-                      color: scheme.error.withValues(alpha: 0.4),
-                    ),
+                    icon: const Icon(CupertinoIcons.square_arrow_right),
+                    label: Text(l10n.logout),
                   ),
-                  icon: const Icon(CupertinoIcons.square_arrow_right),
-                  label: Text(l10n.logout),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ],

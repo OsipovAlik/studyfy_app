@@ -48,56 +48,64 @@ class _SessionsScreenState extends State<SessionsScreen> {
         children: [
           const Positioned.fill(child: BrandBackdrop()),
           SafeArea(
-            child: ListView(
-              padding: const EdgeInsets.fromLTRB(24, 16, 24, 24),
-              children: [
-                Text(l10n.sessionsTitle, style: theme.textTheme.headlineLarge),
-                const SizedBox(height: 4),
-                Text(
-                  l10n.sessionsSubtitle,
-                  style: theme.textTheme.bodyMedium?.copyWith(
-                    color: theme.colorScheme.onSurfaceVariant,
+            child: RefreshIndicator(
+              onRefresh: controller.reload,
+              child: ListView(
+                padding: const EdgeInsets.fromLTRB(24, 16, 24, 24),
+                physics: const AlwaysScrollableScrollPhysics(),
+                children: [
+                  Text(
+                    l10n.sessionsTitle,
+                    style: theme.textTheme.headlineLarge,
                   ),
-                ),
-                const SizedBox(height: 18),
-                _SegmentedTabs(
-                  tab: _tab,
-                  onChanged: (tab) => setState(() => _tab = tab),
-                ),
-                const SizedBox(height: 16),
-                if (controller.isLoading &&
-                    controller.sessions.isEmpty &&
-                    controller.groups.isEmpty)
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 60),
-                    child: Center(child: CircularProgressIndicator()),
-                  )
-                else if (controller.hasError)
-                  _ErrorState(
-                    message: _tab == _Tab.sessions
-                        ? l10n.sessionsLoadError
-                        : l10n.groupsLoadError,
-                    onRetry: controller.reload,
-                  )
-                else if (_tab == _Tab.sessions)
-                  _SessionsTab(
-                    controller: controller,
-                    typeFilter: _typeFilter,
-                    dayFilter: _dayFilter,
-                    onTypeChanged: (type) => setState(() => _typeFilter = type),
-                    onDayChanged: (day) => setState(() => _dayFilter = day),
-                    onAdd: () => unawaited(
-                      showSessionFormSheet(context, controller: controller),
-                    ),
-                  )
-                else
-                  _GroupsTab(
-                    controller: controller,
-                    onAdd: () => unawaited(
-                      showGroupFormSheet(context, controller: controller),
+                  const SizedBox(height: 4),
+                  Text(
+                    l10n.sessionsSubtitle,
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      color: theme.colorScheme.onSurfaceVariant,
                     ),
                   ),
-              ],
+                  const SizedBox(height: 18),
+                  _SegmentedTabs(
+                    tab: _tab,
+                    onChanged: (tab) => setState(() => _tab = tab),
+                  ),
+                  const SizedBox(height: 16),
+                  if (controller.isLoading &&
+                      controller.sessions.isEmpty &&
+                      controller.groups.isEmpty)
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 60),
+                      child: Center(child: CircularProgressIndicator()),
+                    )
+                  else if (controller.hasError)
+                    _ErrorState(
+                      message: _tab == _Tab.sessions
+                          ? l10n.sessionsLoadError
+                          : l10n.groupsLoadError,
+                      onRetry: controller.reload,
+                    )
+                  else if (_tab == _Tab.sessions)
+                    _SessionsTab(
+                      controller: controller,
+                      typeFilter: _typeFilter,
+                      dayFilter: _dayFilter,
+                      onTypeChanged: (type) =>
+                          setState(() => _typeFilter = type),
+                      onDayChanged: (day) => setState(() => _dayFilter = day),
+                      onAdd: () => unawaited(
+                        showSessionFormSheet(context, controller: controller),
+                      ),
+                    )
+                  else
+                    _GroupsTab(
+                      controller: controller,
+                      onAdd: () => unawaited(
+                        showGroupFormSheet(context, controller: controller),
+                      ),
+                    ),
+                ],
+              ),
             ),
           ),
         ],

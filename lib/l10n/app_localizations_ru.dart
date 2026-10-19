@@ -1088,4 +1088,478 @@ class AppLocalizationsRu extends AppLocalizations {
   @override
   String get studentsServerUnavailable =>
       'Сервер недоступен. Попробуйте ещё раз.';
+
+  @override
+  String get subjectsTitle => 'Предметы';
+
+  @override
+  String get subjectsSubtitle => 'Предметы вашей школы.';
+
+  @override
+  String get subjectsEmptyTitle => 'Предметов пока нет';
+
+  @override
+  String get subjectsEmptyDescription =>
+      'Нажмите «Добавить предмет», чтобы создать первый.';
+
+  @override
+  String get subjectsLoadError => 'Не удалось загрузить предметы.';
+
+  @override
+  String get subjectsAddSubject => 'Добавить предмет';
+
+  @override
+  String get subjectsNamePlaceholder => 'напр., Английский';
+
+  @override
+  String get subjectsAddModalTitle => 'Добавить предмет';
+
+  @override
+  String get subjectsRenameModalTitle => 'Переименовать предмет';
+
+  @override
+  String get subjectsCreate => 'Создать предмет';
+
+  @override
+  String get subjectsSave => 'Сохранить изменения';
+
+  @override
+  String get subjectsRename => 'Переименовать';
+
+  @override
+  String get subjectsDelete => 'Удалить';
+
+  @override
+  String get subjectsActivate => 'Активировать';
+
+  @override
+  String get subjectsDeactivate => 'Деактивировать';
+
+  @override
+  String get subjectsActiveLabel => 'Активен';
+
+  @override
+  String get subjectsInactiveLabel => 'Неактивен';
+
+  @override
+  String subjectsDeleteConfirmTitle(String name) {
+    return 'Удалить «$name»?';
+  }
+
+  @override
+  String get subjectsDeleteConfirmDescription =>
+      'Это также удалит его уровни, тесты и вопросы. Это действие нельзя отменить.';
+
+  @override
+  String get subjectsCreateError => 'Не удалось создать предмет.';
+
+  @override
+  String get subjectsUpdateError => 'Не удалось обновить предмет.';
+
+  @override
+  String get subjectsDeleteError => 'Не удалось удалить предмет.';
+
+  @override
+  String get subjectsActivateError => 'Не удалось обновить статус предмета.';
+
+  @override
+  String get subjectsServerUnavailable =>
+      'Сервер недоступен. Попробуйте ещё раз.';
+
+  @override
+  String get subjectDetailBackToSubjects => 'Назад к предметам';
+
+  @override
+  String get subjectDetailNotFoundDescription =>
+      'Возможно, этот предмет уже удалён.';
+
+  @override
+  String get subjectDetailCreatedLabel => 'Создан';
+
+  @override
+  String get subjectDetailTabTests => 'Тесты';
+
+  @override
+  String get subjectDetailTabLevels => 'Уровни';
+
+  @override
+  String get subjectDetailEdit => 'Изменить';
+
+  @override
+  String get subjectDetailNoLevelsHint =>
+      'Добавьте уровень (напр., A1), прежде чем создавать тесты.';
+
+  @override
+  String get subjectDetailGenerateWithAi => 'Создать с ИИ';
+
+  @override
+  String get subjectDetailAddTest => 'Добавить тест';
+
+  @override
+  String get subjectDetailTestsEmptyTitle => 'Тестов пока нет';
+
+  @override
+  String get subjectDetailTestsEmptyDescription =>
+      'Добавьте тест вручную или создайте его с помощью ИИ.';
+
+  @override
+  String get subjectDetailTestsLoadError => 'Не удалось загрузить тесты.';
+
+  @override
+  String get subjectDetailAddTestModalTitle => 'Добавить тест';
+
+  @override
+  String get subjectDetailEditTestModalTitle => 'Изменить тест';
+
+  @override
+  String get subjectDetailTestTitlePlaceholder => 'Название';
+
+  @override
+  String get subjectDetailTimeLimitLabel =>
+      'Ограничение по времени в минутах (оставьте пустым, если без ограничения)';
+
+  @override
+  String get subjectDetailTimeLimitHint => 'напр., 45';
+
+  @override
+  String get subjectDetailCreateTest => 'Создать тест';
+
+  @override
+  String get subjectDetailTestCreateError => 'Не удалось создать тест.';
+
+  @override
+  String get subjectDetailTestUpdateError => 'Не удалось обновить тест.';
+
+  @override
+  String get subjectDetailTestDeleteError => 'Не удалось удалить тест.';
+
+  @override
+  String subjectDetailDeleteTestConfirmTitle(String title) {
+    return 'Удалить «$title»?';
+  }
+
+  @override
+  String get subjectDetailDeleteTestConfirmDescription =>
+      'Это также удалит его вопросы. Это действие нельзя отменить.';
+
+  @override
+  String get subjectDetailAddLevel => 'Добавить уровень';
+
+  @override
+  String get subjectDetailLevelNamePlaceholder => 'напр., A1';
+
+  @override
+  String get subjectDetailAddLevelModalTitle => 'Добавить уровень';
+
+  @override
+  String get subjectDetailRenameLevelModalTitle => 'Переименовать уровень';
+
+  @override
+  String get subjectDetailCreateLevel => 'Создать уровень';
+
+  @override
+  String get subjectDetailLevelsEmptyTitle => 'Уровней пока нет';
+
+  @override
+  String get subjectDetailLevelsEmptyDescription =>
+      'Добавьте уровень (напр., A1), чтобы начать создавать тесты.';
+
+  @override
+  String get subjectDetailLevelsLoadError => 'Не удалось загрузить уровни.';
+
+  @override
+  String get subjectDetailLevelCreateError => 'Не удалось создать уровень.';
+
+  @override
+  String get subjectDetailLevelUpdateError => 'Не удалось обновить уровень.';
+
+  @override
+  String get subjectDetailLevelDeleteError => 'Не удалось удалить уровень.';
+
+  @override
+  String subjectDetailDeleteLevelConfirmTitle(String name) {
+    return 'Удалить «$name»?';
+  }
+
+  @override
+  String get subjectDetailDeleteLevelConfirmDescription =>
+      'Это также удалит его тесты и вопросы. Это действие нельзя отменить.';
+
+  @override
+  String get subjectDetailGenerateModalTitle => 'Создать тест с ИИ';
+
+  @override
+  String get subjectDetailGenerateTopicPlaceholder =>
+      'Тема, напр., Неправильные глаголы в прошедшем времени';
+
+  @override
+  String get subjectDetailGenerateQuestionCountLabel => 'Вопросы (1–30)';
+
+  @override
+  String get subjectDetailGenerateQuestionTypeMixed => 'Смешанный';
+
+  @override
+  String get subjectDetailGenerateQuestionTypeMultipleChoice =>
+      'Множественный выбор';
+
+  @override
+  String get subjectDetailGenerateQuestionTypeText => 'Текст';
+
+  @override
+  String get subjectDetailGenerateTitleLabel => 'Название (необязательно)';
+
+  @override
+  String get subjectDetailGenerateInstructionsLabel =>
+      'Инструкции для ИИ (необязательно)';
+
+  @override
+  String get subjectDetailGenerateButton => 'Создать';
+
+  @override
+  String get subjectDetailGenerating => 'Создание… это может занять до минуты.';
+
+  @override
+  String get subjectDetailGenerateFailed =>
+      'Не удалось создать тест. Попробуйте ещё раз.';
+
+  @override
+  String get subjectDetailGenerateRateLimited =>
+      'Вы достигли часового лимита на создание тестов с ИИ. Попробуйте позже.';
+
+  @override
+  String get subjectDetailGenerateUnavailable =>
+      'Создание тестов с ИИ не включено для этой школы.';
+
+  @override
+  String subjectDetailGenerateSuccess(int generated, int requested) {
+    return 'Создано $generated из $requested вопросов. Просмотрите его перед публикацией.';
+  }
+
+  @override
+  String get homeworkTitleTeacher => 'Homework';
+
+  @override
+  String get homeworkTitleStudent => 'My Homework';
+
+  @override
+  String get homeworkSubtitleTeacher =>
+      'Assign homework to students and follow their progress.';
+
+  @override
+  String get homeworkSubtitleStudent => 'Your homework, all in one place.';
+
+  @override
+  String get homeworkSearchHint => 'Search homework…';
+
+  @override
+  String get homeworkAssignButton => 'Assign';
+
+  @override
+  String get homeworkStatusAll => 'All';
+
+  @override
+  String get homeworkStatusPending => 'Pending';
+
+  @override
+  String get homeworkStatusOverdue => 'Overdue';
+
+  @override
+  String get homeworkStatusCompleted => 'Completed';
+
+  @override
+  String get homeworkFilterAllTypes => 'All homework';
+
+  @override
+  String get homeworkFilterAllStudents => 'All students';
+
+  @override
+  String get homeworkKindTest => 'Test';
+
+  @override
+  String get homeworkKindTask => 'Task';
+
+  @override
+  String get homeworkEmptyTitleTeacher =>
+      'No homework yet. Assign a test to your students.';
+
+  @override
+  String get homeworkEmptyTitleStudent =>
+      'No homework yet. Enjoy the free time!';
+
+  @override
+  String get homeworkNoMatches => 'No homework matches your filters.';
+
+  @override
+  String get homeworkLoadError => 'Could not load homework.';
+
+  @override
+  String get homeworkAssignModalTitle => 'Assign homework';
+
+  @override
+  String get homeworkTestLabel => 'Test';
+
+  @override
+  String get homeworkNoActiveTests =>
+      'Publish a test first before assigning it as homework.';
+
+  @override
+  String get homeworkTaskTitlePlaceholder => 'Title';
+
+  @override
+  String get homeworkMaxGradeHint => 'Max grade (default 100)';
+
+  @override
+  String get homeworkDueDateLabel => 'Due date';
+
+  @override
+  String get homeworkNoDueDate => 'No due date';
+
+  @override
+  String get homeworkNoteHint => 'Note for the student (optional)';
+
+  @override
+  String get homeworkAssignToLabel => 'Assign to';
+
+  @override
+  String get homeworkGroupsLabel => 'Groups';
+
+  @override
+  String get homeworkStudentsLabel => 'Students';
+
+  @override
+  String get homeworkNoStudentsHint =>
+      'Register a student first before assigning homework.';
+
+  @override
+  String get homeworkAssignError => 'Could not assign homework.';
+
+  @override
+  String get homeworkServerUnavailable =>
+      'Server unavailable. Please try again.';
+
+  @override
+  String homeworkDueOn(String date) {
+    return 'Due $date';
+  }
+
+  @override
+  String get homeworkNoteLabel => 'Note';
+
+  @override
+  String homeworkTimeLimitMinutes(int minutes) {
+    return 'Time limit: $minutes minutes';
+  }
+
+  @override
+  String get homeworkViewResult => 'View result';
+
+  @override
+  String get homeworkTestUnavailable => 'This test isn\'t available right now.';
+
+  @override
+  String get homeworkStartTest => 'Start test';
+
+  @override
+  String get homeworkStartTestComingSoon =>
+      'Taking tests from here is coming soon.';
+
+  @override
+  String homeworkMaxGradeValue(int max) {
+    return 'Out of $max points';
+  }
+
+  @override
+  String get homeworkMaterialsLabel => 'Materials';
+
+  @override
+  String get homeworkSubmissionFilesLabel => 'Submission files';
+
+  @override
+  String get homeworkUploadFile => 'Upload file';
+
+  @override
+  String get homeworkLoadFilesError => 'Could not load files.';
+
+  @override
+  String get homeworkNoFiles => 'No files yet.';
+
+  @override
+  String get homeworkUploadError => 'Could not upload this file.';
+
+  @override
+  String get homeworkDeleteFileError => 'Could not delete this file.';
+
+  @override
+  String get homeworkSubmissionLabel => 'Submission';
+
+  @override
+  String get homeworkNoSubmissionYet => 'Not submitted yet.';
+
+  @override
+  String get homeworkGradeButton => 'Grade';
+
+  @override
+  String get homeworkSubmissionHint => 'Write your answer…';
+
+  @override
+  String get homeworkSubmitButton => 'Submit';
+
+  @override
+  String get homeworkResubmitButton => 'Resubmit';
+
+  @override
+  String get homeworkSubmitError => 'Could not submit this homework.';
+
+  @override
+  String get homeworkUnlockButton => 'Unlock';
+
+  @override
+  String get homeworkUnlockError => 'Could not unlock this grade.';
+
+  @override
+  String get homeworkGradeModalTitle => 'Grade submission';
+
+  @override
+  String homeworkGradeHint(int max) {
+    return 'Grade out of $max';
+  }
+
+  @override
+  String get homeworkFeedbackHint => 'Feedback (optional)';
+
+  @override
+  String get homeworkGradeError => 'Could not save this grade.';
+
+  @override
+  String get homeworkSaveGrade => 'Save grade';
+
+  @override
+  String get homeworkEditModalTitle => 'Edit homework';
+
+  @override
+  String get homeworkUpdateError => 'Could not update this homework.';
+
+  @override
+  String get homeworkEdit => 'Edit';
+
+  @override
+  String get homeworkDelete => 'Delete';
+
+  @override
+  String homeworkDeleteConfirmTitle(String title) {
+    return 'Delete \"$title\"?';
+  }
+
+  @override
+  String get homeworkDeleteConfirmDescription => 'This can\'t be undone.';
+
+  @override
+  String get homeworkDeleteError => 'Could not delete this homework.';
+
+  @override
+  String get homeworkDetailNotFoundTitle => 'Homework not found';
+
+  @override
+  String get homeworkDetailNotFoundDescription =>
+      'This homework may have already been deleted.';
 }

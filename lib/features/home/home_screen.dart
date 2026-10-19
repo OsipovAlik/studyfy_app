@@ -29,6 +29,12 @@ class _HomeScreenState extends State<HomeScreen> {
     unawaited(context.read<WeeklyActivityController>().ensureLoaded());
   }
 
+  Future<void> _refresh() => Future.wait([
+    context.read<TimetableController>().reload(),
+    context.read<HomeStatsController>().reload(),
+    context.read<WeeklyActivityController>().reload(),
+  ]);
+
   @override
   Widget build(BuildContext context) {
     final user = context.watch<AuthController>().user;
@@ -40,16 +46,20 @@ class _HomeScreenState extends State<HomeScreen> {
           const Positioned.fill(child: BrandBackdrop()),
           // The bottom safe area includes the floating tab bar.
           SafeArea(
-            child: ListView(
-              padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
-              children: [
-                WelcomeBanner(user: user),
-                const SizedBox(height: 16),
-                const HomeStatsGrid(),
-                const WeeklyTimetableCard(),
-                const SizedBox(height: 16),
-                const WeeklyActivityCard(),
-              ],
+            child: RefreshIndicator(
+              onRefresh: _refresh,
+              child: ListView(
+                padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
+                physics: const AlwaysScrollableScrollPhysics(),
+                children: [
+                  WelcomeBanner(user: user),
+                  const SizedBox(height: 16),
+                  const HomeStatsGrid(),
+                  const WeeklyTimetableCard(),
+                  const SizedBox(height: 16),
+                  const WeeklyActivityCard(),
+                ],
+              ),
             ),
           ),
         ],

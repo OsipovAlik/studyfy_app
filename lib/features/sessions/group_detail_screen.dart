@@ -133,6 +133,7 @@ class _GroupDetailScreenState extends State<GroupDetailScreen> {
           }
           return SubPage(
             title: l10n.groupsTitle,
+            onRefresh: _reload,
             children: [
               Text(
                 l10n.groupsLoadError,
@@ -152,6 +153,7 @@ class _GroupDetailScreenState extends State<GroupDetailScreen> {
         final detail = snapshot.data!;
         return SubPage(
           title: detail.name,
+          onRefresh: _reload,
           children: [
             _MembersSection(
               detail: detail,

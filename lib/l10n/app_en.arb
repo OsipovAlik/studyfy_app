@@ -484,5 +484,215 @@
   "studentsDeleteForbidden": "This student also studies another teacher's subject — only the school's owner can delete them.",
   "studentsDeleting": "Deleting…",
   "studentsDeleteError": "Could not delete student.",
-  "studentsServerUnavailable": "Server unavailable. Please try again."
+  "studentsServerUnavailable": "Server unavailable. Please try again.",
+  "subjectsTitle": "Subjects",
+  "subjectsSubtitle": "Your school's subjects.",
+  "subjectsEmptyTitle": "No subjects yet",
+  "subjectsEmptyDescription": "Click “Add subject” to create your first one.",
+  "subjectsLoadError": "Could not load subjects.",
+  "subjectsAddSubject": "Add subject",
+  "subjectsNamePlaceholder": "e.g. English",
+  "subjectsAddModalTitle": "Add subject",
+  "subjectsRenameModalTitle": "Rename subject",
+  "subjectsCreate": "Create subject",
+  "subjectsSave": "Save changes",
+  "subjectsRename": "Rename",
+  "subjectsDelete": "Delete",
+  "subjectsActivate": "Activate",
+  "subjectsDeactivate": "Deactivate",
+  "subjectsActiveLabel": "Active",
+  "subjectsInactiveLabel": "Inactive",
+  "subjectsDeleteConfirmTitle": "Delete \"{name}\"?",
+  "@subjectsDeleteConfirmTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "subjectsDeleteConfirmDescription": "This also deletes its levels, tests and questions. This can't be undone.",
+  "subjectsCreateError": "Could not create subject.",
+  "subjectsUpdateError": "Could not update subject.",
+  "subjectsDeleteError": "Could not delete subject.",
+  "subjectsActivateError": "Could not update that subject's status.",
+  "subjectsServerUnavailable": "Server unavailable. Please try again.",
+  "subjectDetailBackToSubjects": "Back to subjects",
+  "subjectDetailNotFoundDescription": "This subject may have already been deleted.",
+  "subjectDetailCreatedLabel": "Created",
+  "subjectDetailTabTests": "Tests",
+  "subjectDetailTabLevels": "Levels",
+  "subjectDetailEdit": "Edit",
+  "subjectDetailNoLevelsHint": "Add a level (e.g. A1) before creating tests.",
+  "subjectDetailGenerateWithAi": "Generate with AI",
+  "subjectDetailAddTest": "Add test",
+  "subjectDetailTestsEmptyTitle": "No tests yet",
+  "subjectDetailTestsEmptyDescription": "Add a test manually, or generate one with AI.",
+  "subjectDetailTestsLoadError": "Could not load tests.",
+  "subjectDetailAddTestModalTitle": "Add test",
+  "subjectDetailEditTestModalTitle": "Edit test",
+  "subjectDetailTestTitlePlaceholder": "Title",
+  "subjectDetailTimeLimitLabel": "Time limit in minutes (leave blank for none)",
+  "subjectDetailTimeLimitHint": "e.g. 45",
+  "subjectDetailCreateTest": "Create test",
+  "subjectDetailTestCreateError": "Could not create test.",
+  "subjectDetailTestUpdateError": "Could not update test.",
+  "subjectDetailTestDeleteError": "Could not delete test.",
+  "subjectDetailDeleteTestConfirmTitle": "Delete \"{title}\"?",
+  "@subjectDetailDeleteTestConfirmTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "subjectDetailDeleteTestConfirmDescription": "This also deletes its questions. This can't be undone.",
+  "subjectDetailAddLevel": "Add level",
+  "subjectDetailLevelNamePlaceholder": "e.g. A1",
+  "subjectDetailAddLevelModalTitle": "Add level",
+  "subjectDetailRenameLevelModalTitle": "Rename level",
+  "subjectDetailCreateLevel": "Create level",
+  "subjectDetailLevelsEmptyTitle": "No levels yet",
+  "subjectDetailLevelsEmptyDescription": "Add a level (e.g. A1) to start creating tests.",
+  "subjectDetailLevelsLoadError": "Could not load levels.",
+  "subjectDetailLevelCreateError": "Could not create level.",
+  "subjectDetailLevelUpdateError": "Could not update level.",
+  "subjectDetailLevelDeleteError": "Could not delete level.",
+  "subjectDetailDeleteLevelConfirmTitle": "Delete \"{name}\"?",
+  "@subjectDetailDeleteLevelConfirmTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "subjectDetailDeleteLevelConfirmDescription": "This also deletes its tests and questions. This can't be undone.",
+  "subjectDetailGenerateModalTitle": "Generate test with AI",
+  "subjectDetailGenerateTopicPlaceholder": "Topic, e.g. Past tense irregular verbs",
+  "subjectDetailGenerateQuestionCountLabel": "Questions (1–30)",
+  "subjectDetailGenerateQuestionTypeMixed": "Mixed",
+  "subjectDetailGenerateQuestionTypeMultipleChoice": "Multiple choice",
+  "subjectDetailGenerateQuestionTypeText": "Text",
+  "subjectDetailGenerateTitleLabel": "Title (optional)",
+  "subjectDetailGenerateInstructionsLabel": "Instructions for the AI (optional)",
+  "subjectDetailGenerateButton": "Generate",
+  "subjectDetailGenerating": "Generating… this can take up to a minute.",
+  "subjectDetailGenerateFailed": "Could not generate a test. Please try again.",
+  "subjectDetailGenerateRateLimited": "You've reached this hour's limit for AI test generation. Try again later.",
+  "subjectDetailGenerateUnavailable": "AI test generation isn't switched on for this school.",
+  "subjectDetailGenerateSuccess": "Generated {generated} of {requested} questions. Review it before publishing.",
+  "@subjectDetailGenerateSuccess": {
+    "placeholders": {
+      "generated": {
+        "type": "int"
+      },
+      "requested": {
+        "type": "int"
+      }
+    }
+  },
+  "homeworkTitleTeacher": "Homework",
+  "homeworkTitleStudent": "My Homework",
+  "homeworkSubtitleTeacher": "Assign homework to students and follow their progress.",
+  "homeworkSubtitleStudent": "Your homework, all in one place.",
+  "homeworkSearchHint": "Search homework…",
+  "homeworkAssignButton": "Assign",
+  "homeworkStatusAll": "All",
+  "homeworkStatusPending": "Pending",
+  "homeworkStatusOverdue": "Overdue",
+  "homeworkStatusCompleted": "Completed",
+  "homeworkFilterAllTypes": "All homework",
+  "homeworkFilterAllStudents": "All students",
+  "homeworkKindTest": "Test",
+  "homeworkKindTask": "Task",
+  "homeworkEmptyTitleTeacher": "No homework yet. Assign a test to your students.",
+  "homeworkEmptyTitleStudent": "No homework yet. Enjoy the free time!",
+  "homeworkNoMatches": "No homework matches your filters.",
+  "homeworkLoadError": "Could not load homework.",
+  "homeworkAssignModalTitle": "Assign homework",
+  "homeworkTestLabel": "Test",
+  "homeworkNoActiveTests": "Publish a test first before assigning it as homework.",
+  "homeworkTaskTitlePlaceholder": "Title",
+  "homeworkMaxGradeHint": "Max grade (default 100)",
+  "homeworkDueDateLabel": "Due date",
+  "homeworkNoDueDate": "No due date",
+  "homeworkNoteHint": "Note for the student (optional)",
+  "homeworkAssignToLabel": "Assign to",
+  "homeworkGroupsLabel": "Groups",
+  "homeworkStudentsLabel": "Students",
+  "homeworkNoStudentsHint": "Register a student first before assigning homework.",
+  "homeworkAssignError": "Could not assign homework.",
+  "homeworkServerUnavailable": "Server unavailable. Please try again.",
+  "homeworkDueOn": "Due {date}",
+  "@homeworkDueOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "homeworkNoteLabel": "Note",
+  "homeworkTimeLimitMinutes": "Time limit: {minutes} minutes",
+  "@homeworkTimeLimitMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "homeworkViewResult": "View result",
+  "homeworkTestUnavailable": "This test isn't available right now.",
+  "homeworkStartTest": "Start test",
+  "homeworkStartTestComingSoon": "Taking tests from here is coming soon.",
+  "homeworkMaxGradeValue": "Out of {max} points",
+  "@homeworkMaxGradeValue": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "homeworkMaterialsLabel": "Materials",
+  "homeworkSubmissionFilesLabel": "Submission files",
+  "homeworkUploadFile": "Upload file",
+  "homeworkLoadFilesError": "Could not load files.",
+  "homeworkNoFiles": "No files yet.",
+  "homeworkUploadError": "Could not upload this file.",
+  "homeworkDeleteFileError": "Could not delete this file.",
+  "homeworkSubmissionLabel": "Submission",
+  "homeworkNoSubmissionYet": "Not submitted yet.",
+  "homeworkGradeButton": "Grade",
+  "homeworkSubmissionHint": "Write your answer…",
+  "homeworkSubmitButton": "Submit",
+  "homeworkResubmitButton": "Resubmit",
+  "homeworkSubmitError": "Could not submit this homework.",
+  "homeworkUnlockButton": "Unlock",
+  "homeworkUnlockError": "Could not unlock this grade.",
+  "homeworkGradeModalTitle": "Grade submission",
+  "homeworkGradeHint": "Grade out of {max}",
+  "@homeworkGradeHint": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "homeworkFeedbackHint": "Feedback (optional)",
+  "homeworkGradeError": "Could not save this grade.",
+  "homeworkSaveGrade": "Save grade",
+  "homeworkEditModalTitle": "Edit homework",
+  "homeworkUpdateError": "Could not update this homework.",
+  "homeworkEdit": "Edit",
+  "homeworkDelete": "Delete",
+  "homeworkDeleteConfirmTitle": "Delete \"{title}\"?",
+  "@homeworkDeleteConfirmTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "homeworkDeleteConfirmDescription": "This can't be undone.",
+  "homeworkDeleteError": "Could not delete this homework.",
+  "homeworkDetailNotFoundTitle": "Homework not found",
+  "homeworkDetailNotFoundDescription": "This homework may have already been deleted."
 }

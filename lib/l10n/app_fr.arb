@@ -366,5 +366,110 @@
   "studentsDeleteForbidden": "Cet élève suit aussi la matière d'un autre enseignant : seul le propriétaire de l'école peut le supprimer.",
   "studentsDeleting": "Suppression…",
   "studentsDeleteError": "Impossible de supprimer l'élève.",
-  "studentsServerUnavailable": "Serveur indisponible. Veuillez réessayer."
+  "studentsServerUnavailable": "Serveur indisponible. Veuillez réessayer.",
+  "subjectsTitle": "Matières",
+  "subjectsSubtitle": "Les matières de votre école.",
+  "subjectsEmptyTitle": "Aucune matière pour l'instant",
+  "subjectsEmptyDescription": "Cliquez sur « Ajouter une matière » pour créer la première.",
+  "subjectsLoadError": "Impossible de charger les matières.",
+  "subjectsAddSubject": "Ajouter une matière",
+  "subjectsNamePlaceholder": "p. ex. Anglais",
+  "subjectsAddModalTitle": "Ajouter une matière",
+  "subjectsRenameModalTitle": "Renommer la matière",
+  "subjectsCreate": "Créer la matière",
+  "subjectsSave": "Enregistrer les modifications",
+  "subjectsRename": "Renommer",
+  "subjectsDelete": "Supprimer",
+  "subjectsActivate": "Activer",
+  "subjectsDeactivate": "Désactiver",
+  "subjectsActiveLabel": "Active",
+  "subjectsInactiveLabel": "Inactive",
+  "subjectsDeleteConfirmTitle": "Supprimer « {name} » ?",
+  "@subjectsDeleteConfirmTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "subjectsDeleteConfirmDescription": "Cela supprime aussi ses niveaux, tests et questions. Cette action est irréversible.",
+  "subjectsCreateError": "Impossible de créer la matière.",
+  "subjectsUpdateError": "Impossible de mettre à jour la matière.",
+  "subjectsDeleteError": "Impossible de supprimer la matière.",
+  "subjectsActivateError": "Impossible de mettre à jour le statut de cette matière.",
+  "subjectsServerUnavailable": "Serveur indisponible. Veuillez réessayer.",
+  "subjectDetailBackToSubjects": "Retour aux matières",
+  "subjectDetailNotFoundDescription": "Cette matière a peut-être déjà été supprimée.",
+  "subjectDetailCreatedLabel": "Créée le",
+  "subjectDetailTabTests": "Tests",
+  "subjectDetailTabLevels": "Niveaux",
+  "subjectDetailEdit": "Modifier",
+  "subjectDetailNoLevelsHint": "Ajoutez un niveau (p. ex. A1) avant de créer des tests.",
+  "subjectDetailGenerateWithAi": "Générer avec l'IA",
+  "subjectDetailAddTest": "Ajouter un test",
+  "subjectDetailTestsEmptyTitle": "Aucun test pour l'instant",
+  "subjectDetailTestsEmptyDescription": "Ajoutez un test manuellement, ou générez-en un avec l'IA.",
+  "subjectDetailTestsLoadError": "Impossible de charger les tests.",
+  "subjectDetailAddTestModalTitle": "Ajouter un test",
+  "subjectDetailEditTestModalTitle": "Modifier le test",
+  "subjectDetailTestTitlePlaceholder": "Titre",
+  "subjectDetailTimeLimitLabel": "Durée limite en minutes (laisser vide pour aucune limite)",
+  "subjectDetailTimeLimitHint": "p. ex. 45",
+  "subjectDetailCreateTest": "Créer le test",
+  "subjectDetailTestCreateError": "Impossible de créer le test.",
+  "subjectDetailTestUpdateError": "Impossible de mettre à jour le test.",
+  "subjectDetailTestDeleteError": "Impossible de supprimer le test.",
+  "subjectDetailDeleteTestConfirmTitle": "Supprimer « {title} » ?",
+  "@subjectDetailDeleteTestConfirmTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "subjectDetailDeleteTestConfirmDescription": "Cela supprime aussi ses questions. Cette action est irréversible.",
+  "subjectDetailAddLevel": "Ajouter un niveau",
+  "subjectDetailLevelNamePlaceholder": "p. ex. A1",
+  "subjectDetailAddLevelModalTitle": "Ajouter un niveau",
+  "subjectDetailRenameLevelModalTitle": "Renommer le niveau",
+  "subjectDetailCreateLevel": "Créer le niveau",
+  "subjectDetailLevelsEmptyTitle": "Aucun niveau pour l'instant",
+  "subjectDetailLevelsEmptyDescription": "Ajoutez un niveau (p. ex. A1) pour commencer à créer des tests.",
+  "subjectDetailLevelsLoadError": "Impossible de charger les niveaux.",
+  "subjectDetailLevelCreateError": "Impossible de créer le niveau.",
+  "subjectDetailLevelUpdateError": "Impossible de mettre à jour le niveau.",
+  "subjectDetailLevelDeleteError": "Impossible de supprimer le niveau.",
+  "subjectDetailDeleteLevelConfirmTitle": "Supprimer « {name} » ?",
+  "@subjectDetailDeleteLevelConfirmTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "subjectDetailDeleteLevelConfirmDescription": "Cela supprime aussi ses tests et questions. Cette action est irréversible.",
+  "subjectDetailGenerateModalTitle": "Générer un test avec l'IA",
+  "subjectDetailGenerateTopicPlaceholder": "Sujet, p. ex. Verbes irréguliers au passé",
+  "subjectDetailGenerateQuestionCountLabel": "Questions (1–30)",
+  "subjectDetailGenerateQuestionTypeMixed": "Mixte",
+  "subjectDetailGenerateQuestionTypeMultipleChoice": "Choix multiple",
+  "subjectDetailGenerateQuestionTypeText": "Texte",
+  "subjectDetailGenerateTitleLabel": "Titre (facultatif)",
+  "subjectDetailGenerateInstructionsLabel": "Instructions pour l'IA (facultatif)",
+  "subjectDetailGenerateButton": "Générer",
+  "subjectDetailGenerating": "Génération en cours… cela peut prendre jusqu'à une minute.",
+  "subjectDetailGenerateFailed": "Impossible de générer un test. Veuillez réessayer.",
+  "subjectDetailGenerateRateLimited": "Vous avez atteint la limite horaire de génération de tests par IA. Réessayez plus tard.",
+  "subjectDetailGenerateUnavailable": "La génération de tests par IA n'est pas activée pour cette école.",
+  "subjectDetailGenerateSuccess": "{generated} question(s) générée(s) sur {requested}. Relisez-le avant de le publier.",
+  "@subjectDetailGenerateSuccess": {
+    "placeholders": {
+      "generated": {
+        "type": "int"
+      },
+      "requested": {
+        "type": "int"
+      }
+    }
+  }
 }

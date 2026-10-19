@@ -366,5 +366,110 @@
   "studentsDeleteForbidden": "Այս աշակերտը սովորում է նաև այլ ուսուցչի առարկա․ ջնջել կարող է միայն դպրոցի սեփականատերը։",
   "studentsDeleting": "Ջնջվում է…",
   "studentsDeleteError": "Չհաջողվեց ջնջել աշակերտին։",
-  "studentsServerUnavailable": "Սերվերը հասանելի չէ։ Փորձեք կրկին։"
+  "studentsServerUnavailable": "Սերվերը հասանելի չէ։ Փորձեք կրկին։",
+  "subjectsTitle": "Առարկաներ",
+  "subjectsSubtitle": "Ձեր դպրոցի առարկաները։",
+  "subjectsEmptyTitle": "Առարկաներ դեռ չկան",
+  "subjectsEmptyDescription": "Սեղմեք «Ավելացնել առարկա»՝ առաջինը ստեղծելու համար։",
+  "subjectsLoadError": "Չհաջողվեց բեռնել առարկաները։",
+  "subjectsAddSubject": "Ավելացնել առարկա",
+  "subjectsNamePlaceholder": "օր.՝ Անգլերեն",
+  "subjectsAddModalTitle": "Ավելացնել առարկա",
+  "subjectsRenameModalTitle": "Վերանվանել առարկան",
+  "subjectsCreate": "Ստեղծել առարկան",
+  "subjectsSave": "Պահպանել փոփոխությունները",
+  "subjectsRename": "Վերանվանել",
+  "subjectsDelete": "Ջնջել",
+  "subjectsActivate": "Ակտիվացնել",
+  "subjectsDeactivate": "Անգործուն դարձնել",
+  "subjectsActiveLabel": "Ակտիվ",
+  "subjectsInactiveLabel": "Անգործուն",
+  "subjectsDeleteConfirmTitle": "Ջնջե՞լ «{name}» առարկան։",
+  "@subjectsDeleteConfirmTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "subjectsDeleteConfirmDescription": "Սա նաև կջնջի դրա մակարդակները, թեստերը և հարցերը։ Այս գործողությունը հնարավոր չէ հետարկել։",
+  "subjectsCreateError": "Չհաջողվեց ստեղծել առարկան։",
+  "subjectsUpdateError": "Չհաջողվեց թարմացնել առարկան։",
+  "subjectsDeleteError": "Չհաջողվեց ջնջել առարկան։",
+  "subjectsActivateError": "Չհաջողվեց թարմացնել առարկայի կարգավիճակը։",
+  "subjectsServerUnavailable": "Սերվերը հասանելի չէ։ Փորձեք կրկին։",
+  "subjectDetailBackToSubjects": "Վերադառնալ առարկաներին",
+  "subjectDetailNotFoundDescription": "Այս առարկան գուցե արդեն ջնջվել է։",
+  "subjectDetailCreatedLabel": "Ստեղծվել է",
+  "subjectDetailTabTests": "Թեստեր",
+  "subjectDetailTabLevels": "Մակարդակներ",
+  "subjectDetailEdit": "Խմբագրել",
+  "subjectDetailNoLevelsHint": "Ավելացրեք մակարդակ (օր.՝ A1)՝ թեստեր ստեղծելուց առաջ։",
+  "subjectDetailGenerateWithAi": "Ստեղծել AI-ով",
+  "subjectDetailAddTest": "Ավելացնել թեստ",
+  "subjectDetailTestsEmptyTitle": "Թեստեր դեռ չկան",
+  "subjectDetailTestsEmptyDescription": "Ավելացրեք թեստ ձեռքով կամ ստեղծեք AI-ի միջոցով։",
+  "subjectDetailTestsLoadError": "Չհաջողվեց բեռնել թեստերը։",
+  "subjectDetailAddTestModalTitle": "Ավելացնել թեստ",
+  "subjectDetailEditTestModalTitle": "Խմբագրել թեստը",
+  "subjectDetailTestTitlePlaceholder": "Վերնագիր",
+  "subjectDetailTimeLimitLabel": "Ժամանակի սահմանաչափ՝ րոպեներով (դատարկ թողեք՝ առանց սահմանաչափի)",
+  "subjectDetailTimeLimitHint": "օր.՝ 45",
+  "subjectDetailCreateTest": "Ստեղծել թեստը",
+  "subjectDetailTestCreateError": "Չհաջողվեց ստեղծել թեստը։",
+  "subjectDetailTestUpdateError": "Չհաջողվեց թարմացնել թեստը։",
+  "subjectDetailTestDeleteError": "Չհաջողվեց ջնջել թեստը։",
+  "subjectDetailDeleteTestConfirmTitle": "Ջնջե՞լ «{title}» թեստը։",
+  "@subjectDetailDeleteTestConfirmTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "subjectDetailDeleteTestConfirmDescription": "Սա նաև կջնջի դրա հարցերը։ Այս գործողությունը հնարավոր չէ հետարկել։",
+  "subjectDetailAddLevel": "Ավելացնել մակարդակ",
+  "subjectDetailLevelNamePlaceholder": "օր.՝ A1",
+  "subjectDetailAddLevelModalTitle": "Ավելացնել մակարդակ",
+  "subjectDetailRenameLevelModalTitle": "Վերանվանել մակարդակը",
+  "subjectDetailCreateLevel": "Ստեղծել մակարդակը",
+  "subjectDetailLevelsEmptyTitle": "Մակարդակներ դեռ չկան",
+  "subjectDetailLevelsEmptyDescription": "Ավելացրեք մակարդակ (օր.՝ A1)՝ թեստեր ստեղծելը սկսելու համար։",
+  "subjectDetailLevelsLoadError": "Չհաջողվեց բեռնել մակարդակները։",
+  "subjectDetailLevelCreateError": "Չհաջողվեց ստեղծել մակարդակը։",
+  "subjectDetailLevelUpdateError": "Չհաջողվեց թարմացնել մակարդակը։",
+  "subjectDetailLevelDeleteError": "Չհաջողվեց ջնջել մակարդակը։",
+  "subjectDetailDeleteLevelConfirmTitle": "Ջնջե՞լ «{name}» մակարդակը։",
+  "@subjectDetailDeleteLevelConfirmTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "subjectDetailDeleteLevelConfirmDescription": "Սա նաև կջնջի դրա թեստերը և հարցերը։ Այս գործողությունը հնարավոր չէ հետարկել։",
+  "subjectDetailGenerateModalTitle": "Ստեղծել թեստ AI-ով",
+  "subjectDetailGenerateTopicPlaceholder": "Թեմա, օր.՝ Անկանոն բայեր անցյալ ժամանակով",
+  "subjectDetailGenerateQuestionCountLabel": "Հարցեր (1–30)",
+  "subjectDetailGenerateQuestionTypeMixed": "Խառը",
+  "subjectDetailGenerateQuestionTypeMultipleChoice": "Բազմակի ընտրություն",
+  "subjectDetailGenerateQuestionTypeText": "Տեքստ",
+  "subjectDetailGenerateTitleLabel": "Վերնագիր (կամընտիր)",
+  "subjectDetailGenerateInstructionsLabel": "Հրահանգներ AI-ի համար (կամընտիր)",
+  "subjectDetailGenerateButton": "Ստեղծել",
+  "subjectDetailGenerating": "Ստեղծվում է… սա կարող է տևել մինչև մեկ րոպե։",
+  "subjectDetailGenerateFailed": "Չհաջողվեց ստեղծել թեստը։ Փորձեք կրկին։",
+  "subjectDetailGenerateRateLimited": "Այս ժամվա համար AI-ով թեստ ստեղծելու սահմանաչափը սպառվել է։ Փորձեք ավելի ուշ։",
+  "subjectDetailGenerateUnavailable": "AI-ով թեստ ստեղծելը միացված չէ այս դպրոցի համար։",
+  "subjectDetailGenerateSuccess": "Ստեղծվեց {requested}-ից {generated} հարց։ Վերանայեք այն՝ նախքան հրապարակելը։",
+  "@subjectDetailGenerateSuccess": {
+    "placeholders": {
+      "generated": {
+        "type": "int"
+      },
+      "requested": {
+        "type": "int"
+      }
+    }
+  }
 }

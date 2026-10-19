@@ -2093,6 +2093,870 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Server unavailable. Please try again.'**
   String get studentsServerUnavailable;
+
+  /// No description provided for @subjectsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Subjects'**
+  String get subjectsTitle;
+
+  /// No description provided for @subjectsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Your school\'s subjects.'**
+  String get subjectsSubtitle;
+
+  /// No description provided for @subjectsEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No subjects yet'**
+  String get subjectsEmptyTitle;
+
+  /// No description provided for @subjectsEmptyDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Click “Add subject” to create your first one.'**
+  String get subjectsEmptyDescription;
+
+  /// No description provided for @subjectsLoadError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not load subjects.'**
+  String get subjectsLoadError;
+
+  /// No description provided for @subjectsAddSubject.
+  ///
+  /// In en, this message translates to:
+  /// **'Add subject'**
+  String get subjectsAddSubject;
+
+  /// No description provided for @subjectsNamePlaceholder.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. English'**
+  String get subjectsNamePlaceholder;
+
+  /// No description provided for @subjectsAddModalTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add subject'**
+  String get subjectsAddModalTitle;
+
+  /// No description provided for @subjectsRenameModalTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename subject'**
+  String get subjectsRenameModalTitle;
+
+  /// No description provided for @subjectsCreate.
+  ///
+  /// In en, this message translates to:
+  /// **'Create subject'**
+  String get subjectsCreate;
+
+  /// No description provided for @subjectsSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save changes'**
+  String get subjectsSave;
+
+  /// No description provided for @subjectsRename.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename'**
+  String get subjectsRename;
+
+  /// No description provided for @subjectsDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get subjectsDelete;
+
+  /// No description provided for @subjectsActivate.
+  ///
+  /// In en, this message translates to:
+  /// **'Activate'**
+  String get subjectsActivate;
+
+  /// No description provided for @subjectsDeactivate.
+  ///
+  /// In en, this message translates to:
+  /// **'Deactivate'**
+  String get subjectsDeactivate;
+
+  /// No description provided for @subjectsActiveLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Active'**
+  String get subjectsActiveLabel;
+
+  /// No description provided for @subjectsInactiveLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Inactive'**
+  String get subjectsInactiveLabel;
+
+  /// No description provided for @subjectsDeleteConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete \"{name}\"?'**
+  String subjectsDeleteConfirmTitle(String name);
+
+  /// No description provided for @subjectsDeleteConfirmDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'This also deletes its levels, tests and questions. This can\'t be undone.'**
+  String get subjectsDeleteConfirmDescription;
+
+  /// No description provided for @subjectsCreateError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not create subject.'**
+  String get subjectsCreateError;
+
+  /// No description provided for @subjectsUpdateError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not update subject.'**
+  String get subjectsUpdateError;
+
+  /// No description provided for @subjectsDeleteError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not delete subject.'**
+  String get subjectsDeleteError;
+
+  /// No description provided for @subjectsActivateError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not update that subject\'s status.'**
+  String get subjectsActivateError;
+
+  /// No description provided for @subjectsServerUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Server unavailable. Please try again.'**
+  String get subjectsServerUnavailable;
+
+  /// No description provided for @subjectDetailBackToSubjects.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to subjects'**
+  String get subjectDetailBackToSubjects;
+
+  /// No description provided for @subjectDetailNotFoundDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'This subject may have already been deleted.'**
+  String get subjectDetailNotFoundDescription;
+
+  /// No description provided for @subjectDetailCreatedLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Created'**
+  String get subjectDetailCreatedLabel;
+
+  /// No description provided for @subjectDetailTabTests.
+  ///
+  /// In en, this message translates to:
+  /// **'Tests'**
+  String get subjectDetailTabTests;
+
+  /// No description provided for @subjectDetailTabLevels.
+  ///
+  /// In en, this message translates to:
+  /// **'Levels'**
+  String get subjectDetailTabLevels;
+
+  /// No description provided for @subjectDetailEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get subjectDetailEdit;
+
+  /// No description provided for @subjectDetailNoLevelsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a level (e.g. A1) before creating tests.'**
+  String get subjectDetailNoLevelsHint;
+
+  /// No description provided for @subjectDetailGenerateWithAi.
+  ///
+  /// In en, this message translates to:
+  /// **'Generate with AI'**
+  String get subjectDetailGenerateWithAi;
+
+  /// No description provided for @subjectDetailAddTest.
+  ///
+  /// In en, this message translates to:
+  /// **'Add test'**
+  String get subjectDetailAddTest;
+
+  /// No description provided for @subjectDetailTestsEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No tests yet'**
+  String get subjectDetailTestsEmptyTitle;
+
+  /// No description provided for @subjectDetailTestsEmptyDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a test manually, or generate one with AI.'**
+  String get subjectDetailTestsEmptyDescription;
+
+  /// No description provided for @subjectDetailTestsLoadError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not load tests.'**
+  String get subjectDetailTestsLoadError;
+
+  /// No description provided for @subjectDetailAddTestModalTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add test'**
+  String get subjectDetailAddTestModalTitle;
+
+  /// No description provided for @subjectDetailEditTestModalTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit test'**
+  String get subjectDetailEditTestModalTitle;
+
+  /// No description provided for @subjectDetailTestTitlePlaceholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Title'**
+  String get subjectDetailTestTitlePlaceholder;
+
+  /// No description provided for @subjectDetailTimeLimitLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Time limit in minutes (leave blank for none)'**
+  String get subjectDetailTimeLimitLabel;
+
+  /// No description provided for @subjectDetailTimeLimitHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. 45'**
+  String get subjectDetailTimeLimitHint;
+
+  /// No description provided for @subjectDetailCreateTest.
+  ///
+  /// In en, this message translates to:
+  /// **'Create test'**
+  String get subjectDetailCreateTest;
+
+  /// No description provided for @subjectDetailTestCreateError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not create test.'**
+  String get subjectDetailTestCreateError;
+
+  /// No description provided for @subjectDetailTestUpdateError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not update test.'**
+  String get subjectDetailTestUpdateError;
+
+  /// No description provided for @subjectDetailTestDeleteError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not delete test.'**
+  String get subjectDetailTestDeleteError;
+
+  /// No description provided for @subjectDetailDeleteTestConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete \"{title}\"?'**
+  String subjectDetailDeleteTestConfirmTitle(String title);
+
+  /// No description provided for @subjectDetailDeleteTestConfirmDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'This also deletes its questions. This can\'t be undone.'**
+  String get subjectDetailDeleteTestConfirmDescription;
+
+  /// No description provided for @subjectDetailAddLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Add level'**
+  String get subjectDetailAddLevel;
+
+  /// No description provided for @subjectDetailLevelNamePlaceholder.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. A1'**
+  String get subjectDetailLevelNamePlaceholder;
+
+  /// No description provided for @subjectDetailAddLevelModalTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add level'**
+  String get subjectDetailAddLevelModalTitle;
+
+  /// No description provided for @subjectDetailRenameLevelModalTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename level'**
+  String get subjectDetailRenameLevelModalTitle;
+
+  /// No description provided for @subjectDetailCreateLevel.
+  ///
+  /// In en, this message translates to:
+  /// **'Create level'**
+  String get subjectDetailCreateLevel;
+
+  /// No description provided for @subjectDetailLevelsEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No levels yet'**
+  String get subjectDetailLevelsEmptyTitle;
+
+  /// No description provided for @subjectDetailLevelsEmptyDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a level (e.g. A1) to start creating tests.'**
+  String get subjectDetailLevelsEmptyDescription;
+
+  /// No description provided for @subjectDetailLevelsLoadError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not load levels.'**
+  String get subjectDetailLevelsLoadError;
+
+  /// No description provided for @subjectDetailLevelCreateError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not create level.'**
+  String get subjectDetailLevelCreateError;
+
+  /// No description provided for @subjectDetailLevelUpdateError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not update level.'**
+  String get subjectDetailLevelUpdateError;
+
+  /// No description provided for @subjectDetailLevelDeleteError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not delete level.'**
+  String get subjectDetailLevelDeleteError;
+
+  /// No description provided for @subjectDetailDeleteLevelConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete \"{name}\"?'**
+  String subjectDetailDeleteLevelConfirmTitle(String name);
+
+  /// No description provided for @subjectDetailDeleteLevelConfirmDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'This also deletes its tests and questions. This can\'t be undone.'**
+  String get subjectDetailDeleteLevelConfirmDescription;
+
+  /// No description provided for @subjectDetailGenerateModalTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Generate test with AI'**
+  String get subjectDetailGenerateModalTitle;
+
+  /// No description provided for @subjectDetailGenerateTopicPlaceholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Topic, e.g. Past tense irregular verbs'**
+  String get subjectDetailGenerateTopicPlaceholder;
+
+  /// No description provided for @subjectDetailGenerateQuestionCountLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Questions (1–30)'**
+  String get subjectDetailGenerateQuestionCountLabel;
+
+  /// No description provided for @subjectDetailGenerateQuestionTypeMixed.
+  ///
+  /// In en, this message translates to:
+  /// **'Mixed'**
+  String get subjectDetailGenerateQuestionTypeMixed;
+
+  /// No description provided for @subjectDetailGenerateQuestionTypeMultipleChoice.
+  ///
+  /// In en, this message translates to:
+  /// **'Multiple choice'**
+  String get subjectDetailGenerateQuestionTypeMultipleChoice;
+
+  /// No description provided for @subjectDetailGenerateQuestionTypeText.
+  ///
+  /// In en, this message translates to:
+  /// **'Text'**
+  String get subjectDetailGenerateQuestionTypeText;
+
+  /// No description provided for @subjectDetailGenerateTitleLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Title (optional)'**
+  String get subjectDetailGenerateTitleLabel;
+
+  /// No description provided for @subjectDetailGenerateInstructionsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Instructions for the AI (optional)'**
+  String get subjectDetailGenerateInstructionsLabel;
+
+  /// No description provided for @subjectDetailGenerateButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Generate'**
+  String get subjectDetailGenerateButton;
+
+  /// No description provided for @subjectDetailGenerating.
+  ///
+  /// In en, this message translates to:
+  /// **'Generating… this can take up to a minute.'**
+  String get subjectDetailGenerating;
+
+  /// No description provided for @subjectDetailGenerateFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not generate a test. Please try again.'**
+  String get subjectDetailGenerateFailed;
+
+  /// No description provided for @subjectDetailGenerateRateLimited.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'ve reached this hour\'s limit for AI test generation. Try again later.'**
+  String get subjectDetailGenerateRateLimited;
+
+  /// No description provided for @subjectDetailGenerateUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'AI test generation isn\'t switched on for this school.'**
+  String get subjectDetailGenerateUnavailable;
+
+  /// No description provided for @subjectDetailGenerateSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Generated {generated} of {requested} questions. Review it before publishing.'**
+  String subjectDetailGenerateSuccess(int generated, int requested);
+
+  /// No description provided for @homeworkTitleTeacher.
+  ///
+  /// In en, this message translates to:
+  /// **'Homework'**
+  String get homeworkTitleTeacher;
+
+  /// No description provided for @homeworkTitleStudent.
+  ///
+  /// In en, this message translates to:
+  /// **'My Homework'**
+  String get homeworkTitleStudent;
+
+  /// No description provided for @homeworkSubtitleTeacher.
+  ///
+  /// In en, this message translates to:
+  /// **'Assign homework to students and follow their progress.'**
+  String get homeworkSubtitleTeacher;
+
+  /// No description provided for @homeworkSubtitleStudent.
+  ///
+  /// In en, this message translates to:
+  /// **'Your homework, all in one place.'**
+  String get homeworkSubtitleStudent;
+
+  /// No description provided for @homeworkSearchHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Search homework…'**
+  String get homeworkSearchHint;
+
+  /// No description provided for @homeworkAssignButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Assign'**
+  String get homeworkAssignButton;
+
+  /// No description provided for @homeworkStatusAll.
+  ///
+  /// In en, this message translates to:
+  /// **'All'**
+  String get homeworkStatusAll;
+
+  /// No description provided for @homeworkStatusPending.
+  ///
+  /// In en, this message translates to:
+  /// **'Pending'**
+  String get homeworkStatusPending;
+
+  /// No description provided for @homeworkStatusOverdue.
+  ///
+  /// In en, this message translates to:
+  /// **'Overdue'**
+  String get homeworkStatusOverdue;
+
+  /// No description provided for @homeworkStatusCompleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed'**
+  String get homeworkStatusCompleted;
+
+  /// No description provided for @homeworkFilterAllTypes.
+  ///
+  /// In en, this message translates to:
+  /// **'All homework'**
+  String get homeworkFilterAllTypes;
+
+  /// No description provided for @homeworkFilterAllStudents.
+  ///
+  /// In en, this message translates to:
+  /// **'All students'**
+  String get homeworkFilterAllStudents;
+
+  /// No description provided for @homeworkKindTest.
+  ///
+  /// In en, this message translates to:
+  /// **'Test'**
+  String get homeworkKindTest;
+
+  /// No description provided for @homeworkKindTask.
+  ///
+  /// In en, this message translates to:
+  /// **'Task'**
+  String get homeworkKindTask;
+
+  /// No description provided for @homeworkEmptyTitleTeacher.
+  ///
+  /// In en, this message translates to:
+  /// **'No homework yet. Assign a test to your students.'**
+  String get homeworkEmptyTitleTeacher;
+
+  /// No description provided for @homeworkEmptyTitleStudent.
+  ///
+  /// In en, this message translates to:
+  /// **'No homework yet. Enjoy the free time!'**
+  String get homeworkEmptyTitleStudent;
+
+  /// No description provided for @homeworkNoMatches.
+  ///
+  /// In en, this message translates to:
+  /// **'No homework matches your filters.'**
+  String get homeworkNoMatches;
+
+  /// No description provided for @homeworkLoadError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not load homework.'**
+  String get homeworkLoadError;
+
+  /// No description provided for @homeworkAssignModalTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Assign homework'**
+  String get homeworkAssignModalTitle;
+
+  /// No description provided for @homeworkTestLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Test'**
+  String get homeworkTestLabel;
+
+  /// No description provided for @homeworkNoActiveTests.
+  ///
+  /// In en, this message translates to:
+  /// **'Publish a test first before assigning it as homework.'**
+  String get homeworkNoActiveTests;
+
+  /// No description provided for @homeworkTaskTitlePlaceholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Title'**
+  String get homeworkTaskTitlePlaceholder;
+
+  /// No description provided for @homeworkMaxGradeHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Max grade (default 100)'**
+  String get homeworkMaxGradeHint;
+
+  /// No description provided for @homeworkDueDateLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Due date'**
+  String get homeworkDueDateLabel;
+
+  /// No description provided for @homeworkNoDueDate.
+  ///
+  /// In en, this message translates to:
+  /// **'No due date'**
+  String get homeworkNoDueDate;
+
+  /// No description provided for @homeworkNoteHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Note for the student (optional)'**
+  String get homeworkNoteHint;
+
+  /// No description provided for @homeworkAssignToLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Assign to'**
+  String get homeworkAssignToLabel;
+
+  /// No description provided for @homeworkGroupsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Groups'**
+  String get homeworkGroupsLabel;
+
+  /// No description provided for @homeworkStudentsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Students'**
+  String get homeworkStudentsLabel;
+
+  /// No description provided for @homeworkNoStudentsHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Register a student first before assigning homework.'**
+  String get homeworkNoStudentsHint;
+
+  /// No description provided for @homeworkAssignError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not assign homework.'**
+  String get homeworkAssignError;
+
+  /// No description provided for @homeworkServerUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Server unavailable. Please try again.'**
+  String get homeworkServerUnavailable;
+
+  /// No description provided for @homeworkDueOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Due {date}'**
+  String homeworkDueOn(String date);
+
+  /// No description provided for @homeworkNoteLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Note'**
+  String get homeworkNoteLabel;
+
+  /// No description provided for @homeworkTimeLimitMinutes.
+  ///
+  /// In en, this message translates to:
+  /// **'Time limit: {minutes} minutes'**
+  String homeworkTimeLimitMinutes(int minutes);
+
+  /// No description provided for @homeworkViewResult.
+  ///
+  /// In en, this message translates to:
+  /// **'View result'**
+  String get homeworkViewResult;
+
+  /// No description provided for @homeworkTestUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'This test isn\'t available right now.'**
+  String get homeworkTestUnavailable;
+
+  /// No description provided for @homeworkStartTest.
+  ///
+  /// In en, this message translates to:
+  /// **'Start test'**
+  String get homeworkStartTest;
+
+  /// No description provided for @homeworkStartTestComingSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Taking tests from here is coming soon.'**
+  String get homeworkStartTestComingSoon;
+
+  /// No description provided for @homeworkMaxGradeValue.
+  ///
+  /// In en, this message translates to:
+  /// **'Out of {max} points'**
+  String homeworkMaxGradeValue(int max);
+
+  /// No description provided for @homeworkMaterialsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Materials'**
+  String get homeworkMaterialsLabel;
+
+  /// No description provided for @homeworkSubmissionFilesLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Submission files'**
+  String get homeworkSubmissionFilesLabel;
+
+  /// No description provided for @homeworkUploadFile.
+  ///
+  /// In en, this message translates to:
+  /// **'Upload file'**
+  String get homeworkUploadFile;
+
+  /// No description provided for @homeworkLoadFilesError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not load files.'**
+  String get homeworkLoadFilesError;
+
+  /// No description provided for @homeworkNoFiles.
+  ///
+  /// In en, this message translates to:
+  /// **'No files yet.'**
+  String get homeworkNoFiles;
+
+  /// No description provided for @homeworkUploadError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not upload this file.'**
+  String get homeworkUploadError;
+
+  /// No description provided for @homeworkDeleteFileError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not delete this file.'**
+  String get homeworkDeleteFileError;
+
+  /// No description provided for @homeworkSubmissionLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Submission'**
+  String get homeworkSubmissionLabel;
+
+  /// No description provided for @homeworkNoSubmissionYet.
+  ///
+  /// In en, this message translates to:
+  /// **'Not submitted yet.'**
+  String get homeworkNoSubmissionYet;
+
+  /// No description provided for @homeworkGradeButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Grade'**
+  String get homeworkGradeButton;
+
+  /// No description provided for @homeworkSubmissionHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Write your answer…'**
+  String get homeworkSubmissionHint;
+
+  /// No description provided for @homeworkSubmitButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Submit'**
+  String get homeworkSubmitButton;
+
+  /// No description provided for @homeworkResubmitButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Resubmit'**
+  String get homeworkResubmitButton;
+
+  /// No description provided for @homeworkSubmitError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not submit this homework.'**
+  String get homeworkSubmitError;
+
+  /// No description provided for @homeworkUnlockButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock'**
+  String get homeworkUnlockButton;
+
+  /// No description provided for @homeworkUnlockError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not unlock this grade.'**
+  String get homeworkUnlockError;
+
+  /// No description provided for @homeworkGradeModalTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Grade submission'**
+  String get homeworkGradeModalTitle;
+
+  /// No description provided for @homeworkGradeHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Grade out of {max}'**
+  String homeworkGradeHint(int max);
+
+  /// No description provided for @homeworkFeedbackHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Feedback (optional)'**
+  String get homeworkFeedbackHint;
+
+  /// No description provided for @homeworkGradeError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not save this grade.'**
+  String get homeworkGradeError;
+
+  /// No description provided for @homeworkSaveGrade.
+  ///
+  /// In en, this message translates to:
+  /// **'Save grade'**
+  String get homeworkSaveGrade;
+
+  /// No description provided for @homeworkEditModalTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit homework'**
+  String get homeworkEditModalTitle;
+
+  /// No description provided for @homeworkUpdateError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not update this homework.'**
+  String get homeworkUpdateError;
+
+  /// No description provided for @homeworkEdit.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit'**
+  String get homeworkEdit;
+
+  /// No description provided for @homeworkDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get homeworkDelete;
+
+  /// No description provided for @homeworkDeleteConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete \"{title}\"?'**
+  String homeworkDeleteConfirmTitle(String title);
+
+  /// No description provided for @homeworkDeleteConfirmDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'This can\'t be undone.'**
+  String get homeworkDeleteConfirmDescription;
+
+  /// No description provided for @homeworkDeleteError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not delete this homework.'**
+  String get homeworkDeleteError;
+
+  /// No description provided for @homeworkDetailNotFoundTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Homework not found'**
+  String get homeworkDetailNotFoundTitle;
+
+  /// No description provided for @homeworkDetailNotFoundDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'This homework may have already been deleted.'**
+  String get homeworkDetailNotFoundDescription;
 }
 
 class _AppLocalizationsDelegate

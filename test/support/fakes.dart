@@ -155,6 +155,9 @@ class TestApp {
       ])
       ..on('GET /test/list', [
         const FakeResponse(200, {'tests': <Object?>[]}),
+      ])
+      ..on('GET /assignment/list', [
+        const FakeResponse(200, {'assignments': <Object?>[]}),
       ]);
     final storage = MemorySessionStorage(session);
     final dependencies = await AppDependencies.create(

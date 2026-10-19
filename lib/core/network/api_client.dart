@@ -53,7 +53,8 @@ class ApiClient {
     String path, {
     Object? data,
     bool auth = true,
-  }) => _send('POST', path, data: data, auth: auth);
+    Duration? receiveTimeout,
+  }) => _send('POST', path, data: data, auth: auth, receiveTimeout: receiveTimeout);
 
   Future<Map<String, dynamic>> put(
     String path, {
@@ -79,13 +80,18 @@ class ApiClient {
     required bool auth,
     Object? data,
     Map<String, dynamic>? query,
+    Duration? receiveTimeout,
   }) async {
     try {
       final response = await _dio.request<Object?>(
         path,
         data: data,
         queryParameters: query,
-        options: Options(method: method, extra: {_authKey: auth}),
+        options: Options(
+          method: method,
+          extra: {_authKey: auth},
+          receiveTimeout: receiveTimeout,
+        ),
       );
       final body = response.data;
       return body is Map<String, dynamic> ? body : const {};

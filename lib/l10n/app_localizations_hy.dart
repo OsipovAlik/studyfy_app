@@ -1086,4 +1086,479 @@ class AppLocalizationsHy extends AppLocalizations {
 
   @override
   String get studentsServerUnavailable => 'Սերվերը հասանելի չէ։ Փորձեք կրկին։';
+
+  @override
+  String get subjectsTitle => 'Առարկաներ';
+
+  @override
+  String get subjectsSubtitle => 'Ձեր դպրոցի առարկաները։';
+
+  @override
+  String get subjectsEmptyTitle => 'Առարկաներ դեռ չկան';
+
+  @override
+  String get subjectsEmptyDescription =>
+      'Սեղմեք «Ավելացնել առարկա»՝ առաջինը ստեղծելու համար։';
+
+  @override
+  String get subjectsLoadError => 'Չհաջողվեց բեռնել առարկաները։';
+
+  @override
+  String get subjectsAddSubject => 'Ավելացնել առարկա';
+
+  @override
+  String get subjectsNamePlaceholder => 'օր.՝ Անգլերեն';
+
+  @override
+  String get subjectsAddModalTitle => 'Ավելացնել առարկա';
+
+  @override
+  String get subjectsRenameModalTitle => 'Վերանվանել առարկան';
+
+  @override
+  String get subjectsCreate => 'Ստեղծել առարկան';
+
+  @override
+  String get subjectsSave => 'Պահպանել փոփոխությունները';
+
+  @override
+  String get subjectsRename => 'Վերանվանել';
+
+  @override
+  String get subjectsDelete => 'Ջնջել';
+
+  @override
+  String get subjectsActivate => 'Ակտիվացնել';
+
+  @override
+  String get subjectsDeactivate => 'Անգործուն դարձնել';
+
+  @override
+  String get subjectsActiveLabel => 'Ակտիվ';
+
+  @override
+  String get subjectsInactiveLabel => 'Անգործուն';
+
+  @override
+  String subjectsDeleteConfirmTitle(String name) {
+    return 'Ջնջե՞լ «$name» առարկան։';
+  }
+
+  @override
+  String get subjectsDeleteConfirmDescription =>
+      'Սա նաև կջնջի դրա մակարդակները, թեստերը և հարցերը։ Այս գործողությունը հնարավոր չէ հետարկել։';
+
+  @override
+  String get subjectsCreateError => 'Չհաջողվեց ստեղծել առարկան։';
+
+  @override
+  String get subjectsUpdateError => 'Չհաջողվեց թարմացնել առարկան։';
+
+  @override
+  String get subjectsDeleteError => 'Չհաջողվեց ջնջել առարկան։';
+
+  @override
+  String get subjectsActivateError =>
+      'Չհաջողվեց թարմացնել առարկայի կարգավիճակը։';
+
+  @override
+  String get subjectsServerUnavailable => 'Սերվերը հասանելի չէ։ Փորձեք կրկին։';
+
+  @override
+  String get subjectDetailBackToSubjects => 'Վերադառնալ առարկաներին';
+
+  @override
+  String get subjectDetailNotFoundDescription =>
+      'Այս առարկան գուցե արդեն ջնջվել է։';
+
+  @override
+  String get subjectDetailCreatedLabel => 'Ստեղծվել է';
+
+  @override
+  String get subjectDetailTabTests => 'Թեստեր';
+
+  @override
+  String get subjectDetailTabLevels => 'Մակարդակներ';
+
+  @override
+  String get subjectDetailEdit => 'Խմբագրել';
+
+  @override
+  String get subjectDetailNoLevelsHint =>
+      'Ավելացրեք մակարդակ (օր.՝ A1)՝ թեստեր ստեղծելուց առաջ։';
+
+  @override
+  String get subjectDetailGenerateWithAi => 'Ստեղծել AI-ով';
+
+  @override
+  String get subjectDetailAddTest => 'Ավելացնել թեստ';
+
+  @override
+  String get subjectDetailTestsEmptyTitle => 'Թեստեր դեռ չկան';
+
+  @override
+  String get subjectDetailTestsEmptyDescription =>
+      'Ավելացրեք թեստ ձեռքով կամ ստեղծեք AI-ի միջոցով։';
+
+  @override
+  String get subjectDetailTestsLoadError => 'Չհաջողվեց բեռնել թեստերը։';
+
+  @override
+  String get subjectDetailAddTestModalTitle => 'Ավելացնել թեստ';
+
+  @override
+  String get subjectDetailEditTestModalTitle => 'Խմբագրել թեստը';
+
+  @override
+  String get subjectDetailTestTitlePlaceholder => 'Վերնագիր';
+
+  @override
+  String get subjectDetailTimeLimitLabel =>
+      'Ժամանակի սահմանաչափ՝ րոպեներով (դատարկ թողեք՝ առանց սահմանաչափի)';
+
+  @override
+  String get subjectDetailTimeLimitHint => 'օր.՝ 45';
+
+  @override
+  String get subjectDetailCreateTest => 'Ստեղծել թեստը';
+
+  @override
+  String get subjectDetailTestCreateError => 'Չհաջողվեց ստեղծել թեստը։';
+
+  @override
+  String get subjectDetailTestUpdateError => 'Չհաջողվեց թարմացնել թեստը։';
+
+  @override
+  String get subjectDetailTestDeleteError => 'Չհաջողվեց ջնջել թեստը։';
+
+  @override
+  String subjectDetailDeleteTestConfirmTitle(String title) {
+    return 'Ջնջե՞լ «$title» թեստը։';
+  }
+
+  @override
+  String get subjectDetailDeleteTestConfirmDescription =>
+      'Սա նաև կջնջի դրա հարցերը։ Այս գործողությունը հնարավոր չէ հետարկել։';
+
+  @override
+  String get subjectDetailAddLevel => 'Ավելացնել մակարդակ';
+
+  @override
+  String get subjectDetailLevelNamePlaceholder => 'օր.՝ A1';
+
+  @override
+  String get subjectDetailAddLevelModalTitle => 'Ավելացնել մակարդակ';
+
+  @override
+  String get subjectDetailRenameLevelModalTitle => 'Վերանվանել մակարդակը';
+
+  @override
+  String get subjectDetailCreateLevel => 'Ստեղծել մակարդակը';
+
+  @override
+  String get subjectDetailLevelsEmptyTitle => 'Մակարդակներ դեռ չկան';
+
+  @override
+  String get subjectDetailLevelsEmptyDescription =>
+      'Ավելացրեք մակարդակ (օր.՝ A1)՝ թեստեր ստեղծելը սկսելու համար։';
+
+  @override
+  String get subjectDetailLevelsLoadError => 'Չհաջողվեց բեռնել մակարդակները։';
+
+  @override
+  String get subjectDetailLevelCreateError => 'Չհաջողվեց ստեղծել մակարդակը։';
+
+  @override
+  String get subjectDetailLevelUpdateError => 'Չհաջողվեց թարմացնել մակարդակը։';
+
+  @override
+  String get subjectDetailLevelDeleteError => 'Չհաջողվեց ջնջել մակարդակը։';
+
+  @override
+  String subjectDetailDeleteLevelConfirmTitle(String name) {
+    return 'Ջնջե՞լ «$name» մակարդակը։';
+  }
+
+  @override
+  String get subjectDetailDeleteLevelConfirmDescription =>
+      'Սա նաև կջնջի դրա թեստերը և հարցերը։ Այս գործողությունը հնարավոր չէ հետարկել։';
+
+  @override
+  String get subjectDetailGenerateModalTitle => 'Ստեղծել թեստ AI-ով';
+
+  @override
+  String get subjectDetailGenerateTopicPlaceholder =>
+      'Թեմա, օր.՝ Անկանոն բայեր անցյալ ժամանակով';
+
+  @override
+  String get subjectDetailGenerateQuestionCountLabel => 'Հարցեր (1–30)';
+
+  @override
+  String get subjectDetailGenerateQuestionTypeMixed => 'Խառը';
+
+  @override
+  String get subjectDetailGenerateQuestionTypeMultipleChoice =>
+      'Բազմակի ընտրություն';
+
+  @override
+  String get subjectDetailGenerateQuestionTypeText => 'Տեքստ';
+
+  @override
+  String get subjectDetailGenerateTitleLabel => 'Վերնագիր (կամընտիր)';
+
+  @override
+  String get subjectDetailGenerateInstructionsLabel =>
+      'Հրահանգներ AI-ի համար (կամընտիր)';
+
+  @override
+  String get subjectDetailGenerateButton => 'Ստեղծել';
+
+  @override
+  String get subjectDetailGenerating =>
+      'Ստեղծվում է… սա կարող է տևել մինչև մեկ րոպե։';
+
+  @override
+  String get subjectDetailGenerateFailed =>
+      'Չհաջողվեց ստեղծել թեստը։ Փորձեք կրկին։';
+
+  @override
+  String get subjectDetailGenerateRateLimited =>
+      'Այս ժամվա համար AI-ով թեստ ստեղծելու սահմանաչափը սպառվել է։ Փորձեք ավելի ուշ։';
+
+  @override
+  String get subjectDetailGenerateUnavailable =>
+      'AI-ով թեստ ստեղծելը միացված չէ այս դպրոցի համար։';
+
+  @override
+  String subjectDetailGenerateSuccess(int generated, int requested) {
+    return 'Ստեղծվեց $requested-ից $generated հարց։ Վերանայեք այն՝ նախքան հրապարակելը։';
+  }
+
+  @override
+  String get homeworkTitleTeacher => 'Homework';
+
+  @override
+  String get homeworkTitleStudent => 'My Homework';
+
+  @override
+  String get homeworkSubtitleTeacher =>
+      'Assign homework to students and follow their progress.';
+
+  @override
+  String get homeworkSubtitleStudent => 'Your homework, all in one place.';
+
+  @override
+  String get homeworkSearchHint => 'Search homework…';
+
+  @override
+  String get homeworkAssignButton => 'Assign';
+
+  @override
+  String get homeworkStatusAll => 'All';
+
+  @override
+  String get homeworkStatusPending => 'Pending';
+
+  @override
+  String get homeworkStatusOverdue => 'Overdue';
+
+  @override
+  String get homeworkStatusCompleted => 'Completed';
+
+  @override
+  String get homeworkFilterAllTypes => 'All homework';
+
+  @override
+  String get homeworkFilterAllStudents => 'All students';
+
+  @override
+  String get homeworkKindTest => 'Test';
+
+  @override
+  String get homeworkKindTask => 'Task';
+
+  @override
+  String get homeworkEmptyTitleTeacher =>
+      'No homework yet. Assign a test to your students.';
+
+  @override
+  String get homeworkEmptyTitleStudent =>
+      'No homework yet. Enjoy the free time!';
+
+  @override
+  String get homeworkNoMatches => 'No homework matches your filters.';
+
+  @override
+  String get homeworkLoadError => 'Could not load homework.';
+
+  @override
+  String get homeworkAssignModalTitle => 'Assign homework';
+
+  @override
+  String get homeworkTestLabel => 'Test';
+
+  @override
+  String get homeworkNoActiveTests =>
+      'Publish a test first before assigning it as homework.';
+
+  @override
+  String get homeworkTaskTitlePlaceholder => 'Title';
+
+  @override
+  String get homeworkMaxGradeHint => 'Max grade (default 100)';
+
+  @override
+  String get homeworkDueDateLabel => 'Due date';
+
+  @override
+  String get homeworkNoDueDate => 'No due date';
+
+  @override
+  String get homeworkNoteHint => 'Note for the student (optional)';
+
+  @override
+  String get homeworkAssignToLabel => 'Assign to';
+
+  @override
+  String get homeworkGroupsLabel => 'Groups';
+
+  @override
+  String get homeworkStudentsLabel => 'Students';
+
+  @override
+  String get homeworkNoStudentsHint =>
+      'Register a student first before assigning homework.';
+
+  @override
+  String get homeworkAssignError => 'Could not assign homework.';
+
+  @override
+  String get homeworkServerUnavailable =>
+      'Server unavailable. Please try again.';
+
+  @override
+  String homeworkDueOn(String date) {
+    return 'Due $date';
+  }
+
+  @override
+  String get homeworkNoteLabel => 'Note';
+
+  @override
+  String homeworkTimeLimitMinutes(int minutes) {
+    return 'Time limit: $minutes minutes';
+  }
+
+  @override
+  String get homeworkViewResult => 'View result';
+
+  @override
+  String get homeworkTestUnavailable => 'This test isn\'t available right now.';
+
+  @override
+  String get homeworkStartTest => 'Start test';
+
+  @override
+  String get homeworkStartTestComingSoon =>
+      'Taking tests from here is coming soon.';
+
+  @override
+  String homeworkMaxGradeValue(int max) {
+    return 'Out of $max points';
+  }
+
+  @override
+  String get homeworkMaterialsLabel => 'Materials';
+
+  @override
+  String get homeworkSubmissionFilesLabel => 'Submission files';
+
+  @override
+  String get homeworkUploadFile => 'Upload file';
+
+  @override
+  String get homeworkLoadFilesError => 'Could not load files.';
+
+  @override
+  String get homeworkNoFiles => 'No files yet.';
+
+  @override
+  String get homeworkUploadError => 'Could not upload this file.';
+
+  @override
+  String get homeworkDeleteFileError => 'Could not delete this file.';
+
+  @override
+  String get homeworkSubmissionLabel => 'Submission';
+
+  @override
+  String get homeworkNoSubmissionYet => 'Not submitted yet.';
+
+  @override
+  String get homeworkGradeButton => 'Grade';
+
+  @override
+  String get homeworkSubmissionHint => 'Write your answer…';
+
+  @override
+  String get homeworkSubmitButton => 'Submit';
+
+  @override
+  String get homeworkResubmitButton => 'Resubmit';
+
+  @override
+  String get homeworkSubmitError => 'Could not submit this homework.';
+
+  @override
+  String get homeworkUnlockButton => 'Unlock';
+
+  @override
+  String get homeworkUnlockError => 'Could not unlock this grade.';
+
+  @override
+  String get homeworkGradeModalTitle => 'Grade submission';
+
+  @override
+  String homeworkGradeHint(int max) {
+    return 'Grade out of $max';
+  }
+
+  @override
+  String get homeworkFeedbackHint => 'Feedback (optional)';
+
+  @override
+  String get homeworkGradeError => 'Could not save this grade.';
+
+  @override
+  String get homeworkSaveGrade => 'Save grade';
+
+  @override
+  String get homeworkEditModalTitle => 'Edit homework';
+
+  @override
+  String get homeworkUpdateError => 'Could not update this homework.';
+
+  @override
+  String get homeworkEdit => 'Edit';
+
+  @override
+  String get homeworkDelete => 'Delete';
+
+  @override
+  String homeworkDeleteConfirmTitle(String title) {
+    return 'Delete \"$title\"?';
+  }
+
+  @override
+  String get homeworkDeleteConfirmDescription => 'This can\'t be undone.';
+
+  @override
+  String get homeworkDeleteError => 'Could not delete this homework.';
+
+  @override
+  String get homeworkDetailNotFoundTitle => 'Homework not found';
+
+  @override
+  String get homeworkDetailNotFoundDescription =>
+      'This homework may have already been deleted.';
 }

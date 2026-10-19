@@ -4,6 +4,8 @@ import 'package:studify/features/auth/domain/user_profile.dart';
 import 'package:studify/features/auth/forgot_password_screen.dart';
 import 'package:studify/features/auth/login_screen.dart';
 import 'package:studify/features/home/home_screen.dart';
+import 'package:studify/features/homework/assignment_detail_screen.dart';
+import 'package:studify/features/homework/homework_screen.dart';
 import 'package:studify/features/legal/legal_screen.dart';
 import 'package:studify/features/onboarding/onboarding_screen.dart';
 import 'package:studify/features/profile/profile_screen.dart';
@@ -13,8 +15,9 @@ import 'package:studify/features/sessions/group_detail_screen.dart';
 import 'package:studify/features/sessions/sessions_screen.dart';
 import 'package:studify/features/settings/settings_screen.dart';
 import 'package:studify/features/shell/main_shell.dart';
-import 'package:studify/features/shell/tab_screens.dart';
 import 'package:studify/features/students/students_screen.dart';
+import 'package:studify/features/subjects/subject_detail_screen.dart';
+import 'package:studify/features/subjects/subjects_screen.dart';
 import 'package:studify/l10n/app_localizations.dart';
 
 abstract final class AppRoutes {
@@ -115,6 +118,14 @@ GoRouter createRouter({required AuthController auth}) {
               GoRoute(
                 path: AppRoutes.subjects,
                 builder: (context, state) => const SubjectsScreen(),
+                routes: [
+                  GoRoute(
+                    path: ':id',
+                    builder: (context, state) => SubjectDetailScreen(
+                      subjectId: int.parse(state.pathParameters['id']!),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
@@ -147,6 +158,14 @@ GoRouter createRouter({required AuthController auth}) {
               GoRoute(
                 path: AppRoutes.homework,
                 builder: (context, state) => const HomeworkScreen(),
+                routes: [
+                  GoRoute(
+                    path: ':id',
+                    builder: (context, state) => AssignmentDetailScreen(
+                      assignmentId: int.parse(state.pathParameters['id']!),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

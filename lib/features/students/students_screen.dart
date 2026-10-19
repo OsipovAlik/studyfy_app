@@ -38,70 +38,78 @@ class _StudentsScreenState extends State<StudentsScreen> {
         children: [
           const Positioned.fill(child: BrandBackdrop()),
           SafeArea(
-            child: ListView(
-              padding: const EdgeInsets.fromLTRB(24, 16, 24, 24),
-              children: [
-                Text(l10n.studentsTitle, style: theme.textTheme.headlineLarge),
-                const SizedBox(height: 4),
-                Text(
-                  l10n.studentsSubtitle,
-                  style: theme.textTheme.bodyMedium?.copyWith(
-                    color: theme.colorScheme.onSurfaceVariant,
+            child: RefreshIndicator(
+              onRefresh: controller.reload,
+              child: ListView(
+                padding: const EdgeInsets.fromLTRB(24, 16, 24, 24),
+                physics: const AlwaysScrollableScrollPhysics(),
+                children: [
+                  Text(
+                    l10n.studentsTitle,
+                    style: theme.textTheme.headlineLarge,
                   ),
-                ),
-                const SizedBox(height: 18),
-                PickerPill<int?>(
-                  value: controller.subjectFilter,
-                  label:
-                      controller.subjects
-                          .where((s) => s.id == controller.subjectFilter)
-                          .firstOrNull
-                          ?.name ??
-                      l10n.studentsFilterAll,
-                  options: [
-                    (value: null, label: l10n.studentsFilterAll),
-                    for (final subject in controller.subjects)
-                      (value: subject.id, label: subject.name),
-                  ],
-                  onChanged: (id) => unawaited(controller.setSubjectFilter(id)),
-                ),
-                const SizedBox(height: 12),
-                SizedBox(
-                  width: double.infinity,
-                  child: FilledButton.icon(
-                    onPressed: () => unawaited(
-                      showAddStudentSheet(context, controller: controller),
-                    ),
-                    icon: const Icon(CupertinoIcons.add, size: 18),
-                    label: Text(l10n.studentsAddStudent),
-                    style: FilledButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(vertical: 14),
-                      shape: const StadiumBorder(),
+                  const SizedBox(height: 4),
+                  Text(
+                    l10n.studentsSubtitle,
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      color: theme.colorScheme.onSurfaceVariant,
                     ),
                   ),
-                ),
-                const SizedBox(height: 18),
-                if (controller.isLoading && controller.students.isEmpty)
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 60),
-                    child: Center(child: CircularProgressIndicator()),
-                  )
-                else if (controller.hasError)
-                  _ErrorState(
-                    message: l10n.studentsLoadError,
-                    onRetry: controller.reload,
-                  )
-                else if (controller.students.isEmpty)
-                  _EmptyState(
-                    title: l10n.studentsEmptyTitle,
-                    description: l10n.studentsEmptyDescription,
-                  )
-                else
-                  _StudentList(
-                    students: controller.students,
-                    controller: controller,
+                  const SizedBox(height: 18),
+                  PickerPill<int?>(
+                    value: controller.subjectFilter,
+                    label:
+                        controller.subjects
+                            .where((s) => s.id == controller.subjectFilter)
+                            .firstOrNull
+                            ?.name ??
+                        l10n.studentsFilterAll,
+                    options: [
+                      (value: null, label: l10n.studentsFilterAll),
+                      for (final subject in controller.subjects)
+                        (value: subject.id, label: subject.name),
+                    ],
+                    onChanged: (id) =>
+                        unawaited(controller.setSubjectFilter(id)),
                   ),
-              ],
+                  const SizedBox(height: 12),
+                  SizedBox(
+                    width: double.infinity,
+                    child: FilledButton.icon(
+                      onPressed: () => unawaited(
+                        showAddStudentSheet(context, controller: controller),
+                      ),
+                      icon: const Icon(CupertinoIcons.add, size: 18),
+                      label: Text(l10n.studentsAddStudent),
+                      style: FilledButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(vertical: 14),
+                        shape: const StadiumBorder(),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 18),
+                  if (controller.isLoading && controller.students.isEmpty)
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 60),
+                      child: Center(child: CircularProgressIndicator()),
+                    )
+                  else if (controller.hasError)
+                    _ErrorState(
+                      message: l10n.studentsLoadError,
+                      onRetry: controller.reload,
+                    )
+                  else if (controller.students.isEmpty)
+                    _EmptyState(
+                      title: l10n.studentsEmptyTitle,
+                      description: l10n.studentsEmptyDescription,
+                    )
+                  else
+                    _StudentList(
+                      students: controller.students,
+                      controller: controller,
+                    ),
+                ],
+              ),
             ),
           ),
         ],

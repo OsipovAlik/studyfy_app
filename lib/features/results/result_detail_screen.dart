@@ -37,6 +37,12 @@ class _ResultDetailScreenState extends State<ResultDetailScreen> {
     return (result, questions);
   }
 
+  Future<void> _reload() async {
+    final future = _load();
+    setState(() => _future = future);
+    await future;
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
@@ -75,6 +81,7 @@ class _ResultDetailScreenState extends State<ResultDetailScreen> {
           }
           return SubPage(
             title: l10n.resultsPageTitle,
+            onRefresh: _reload,
             children: [
               Text(
                 l10n.resultsLoadError,
@@ -95,6 +102,7 @@ class _ResultDetailScreenState extends State<ResultDetailScreen> {
 
         return SubPage(
           title: controller.testTitle(result.testId, l10n),
+          onRefresh: _reload,
           children: [
             _SummaryHeader(result: result, controller: controller),
             const SizedBox(height: 20),
