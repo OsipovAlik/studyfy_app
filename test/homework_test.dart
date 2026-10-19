@@ -112,7 +112,7 @@ void main() {
     final app = await TestApp.create(session: _session(teacherJson));
     app.api
       ..on('GET /students', [
-        FakeResponse(200, {
+        const FakeResponse(200, {
           'users': [
             {
               'ID': 4,
@@ -170,14 +170,14 @@ void main() {
     final app = await TestApp.create(session: _session(teacherJson));
     app.api
       ..on('GET /group/list', [
-        FakeResponse(200, {
+        const FakeResponse(200, {
           'groups': [
             {'ID': 3, 'partnerId': 1, 'name': 'Beginners'},
           ],
         }),
       ])
       ..on('GET /test/list', [
-        FakeResponse(200, {
+        const FakeResponse(200, {
           'tests': [
             {
               'ID': 55,
@@ -242,7 +242,7 @@ void main() {
     app.api.on('GET /assignment/list', [
       FakeResponse(200, {
         'assignments': [
-          _taskAssignment(id: 1, status: 'pending', title: 'Essay'),
+          _taskAssignment(title: 'Essay'),
           _taskAssignment(id: 2, status: 'overdue', title: 'Worksheet'),
           _taskAssignment(
             id: 3,
@@ -283,7 +283,7 @@ void main() {
         }),
       ])
       ..on('GET /assignment/1/attachments', [
-        FakeResponse(200, {'attachments': <Object?>[]}),
+        const FakeResponse(200, {'attachments': <Object?>[]}),
       ])
       ..on('PUT /assignment/1', [
         FakeResponse(200, {
@@ -310,12 +310,12 @@ void main() {
     await tester.tap(find.text('Save changes'));
     await settle(tester);
 
-    var request = app.api.requestsTo('PUT /assignment/1').single;
+    final request = app.api.requestsTo('PUT /assignment/1').single;
     expect(app.api.bodyOf(request)['note'], 'Read slowly, twice.');
     expect(find.text('Read slowly, twice.'), findsOneWidget);
 
     app.api.on('DELETE /assignment/1', [
-      FakeResponse(200, {'message': 'Assignment deleted successfully'}),
+      const FakeResponse(200, {'message': 'Assignment deleted successfully'}),
     ]);
     await tester.scrollUntilVisible(find.text('Delete').first, 200);
     await tester.tap(find.text('Delete').first);
@@ -340,15 +340,12 @@ void main() {
       ..on('GET /assignment/list', [
         FakeResponse(200, {
           'assignments': [
-            _taskAssignment(
-              submissionText: 'I read it twice.',
-              status: 'pending',
-            ),
+            _taskAssignment(submissionText: 'I read it twice.'),
           ],
         }),
       ])
       ..on('GET /assignment/1/attachments', [
-        FakeResponse(200, {'attachments': <Object?>[]}),
+        const FakeResponse(200, {'attachments': <Object?>[]}),
       ])
       ..on('POST /assignment/1/grade', [
         FakeResponse(200, {
@@ -368,7 +365,7 @@ void main() {
     await settle(tester);
     expect(find.text('I read it twice.'), findsOneWidget);
 
-    await tester.ensureVisible(find.text('Grade'));
+    await tester.scrollUntilVisible(find.text('Grade'), 200);
     await tester.tap(find.text('Grade'));
     await settle(tester);
     await tester.enterText(
@@ -385,13 +382,10 @@ void main() {
 
     app.api.on('DELETE /assignment/1/grade', [
       FakeResponse(200, {
-        'assignment': _taskAssignment(
-          submissionText: 'I read it twice.',
-          status: 'pending',
-        ),
+        'assignment': _taskAssignment(submissionText: 'I read it twice.'),
       }),
     ]);
-    await tester.ensureVisible(find.text('Unlock'));
+    await tester.scrollUntilVisible(find.text('Unlock'), 200);
     await tester.tap(find.text('Unlock'));
     await settle(tester);
     expect(app.api.requestsTo('DELETE /assignment/1/grade'), isNotEmpty);
@@ -408,7 +402,7 @@ void main() {
         }),
       ])
       ..on('GET /assignment/1/attachments', [
-        FakeResponse(200, {'attachments': <Object?>[]}),
+        const FakeResponse(200, {'attachments': <Object?>[]}),
       ])
       ..on('POST /assignment/1/submit', [
         FakeResponse(200, {
@@ -447,14 +441,13 @@ void main() {
         FakeResponse(200, {
           'assignments': [
             _testAssignment(
-              id: 2,
               status: 'pending',
               score: null,
               total: null,
               percentage: null,
               resultId: null,
             ),
-            _testAssignment(id: 3, title: 'Final', status: 'completed'),
+            _testAssignment(id: 3, title: 'Final'),
           ],
         }),
       ]);
@@ -491,7 +484,7 @@ void main() {
         }),
       ])
       ..on('GET /assignment/1/attachments', [
-        FakeResponse(200, {
+        const FakeResponse(200, {
           'attachments': [
             {
               'ID': 10,
@@ -507,7 +500,7 @@ void main() {
         }),
       ])
       ..on('DELETE /assignment/attachments/10', [
-        FakeResponse(200, {'message': 'Attachment deleted successfully'}),
+        const FakeResponse(200, {'message': 'Attachment deleted successfully'}),
       ]);
     await tester.pumpWidget(app.widget);
     await settle(tester);
@@ -518,7 +511,7 @@ void main() {
 
     expect(find.text('instructions.pdf'), findsOneWidget);
     app.api.on('GET /assignment/1/attachments', [
-      FakeResponse(200, {'attachments': <Object?>[]}),
+      const FakeResponse(200, {'attachments': <Object?>[]}),
     ]);
 
     await tester.tap(find.byIcon(CupertinoIcons.trash).first);

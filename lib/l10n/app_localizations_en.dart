@@ -1084,6 +1084,26 @@ class AppLocalizationsEn extends AppLocalizations {
       'Server unavailable. Please try again.';
 
   @override
+  String get studentsBackToStudents => 'Back to students';
+
+  @override
+  String get studentsRegisteredLabel => 'Registered';
+
+  @override
+  String get studentsNotFoundTitle => 'Student not found';
+
+  @override
+  String get studentsNotFoundDescription =>
+      'They may have already been deleted.';
+
+  @override
+  String get studentsTestResultsTitle => 'Test results';
+
+  @override
+  String get studentsResultsEmptyHint =>
+      'Results appear here once students complete tests.';
+
+  @override
   String get subjectsTitle => 'Subjects';
 
   @override

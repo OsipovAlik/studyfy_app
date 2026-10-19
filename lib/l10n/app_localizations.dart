@@ -2094,6 +2094,42 @@ abstract class AppLocalizations {
   /// **'Server unavailable. Please try again.'**
   String get studentsServerUnavailable;
 
+  /// No description provided for @studentsBackToStudents.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to students'**
+  String get studentsBackToStudents;
+
+  /// No description provided for @studentsRegisteredLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Registered'**
+  String get studentsRegisteredLabel;
+
+  /// No description provided for @studentsNotFoundTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Student not found'**
+  String get studentsNotFoundTitle;
+
+  /// No description provided for @studentsNotFoundDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'They may have already been deleted.'**
+  String get studentsNotFoundDescription;
+
+  /// No description provided for @studentsTestResultsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Test results'**
+  String get studentsTestResultsTitle;
+
+  /// No description provided for @studentsResultsEmptyHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Results appear here once students complete tests.'**
+  String get studentsResultsEmptyHint;
+
   /// No description provided for @subjectsTitle.
   ///
   /// In en, this message translates to:

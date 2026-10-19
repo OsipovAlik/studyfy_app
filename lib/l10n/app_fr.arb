@@ -367,6 +367,12 @@
   "studentsDeleting": "Suppression…",
   "studentsDeleteError": "Impossible de supprimer l'élève.",
   "studentsServerUnavailable": "Serveur indisponible. Veuillez réessayer.",
+  "studentsBackToStudents": "Retour aux élèves",
+  "studentsRegisteredLabel": "Date d'inscription",
+  "studentsNotFoundTitle": "Élève introuvable",
+  "studentsNotFoundDescription": "Cet élève a peut-être déjà été supprimé.",
+  "studentsTestResultsTitle": "Résultats des tests",
+  "studentsResultsEmptyHint": "Les résultats apparaîtront ici une fois que les élèves auront terminé des tests.",
   "subjectsTitle": "Matières",
   "subjectsSubtitle": "Les matières de votre école.",
   "subjectsEmptyTitle": "Aucune matière pour l'instant",
@@ -471,5 +477,110 @@
         "type": "int"
       }
     }
-  }
+  },
+  "homeworkTitleTeacher": "Devoirs",
+  "homeworkTitleStudent": "Mes devoirs",
+  "homeworkSubtitleTeacher": "Attribuez des devoirs aux élèves et suivez leur progression.",
+  "homeworkSubtitleStudent": "Tous vos devoirs au même endroit.",
+  "homeworkSearchHint": "Rechercher un devoir…",
+  "homeworkAssignButton": "Attribuer",
+  "homeworkStatusAll": "Tous",
+  "homeworkStatusPending": "En attente",
+  "homeworkStatusOverdue": "En retard",
+  "homeworkStatusCompleted": "Terminés",
+  "homeworkFilterAllTypes": "Tous les devoirs",
+  "homeworkFilterAllStudents": "Tous les élèves",
+  "homeworkKindTest": "Test",
+  "homeworkKindTask": "Tâche",
+  "homeworkEmptyTitleTeacher": "Aucun devoir pour l'instant. Attribuez un test à vos élèves.",
+  "homeworkEmptyTitleStudent": "Aucun devoir pour l'instant. Profitez-en !",
+  "homeworkNoMatches": "Aucun devoir ne correspond à vos filtres.",
+  "homeworkLoadError": "Impossible de charger les devoirs.",
+  "homeworkAssignModalTitle": "Attribuer un devoir",
+  "homeworkTestLabel": "Test",
+  "homeworkNoActiveTests": "Publiez d'abord un test avant de l'attribuer comme devoir.",
+  "homeworkTaskTitlePlaceholder": "Titre",
+  "homeworkMaxGradeHint": "Note maximale (100 par défaut)",
+  "homeworkDueDateLabel": "Date limite",
+  "homeworkNoDueDate": "Aucune date limite",
+  "homeworkNoteHint": "Note pour l'élève (facultatif)",
+  "homeworkAssignToLabel": "Attribuer à",
+  "homeworkGroupsLabel": "Groupes",
+  "homeworkStudentsLabel": "Élèves",
+  "homeworkNoStudentsHint": "Inscrivez d'abord un élève avant d'attribuer un devoir.",
+  "homeworkAssignError": "Impossible d'attribuer ce devoir.",
+  "homeworkServerUnavailable": "Serveur indisponible. Veuillez réessayer.",
+  "homeworkDueOn": "À rendre le {date}",
+  "@homeworkDueOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "homeworkNoteLabel": "Note",
+  "homeworkTimeLimitMinutes": "Durée limite : {minutes} minutes",
+  "@homeworkTimeLimitMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "homeworkViewResult": "Voir le résultat",
+  "homeworkTestUnavailable": "Ce test n'est pas disponible pour le moment.",
+  "homeworkStartTest": "Commencer le test",
+  "homeworkStartTestComingSoon": "Passer les tests depuis ici arrive bientôt.",
+  "homeworkMaxGradeValue": "Sur {max} points",
+  "@homeworkMaxGradeValue": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "homeworkMaterialsLabel": "Documents",
+  "homeworkSubmissionFilesLabel": "Fichiers rendus",
+  "homeworkUploadFile": "Importer un fichier",
+  "homeworkLoadFilesError": "Impossible de charger les fichiers.",
+  "homeworkNoFiles": "Aucun fichier pour l'instant.",
+  "homeworkUploadError": "Impossible d'importer ce fichier.",
+  "homeworkDeleteFileError": "Impossible de supprimer ce fichier.",
+  "homeworkSubmissionLabel": "Réponse",
+  "homeworkNoSubmissionYet": "Pas encore rendu.",
+  "homeworkGradeButton": "Noter",
+  "homeworkSubmissionHint": "Écrivez votre réponse…",
+  "homeworkSubmitButton": "Rendre",
+  "homeworkResubmitButton": "Rendre à nouveau",
+  "homeworkSubmitError": "Impossible de rendre ce devoir.",
+  "homeworkUnlockButton": "Déverrouiller",
+  "homeworkUnlockError": "Impossible de déverrouiller cette note.",
+  "homeworkGradeModalTitle": "Noter la réponse",
+  "homeworkGradeHint": "Note sur {max}",
+  "@homeworkGradeHint": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "homeworkFeedbackHint": "Commentaire (facultatif)",
+  "homeworkGradeError": "Impossible d'enregistrer cette note.",
+  "homeworkSaveGrade": "Enregistrer la note",
+  "homeworkEditModalTitle": "Modifier le devoir",
+  "homeworkUpdateError": "Impossible de mettre à jour ce devoir.",
+  "homeworkEdit": "Modifier",
+  "homeworkDelete": "Supprimer",
+  "homeworkDeleteConfirmTitle": "Supprimer « {title} » ?",
+  "@homeworkDeleteConfirmTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "homeworkDeleteConfirmDescription": "Cette action est irréversible.",
+  "homeworkDeleteError": "Impossible de supprimer ce devoir.",
+  "homeworkDetailNotFoundTitle": "Devoir introuvable",
+  "homeworkDetailNotFoundDescription": "Il a peut-être déjà été supprimé."
 }

@@ -4,7 +4,8 @@
 enum AttachmentKind {
   material,
   submission,
-  unknown;
+  unknown
+  ;
 
   static AttachmentKind fromJson(String? value) => switch (value) {
     'material' => AttachmentKind.material,

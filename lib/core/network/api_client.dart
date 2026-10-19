@@ -54,7 +54,13 @@ class ApiClient {
     Object? data,
     bool auth = true,
     Duration? receiveTimeout,
-  }) => _send('POST', path, data: data, auth: auth, receiveTimeout: receiveTimeout);
+  }) => _send(
+    'POST',
+    path,
+    data: data,
+    auth: auth,
+    receiveTimeout: receiveTimeout,
+  );
 
   Future<Map<String, dynamic>> put(
     String path, {

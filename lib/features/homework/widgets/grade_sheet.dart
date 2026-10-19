@@ -110,7 +110,10 @@ class _GradeSheetState extends State<_GradeSheet> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(l10n.homeworkGradeModalTitle, style: theme.textTheme.titleLarge),
+              Text(
+                l10n.homeworkGradeModalTitle,
+                style: theme.textTheme.titleLarge,
+              ),
               const SizedBox(height: 20),
               TextField(
                 key: const ValueKey('grade-sheet-grade'),

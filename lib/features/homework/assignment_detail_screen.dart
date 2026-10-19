@@ -108,7 +108,9 @@ class _StatusHeader extends StatelessWidget {
           const Spacer(),
           if (dueDate != null)
             Text(
-              l10n.homeworkDueOn(DateFormat.yMMMd(locale).format(dueDate.toLocal())),
+              l10n.homeworkDueOn(
+                DateFormat.yMMMd(locale).format(dueDate.toLocal()),
+              ),
               style: theme.textTheme.bodySmall?.copyWith(
                 color: scheme.onSurfaceVariant,
               ),
@@ -338,7 +340,11 @@ class _SubmissionReview extends StatelessWidget {
             width: double.infinity,
             child: FilledButton(
               onPressed: () => unawaited(
-                showGradeSheet(context, controller: controller, assignment: assignment),
+                showGradeSheet(
+                  context,
+                  controller: controller,
+                  assignment: assignment,
+                ),
               ),
               child: Text(l10n.homeworkGradeButton),
             ),
@@ -510,7 +516,8 @@ class _GradeCard extends StatelessWidget {
                 ),
             ],
           ),
-          if (assignment.feedback case final feedback? when feedback.isNotEmpty) ...[
+          if (assignment.feedback case final feedback?
+              when feedback.isNotEmpty) ...[
             const SizedBox(height: 6),
             Text(feedback, style: theme.textTheme.bodyMedium),
           ],

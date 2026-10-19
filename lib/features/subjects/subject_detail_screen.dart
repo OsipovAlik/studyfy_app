@@ -73,9 +73,7 @@ class _SubjectDetailScreenState extends State<SubjectDetailScreen> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final subjectsController = context.watch<SubjectsController>();
-    final subject = subjectsController.subjects
-        .where((s) => s.id == widget.subjectId)
-        .firstOrNull;
+    final subject = subjectsController.subjects.where((s) => s.id == widget.subjectId).firstOrNull;
 
     return Scaffold(
       body: Stack(
@@ -108,10 +106,7 @@ class _SubjectDetailScreenState extends State<SubjectDetailScreen> {
                           onChanged: (tab) => setState(() => _tab = tab),
                         ),
                         const SizedBox(height: 16),
-                        if (_tab == _Tab.tests)
-                          _TestsTab(controller: _controller)
-                        else
-                          _LevelsTab(controller: _controller),
+                        if (_tab == _Tab.tests) _TestsTab(controller: _controller) else _LevelsTab(controller: _controller),
                       ],
                     ),
                   ),
@@ -234,16 +229,12 @@ class _HeroCard extends StatelessWidget {
                   height: 7,
                   margin: const EdgeInsets.only(right: 6),
                   decoration: BoxDecoration(
-                    color: subject.isActive
-                        ? AppColors.emerald400
-                        : Colors.white70,
+                    color: subject.isActive ? AppColors.emerald400 : Colors.white70,
                     shape: BoxShape.circle,
                   ),
                 ),
                 Text(
-                  subject.isActive
-                      ? l10n.subjectsActiveLabel
-                      : l10n.subjectsInactiveLabel,
+                  subject.isActive ? l10n.subjectsActiveLabel : l10n.subjectsInactiveLabel,
                   style: theme.textTheme.labelMedium?.copyWith(
                     color: Colors.white,
                   ),
@@ -272,9 +263,7 @@ class _InfoCard extends StatelessWidget {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            (error.isNetworkError || error.isServerError)
-                ? l10n.subjectsServerUnavailable
-                : error.message ?? l10n.subjectsActivateError,
+            (error.isNetworkError || error.isServerError) ? l10n.subjectsServerUnavailable : error.message ?? l10n.subjectsActivateError,
           ),
         ),
       );
@@ -288,9 +277,7 @@ class _InfoCard extends StatelessWidget {
     final scheme = theme.colorScheme;
     final locale = Localizations.localeOf(context).toLanguageTag();
     final created = subject.createdAt;
-    final dateLabel = created == null
-        ? null
-        : DateFormat.yMMMMd(locale).format(created.toLocal());
+    final dateLabel = created == null ? null : DateFormat.yMMMMd(locale).format(created.toLocal());
 
     return Container(
       padding: const EdgeInsets.all(16),
@@ -343,9 +330,7 @@ class _InfoCard extends StatelessWidget {
               _ActionChip(
                 key: const ValueKey('subject-detail-toggle-active'),
                 icon: CupertinoIcons.bolt_fill,
-                label: subject.isActive
-                    ? l10n.subjectsDeactivate
-                    : l10n.subjectsActivate,
+                label: subject.isActive ? l10n.subjectsDeactivate : l10n.subjectsActivate,
                 color: AppColors.amber500,
                 onTap: () => unawaited(_toggleActive(context)),
               ),
@@ -444,17 +429,13 @@ class _SegmentedTabs extends StatelessWidget {
                   Icon(
                     icon,
                     size: 16,
-                    color: selected
-                        ? scheme.onPrimary
-                        : scheme.onSurfaceVariant,
+                    color: selected ? scheme.onPrimary : scheme.onSurfaceVariant,
                   ),
                   const SizedBox(width: 6),
                   Text(
                     label,
                     style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                      color: selected
-                          ? scheme.onPrimary
-                          : scheme.onSurfaceVariant,
+                      color: selected ? scheme.onPrimary : scheme.onSurfaceVariant,
                     ),
                   ),
                 ],
@@ -623,9 +604,7 @@ class _LevelChip extends StatelessWidget {
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
     return Material(
-      color: selected
-          ? scheme.primary
-          : scheme.surfaceContainerLowest.withValues(alpha: 0.92),
+      color: selected ? scheme.primary : scheme.surfaceContainerLowest.withValues(alpha: 0.92),
       borderRadius: BorderRadius.circular(999),
       child: InkWell(
         borderRadius: BorderRadius.circular(999),
@@ -674,9 +653,7 @@ class _TestCard extends StatelessWidget {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            (error.isNetworkError || error.isServerError)
-                ? l10n.subjectsServerUnavailable
-                : error.message ?? l10n.subjectDetailTestUpdateError,
+            (error.isNetworkError || error.isServerError) ? l10n.subjectsServerUnavailable : error.message ?? l10n.subjectDetailTestUpdateError,
           ),
         ),
       );
@@ -714,9 +691,7 @@ class _TestCard extends StatelessWidget {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            (error.isNetworkError || error.isServerError)
-                ? l10n.subjectsServerUnavailable
-                : error.message ?? l10n.subjectDetailTestDeleteError,
+            (error.isNetworkError || error.isServerError) ? l10n.subjectsServerUnavailable : error.message ?? l10n.subjectDetailTestDeleteError,
           ),
         ),
       );
@@ -728,9 +703,7 @@ class _TestCard extends StatelessWidget {
     final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
-    final statusColor = test.isActive
-        ? AppColors.emerald500
-        : scheme.onSurfaceVariant;
+    final statusColor = test.isActive ? AppColors.emerald500 : scheme.onSurfaceVariant;
 
     return Container(
       padding: const EdgeInsets.all(14),
@@ -778,9 +751,7 @@ class _TestCard extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          test.isActive
-                              ? l10n.subjectsActiveLabel
-                              : l10n.subjectsInactiveLabel,
+                          test.isActive ? l10n.subjectsActiveLabel : l10n.subjectsInactiveLabel,
                           style: theme.textTheme.bodySmall?.copyWith(
                             color: statusColor,
                           ),
@@ -800,9 +771,7 @@ class _TestCard extends StatelessWidget {
               _ActionChip(
                 key: ValueKey('test-toggle-active-${test.id}'),
                 icon: CupertinoIcons.bolt_fill,
-                label: test.isActive
-                    ? l10n.subjectsDeactivate
-                    : l10n.subjectsActivate,
+                label: test.isActive ? l10n.subjectsDeactivate : l10n.subjectsActivate,
                 color: AppColors.amber500,
                 onTap: () => unawaited(_toggleActive(context)),
               ),
@@ -852,8 +821,7 @@ class _LevelsTab extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           child: OutlinedButton.icon(
-            onPressed: () =>
-                unawaited(showLevelFormSheet(context, controller: controller)),
+            onPressed: () => unawaited(showLevelFormSheet(context, controller: controller)),
             icon: const Icon(CupertinoIcons.add, size: 18),
             label: Text(l10n.subjectDetailAddLevel),
           ),
@@ -937,9 +905,7 @@ class _LevelRow extends StatelessWidget {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            (error.isNetworkError || error.isServerError)
-                ? l10n.subjectsServerUnavailable
-                : error.message ?? l10n.subjectDetailLevelDeleteError,
+            (error.isNetworkError || error.isServerError) ? l10n.subjectsServerUnavailable : error.message ?? l10n.subjectDetailLevelDeleteError,
           ),
         ),
       );

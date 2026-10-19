@@ -367,6 +367,12 @@
   "studentsDeleting": "Удаление…",
   "studentsDeleteError": "Не удалось удалить ученика.",
   "studentsServerUnavailable": "Сервер недоступен. Попробуйте ещё раз.",
+  "studentsBackToStudents": "Назад к ученикам",
+  "studentsRegisteredLabel": "Дата регистрации",
+  "studentsNotFoundTitle": "Ученик не найден",
+  "studentsNotFoundDescription": "Возможно, он уже удалён.",
+  "studentsTestResultsTitle": "Результаты тестов",
+  "studentsResultsEmptyHint": "Результаты появятся здесь, когда ученики пройдут тесты.",
   "subjectsTitle": "Предметы",
   "subjectsSubtitle": "Предметы вашей школы.",
   "subjectsEmptyTitle": "Предметов пока нет",
@@ -471,5 +477,110 @@
         "type": "int"
       }
     }
-  }
+  },
+  "homeworkTitleTeacher": "Домашние задания",
+  "homeworkTitleStudent": "Мои задания",
+  "homeworkSubtitleTeacher": "Назначайте задания ученикам и следите за их успеваемостью.",
+  "homeworkSubtitleStudent": "Все ваши задания в одном месте.",
+  "homeworkSearchHint": "Поиск заданий…",
+  "homeworkAssignButton": "Назначить",
+  "homeworkStatusAll": "Все",
+  "homeworkStatusPending": "Ожидают",
+  "homeworkStatusOverdue": "Просрочены",
+  "homeworkStatusCompleted": "Выполнены",
+  "homeworkFilterAllTypes": "Все задания",
+  "homeworkFilterAllStudents": "Все ученики",
+  "homeworkKindTest": "Тест",
+  "homeworkKindTask": "Задание",
+  "homeworkEmptyTitleTeacher": "Заданий пока нет. Назначьте тест своим ученикам.",
+  "homeworkEmptyTitleStudent": "Заданий пока нет. Наслаждайтесь свободным временем!",
+  "homeworkNoMatches": "Нет заданий, соответствующих вашим фильтрам.",
+  "homeworkLoadError": "Не удалось загрузить задания.",
+  "homeworkAssignModalTitle": "Назначить задание",
+  "homeworkTestLabel": "Тест",
+  "homeworkNoActiveTests": "Сначала опубликуйте тест, прежде чем назначать его как задание.",
+  "homeworkTaskTitlePlaceholder": "Название",
+  "homeworkMaxGradeHint": "Максимальная оценка (по умолчанию 100)",
+  "homeworkDueDateLabel": "Срок сдачи",
+  "homeworkNoDueDate": "Без срока сдачи",
+  "homeworkNoteHint": "Примечание для ученика (необязательно)",
+  "homeworkAssignToLabel": "Назначить",
+  "homeworkGroupsLabel": "Группы",
+  "homeworkStudentsLabel": "Ученики",
+  "homeworkNoStudentsHint": "Сначала зарегистрируйте ученика, прежде чем назначать задание.",
+  "homeworkAssignError": "Не удалось назначить задание.",
+  "homeworkServerUnavailable": "Сервер недоступен. Попробуйте ещё раз.",
+  "homeworkDueOn": "Сдать до {date}",
+  "@homeworkDueOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "homeworkNoteLabel": "Примечание",
+  "homeworkTimeLimitMinutes": "Ограничение по времени: {minutes} мин.",
+  "@homeworkTimeLimitMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "homeworkViewResult": "Посмотреть результат",
+  "homeworkTestUnavailable": "Этот тест сейчас недоступен.",
+  "homeworkStartTest": "Начать тест",
+  "homeworkStartTestComingSoon": "Прохождение тестов отсюда появится позже.",
+  "homeworkMaxGradeValue": "Из {max} баллов",
+  "@homeworkMaxGradeValue": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "homeworkMaterialsLabel": "Материалы",
+  "homeworkSubmissionFilesLabel": "Файлы ответа",
+  "homeworkUploadFile": "Загрузить файл",
+  "homeworkLoadFilesError": "Не удалось загрузить файлы.",
+  "homeworkNoFiles": "Файлов пока нет.",
+  "homeworkUploadError": "Не удалось загрузить этот файл.",
+  "homeworkDeleteFileError": "Не удалось удалить этот файл.",
+  "homeworkSubmissionLabel": "Ответ",
+  "homeworkNoSubmissionYet": "Ещё не сдано.",
+  "homeworkGradeButton": "Оценить",
+  "homeworkSubmissionHint": "Напишите свой ответ…",
+  "homeworkSubmitButton": "Сдать",
+  "homeworkResubmitButton": "Сдать заново",
+  "homeworkSubmitError": "Не удалось сдать это задание.",
+  "homeworkUnlockButton": "Разблокировать",
+  "homeworkUnlockError": "Не удалось разблокировать эту оценку.",
+  "homeworkGradeModalTitle": "Оценить ответ",
+  "homeworkGradeHint": "Оценка из {max}",
+  "@homeworkGradeHint": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "homeworkFeedbackHint": "Комментарий (необязательно)",
+  "homeworkGradeError": "Не удалось сохранить эту оценку.",
+  "homeworkSaveGrade": "Сохранить оценку",
+  "homeworkEditModalTitle": "Изменить задание",
+  "homeworkUpdateError": "Не удалось обновить это задание.",
+  "homeworkEdit": "Изменить",
+  "homeworkDelete": "Удалить",
+  "homeworkDeleteConfirmTitle": "Удалить «{title}»?",
+  "@homeworkDeleteConfirmTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "homeworkDeleteConfirmDescription": "Это действие нельзя отменить.",
+  "homeworkDeleteError": "Не удалось удалить это задание.",
+  "homeworkDetailNotFoundTitle": "Задание не найдено",
+  "homeworkDetailNotFoundDescription": "Возможно, оно уже удалено."
 }

@@ -1108,6 +1108,26 @@ class AppLocalizationsFr extends AppLocalizations {
       'Serveur indisponible. Veuillez réessayer.';
 
   @override
+  String get studentsBackToStudents => 'Retour aux élèves';
+
+  @override
+  String get studentsRegisteredLabel => 'Date d\'inscription';
+
+  @override
+  String get studentsNotFoundTitle => 'Élève introuvable';
+
+  @override
+  String get studentsNotFoundDescription =>
+      'Cet élève a peut-être déjà été supprimé.';
+
+  @override
+  String get studentsTestResultsTitle => 'Résultats des tests';
+
+  @override
+  String get studentsResultsEmptyHint =>
+      'Les résultats apparaîtront ici une fois que les élèves auront terminé des tests.';
+
+  @override
   String get subjectsTitle => 'Matières';
 
   @override
@@ -1360,110 +1380,110 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
-  String get homeworkTitleTeacher => 'Homework';
+  String get homeworkTitleTeacher => 'Devoirs';
 
   @override
-  String get homeworkTitleStudent => 'My Homework';
+  String get homeworkTitleStudent => 'Mes devoirs';
 
   @override
   String get homeworkSubtitleTeacher =>
-      'Assign homework to students and follow their progress.';
+      'Attribuez des devoirs aux élèves et suivez leur progression.';
 
   @override
-  String get homeworkSubtitleStudent => 'Your homework, all in one place.';
+  String get homeworkSubtitleStudent => 'Tous vos devoirs au même endroit.';
 
   @override
-  String get homeworkSearchHint => 'Search homework…';
+  String get homeworkSearchHint => 'Rechercher un devoir…';
 
   @override
-  String get homeworkAssignButton => 'Assign';
+  String get homeworkAssignButton => 'Attribuer';
 
   @override
-  String get homeworkStatusAll => 'All';
+  String get homeworkStatusAll => 'Tous';
 
   @override
-  String get homeworkStatusPending => 'Pending';
+  String get homeworkStatusPending => 'En attente';
 
   @override
-  String get homeworkStatusOverdue => 'Overdue';
+  String get homeworkStatusOverdue => 'En retard';
 
   @override
-  String get homeworkStatusCompleted => 'Completed';
+  String get homeworkStatusCompleted => 'Terminés';
 
   @override
-  String get homeworkFilterAllTypes => 'All homework';
+  String get homeworkFilterAllTypes => 'Tous les devoirs';
 
   @override
-  String get homeworkFilterAllStudents => 'All students';
+  String get homeworkFilterAllStudents => 'Tous les élèves';
 
   @override
   String get homeworkKindTest => 'Test';
 
   @override
-  String get homeworkKindTask => 'Task';
+  String get homeworkKindTask => 'Tâche';
 
   @override
   String get homeworkEmptyTitleTeacher =>
-      'No homework yet. Assign a test to your students.';
+      'Aucun devoir pour l\'instant. Attribuez un test à vos élèves.';
 
   @override
   String get homeworkEmptyTitleStudent =>
-      'No homework yet. Enjoy the free time!';
+      'Aucun devoir pour l\'instant. Profitez-en !';
 
   @override
-  String get homeworkNoMatches => 'No homework matches your filters.';
+  String get homeworkNoMatches => 'Aucun devoir ne correspond à vos filtres.';
 
   @override
-  String get homeworkLoadError => 'Could not load homework.';
+  String get homeworkLoadError => 'Impossible de charger les devoirs.';
 
   @override
-  String get homeworkAssignModalTitle => 'Assign homework';
+  String get homeworkAssignModalTitle => 'Attribuer un devoir';
 
   @override
   String get homeworkTestLabel => 'Test';
 
   @override
   String get homeworkNoActiveTests =>
-      'Publish a test first before assigning it as homework.';
+      'Publiez d\'abord un test avant de l\'attribuer comme devoir.';
 
   @override
-  String get homeworkTaskTitlePlaceholder => 'Title';
+  String get homeworkTaskTitlePlaceholder => 'Titre';
 
   @override
-  String get homeworkMaxGradeHint => 'Max grade (default 100)';
+  String get homeworkMaxGradeHint => 'Note maximale (100 par défaut)';
 
   @override
-  String get homeworkDueDateLabel => 'Due date';
+  String get homeworkDueDateLabel => 'Date limite';
 
   @override
-  String get homeworkNoDueDate => 'No due date';
+  String get homeworkNoDueDate => 'Aucune date limite';
 
   @override
-  String get homeworkNoteHint => 'Note for the student (optional)';
+  String get homeworkNoteHint => 'Note pour l\'élève (facultatif)';
 
   @override
-  String get homeworkAssignToLabel => 'Assign to';
+  String get homeworkAssignToLabel => 'Attribuer à';
 
   @override
-  String get homeworkGroupsLabel => 'Groups';
+  String get homeworkGroupsLabel => 'Groupes';
 
   @override
-  String get homeworkStudentsLabel => 'Students';
+  String get homeworkStudentsLabel => 'Élèves';
 
   @override
   String get homeworkNoStudentsHint =>
-      'Register a student first before assigning homework.';
+      'Inscrivez d\'abord un élève avant d\'attribuer un devoir.';
 
   @override
-  String get homeworkAssignError => 'Could not assign homework.';
+  String get homeworkAssignError => 'Impossible d\'attribuer ce devoir.';
 
   @override
   String get homeworkServerUnavailable =>
-      'Server unavailable. Please try again.';
+      'Serveur indisponible. Veuillez réessayer.';
 
   @override
   String homeworkDueOn(String date) {
-    return 'Due $date';
+    return 'À rendre le $date';
   }
 
   @override
@@ -1471,119 +1491,121 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String homeworkTimeLimitMinutes(int minutes) {
-    return 'Time limit: $minutes minutes';
+    return 'Durée limite : $minutes minutes';
   }
 
   @override
-  String get homeworkViewResult => 'View result';
+  String get homeworkViewResult => 'Voir le résultat';
 
   @override
-  String get homeworkTestUnavailable => 'This test isn\'t available right now.';
+  String get homeworkTestUnavailable =>
+      'Ce test n\'est pas disponible pour le moment.';
 
   @override
-  String get homeworkStartTest => 'Start test';
+  String get homeworkStartTest => 'Commencer le test';
 
   @override
   String get homeworkStartTestComingSoon =>
-      'Taking tests from here is coming soon.';
+      'Passer les tests depuis ici arrive bientôt.';
 
   @override
   String homeworkMaxGradeValue(int max) {
-    return 'Out of $max points';
+    return 'Sur $max points';
   }
 
   @override
-  String get homeworkMaterialsLabel => 'Materials';
+  String get homeworkMaterialsLabel => 'Documents';
 
   @override
-  String get homeworkSubmissionFilesLabel => 'Submission files';
+  String get homeworkSubmissionFilesLabel => 'Fichiers rendus';
 
   @override
-  String get homeworkUploadFile => 'Upload file';
+  String get homeworkUploadFile => 'Importer un fichier';
 
   @override
-  String get homeworkLoadFilesError => 'Could not load files.';
+  String get homeworkLoadFilesError => 'Impossible de charger les fichiers.';
 
   @override
-  String get homeworkNoFiles => 'No files yet.';
+  String get homeworkNoFiles => 'Aucun fichier pour l\'instant.';
 
   @override
-  String get homeworkUploadError => 'Could not upload this file.';
+  String get homeworkUploadError => 'Impossible d\'importer ce fichier.';
 
   @override
-  String get homeworkDeleteFileError => 'Could not delete this file.';
+  String get homeworkDeleteFileError => 'Impossible de supprimer ce fichier.';
 
   @override
-  String get homeworkSubmissionLabel => 'Submission';
+  String get homeworkSubmissionLabel => 'Réponse';
 
   @override
-  String get homeworkNoSubmissionYet => 'Not submitted yet.';
+  String get homeworkNoSubmissionYet => 'Pas encore rendu.';
 
   @override
-  String get homeworkGradeButton => 'Grade';
+  String get homeworkGradeButton => 'Noter';
 
   @override
-  String get homeworkSubmissionHint => 'Write your answer…';
+  String get homeworkSubmissionHint => 'Écrivez votre réponse…';
 
   @override
-  String get homeworkSubmitButton => 'Submit';
+  String get homeworkSubmitButton => 'Rendre';
 
   @override
-  String get homeworkResubmitButton => 'Resubmit';
+  String get homeworkResubmitButton => 'Rendre à nouveau';
 
   @override
-  String get homeworkSubmitError => 'Could not submit this homework.';
+  String get homeworkSubmitError => 'Impossible de rendre ce devoir.';
 
   @override
-  String get homeworkUnlockButton => 'Unlock';
+  String get homeworkUnlockButton => 'Déverrouiller';
 
   @override
-  String get homeworkUnlockError => 'Could not unlock this grade.';
+  String get homeworkUnlockError => 'Impossible de déverrouiller cette note.';
 
   @override
-  String get homeworkGradeModalTitle => 'Grade submission';
+  String get homeworkGradeModalTitle => 'Noter la réponse';
 
   @override
   String homeworkGradeHint(int max) {
-    return 'Grade out of $max';
+    return 'Note sur $max';
   }
 
   @override
-  String get homeworkFeedbackHint => 'Feedback (optional)';
+  String get homeworkFeedbackHint => 'Commentaire (facultatif)';
 
   @override
-  String get homeworkGradeError => 'Could not save this grade.';
+  String get homeworkGradeError => 'Impossible d\'enregistrer cette note.';
 
   @override
-  String get homeworkSaveGrade => 'Save grade';
+  String get homeworkSaveGrade => 'Enregistrer la note';
 
   @override
-  String get homeworkEditModalTitle => 'Edit homework';
+  String get homeworkEditModalTitle => 'Modifier le devoir';
 
   @override
-  String get homeworkUpdateError => 'Could not update this homework.';
+  String get homeworkUpdateError => 'Impossible de mettre à jour ce devoir.';
 
   @override
-  String get homeworkEdit => 'Edit';
+  String get homeworkEdit => 'Modifier';
 
   @override
-  String get homeworkDelete => 'Delete';
+  String get homeworkDelete => 'Supprimer';
 
   @override
   String homeworkDeleteConfirmTitle(String title) {
-    return 'Delete \"$title\"?';
+    return 'Supprimer « $title » ?';
   }
 
   @override
-  String get homeworkDeleteConfirmDescription => 'This can\'t be undone.';
+  String get homeworkDeleteConfirmDescription =>
+      'Cette action est irréversible.';
 
   @override
-  String get homeworkDeleteError => 'Could not delete this homework.';
+  String get homeworkDeleteError => 'Impossible de supprimer ce devoir.';
 
   @override
-  String get homeworkDetailNotFoundTitle => 'Homework not found';
+  String get homeworkDetailNotFoundTitle => 'Devoir introuvable';
 
   @override
   String get homeworkDetailNotFoundDescription =>
-      'This homework may have already been deleted.';
+      'Il a peut-être déjà été supprimé.';
 }

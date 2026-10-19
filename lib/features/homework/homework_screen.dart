@@ -100,7 +100,10 @@ class _HomeworkScreenState extends State<HomeworkScreen> {
                       width: double.infinity,
                       child: FilledButton.icon(
                         onPressed: () => unawaited(
-                          showAssignHomeworkSheet(context, controller: controller),
+                          showAssignHomeworkSheet(
+                            context,
+                            controller: controller,
+                          ),
                         ),
                         icon: const Icon(CupertinoIcons.add, size: 18),
                         label: Text(l10n.homeworkAssignButton),
@@ -128,8 +131,14 @@ class _HomeworkScreenState extends State<HomeworkScreen> {
                     },
                     options: [
                       (value: null, label: l10n.homeworkFilterAllTypes),
-                      (value: AssignmentType.test, label: l10n.homeworkKindTest),
-                      (value: AssignmentType.task, label: l10n.homeworkKindTask),
+                      (
+                        value: AssignmentType.test,
+                        label: l10n.homeworkKindTest,
+                      ),
+                      (
+                        value: AssignmentType.task,
+                        label: l10n.homeworkKindTask,
+                      ),
                     ],
                     onChanged: (type) => setState(() => _typeFilter = type),
                   ),
@@ -160,7 +169,10 @@ class _HomeworkScreenState extends State<HomeworkScreen> {
                           : l10n.homeworkNoMatches,
                     )
                   else
-                    _HomeworkList(assignments: filtered, controller: controller),
+                    _HomeworkList(
+                      assignments: filtered,
+                      controller: controller,
+                    ),
                 ],
               ),
             ),
@@ -237,7 +249,10 @@ class _StatusGrid extends StatelessWidget {
                   ),
                   const SizedBox(width: 6),
                   Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 1),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 7,
+                      vertical: 1,
+                    ),
                     decoration: BoxDecoration(
                       color: isSelected
                           ? scheme.primary
@@ -388,9 +403,12 @@ class _EmptyState extends StatelessWidget {
                 Text(
                   title,
                   textAlign: TextAlign.center,
-                  style: Theme.of(
-                    context,
-                  ).textTheme.bodyLarge?.copyWith(color: scheme.onSurfaceVariant),
+                  style:
+                      Theme.of(
+                        context,
+                      ).textTheme.bodyLarge?.copyWith(
+                        color: scheme.onSurfaceVariant,
+                      ),
                 ),
               ],
             ),

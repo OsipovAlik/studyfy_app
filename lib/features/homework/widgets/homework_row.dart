@@ -93,6 +93,6 @@ String statusLabelOf(AssignmentStatus status, AppLocalizations l10n) =>
     switch (status) {
       AssignmentStatus.completed => l10n.homeworkStatusCompleted,
       AssignmentStatus.overdue => l10n.homeworkStatusOverdue,
-      AssignmentStatus.pending || AssignmentStatus.unknown =>
-        l10n.homeworkStatusPending,
+      AssignmentStatus.pending ||
+      AssignmentStatus.unknown => l10n.homeworkStatusPending,
     };

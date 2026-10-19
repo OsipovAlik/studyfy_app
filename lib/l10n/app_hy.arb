@@ -367,6 +367,12 @@
   "studentsDeleting": "Ջնջվում է…",
   "studentsDeleteError": "Չհաջողվեց ջնջել աշակերտին։",
   "studentsServerUnavailable": "Սերվերը հասանելի չէ։ Փորձեք կրկին։",
+  "studentsBackToStudents": "Վերադառնալ աշակերտներին",
+  "studentsRegisteredLabel": "Գրանցվել է",
+  "studentsNotFoundTitle": "Աշակերտը չի գտնվել",
+  "studentsNotFoundDescription": "Նա կարող է արդեն ջնջված լինել։",
+  "studentsTestResultsTitle": "Թեստերի արդյունքներ",
+  "studentsResultsEmptyHint": "Արդյունքները կհայտնվեն այստեղ, երբ աշակերտներն ավարտեն թեստերը։",
   "subjectsTitle": "Առարկաներ",
   "subjectsSubtitle": "Ձեր դպրոցի առարկաները։",
   "subjectsEmptyTitle": "Առարկաներ դեռ չկան",
@@ -471,5 +477,110 @@
         "type": "int"
       }
     }
-  }
+  },
+  "homeworkTitleTeacher": "Տնային առաջադրանքներ",
+  "homeworkTitleStudent": "Իմ առաջադրանքները",
+  "homeworkSubtitleTeacher": "Հանձնարարեք առաջադրանքներ աշակերտներին և հետևեք նրանց առաջընթացին։",
+  "homeworkSubtitleStudent": "Ձեր բոլոր առաջադրանքները՝ մեկ տեղում։",
+  "homeworkSearchHint": "Որոնել առաջադրանք…",
+  "homeworkAssignButton": "Հանձնարարել",
+  "homeworkStatusAll": "Բոլորը",
+  "homeworkStatusPending": "Սպասվող",
+  "homeworkStatusOverdue": "Ժամկետանց",
+  "homeworkStatusCompleted": "Ավարտված",
+  "homeworkFilterAllTypes": "Բոլոր առաջադրանքները",
+  "homeworkFilterAllStudents": "Բոլոր աշակերտները",
+  "homeworkKindTest": "Թեստ",
+  "homeworkKindTask": "Առաջադրանք",
+  "homeworkEmptyTitleTeacher": "Առաջադրանքներ դեռ չկան։ Հանձնարարեք թեստ ձեր աշակերտներին։",
+  "homeworkEmptyTitleStudent": "Առաջադրանքներ դեռ չկան։ Վայելեք ազատ ժամանակը։",
+  "homeworkNoMatches": "Ձեր ֆիլտրերին համապատասխանող առաջադրանք չկա։",
+  "homeworkLoadError": "Չհաջողվեց բեռնել առաջադրանքները։",
+  "homeworkAssignModalTitle": "Հանձնարարել առաջադրանք",
+  "homeworkTestLabel": "Թեստ",
+  "homeworkNoActiveTests": "Նախ հրապարակեք թեստ՝ այն որպես առաջադրանք հանձնարարելուց առաջ։",
+  "homeworkTaskTitlePlaceholder": "Վերնագիր",
+  "homeworkMaxGradeHint": "Առավելագույն միավոր (լռելյայն՝ 100)",
+  "homeworkDueDateLabel": "Վերջնաժամկետ",
+  "homeworkNoDueDate": "Առանց վերջնաժամկետի",
+  "homeworkNoteHint": "Նշում աշակերտի համար (կամընտիր)",
+  "homeworkAssignToLabel": "Հանձնարարել",
+  "homeworkGroupsLabel": "Խմբեր",
+  "homeworkStudentsLabel": "Աշակերտներ",
+  "homeworkNoStudentsHint": "Նախ գրանցեք աշակերտ՝ առաջադրանք հանձնարարելուց առաջ։",
+  "homeworkAssignError": "Չհաջողվեց հանձնարարել առաջադրանքը։",
+  "homeworkServerUnavailable": "Սերվերը հասանելի չէ։ Փորձեք կրկին։",
+  "homeworkDueOn": "Վերջնաժամկետ՝ {date}",
+  "@homeworkDueOn": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "homeworkNoteLabel": "Նշում",
+  "homeworkTimeLimitMinutes": "Ժամանակի սահմանաչափ՝ {minutes} րոպե",
+  "@homeworkTimeLimitMinutes": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "homeworkViewResult": "Դիտել արդյունքը",
+  "homeworkTestUnavailable": "Այս թեստն այժմ հասանելի չէ։",
+  "homeworkStartTest": "Սկսել թեստը",
+  "homeworkStartTestComingSoon": "Այստեղից թեստ հանձնելը շուտով հասանելի կլինի։",
+  "homeworkMaxGradeValue": "{max} միավորից",
+  "@homeworkMaxGradeValue": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "homeworkMaterialsLabel": "Նյութեր",
+  "homeworkSubmissionFilesLabel": "Հանձնված ֆայլեր",
+  "homeworkUploadFile": "Վերբեռնել ֆայլ",
+  "homeworkLoadFilesError": "Չհաջողվեց բեռնել ֆայլերը։",
+  "homeworkNoFiles": "Ֆայլեր դեռ չկան։",
+  "homeworkUploadError": "Չհաջողվեց վերբեռնել այս ֆայլը։",
+  "homeworkDeleteFileError": "Չհաջողվեց ջնջել այս ֆայլը։",
+  "homeworkSubmissionLabel": "Հանձնում",
+  "homeworkNoSubmissionYet": "Դեռ չի հանձնվել։",
+  "homeworkGradeButton": "Գնահատել",
+  "homeworkSubmissionHint": "Գրեք ձեր պատասխանը…",
+  "homeworkSubmitButton": "Հանձնել",
+  "homeworkResubmitButton": "Կրկին հանձնել",
+  "homeworkSubmitError": "Չհաջողվեց հանձնել այս առաջադրանքը։",
+  "homeworkUnlockButton": "Ապակողպել",
+  "homeworkUnlockError": "Չհաջողվեց ապակողպել այս գնահատականը։",
+  "homeworkGradeModalTitle": "Գնահատել հանձնումը",
+  "homeworkGradeHint": "Գնահատական {max}-ից",
+  "@homeworkGradeHint": {
+    "placeholders": {
+      "max": {
+        "type": "int"
+      }
+    }
+  },
+  "homeworkFeedbackHint": "Արձագանք (կամընտիր)",
+  "homeworkGradeError": "Չհաջողվեց պահպանել այս գնահատականը։",
+  "homeworkSaveGrade": "Պահպանել գնահատականը",
+  "homeworkEditModalTitle": "Խմբագրել առաջադրանքը",
+  "homeworkUpdateError": "Չհաջողվեց թարմացնել այս առաջադրանքը։",
+  "homeworkEdit": "Խմբագրել",
+  "homeworkDelete": "Ջնջել",
+  "homeworkDeleteConfirmTitle": "Ջնջե՞լ «{title}» առաջադրանքը։",
+  "@homeworkDeleteConfirmTitle": {
+    "placeholders": {
+      "title": {
+        "type": "String"
+      }
+    }
+  },
+  "homeworkDeleteConfirmDescription": "Այս գործողությունը հնարավոր չէ հետարկել։",
+  "homeworkDeleteError": "Չհաջողվեց ջնջել այս առաջադրանքը։",
+  "homeworkDetailNotFoundTitle": "Առաջադրանքը չի գտնվել",
+  "homeworkDetailNotFoundDescription": "Այն գուցե արդեն ջնջվել է։"
 }

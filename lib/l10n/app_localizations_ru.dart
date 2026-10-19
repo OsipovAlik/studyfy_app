@@ -1090,6 +1090,25 @@ class AppLocalizationsRu extends AppLocalizations {
       'Сервер недоступен. Попробуйте ещё раз.';
 
   @override
+  String get studentsBackToStudents => 'Назад к ученикам';
+
+  @override
+  String get studentsRegisteredLabel => 'Дата регистрации';
+
+  @override
+  String get studentsNotFoundTitle => 'Ученик не найден';
+
+  @override
+  String get studentsNotFoundDescription => 'Возможно, он уже удалён.';
+
+  @override
+  String get studentsTestResultsTitle => 'Результаты тестов';
+
+  @override
+  String get studentsResultsEmptyHint =>
+      'Результаты появятся здесь, когда ученики пройдут тесты.';
+
+  @override
   String get subjectsTitle => 'Предметы';
 
   @override
@@ -1336,230 +1355,231 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String get homeworkTitleTeacher => 'Homework';
+  String get homeworkTitleTeacher => 'Домашние задания';
 
   @override
-  String get homeworkTitleStudent => 'My Homework';
+  String get homeworkTitleStudent => 'Мои задания';
 
   @override
   String get homeworkSubtitleTeacher =>
-      'Assign homework to students and follow their progress.';
+      'Назначайте задания ученикам и следите за их успеваемостью.';
 
   @override
-  String get homeworkSubtitleStudent => 'Your homework, all in one place.';
+  String get homeworkSubtitleStudent => 'Все ваши задания в одном месте.';
 
   @override
-  String get homeworkSearchHint => 'Search homework…';
+  String get homeworkSearchHint => 'Поиск заданий…';
 
   @override
-  String get homeworkAssignButton => 'Assign';
+  String get homeworkAssignButton => 'Назначить';
 
   @override
-  String get homeworkStatusAll => 'All';
+  String get homeworkStatusAll => 'Все';
 
   @override
-  String get homeworkStatusPending => 'Pending';
+  String get homeworkStatusPending => 'Ожидают';
 
   @override
-  String get homeworkStatusOverdue => 'Overdue';
+  String get homeworkStatusOverdue => 'Просрочены';
 
   @override
-  String get homeworkStatusCompleted => 'Completed';
+  String get homeworkStatusCompleted => 'Выполнены';
 
   @override
-  String get homeworkFilterAllTypes => 'All homework';
+  String get homeworkFilterAllTypes => 'Все задания';
 
   @override
-  String get homeworkFilterAllStudents => 'All students';
+  String get homeworkFilterAllStudents => 'Все ученики';
 
   @override
-  String get homeworkKindTest => 'Test';
+  String get homeworkKindTest => 'Тест';
 
   @override
-  String get homeworkKindTask => 'Task';
+  String get homeworkKindTask => 'Задание';
 
   @override
   String get homeworkEmptyTitleTeacher =>
-      'No homework yet. Assign a test to your students.';
+      'Заданий пока нет. Назначьте тест своим ученикам.';
 
   @override
   String get homeworkEmptyTitleStudent =>
-      'No homework yet. Enjoy the free time!';
+      'Заданий пока нет. Наслаждайтесь свободным временем!';
 
   @override
-  String get homeworkNoMatches => 'No homework matches your filters.';
+  String get homeworkNoMatches =>
+      'Нет заданий, соответствующих вашим фильтрам.';
 
   @override
-  String get homeworkLoadError => 'Could not load homework.';
+  String get homeworkLoadError => 'Не удалось загрузить задания.';
 
   @override
-  String get homeworkAssignModalTitle => 'Assign homework';
+  String get homeworkAssignModalTitle => 'Назначить задание';
 
   @override
-  String get homeworkTestLabel => 'Test';
+  String get homeworkTestLabel => 'Тест';
 
   @override
   String get homeworkNoActiveTests =>
-      'Publish a test first before assigning it as homework.';
+      'Сначала опубликуйте тест, прежде чем назначать его как задание.';
 
   @override
-  String get homeworkTaskTitlePlaceholder => 'Title';
+  String get homeworkTaskTitlePlaceholder => 'Название';
 
   @override
-  String get homeworkMaxGradeHint => 'Max grade (default 100)';
+  String get homeworkMaxGradeHint => 'Максимальная оценка (по умолчанию 100)';
 
   @override
-  String get homeworkDueDateLabel => 'Due date';
+  String get homeworkDueDateLabel => 'Срок сдачи';
 
   @override
-  String get homeworkNoDueDate => 'No due date';
+  String get homeworkNoDueDate => 'Без срока сдачи';
 
   @override
-  String get homeworkNoteHint => 'Note for the student (optional)';
+  String get homeworkNoteHint => 'Примечание для ученика (необязательно)';
 
   @override
-  String get homeworkAssignToLabel => 'Assign to';
+  String get homeworkAssignToLabel => 'Назначить';
 
   @override
-  String get homeworkGroupsLabel => 'Groups';
+  String get homeworkGroupsLabel => 'Группы';
 
   @override
-  String get homeworkStudentsLabel => 'Students';
+  String get homeworkStudentsLabel => 'Ученики';
 
   @override
   String get homeworkNoStudentsHint =>
-      'Register a student first before assigning homework.';
+      'Сначала зарегистрируйте ученика, прежде чем назначать задание.';
 
   @override
-  String get homeworkAssignError => 'Could not assign homework.';
+  String get homeworkAssignError => 'Не удалось назначить задание.';
 
   @override
   String get homeworkServerUnavailable =>
-      'Server unavailable. Please try again.';
+      'Сервер недоступен. Попробуйте ещё раз.';
 
   @override
   String homeworkDueOn(String date) {
-    return 'Due $date';
+    return 'Сдать до $date';
   }
 
   @override
-  String get homeworkNoteLabel => 'Note';
+  String get homeworkNoteLabel => 'Примечание';
 
   @override
   String homeworkTimeLimitMinutes(int minutes) {
-    return 'Time limit: $minutes minutes';
+    return 'Ограничение по времени: $minutes мин.';
   }
 
   @override
-  String get homeworkViewResult => 'View result';
+  String get homeworkViewResult => 'Посмотреть результат';
 
   @override
-  String get homeworkTestUnavailable => 'This test isn\'t available right now.';
+  String get homeworkTestUnavailable => 'Этот тест сейчас недоступен.';
 
   @override
-  String get homeworkStartTest => 'Start test';
+  String get homeworkStartTest => 'Начать тест';
 
   @override
   String get homeworkStartTestComingSoon =>
-      'Taking tests from here is coming soon.';
+      'Прохождение тестов отсюда появится позже.';
 
   @override
   String homeworkMaxGradeValue(int max) {
-    return 'Out of $max points';
+    return 'Из $max баллов';
   }
 
   @override
-  String get homeworkMaterialsLabel => 'Materials';
+  String get homeworkMaterialsLabel => 'Материалы';
 
   @override
-  String get homeworkSubmissionFilesLabel => 'Submission files';
+  String get homeworkSubmissionFilesLabel => 'Файлы ответа';
 
   @override
-  String get homeworkUploadFile => 'Upload file';
+  String get homeworkUploadFile => 'Загрузить файл';
 
   @override
-  String get homeworkLoadFilesError => 'Could not load files.';
+  String get homeworkLoadFilesError => 'Не удалось загрузить файлы.';
 
   @override
-  String get homeworkNoFiles => 'No files yet.';
+  String get homeworkNoFiles => 'Файлов пока нет.';
 
   @override
-  String get homeworkUploadError => 'Could not upload this file.';
+  String get homeworkUploadError => 'Не удалось загрузить этот файл.';
 
   @override
-  String get homeworkDeleteFileError => 'Could not delete this file.';
+  String get homeworkDeleteFileError => 'Не удалось удалить этот файл.';
 
   @override
-  String get homeworkSubmissionLabel => 'Submission';
+  String get homeworkSubmissionLabel => 'Ответ';
 
   @override
-  String get homeworkNoSubmissionYet => 'Not submitted yet.';
+  String get homeworkNoSubmissionYet => 'Ещё не сдано.';
 
   @override
-  String get homeworkGradeButton => 'Grade';
+  String get homeworkGradeButton => 'Оценить';
 
   @override
-  String get homeworkSubmissionHint => 'Write your answer…';
+  String get homeworkSubmissionHint => 'Напишите свой ответ…';
 
   @override
-  String get homeworkSubmitButton => 'Submit';
+  String get homeworkSubmitButton => 'Сдать';
 
   @override
-  String get homeworkResubmitButton => 'Resubmit';
+  String get homeworkResubmitButton => 'Сдать заново';
 
   @override
-  String get homeworkSubmitError => 'Could not submit this homework.';
+  String get homeworkSubmitError => 'Не удалось сдать это задание.';
 
   @override
-  String get homeworkUnlockButton => 'Unlock';
+  String get homeworkUnlockButton => 'Разблокировать';
 
   @override
-  String get homeworkUnlockError => 'Could not unlock this grade.';
+  String get homeworkUnlockError => 'Не удалось разблокировать эту оценку.';
 
   @override
-  String get homeworkGradeModalTitle => 'Grade submission';
+  String get homeworkGradeModalTitle => 'Оценить ответ';
 
   @override
   String homeworkGradeHint(int max) {
-    return 'Grade out of $max';
+    return 'Оценка из $max';
   }
 
   @override
-  String get homeworkFeedbackHint => 'Feedback (optional)';
+  String get homeworkFeedbackHint => 'Комментарий (необязательно)';
 
   @override
-  String get homeworkGradeError => 'Could not save this grade.';
+  String get homeworkGradeError => 'Не удалось сохранить эту оценку.';
 
   @override
-  String get homeworkSaveGrade => 'Save grade';
+  String get homeworkSaveGrade => 'Сохранить оценку';
 
   @override
-  String get homeworkEditModalTitle => 'Edit homework';
+  String get homeworkEditModalTitle => 'Изменить задание';
 
   @override
-  String get homeworkUpdateError => 'Could not update this homework.';
+  String get homeworkUpdateError => 'Не удалось обновить это задание.';
 
   @override
-  String get homeworkEdit => 'Edit';
+  String get homeworkEdit => 'Изменить';
 
   @override
-  String get homeworkDelete => 'Delete';
+  String get homeworkDelete => 'Удалить';
 
   @override
   String homeworkDeleteConfirmTitle(String title) {
-    return 'Delete \"$title\"?';
+    return 'Удалить «$title»?';
   }
 
   @override
-  String get homeworkDeleteConfirmDescription => 'This can\'t be undone.';
+  String get homeworkDeleteConfirmDescription =>
+      'Это действие нельзя отменить.';
 
   @override
-  String get homeworkDeleteError => 'Could not delete this homework.';
+  String get homeworkDeleteError => 'Не удалось удалить это задание.';
 
   @override
-  String get homeworkDetailNotFoundTitle => 'Homework not found';
+  String get homeworkDetailNotFoundTitle => 'Задание не найдено';
 
   @override
-  String get homeworkDetailNotFoundDescription =>
-      'This homework may have already been deleted.';
+  String get homeworkDetailNotFoundDescription => 'Возможно, оно уже удалено.';
 }

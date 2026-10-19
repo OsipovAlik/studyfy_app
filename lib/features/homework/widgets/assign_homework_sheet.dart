@@ -82,7 +82,8 @@ class _AssignHomeworkSheetState extends State<_AssignHomeworkSheet> {
     if (picked != null) {
       // Due by the end of that day.
       setState(
-        () => _dueDate = DateTime(picked.year, picked.month, picked.day, 23, 59),
+        () =>
+            _dueDate = DateTime(picked.year, picked.month, picked.day, 23, 59),
       );
     }
   }
@@ -161,7 +162,10 @@ class _AssignHomeworkSheetState extends State<_AssignHomeworkSheet> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(l10n.homeworkAssignModalTitle, style: theme.textTheme.titleLarge),
+              Text(
+                l10n.homeworkAssignModalTitle,
+                style: theme.textTheme.titleLarge,
+              ),
               const SizedBox(height: 16),
               _KindToggle(
                 kind: _kind,
@@ -237,7 +241,10 @@ class _AssignHomeworkSheetState extends State<_AssignHomeworkSheet> {
                       ),
                       if (_dueDate != null)
                         IconButton(
-                          icon: const Icon(CupertinoIcons.xmark_circle_fill, size: 18),
+                          icon: const Icon(
+                            CupertinoIcons.xmark_circle_fill,
+                            size: 18,
+                          ),
                           onPressed: () => setState(() => _dueDate = null),
                         ),
                     ],
@@ -303,7 +310,9 @@ class _AssignHomeworkSheetState extends State<_AssignHomeworkSheet> {
                         ),
                         for (final entry in timetable.studentNames.entries)
                           CheckboxListTile(
-                            key: ValueKey('assign-homework-student-${entry.key}'),
+                            key: ValueKey(
+                              'assign-homework-student-${entry.key}',
+                            ),
                             dense: true,
                             value: _studentIds.contains(entry.key),
                             title: Text(entry.value),

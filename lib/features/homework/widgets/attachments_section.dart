@@ -49,7 +49,10 @@ class _AttachmentsSectionState extends State<AttachmentsSection> {
     final all = await context.read<HomeworkRepository>().listAttachments(
       widget.assignmentId,
     );
-    return [for (final a in all) if (a.kind == widget.kind) a];
+    return [
+      for (final a in all)
+        if (a.kind == widget.kind) a,
+    ];
   }
 
   Future<void> _reload() async {
@@ -186,7 +189,8 @@ class _AttachmentsSectionState extends State<AttachmentsSection> {
                 child: Column(
                   children: [
                     for (var i = 0; i < attachments.length; i++) ...[
-                      if (i > 0) Divider(height: 1, color: scheme.outlineVariant),
+                      if (i > 0)
+                        Divider(height: 1, color: scheme.outlineVariant),
                       ListTile(
                         dense: true,
                         leading: Icon(

@@ -3,7 +3,8 @@
 enum AssignmentType {
   test,
   task,
-  unknown;
+  unknown
+  ;
 
   static AssignmentType fromJson(String? value) => switch (value) {
     'test' => AssignmentType.test,
@@ -18,7 +19,8 @@ enum AssignmentStatus {
   pending,
   overdue,
   completed,
-  unknown;
+  unknown
+  ;
 
   static AssignmentStatus fromJson(String? value) => switch (value) {
     'pending' => AssignmentStatus.pending,

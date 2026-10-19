@@ -15,6 +15,7 @@ import 'package:studify/features/sessions/group_detail_screen.dart';
 import 'package:studify/features/sessions/sessions_screen.dart';
 import 'package:studify/features/settings/settings_screen.dart';
 import 'package:studify/features/shell/main_shell.dart';
+import 'package:studify/features/students/student_detail_screen.dart';
 import 'package:studify/features/students/students_screen.dart';
 import 'package:studify/features/subjects/subject_detail_screen.dart';
 import 'package:studify/features/subjects/subjects_screen.dart';
@@ -150,6 +151,14 @@ GoRouter createRouter({required AuthController auth}) {
               GoRoute(
                 path: AppRoutes.students,
                 builder: (context, state) => const StudentsScreen(),
+                routes: [
+                  GoRoute(
+                    path: ':id',
+                    builder: (context, state) => StudentDetailScreen(
+                      studentId: int.parse(state.pathParameters['id']!),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

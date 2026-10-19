@@ -23,7 +23,10 @@ Future<void> showEditAssignmentSheet(
 }
 
 class _EditAssignmentSheet extends StatefulWidget {
-  const _EditAssignmentSheet({required this.controller, required this.assignment});
+  const _EditAssignmentSheet({
+    required this.controller,
+    required this.assignment,
+  });
 
   final HomeworkController controller;
   final Assignment assignment;
@@ -69,7 +72,8 @@ class _EditAssignmentSheetState extends State<_EditAssignmentSheet> {
     );
     if (picked != null) {
       setState(
-        () => _dueDate = DateTime(picked.year, picked.month, picked.day, 23, 59),
+        () =>
+            _dueDate = DateTime(picked.year, picked.month, picked.day, 23, 59),
       );
     }
   }
