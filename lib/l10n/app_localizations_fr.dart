@@ -1649,6 +1649,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get homeworkMaxGradeHint => 'Note maximale (100 par défaut)';
 
   @override
+  String get homeworkAttachmentLabel => 'Pièce jointe (facultatif)';
+
+  @override
   String get homeworkDueDateLabel => 'Date limite';
 
   @override

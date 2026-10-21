@@ -3042,6 +3042,12 @@ abstract class AppLocalizations {
   /// **'Max grade (default 100)'**
   String get homeworkMaxGradeHint;
 
+  /// No description provided for @homeworkAttachmentLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Attachment (optional)'**
+  String get homeworkAttachmentLabel;
+
   /// No description provided for @homeworkDueDateLabel.
   ///
   /// In en, this message translates to:

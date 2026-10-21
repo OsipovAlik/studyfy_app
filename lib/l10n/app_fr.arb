@@ -608,6 +608,7 @@
   "homeworkNoActiveTests": "Publiez d'abord un test avant de l'attribuer comme devoir.",
   "homeworkTaskTitlePlaceholder": "Titre",
   "homeworkMaxGradeHint": "Note maximale (100 par défaut)",
+  "homeworkAttachmentLabel": "Pièce jointe (facultatif)",
   "homeworkDueDateLabel": "Date limite",
   "homeworkNoDueDate": "Aucune date limite",
   "homeworkNoteHint": "Note pour l'élève (facultatif)",

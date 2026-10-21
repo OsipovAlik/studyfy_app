@@ -1,10 +1,12 @@
 import 'dart:async';
 
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:studify/core/network/api_exception.dart';
+import 'package:studify/features/homework/data/homework_repository.dart';
 import 'package:studify/features/homework/homework_controller.dart';
 import 'package:studify/features/sessions/timetable_controller.dart';
 import 'package:studify/features/subjects/subjects_controller.dart';
@@ -44,6 +46,7 @@ class _AssignHomeworkSheetState extends State<_AssignHomeworkSheet> {
   DateTime? _dueDate;
   final Set<int> _studentIds = {};
   final Set<int> _groupIds = {};
+  PlatformFile? _attachment;
   bool _submitting = false;
   String? _error;
 
@@ -82,10 +85,15 @@ class _AssignHomeworkSheetState extends State<_AssignHomeworkSheet> {
     if (picked != null) {
       // Due by the end of that day.
       setState(
-        () =>
-            _dueDate = DateTime(picked.year, picked.month, picked.day, 23, 59),
+        () => _dueDate = DateTime(picked.year, picked.month, picked.day, 23, 59),
       );
     }
+  }
+
+  Future<void> _pickAttachment() async {
+    final file = await FilePicker.pickFile();
+    if (file == null) return;
+    setState(() => _attachment = file);
   }
 
   Future<void> _submit() async {
@@ -100,32 +108,44 @@ class _AssignHomeworkSheetState extends State<_AssignHomeworkSheet> {
     final groupIds = _groupIds.isEmpty ? null : _groupIds.toList();
     final note = _note.text.trim();
     try {
-      if (_kind == _Kind.test) {
-        await widget.controller.createTestHomework(
-          testId: _testId!,
-          studentIds: studentIds,
-          groupIds: groupIds,
-          dueDate: _dueDate,
-          note: note.isEmpty ? null : note,
-        );
-      } else {
-        await widget.controller.createTaskHomework(
-          title: _title.text.trim(),
-          maxGrade: int.tryParse(_maxGrade.text.trim()),
-          studentIds: studentIds,
-          groupIds: groupIds,
-          dueDate: _dueDate,
-          note: note.isEmpty ? null : note,
-        );
+      final created = _kind == _Kind.test
+          ? await widget.controller.createTestHomework(
+              testId: _testId!,
+              studentIds: studentIds,
+              groupIds: groupIds,
+              dueDate: _dueDate,
+              note: note.isEmpty ? null : note,
+            )
+          : await widget.controller.createTaskHomework(
+              title: _title.text.trim(),
+              maxGrade: int.tryParse(_maxGrade.text.trim()),
+              studentIds: studentIds,
+              groupIds: groupIds,
+              dueDate: _dueDate,
+              note: note.isEmpty ? null : note,
+            );
+      // The task/test itself is created at this point; a failure past
+      // here shouldn't block closing the sheet or imply nothing happened.
+      if (_attachment case final file? when created.isNotEmpty) {
+        try {
+          await context.read<HomeworkRepository>().uploadAttachment(
+            assignmentIds: [for (final assignment in created) assignment.id],
+            file: file,
+          );
+        } on ApiException {
+          if (mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text(l10n.homeworkUploadError)),
+            );
+          }
+        }
       }
       if (mounted) Navigator.of(context).pop();
     } on ApiException catch (error) {
       if (!mounted) return;
       setState(() {
         _submitting = false;
-        _error = (error.isNetworkError || error.isServerError)
-            ? l10n.homeworkServerUnavailable
-            : error.message ?? l10n.homeworkAssignError;
+        _error = (error.isNetworkError || error.isServerError) ? l10n.homeworkServerUnavailable : error.message ?? l10n.homeworkAssignError;
       });
     }
   }
@@ -186,9 +206,7 @@ class _AssignHomeworkSheetState extends State<_AssignHomeworkSheet> {
                         DropdownMenuItem(
                           value: test.id,
                           child: Text(
-                            subjectNameById[test.subjectId] != null
-                                ? '${test.title} — ${subjectNameById[test.subjectId]}'
-                                : test.title,
+                            subjectNameById[test.subjectId] != null ? '${test.title} — ${subjectNameById[test.subjectId]}' : test.title,
                             overflow: TextOverflow.ellipsis,
                           ),
                         ),
@@ -207,6 +225,36 @@ class _AssignHomeworkSheetState extends State<_AssignHomeworkSheet> {
                   controller: _maxGrade,
                   keyboardType: TextInputType.number,
                   decoration: decoration(l10n.homeworkMaxGradeHint),
+                ),
+                const SizedBox(height: 16),
+                _FieldLabel(l10n.homeworkAttachmentLabel),
+                const SizedBox(height: 8),
+                Row(
+                  children: [
+                    OutlinedButton.icon(
+                      onPressed: () => unawaited(_pickAttachment()),
+                      icon: const Icon(CupertinoIcons.paperclip, size: 16),
+                      label: Text(l10n.homeworkUploadFile),
+                    ),
+                    if (_attachment case final file?) ...[
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: Text(
+                          file.name,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: theme.textTheme.bodySmall,
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () => setState(() => _attachment = null),
+                        icon: const Icon(
+                          CupertinoIcons.xmark_circle_fill,
+                          size: 18,
+                        ),
+                      ),
+                    ],
+                  ],
                 ),
               ],
               const SizedBox(height: 16),
@@ -234,9 +282,7 @@ class _AssignHomeworkSheetState extends State<_AssignHomeworkSheet> {
                       const SizedBox(width: 10),
                       Expanded(
                         child: Text(
-                          _dueDate == null
-                              ? l10n.homeworkNoDueDate
-                              : DateFormat.yMMMd(locale).format(_dueDate!),
+                          _dueDate == null ? l10n.homeworkNoDueDate : DateFormat.yMMMd(locale).format(_dueDate!),
                         ),
                       ),
                       if (_dueDate != null)
@@ -278,9 +324,7 @@ class _AssignHomeworkSheetState extends State<_AssignHomeworkSheet> {
                           padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
                           child: Text(
                             l10n.homeworkGroupsLabel,
-                            style: theme.textTheme.labelSmall?.copyWith(
-                              color: scheme.onSurfaceVariant,
-                            ),
+                            style: theme.textTheme.labelSmall?.copyWith(color: scheme.onSurfaceVariant, fontWeight: FontWeight(600)),
                           ),
                         ),
                         for (final group in timetable.groups)

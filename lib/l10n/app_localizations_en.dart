@@ -1613,6 +1613,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get homeworkMaxGradeHint => 'Max grade (default 100)';
 
   @override
+  String get homeworkAttachmentLabel => 'Attachment (optional)';
+
+  @override
   String get homeworkDueDateLabel => 'Due date';
 
   @override

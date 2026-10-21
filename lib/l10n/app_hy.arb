@@ -608,6 +608,7 @@
   "homeworkNoActiveTests": "Նախ հրապարակեք թեստ՝ այն որպես առաջադրանք հանձնարարելուց առաջ։",
   "homeworkTaskTitlePlaceholder": "Վերնագիր",
   "homeworkMaxGradeHint": "Առավելագույն միավոր (լռելյայն՝ 100)",
+  "homeworkAttachmentLabel": "Կցված ֆայլ (ըստ ցանկության)",
   "homeworkDueDateLabel": "Վերջնաժամկետ",
   "homeworkNoDueDate": "Առանց վերջնաժամկետի",
   "homeworkNoteHint": "Նշում աշակերտի համար (կամընտիր)",

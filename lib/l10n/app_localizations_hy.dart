@@ -1615,6 +1615,9 @@ class AppLocalizationsHy extends AppLocalizations {
   String get homeworkMaxGradeHint => 'Առավելագույն միավոր (լռելյայն՝ 100)';
 
   @override
+  String get homeworkAttachmentLabel => 'Կցված ֆայլ (ըստ ցանկության)';
+
+  @override
   String get homeworkDueDateLabel => 'Վերջնաժամկետ';
 
   @override

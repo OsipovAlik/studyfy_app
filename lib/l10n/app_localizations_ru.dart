@@ -1616,6 +1616,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get homeworkMaxGradeHint => 'Максимальная оценка (по умолчанию 100)';
 
   @override
+  String get homeworkAttachmentLabel => 'Вложение (необязательно)';
+
+  @override
   String get homeworkDueDateLabel => 'Срок сдачи';
 
   @override

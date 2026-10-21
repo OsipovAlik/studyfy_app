@@ -726,6 +726,7 @@
   "homeworkNoActiveTests": "Publish a test first before assigning it as homework.",
   "homeworkTaskTitlePlaceholder": "Title",
   "homeworkMaxGradeHint": "Max grade (default 100)",
+  "homeworkAttachmentLabel": "Attachment (optional)",
   "homeworkDueDateLabel": "Due date",
   "homeworkNoDueDate": "No due date",
   "homeworkNoteHint": "Note for the student (optional)",

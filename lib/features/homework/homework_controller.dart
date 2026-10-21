@@ -92,7 +92,9 @@ class HomeworkController extends ChangeNotifier {
     }
   }
 
-  Future<void> createTestHomework({
+  /// Returns the created assignments (one per student) so the caller
+  /// can, for instance, attach a file to all of them right away.
+  Future<List<Assignment>> createTestHomework({
     required int testId,
     List<int>? studentIds,
     List<int>? groupIds,
@@ -108,9 +110,12 @@ class HomeworkController extends ChangeNotifier {
     );
     _assignments = [..._assignments, ...created];
     notifyListeners();
+    return created;
   }
 
-  Future<void> createTaskHomework({
+  /// Returns the created assignments (one per student) so the caller
+  /// can, for instance, attach a file to all of them right away.
+  Future<List<Assignment>> createTaskHomework({
     required String title,
     int? maxGrade,
     List<int>? studentIds,
@@ -128,6 +133,7 @@ class HomeworkController extends ChangeNotifier {
     );
     _assignments = [..._assignments, ...created];
     notifyListeners();
+    return created;
   }
 
   Future<void> updateAssignment(
