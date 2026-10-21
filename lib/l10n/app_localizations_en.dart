@@ -442,6 +442,54 @@ class AppLocalizationsEn extends AppLocalizations {
   String get homeSubtitle => 'Another week of amazing progress. Keep going!';
 
   @override
+  String get homeBannerDialogTitle => 'Banner picture';
+
+  @override
+  String get homeBannerDialogSubtitle =>
+      'Shown on the right of the home page banner, for you and for this subject\'s students.';
+
+  @override
+  String get homeBannerNoSubjects => 'Add a subject first.';
+
+  @override
+  String get homeBannerSubjectLabel => 'Subject';
+
+  @override
+  String get homeBannerPreviewLabel => 'Preview';
+
+  @override
+  String get homeBannerChoosePicture => 'Choose a picture';
+
+  @override
+  String get homeBannerSizeHint =>
+      'Best size: 1600 × 400 px (4:1). At least 1200 × 300 px.';
+
+  @override
+  String get homeBannerFormatHint =>
+      'JPEG, PNG, GIF or WebP, up to 10 MB. Keep the main part on the right: the left side fades under the text.';
+
+  @override
+  String homeBannerTooSmallWarning(int width, int height) {
+    return 'This picture is $width × $height px, so it may look blurry. Use at least 1200 × 300 px.';
+  }
+
+  @override
+  String get homeBannerTooTallWarning =>
+      'This picture is much taller than the banner, so its top and bottom will be cut off. A wide picture (about 4:1) fits best.';
+
+  @override
+  String get homeBannerRemovePicture => 'Remove picture';
+
+  @override
+  String get homeBannerSavePicture => 'Save picture';
+
+  @override
+  String get homeBannerUploadError => 'Could not update the picture.';
+
+  @override
+  String get homeBannerRemoveError => 'Could not remove the picture.';
+
+  @override
   String get homeTimetableTitle => 'This week\'s timetable';
 
   @override
@@ -1350,6 +1398,146 @@ class AppLocalizationsEn extends AppLocalizations {
   String subjectDetailGenerateSuccess(int generated, int requested) {
     return 'Generated $generated of $requested questions. Review it before publishing.';
   }
+
+  @override
+  String get testDetailNotFoundDescription =>
+      'This test may have already been deleted.';
+
+  @override
+  String get testDetailDraftBannerTitle => 'Draft – not visible to students';
+
+  @override
+  String get testDetailDiscardDraft => 'Discard draft';
+
+  @override
+  String get testDetailPublishTest => 'Publish test';
+
+  @override
+  String get testDetailPublishError => 'Could not update the test.';
+
+  @override
+  String get testDetailDiscardDraftConfirmTitle => 'Discard this draft?';
+
+  @override
+  String get testDetailDiscardDraftConfirmDescription =>
+      'This deletes the test and its questions. This can\'t be undone.';
+
+  @override
+  String get testDetailDiscardError => 'Could not discard the draft.';
+
+  @override
+  String get testDetailUntimedLabel => 'Untimed';
+
+  @override
+  String testDetailMinutesLabel(int minutes) {
+    return '$minutes min';
+  }
+
+  @override
+  String get testDetailTabQuestions => 'Questions';
+
+  @override
+  String testDetailTabResults(int count) {
+    return 'Results ($count)';
+  }
+
+  @override
+  String testDetailTabHomework(int count) {
+    return 'Homework ($count)';
+  }
+
+  @override
+  String get testDetailQuestionsSubtitle =>
+      'Questions for this test appear here.';
+
+  @override
+  String get testDetailAddQuestion => 'Add question';
+
+  @override
+  String get testDetailQuestionsLoadError => 'Could not load questions.';
+
+  @override
+  String get testDetailFreeTextLabel => 'Free text';
+
+  @override
+  String testDetailExpectedAnswerLabel(String answer) {
+    return 'Expected answer: $answer';
+  }
+
+  @override
+  String get testDetailDeleteQuestionConfirmTitle => 'Delete this question?';
+
+  @override
+  String get testDetailDeleteQuestionConfirmDescription =>
+      'This can\'t be undone.';
+
+  @override
+  String get testDetailQuestionDeleteError => 'Could not delete the question.';
+
+  @override
+  String get testDetailResultsEmptyTitle => 'No attempts yet.';
+
+  @override
+  String get testDetailHomeworkEmptyTitle => 'Not assigned to anyone yet.';
+
+  @override
+  String get testDetailQuestionFormAddTitle => 'Add question';
+
+  @override
+  String get testDetailQuestionFormEditTitle => 'Edit question';
+
+  @override
+  String get testDetailQuestionLabel => 'Question';
+
+  @override
+  String get testDetailQuestionTextPlaceholder => 'Question text';
+
+  @override
+  String get testDetailQuestionTypeLabel => 'Type';
+
+  @override
+  String testDetailOptionLabel(String letter) {
+    return 'Option $letter';
+  }
+
+  @override
+  String testDetailOptionOptionalLabel(String letter) {
+    return 'Option $letter (optional)';
+  }
+
+  @override
+  String get testDetailCorrectAnswerLabel => 'Correct option';
+
+  @override
+  String get testDetailExpectedTextAnswerPlaceholder => 'Expected answer';
+
+  @override
+  String get testDetailImageLabel => 'Image (optional)';
+
+  @override
+  String get testDetailAddImage => 'Add image';
+
+  @override
+  String get testDetailImageHelpExisting =>
+      'Choose a new image to replace it, or leave this empty to keep the current one. JPEG, PNG, GIF or WebP, up to 10 MB.';
+
+  @override
+  String get testDetailImageHelpNew => 'JPEG, PNG, GIF or WebP, up to 10 MB.';
+
+  @override
+  String get testDetailVideoPlaceholder => 'Video link (optional)';
+
+  @override
+  String get testDetailVideoHint => 'https://…';
+
+  @override
+  String get testDetailSaveQuestion => 'Save question';
+
+  @override
+  String get testDetailQuestionCreateError => 'Could not add the question.';
+
+  @override
+  String get testDetailQuestionUpdateError => 'Could not update the question.';
 
   @override
   String get homeworkTitleTeacher => 'Homework';

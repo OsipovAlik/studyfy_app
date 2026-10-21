@@ -86,9 +86,7 @@ class _SubjectsScreenState extends State<SubjectsScreen> {
                   else if (subjects.isEmpty)
                     _EmptyState(
                       title: l10n.subjectsEmptyTitle,
-                      description: controller.isTeacher
-                          ? l10n.subjectsEmptyDescription
-                          : null,
+                      description: controller.isTeacher ? l10n.subjectsEmptyDescription : null,
                     )
                   else
                     _SubjectList(subjects: subjects, controller: controller),

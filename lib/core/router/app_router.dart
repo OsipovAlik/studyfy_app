@@ -17,8 +17,10 @@ import 'package:studify/features/settings/settings_screen.dart';
 import 'package:studify/features/shell/main_shell.dart';
 import 'package:studify/features/students/student_detail_screen.dart';
 import 'package:studify/features/students/students_screen.dart';
+import 'package:studify/features/subjects/domain/test.dart';
 import 'package:studify/features/subjects/subject_detail_screen.dart';
 import 'package:studify/features/subjects/subjects_screen.dart';
+import 'package:studify/features/subjects/test_detail_screen.dart';
 import 'package:studify/l10n/app_localizations.dart';
 
 abstract final class AppRoutes {
@@ -125,6 +127,15 @@ GoRouter createRouter({required AuthController auth}) {
                     builder: (context, state) => SubjectDetailScreen(
                       subjectId: int.parse(state.pathParameters['id']!),
                     ),
+                    routes: [
+                      GoRoute(
+                        path: 'tests/:testId',
+                        builder: (context, state) => TestDetailScreen(
+                          testId: int.parse(state.pathParameters['testId']!),
+                          initialTest: state.extra as Test?,
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),

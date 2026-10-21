@@ -10,6 +10,12 @@ enum QuestionType {
     'text' => QuestionType.text,
     _ => QuestionType.unknown,
   };
+
+  /// The API's own spelling, for creating/editing a question.
+  String get wireValue => switch (this) {
+    QuestionType.multipleChoice => 'multiple_choice',
+    QuestionType.text || QuestionType.unknown => 'text',
+  };
 }
 
 /// One graded question in a [Result]'s breakdown.

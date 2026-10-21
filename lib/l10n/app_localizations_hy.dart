@@ -446,6 +446,54 @@ class AppLocalizationsHy extends AppLocalizations {
       'Եվս մեկ շաբաթ՝ հրաշալի առաջընթացով։ Շարունակե՛ք նույն ոգով։';
 
   @override
+  String get homeBannerDialogTitle => 'Բանների նկար';
+
+  @override
+  String get homeBannerDialogSubtitle =>
+      'Ցուցադրվում է գլխավոր էջի բանների աջ կողմում՝ ձեզ և այս առարկայի աշակերտներին։';
+
+  @override
+  String get homeBannerNoSubjects => 'Նախ ավելացրեք առարկա։';
+
+  @override
+  String get homeBannerSubjectLabel => 'Առարկա';
+
+  @override
+  String get homeBannerPreviewLabel => 'Նախադիտում';
+
+  @override
+  String get homeBannerChoosePicture => 'Ընտրել նկար';
+
+  @override
+  String get homeBannerSizeHint =>
+      'Լավագույն չափսը՝ 1600 × 400 px (4:1)։ Նվազագույնը՝ 1200 × 300 px։';
+
+  @override
+  String get homeBannerFormatHint =>
+      'JPEG, PNG, GIF կամ WebP, մինչև 10 ՄԲ։ Հիմնական մասը դրեք աջ կողմում․ ձախ կողմը կծածկվի տեքստի տակ։';
+
+  @override
+  String homeBannerTooSmallWarning(int width, int height) {
+    return 'Այս նկարը $width × $height px է, ուստի կարող է լղոզված երևալ։ Օգտագործեք առնվազն 1200 × 300 px։';
+  }
+
+  @override
+  String get homeBannerTooTallWarning =>
+      'Այս նկարը բաններից շատ ավելի բարձր է, ուստի դրա վերևն ու ներքևը կկտրվեն։ Ամենալավը կլինի լայն նկարը (մոտ 4:1)։';
+
+  @override
+  String get homeBannerRemovePicture => 'Հեռացնել նկարը';
+
+  @override
+  String get homeBannerSavePicture => 'Պահպանել նկարը';
+
+  @override
+  String get homeBannerUploadError => 'Չհաջողվեց թարմացնել նկարը։';
+
+  @override
+  String get homeBannerRemoveError => 'Չհաջողվեց հեռացնել նկարը։';
+
+  @override
   String get homeTimetableTitle => 'Շաբաթվա ժամանակացույց';
 
   @override
@@ -1352,6 +1400,145 @@ class AppLocalizationsHy extends AppLocalizations {
   String subjectDetailGenerateSuccess(int generated, int requested) {
     return 'Ստեղծվեց $requested-ից $generated հարց։ Վերանայեք այն՝ նախքան հրապարակելը։';
   }
+
+  @override
+  String get testDetailNotFoundDescription => 'Այս թեստը գուցե արդեն ջնջվել է։';
+
+  @override
+  String get testDetailDraftBannerTitle => 'Սևագիր — ուսանողներին անտեսանելի';
+
+  @override
+  String get testDetailDiscardDraft => 'Ջնջել սևագիրը';
+
+  @override
+  String get testDetailPublishTest => 'Հրապարակել թեստը';
+
+  @override
+  String get testDetailPublishError => 'Չհաջողվեց թարմացնել թեստը։';
+
+  @override
+  String get testDetailDiscardDraftConfirmTitle => 'Ջնջե՞լ այս սևագիրը։';
+
+  @override
+  String get testDetailDiscardDraftConfirmDescription =>
+      'Սա կջնջի թեստը և դրա հարցերը։ Այս գործողությունը հնարավոր չէ հետարկել։';
+
+  @override
+  String get testDetailDiscardError => 'Չհաջողվեց ջնջել սևագիրը։';
+
+  @override
+  String get testDetailUntimedLabel => 'Առանց սահմանաչափի';
+
+  @override
+  String testDetailMinutesLabel(int minutes) {
+    return '$minutes րոպե';
+  }
+
+  @override
+  String get testDetailTabQuestions => 'Հարցեր';
+
+  @override
+  String testDetailTabResults(int count) {
+    return 'Արդյունքներ ($count)';
+  }
+
+  @override
+  String testDetailTabHomework(int count) {
+    return 'Տնային առաջադրանքներ ($count)';
+  }
+
+  @override
+  String get testDetailQuestionsSubtitle =>
+      'Այս թեստի հարցերը կհայտնվեն այստեղ։';
+
+  @override
+  String get testDetailAddQuestion => 'Ավելացնել հարց';
+
+  @override
+  String get testDetailQuestionsLoadError => 'Չհաջողվեց բեռնել հարցերը։';
+
+  @override
+  String get testDetailFreeTextLabel => 'Ազատ տեքստ';
+
+  @override
+  String testDetailExpectedAnswerLabel(String answer) {
+    return 'Ակնկալվող պատասխան՝ $answer';
+  }
+
+  @override
+  String get testDetailDeleteQuestionConfirmTitle => 'Ջնջե՞լ այս հարցը։';
+
+  @override
+  String get testDetailDeleteQuestionConfirmDescription =>
+      'Այս գործողությունը հնարավոր չէ հետարկել։';
+
+  @override
+  String get testDetailQuestionDeleteError => 'Չհաջողվեց ջնջել հարցը։';
+
+  @override
+  String get testDetailResultsEmptyTitle => 'Դեռ փորձեր չկան։';
+
+  @override
+  String get testDetailHomeworkEmptyTitle => 'Դեռ ոչ ոքի չի նշանակվել։';
+
+  @override
+  String get testDetailQuestionFormAddTitle => 'Ավելացնել հարց';
+
+  @override
+  String get testDetailQuestionFormEditTitle => 'Խմբագրել հարցը';
+
+  @override
+  String get testDetailQuestionLabel => 'Հարց';
+
+  @override
+  String get testDetailQuestionTextPlaceholder => 'Հարցի տեքստը';
+
+  @override
+  String get testDetailQuestionTypeLabel => 'Տեսակ';
+
+  @override
+  String testDetailOptionLabel(String letter) {
+    return 'Տարբերակ $letter';
+  }
+
+  @override
+  String testDetailOptionOptionalLabel(String letter) {
+    return 'Տարբերակ $letter (ըստ ցանկության)';
+  }
+
+  @override
+  String get testDetailCorrectAnswerLabel => 'Ճիշտ տարբերակ';
+
+  @override
+  String get testDetailExpectedTextAnswerPlaceholder => 'Ակնկալվող պատասխան';
+
+  @override
+  String get testDetailImageLabel => 'Նկար (ըստ ցանկության)';
+
+  @override
+  String get testDetailAddImage => 'Ավելացնել նկար';
+
+  @override
+  String get testDetailImageHelpExisting =>
+      'Ընտրեք նոր նկար՝ այն փոխարինելու համար, կամ թողեք դատարկ՝ ընթացիկը պահպանելու համար։ JPEG, PNG, GIF կամ WebP, մինչև 10 ՄԲ։';
+
+  @override
+  String get testDetailImageHelpNew => 'JPEG, PNG, GIF կամ WebP, մինչև 10 ՄԲ։';
+
+  @override
+  String get testDetailVideoPlaceholder => 'Տեսանյութի հղում (ըստ ցանկության)';
+
+  @override
+  String get testDetailVideoHint => 'https://…';
+
+  @override
+  String get testDetailSaveQuestion => 'Պահպանել հարցը';
+
+  @override
+  String get testDetailQuestionCreateError => 'Չհաջողվեց ավելացնել հարցը։';
+
+  @override
+  String get testDetailQuestionUpdateError => 'Չհաջողվեց թարմացնել հարցը։';
 
   @override
   String get homeworkTitleTeacher => 'Տնային առաջադրանքներ';

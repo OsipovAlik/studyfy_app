@@ -906,6 +906,90 @@ abstract class AppLocalizations {
   /// **'Another week of amazing progress. Keep going!'**
   String get homeSubtitle;
 
+  /// No description provided for @homeBannerDialogTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Banner picture'**
+  String get homeBannerDialogTitle;
+
+  /// No description provided for @homeBannerDialogSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Shown on the right of the home page banner, for you and for this subject\'s students.'**
+  String get homeBannerDialogSubtitle;
+
+  /// No description provided for @homeBannerNoSubjects.
+  ///
+  /// In en, this message translates to:
+  /// **'Add a subject first.'**
+  String get homeBannerNoSubjects;
+
+  /// No description provided for @homeBannerSubjectLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Subject'**
+  String get homeBannerSubjectLabel;
+
+  /// No description provided for @homeBannerPreviewLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Preview'**
+  String get homeBannerPreviewLabel;
+
+  /// No description provided for @homeBannerChoosePicture.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a picture'**
+  String get homeBannerChoosePicture;
+
+  /// No description provided for @homeBannerSizeHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Best size: 1600 × 400 px (4:1). At least 1200 × 300 px.'**
+  String get homeBannerSizeHint;
+
+  /// No description provided for @homeBannerFormatHint.
+  ///
+  /// In en, this message translates to:
+  /// **'JPEG, PNG, GIF or WebP, up to 10 MB. Keep the main part on the right: the left side fades under the text.'**
+  String get homeBannerFormatHint;
+
+  /// No description provided for @homeBannerTooSmallWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'This picture is {width} × {height} px, so it may look blurry. Use at least 1200 × 300 px.'**
+  String homeBannerTooSmallWarning(int width, int height);
+
+  /// No description provided for @homeBannerTooTallWarning.
+  ///
+  /// In en, this message translates to:
+  /// **'This picture is much taller than the banner, so its top and bottom will be cut off. A wide picture (about 4:1) fits best.'**
+  String get homeBannerTooTallWarning;
+
+  /// No description provided for @homeBannerRemovePicture.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove picture'**
+  String get homeBannerRemovePicture;
+
+  /// No description provided for @homeBannerSavePicture.
+  ///
+  /// In en, this message translates to:
+  /// **'Save picture'**
+  String get homeBannerSavePicture;
+
+  /// No description provided for @homeBannerUploadError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not update the picture.'**
+  String get homeBannerUploadError;
+
+  /// No description provided for @homeBannerRemoveError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not remove the picture.'**
+  String get homeBannerRemoveError;
+
   /// No description provided for @homeTimetableTitle.
   ///
   /// In en, this message translates to:
@@ -2573,6 +2657,252 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Generated {generated} of {requested} questions. Review it before publishing.'**
   String subjectDetailGenerateSuccess(int generated, int requested);
+
+  /// No description provided for @testDetailNotFoundDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'This test may have already been deleted.'**
+  String get testDetailNotFoundDescription;
+
+  /// No description provided for @testDetailDraftBannerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Draft – not visible to students'**
+  String get testDetailDraftBannerTitle;
+
+  /// No description provided for @testDetailDiscardDraft.
+  ///
+  /// In en, this message translates to:
+  /// **'Discard draft'**
+  String get testDetailDiscardDraft;
+
+  /// No description provided for @testDetailPublishTest.
+  ///
+  /// In en, this message translates to:
+  /// **'Publish test'**
+  String get testDetailPublishTest;
+
+  /// No description provided for @testDetailPublishError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not update the test.'**
+  String get testDetailPublishError;
+
+  /// No description provided for @testDetailDiscardDraftConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Discard this draft?'**
+  String get testDetailDiscardDraftConfirmTitle;
+
+  /// No description provided for @testDetailDiscardDraftConfirmDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'This deletes the test and its questions. This can\'t be undone.'**
+  String get testDetailDiscardDraftConfirmDescription;
+
+  /// No description provided for @testDetailDiscardError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not discard the draft.'**
+  String get testDetailDiscardError;
+
+  /// No description provided for @testDetailUntimedLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Untimed'**
+  String get testDetailUntimedLabel;
+
+  /// No description provided for @testDetailMinutesLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'{minutes} min'**
+  String testDetailMinutesLabel(int minutes);
+
+  /// No description provided for @testDetailTabQuestions.
+  ///
+  /// In en, this message translates to:
+  /// **'Questions'**
+  String get testDetailTabQuestions;
+
+  /// No description provided for @testDetailTabResults.
+  ///
+  /// In en, this message translates to:
+  /// **'Results ({count})'**
+  String testDetailTabResults(int count);
+
+  /// No description provided for @testDetailTabHomework.
+  ///
+  /// In en, this message translates to:
+  /// **'Homework ({count})'**
+  String testDetailTabHomework(int count);
+
+  /// No description provided for @testDetailQuestionsSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Questions for this test appear here.'**
+  String get testDetailQuestionsSubtitle;
+
+  /// No description provided for @testDetailAddQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'Add question'**
+  String get testDetailAddQuestion;
+
+  /// No description provided for @testDetailQuestionsLoadError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not load questions.'**
+  String get testDetailQuestionsLoadError;
+
+  /// No description provided for @testDetailFreeTextLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Free text'**
+  String get testDetailFreeTextLabel;
+
+  /// No description provided for @testDetailExpectedAnswerLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Expected answer: {answer}'**
+  String testDetailExpectedAnswerLabel(String answer);
+
+  /// No description provided for @testDetailDeleteQuestionConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this question?'**
+  String get testDetailDeleteQuestionConfirmTitle;
+
+  /// No description provided for @testDetailDeleteQuestionConfirmDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'This can\'t be undone.'**
+  String get testDetailDeleteQuestionConfirmDescription;
+
+  /// No description provided for @testDetailQuestionDeleteError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not delete the question.'**
+  String get testDetailQuestionDeleteError;
+
+  /// No description provided for @testDetailResultsEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No attempts yet.'**
+  String get testDetailResultsEmptyTitle;
+
+  /// No description provided for @testDetailHomeworkEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Not assigned to anyone yet.'**
+  String get testDetailHomeworkEmptyTitle;
+
+  /// No description provided for @testDetailQuestionFormAddTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add question'**
+  String get testDetailQuestionFormAddTitle;
+
+  /// No description provided for @testDetailQuestionFormEditTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit question'**
+  String get testDetailQuestionFormEditTitle;
+
+  /// No description provided for @testDetailQuestionLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Question'**
+  String get testDetailQuestionLabel;
+
+  /// No description provided for @testDetailQuestionTextPlaceholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Question text'**
+  String get testDetailQuestionTextPlaceholder;
+
+  /// No description provided for @testDetailQuestionTypeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Type'**
+  String get testDetailQuestionTypeLabel;
+
+  /// No description provided for @testDetailOptionLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Option {letter}'**
+  String testDetailOptionLabel(String letter);
+
+  /// No description provided for @testDetailOptionOptionalLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Option {letter} (optional)'**
+  String testDetailOptionOptionalLabel(String letter);
+
+  /// No description provided for @testDetailCorrectAnswerLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Correct option'**
+  String get testDetailCorrectAnswerLabel;
+
+  /// No description provided for @testDetailExpectedTextAnswerPlaceholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Expected answer'**
+  String get testDetailExpectedTextAnswerPlaceholder;
+
+  /// No description provided for @testDetailImageLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Image (optional)'**
+  String get testDetailImageLabel;
+
+  /// No description provided for @testDetailAddImage.
+  ///
+  /// In en, this message translates to:
+  /// **'Add image'**
+  String get testDetailAddImage;
+
+  /// No description provided for @testDetailImageHelpExisting.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a new image to replace it, or leave this empty to keep the current one. JPEG, PNG, GIF or WebP, up to 10 MB.'**
+  String get testDetailImageHelpExisting;
+
+  /// No description provided for @testDetailImageHelpNew.
+  ///
+  /// In en, this message translates to:
+  /// **'JPEG, PNG, GIF or WebP, up to 10 MB.'**
+  String get testDetailImageHelpNew;
+
+  /// No description provided for @testDetailVideoPlaceholder.
+  ///
+  /// In en, this message translates to:
+  /// **'Video link (optional)'**
+  String get testDetailVideoPlaceholder;
+
+  /// No description provided for @testDetailVideoHint.
+  ///
+  /// In en, this message translates to:
+  /// **'https://…'**
+  String get testDetailVideoHint;
+
+  /// No description provided for @testDetailSaveQuestion.
+  ///
+  /// In en, this message translates to:
+  /// **'Save question'**
+  String get testDetailSaveQuestion;
+
+  /// No description provided for @testDetailQuestionCreateError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not add the question.'**
+  String get testDetailQuestionCreateError;
+
+  /// No description provided for @testDetailQuestionUpdateError.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not update the question.'**
+  String get testDetailQuestionUpdateError;
 
   /// No description provided for @homeworkTitleTeacher.
   ///

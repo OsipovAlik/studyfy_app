@@ -452,6 +452,54 @@ class AppLocalizationsFr extends AppLocalizations {
       'Encore une semaine de beaux progrès. Continuez comme ça !';
 
   @override
+  String get homeBannerDialogTitle => 'Image de la bannière';
+
+  @override
+  String get homeBannerDialogSubtitle =>
+      'Affichée à droite de la bannière de l\'accueil, pour vous et pour les élèves de cette matière.';
+
+  @override
+  String get homeBannerNoSubjects => 'Ajoutez d\'abord une matière.';
+
+  @override
+  String get homeBannerSubjectLabel => 'Matière';
+
+  @override
+  String get homeBannerPreviewLabel => 'Aperçu';
+
+  @override
+  String get homeBannerChoosePicture => 'Choisir une image';
+
+  @override
+  String get homeBannerSizeHint =>
+      'Taille idéale : 1600 × 400 px (4:1). Au moins 1200 × 300 px.';
+
+  @override
+  String get homeBannerFormatHint =>
+      'JPEG, PNG, GIF ou WebP, jusqu\'à 10 Mo. Placez l\'essentiel à droite : la partie gauche s\'estompe sous le texte.';
+
+  @override
+  String homeBannerTooSmallWarning(int width, int height) {
+    return 'Cette image fait $width × $height px, elle risque donc d\'être floue. Utilisez au moins 1200 × 300 px.';
+  }
+
+  @override
+  String get homeBannerTooTallWarning =>
+      'Cette image est beaucoup plus haute que la bannière : le haut et le bas seront coupés. Une image large (environ 4:1) convient mieux.';
+
+  @override
+  String get homeBannerRemovePicture => 'Supprimer l\'image';
+
+  @override
+  String get homeBannerSavePicture => 'Enregistrer l\'image';
+
+  @override
+  String get homeBannerUploadError => 'Impossible de mettre à jour l\'image.';
+
+  @override
+  String get homeBannerRemoveError => 'Impossible de supprimer l\'image.';
+
+  @override
   String get homeTimetableTitle => 'Emploi du temps de la semaine';
 
   @override
@@ -1378,6 +1426,154 @@ class AppLocalizationsFr extends AppLocalizations {
   String subjectDetailGenerateSuccess(int generated, int requested) {
     return '$generated question(s) générée(s) sur $requested. Relisez-le avant de le publier.';
   }
+
+  @override
+  String get testDetailNotFoundDescription =>
+      'Ce test a peut-être déjà été supprimé.';
+
+  @override
+  String get testDetailDraftBannerTitle =>
+      'Brouillon — invisible pour les élèves';
+
+  @override
+  String get testDetailDiscardDraft => 'Abandonner le brouillon';
+
+  @override
+  String get testDetailPublishTest => 'Publier le test';
+
+  @override
+  String get testDetailPublishError => 'Impossible de mettre à jour le test.';
+
+  @override
+  String get testDetailDiscardDraftConfirmTitle => 'Abandonner ce brouillon ?';
+
+  @override
+  String get testDetailDiscardDraftConfirmDescription =>
+      'Cela supprime aussi le test et ses questions. Cette action est irréversible.';
+
+  @override
+  String get testDetailDiscardError => 'Impossible d\'abandonner le brouillon.';
+
+  @override
+  String get testDetailUntimedLabel => 'Sans limite';
+
+  @override
+  String testDetailMinutesLabel(int minutes) {
+    return '$minutes min';
+  }
+
+  @override
+  String get testDetailTabQuestions => 'Questions';
+
+  @override
+  String testDetailTabResults(int count) {
+    return 'Résultats ($count)';
+  }
+
+  @override
+  String testDetailTabHomework(int count) {
+    return 'Devoirs ($count)';
+  }
+
+  @override
+  String get testDetailQuestionsSubtitle =>
+      'Les questions de ce test apparaissent ici.';
+
+  @override
+  String get testDetailAddQuestion => 'Ajouter une question';
+
+  @override
+  String get testDetailQuestionsLoadError =>
+      'Impossible de charger les questions.';
+
+  @override
+  String get testDetailFreeTextLabel => 'Texte libre';
+
+  @override
+  String testDetailExpectedAnswerLabel(String answer) {
+    return 'Réponse attendue : $answer';
+  }
+
+  @override
+  String get testDetailDeleteQuestionConfirmTitle =>
+      'Supprimer cette question ?';
+
+  @override
+  String get testDetailDeleteQuestionConfirmDescription =>
+      'Cette action est irréversible.';
+
+  @override
+  String get testDetailQuestionDeleteError =>
+      'Impossible de supprimer la question.';
+
+  @override
+  String get testDetailResultsEmptyTitle => 'Aucune tentative pour le moment.';
+
+  @override
+  String get testDetailHomeworkEmptyTitle =>
+      'Pas encore assigné à qui que ce soit.';
+
+  @override
+  String get testDetailQuestionFormAddTitle => 'Ajouter une question';
+
+  @override
+  String get testDetailQuestionFormEditTitle => 'Modifier la question';
+
+  @override
+  String get testDetailQuestionLabel => 'Question';
+
+  @override
+  String get testDetailQuestionTextPlaceholder => 'Texte de la question';
+
+  @override
+  String get testDetailQuestionTypeLabel => 'Type';
+
+  @override
+  String testDetailOptionLabel(String letter) {
+    return 'Option $letter';
+  }
+
+  @override
+  String testDetailOptionOptionalLabel(String letter) {
+    return 'Option $letter (facultatif)';
+  }
+
+  @override
+  String get testDetailCorrectAnswerLabel => 'Bonne option';
+
+  @override
+  String get testDetailExpectedTextAnswerPlaceholder => 'Réponse attendue';
+
+  @override
+  String get testDetailImageLabel => 'Image (facultatif)';
+
+  @override
+  String get testDetailAddImage => 'Ajouter une image';
+
+  @override
+  String get testDetailImageHelpExisting =>
+      'Choisissez une nouvelle image pour la remplacer, ou laissez ce champ vide pour conserver l\'actuelle. JPEG, PNG, GIF ou WebP, jusqu\'à 10 Mo.';
+
+  @override
+  String get testDetailImageHelpNew =>
+      'JPEG, PNG, GIF ou WebP, jusqu\'à 10 Mo.';
+
+  @override
+  String get testDetailVideoPlaceholder => 'Lien vidéo (facultatif)';
+
+  @override
+  String get testDetailVideoHint => 'https://…';
+
+  @override
+  String get testDetailSaveQuestion => 'Enregistrer la question';
+
+  @override
+  String get testDetailQuestionCreateError =>
+      'Impossible d\'ajouter la question.';
+
+  @override
+  String get testDetailQuestionUpdateError =>
+      'Impossible de mettre à jour la question.';
 
   @override
   String get homeworkTitleTeacher => 'Devoirs';

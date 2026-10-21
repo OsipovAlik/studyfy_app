@@ -193,6 +193,30 @@
   },
   "tabHome": "Home",
   "homeSubtitle": "Another week of amazing progress. Keep going!",
+  "homeBannerDialogTitle": "Banner picture",
+  "homeBannerDialogSubtitle": "Shown on the right of the home page banner, for you and for this subject's students.",
+  "homeBannerNoSubjects": "Add a subject first.",
+  "homeBannerSubjectLabel": "Subject",
+  "homeBannerPreviewLabel": "Preview",
+  "homeBannerChoosePicture": "Choose a picture",
+  "homeBannerSizeHint": "Best size: 1600 × 400 px (4:1). At least 1200 × 300 px.",
+  "homeBannerFormatHint": "JPEG, PNG, GIF or WebP, up to 10 MB. Keep the main part on the right: the left side fades under the text.",
+  "homeBannerTooSmallWarning": "This picture is {width} × {height} px, so it may look blurry. Use at least 1200 × 300 px.",
+  "@homeBannerTooSmallWarning": {
+    "placeholders": {
+      "width": {
+        "type": "int"
+      },
+      "height": {
+        "type": "int"
+      }
+    }
+  },
+  "homeBannerTooTallWarning": "This picture is much taller than the banner, so its top and bottom will be cut off. A wide picture (about 4:1) fits best.",
+  "homeBannerRemovePicture": "Remove picture",
+  "homeBannerSavePicture": "Save picture",
+  "homeBannerUploadError": "Could not update the picture.",
+  "homeBannerRemoveError": "Could not remove the picture.",
   "homeTimetableTitle": "This week's timetable",
   "homeTimetableSubtitle": "Recurring sessions by day.",
   "homeTimetableViewCalendar": "View full calendar",
@@ -596,6 +620,89 @@
       }
     }
   },
+  "testDetailNotFoundDescription": "This test may have already been deleted.",
+  "testDetailDraftBannerTitle": "Draft – not visible to students",
+  "testDetailDiscardDraft": "Discard draft",
+  "testDetailPublishTest": "Publish test",
+  "testDetailPublishError": "Could not update the test.",
+  "testDetailDiscardDraftConfirmTitle": "Discard this draft?",
+  "testDetailDiscardDraftConfirmDescription": "This deletes the test and its questions. This can't be undone.",
+  "testDetailDiscardError": "Could not discard the draft.",
+  "testDetailUntimedLabel": "Untimed",
+  "testDetailMinutesLabel": "{minutes} min",
+  "@testDetailMinutesLabel": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "testDetailTabQuestions": "Questions",
+  "testDetailTabResults": "Results ({count})",
+  "@testDetailTabResults": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "testDetailTabHomework": "Homework ({count})",
+  "@testDetailTabHomework": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "testDetailQuestionsSubtitle": "Questions for this test appear here.",
+  "testDetailAddQuestion": "Add question",
+  "testDetailQuestionsLoadError": "Could not load questions.",
+  "testDetailFreeTextLabel": "Free text",
+  "testDetailExpectedAnswerLabel": "Expected answer: {answer}",
+  "@testDetailExpectedAnswerLabel": {
+    "placeholders": {
+      "answer": {
+        "type": "String"
+      }
+    }
+  },
+  "testDetailDeleteQuestionConfirmTitle": "Delete this question?",
+  "testDetailDeleteQuestionConfirmDescription": "This can't be undone.",
+  "testDetailQuestionDeleteError": "Could not delete the question.",
+  "testDetailResultsEmptyTitle": "No attempts yet.",
+  "testDetailHomeworkEmptyTitle": "Not assigned to anyone yet.",
+  "testDetailQuestionFormAddTitle": "Add question",
+  "testDetailQuestionFormEditTitle": "Edit question",
+  "testDetailQuestionLabel": "Question",
+  "testDetailQuestionTextPlaceholder": "Question text",
+  "testDetailQuestionTypeLabel": "Type",
+  "testDetailOptionLabel": "Option {letter}",
+  "@testDetailOptionLabel": {
+    "placeholders": {
+      "letter": {
+        "type": "String"
+      }
+    }
+  },
+  "testDetailOptionOptionalLabel": "Option {letter} (optional)",
+  "@testDetailOptionOptionalLabel": {
+    "placeholders": {
+      "letter": {
+        "type": "String"
+      }
+    }
+  },
+  "testDetailCorrectAnswerLabel": "Correct option",
+  "testDetailExpectedTextAnswerPlaceholder": "Expected answer",
+  "testDetailImageLabel": "Image (optional)",
+  "testDetailAddImage": "Add image",
+  "testDetailImageHelpExisting": "Choose a new image to replace it, or leave this empty to keep the current one. JPEG, PNG, GIF or WebP, up to 10 MB.",
+  "testDetailImageHelpNew": "JPEG, PNG, GIF or WebP, up to 10 MB.",
+  "testDetailVideoPlaceholder": "Video link (optional)",
+  "testDetailVideoHint": "https://…",
+  "testDetailSaveQuestion": "Save question",
+  "testDetailQuestionCreateError": "Could not add the question.",
+  "testDetailQuestionUpdateError": "Could not update the question.",
   "homeworkTitleTeacher": "Homework",
   "homeworkTitleStudent": "My Homework",
   "homeworkSubtitleTeacher": "Assign homework to students and follow their progress.",

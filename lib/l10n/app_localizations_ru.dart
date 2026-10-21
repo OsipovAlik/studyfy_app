@@ -445,6 +445,54 @@ class AppLocalizationsRu extends AppLocalizations {
       'Ещё одна неделя отличного прогресса. Так держать!';
 
   @override
+  String get homeBannerDialogTitle => 'Фон баннера';
+
+  @override
+  String get homeBannerDialogSubtitle =>
+      'Отображается справа на баннере главной страницы — для вас и для учеников этого предмета.';
+
+  @override
+  String get homeBannerNoSubjects => 'Сначала добавьте предмет.';
+
+  @override
+  String get homeBannerSubjectLabel => 'Предмет';
+
+  @override
+  String get homeBannerPreviewLabel => 'Предпросмотр';
+
+  @override
+  String get homeBannerChoosePicture => 'Выбрать изображение';
+
+  @override
+  String get homeBannerSizeHint =>
+      'Оптимальный размер: 1600 × 400 px (4:1). Минимум 1200 × 300 px.';
+
+  @override
+  String get homeBannerFormatHint =>
+      'JPEG, PNG, GIF или WebP, до 10 МБ. Разместите главное справа: левая часть будет скрыта под текстом.';
+
+  @override
+  String homeBannerTooSmallWarning(int width, int height) {
+    return 'Это изображение $width × $height px, поэтому оно может выглядеть размыто. Используйте минимум 1200 × 300 px.';
+  }
+
+  @override
+  String get homeBannerTooTallWarning =>
+      'Это изображение намного выше баннера, поэтому его верх и низ будут обрезаны. Лучше всего подойдёт широкое изображение (примерно 4:1).';
+
+  @override
+  String get homeBannerRemovePicture => 'Удалить изображение';
+
+  @override
+  String get homeBannerSavePicture => 'Сохранить изображение';
+
+  @override
+  String get homeBannerUploadError => 'Не удалось обновить изображение.';
+
+  @override
+  String get homeBannerRemoveError => 'Не удалось удалить изображение.';
+
+  @override
   String get homeTimetableTitle => 'Расписание на эту неделю';
 
   @override
@@ -1353,6 +1401,145 @@ class AppLocalizationsRu extends AppLocalizations {
   String subjectDetailGenerateSuccess(int generated, int requested) {
     return 'Создано $generated из $requested вопросов. Просмотрите его перед публикацией.';
   }
+
+  @override
+  String get testDetailNotFoundDescription => 'Возможно, этот тест уже удалён.';
+
+  @override
+  String get testDetailDraftBannerTitle => 'Черновик — не виден студентам';
+
+  @override
+  String get testDetailDiscardDraft => 'Удалить черновик';
+
+  @override
+  String get testDetailPublishTest => 'Опубликовать тест';
+
+  @override
+  String get testDetailPublishError => 'Не удалось обновить тест.';
+
+  @override
+  String get testDetailDiscardDraftConfirmTitle => 'Удалить этот черновик?';
+
+  @override
+  String get testDetailDiscardDraftConfirmDescription =>
+      'Это также удалит тест и его вопросы. Это действие нельзя отменить.';
+
+  @override
+  String get testDetailDiscardError => 'Не удалось удалить черновик.';
+
+  @override
+  String get testDetailUntimedLabel => 'Без ограничения';
+
+  @override
+  String testDetailMinutesLabel(int minutes) {
+    return '$minutes мин';
+  }
+
+  @override
+  String get testDetailTabQuestions => 'Вопросы';
+
+  @override
+  String testDetailTabResults(int count) {
+    return 'Результаты ($count)';
+  }
+
+  @override
+  String testDetailTabHomework(int count) {
+    return 'Домашние задания ($count)';
+  }
+
+  @override
+  String get testDetailQuestionsSubtitle =>
+      'Здесь появятся вопросы этого теста.';
+
+  @override
+  String get testDetailAddQuestion => 'Добавить вопрос';
+
+  @override
+  String get testDetailQuestionsLoadError => 'Не удалось загрузить вопросы.';
+
+  @override
+  String get testDetailFreeTextLabel => 'Свободный текст';
+
+  @override
+  String testDetailExpectedAnswerLabel(String answer) {
+    return 'Ожидаемый ответ: $answer';
+  }
+
+  @override
+  String get testDetailDeleteQuestionConfirmTitle => 'Удалить этот вопрос?';
+
+  @override
+  String get testDetailDeleteQuestionConfirmDescription =>
+      'Это действие нельзя отменить.';
+
+  @override
+  String get testDetailQuestionDeleteError => 'Не удалось удалить вопрос.';
+
+  @override
+  String get testDetailResultsEmptyTitle => 'Пока нет попыток.';
+
+  @override
+  String get testDetailHomeworkEmptyTitle => 'Ещё никому не назначено.';
+
+  @override
+  String get testDetailQuestionFormAddTitle => 'Добавить вопрос';
+
+  @override
+  String get testDetailQuestionFormEditTitle => 'Изменить вопрос';
+
+  @override
+  String get testDetailQuestionLabel => 'Вопрос';
+
+  @override
+  String get testDetailQuestionTextPlaceholder => 'Текст вопроса';
+
+  @override
+  String get testDetailQuestionTypeLabel => 'Тип';
+
+  @override
+  String testDetailOptionLabel(String letter) {
+    return 'Вариант $letter';
+  }
+
+  @override
+  String testDetailOptionOptionalLabel(String letter) {
+    return 'Вариант $letter (необязательно)';
+  }
+
+  @override
+  String get testDetailCorrectAnswerLabel => 'Правильный вариант';
+
+  @override
+  String get testDetailExpectedTextAnswerPlaceholder => 'Ожидаемый ответ';
+
+  @override
+  String get testDetailImageLabel => 'Изображение (необязательно)';
+
+  @override
+  String get testDetailAddImage => 'Добавить изображение';
+
+  @override
+  String get testDetailImageHelpExisting =>
+      'Выберите новое изображение, чтобы заменить текущее, или оставьте поле пустым, чтобы сохранить его. JPEG, PNG, GIF или WebP, до 10 МБ.';
+
+  @override
+  String get testDetailImageHelpNew => 'JPEG, PNG, GIF или WebP, до 10 МБ.';
+
+  @override
+  String get testDetailVideoPlaceholder => 'Ссылка на видео (необязательно)';
+
+  @override
+  String get testDetailVideoHint => 'https://…';
+
+  @override
+  String get testDetailSaveQuestion => 'Сохранить вопрос';
+
+  @override
+  String get testDetailQuestionCreateError => 'Не удалось добавить вопрос.';
+
+  @override
+  String get testDetailQuestionUpdateError => 'Не удалось обновить вопрос.';
 
   @override
   String get homeworkTitleTeacher => 'Домашние задания';

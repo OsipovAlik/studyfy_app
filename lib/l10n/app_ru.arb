@@ -134,6 +134,30 @@
   "termsOfUse": "Условия использования",
   "tabHome": "Главная",
   "homeSubtitle": "Ещё одна неделя отличного прогресса. Так держать!",
+  "homeBannerDialogTitle": "Фон баннера",
+  "homeBannerDialogSubtitle": "Отображается справа на баннере главной страницы — для вас и для учеников этого предмета.",
+  "homeBannerNoSubjects": "Сначала добавьте предмет.",
+  "homeBannerSubjectLabel": "Предмет",
+  "homeBannerPreviewLabel": "Предпросмотр",
+  "homeBannerChoosePicture": "Выбрать изображение",
+  "homeBannerSizeHint": "Оптимальный размер: 1600 × 400 px (4:1). Минимум 1200 × 300 px.",
+  "homeBannerFormatHint": "JPEG, PNG, GIF или WebP, до 10 МБ. Разместите главное справа: левая часть будет скрыта под текстом.",
+  "homeBannerTooSmallWarning": "Это изображение {width} × {height} px, поэтому оно может выглядеть размыто. Используйте минимум 1200 × 300 px.",
+  "@homeBannerTooSmallWarning": {
+    "placeholders": {
+      "width": {
+        "type": "int"
+      },
+      "height": {
+        "type": "int"
+      }
+    }
+  },
+  "homeBannerTooTallWarning": "Это изображение намного выше баннера, поэтому его верх и низ будут обрезаны. Лучше всего подойдёт широкое изображение (примерно 4:1).",
+  "homeBannerRemovePicture": "Удалить изображение",
+  "homeBannerSavePicture": "Сохранить изображение",
+  "homeBannerUploadError": "Не удалось обновить изображение.",
+  "homeBannerRemoveError": "Не удалось удалить изображение.",
   "homeTimetableTitle": "Расписание на эту неделю",
   "homeTimetableSubtitle": "Регулярные занятия по дням.",
   "homeTimetableViewCalendar": "Весь календарь",
@@ -478,6 +502,89 @@
       }
     }
   },
+  "testDetailNotFoundDescription": "Возможно, этот тест уже удалён.",
+  "testDetailDraftBannerTitle": "Черновик — не виден студентам",
+  "testDetailDiscardDraft": "Удалить черновик",
+  "testDetailPublishTest": "Опубликовать тест",
+  "testDetailPublishError": "Не удалось обновить тест.",
+  "testDetailDiscardDraftConfirmTitle": "Удалить этот черновик?",
+  "testDetailDiscardDraftConfirmDescription": "Это также удалит тест и его вопросы. Это действие нельзя отменить.",
+  "testDetailDiscardError": "Не удалось удалить черновик.",
+  "testDetailUntimedLabel": "Без ограничения",
+  "testDetailMinutesLabel": "{minutes} мин",
+  "@testDetailMinutesLabel": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "testDetailTabQuestions": "Вопросы",
+  "testDetailTabResults": "Результаты ({count})",
+  "@testDetailTabResults": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "testDetailTabHomework": "Домашние задания ({count})",
+  "@testDetailTabHomework": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "testDetailQuestionsSubtitle": "Здесь появятся вопросы этого теста.",
+  "testDetailAddQuestion": "Добавить вопрос",
+  "testDetailQuestionsLoadError": "Не удалось загрузить вопросы.",
+  "testDetailFreeTextLabel": "Свободный текст",
+  "testDetailExpectedAnswerLabel": "Ожидаемый ответ: {answer}",
+  "@testDetailExpectedAnswerLabel": {
+    "placeholders": {
+      "answer": {
+        "type": "String"
+      }
+    }
+  },
+  "testDetailDeleteQuestionConfirmTitle": "Удалить этот вопрос?",
+  "testDetailDeleteQuestionConfirmDescription": "Это действие нельзя отменить.",
+  "testDetailQuestionDeleteError": "Не удалось удалить вопрос.",
+  "testDetailResultsEmptyTitle": "Пока нет попыток.",
+  "testDetailHomeworkEmptyTitle": "Ещё никому не назначено.",
+  "testDetailQuestionFormAddTitle": "Добавить вопрос",
+  "testDetailQuestionFormEditTitle": "Изменить вопрос",
+  "testDetailQuestionLabel": "Вопрос",
+  "testDetailQuestionTextPlaceholder": "Текст вопроса",
+  "testDetailQuestionTypeLabel": "Тип",
+  "testDetailOptionLabel": "Вариант {letter}",
+  "@testDetailOptionLabel": {
+    "placeholders": {
+      "letter": {
+        "type": "String"
+      }
+    }
+  },
+  "testDetailOptionOptionalLabel": "Вариант {letter} (необязательно)",
+  "@testDetailOptionOptionalLabel": {
+    "placeholders": {
+      "letter": {
+        "type": "String"
+      }
+    }
+  },
+  "testDetailCorrectAnswerLabel": "Правильный вариант",
+  "testDetailExpectedTextAnswerPlaceholder": "Ожидаемый ответ",
+  "testDetailImageLabel": "Изображение (необязательно)",
+  "testDetailAddImage": "Добавить изображение",
+  "testDetailImageHelpExisting": "Выберите новое изображение, чтобы заменить текущее, или оставьте поле пустым, чтобы сохранить его. JPEG, PNG, GIF или WebP, до 10 МБ.",
+  "testDetailImageHelpNew": "JPEG, PNG, GIF или WebP, до 10 МБ.",
+  "testDetailVideoPlaceholder": "Ссылка на видео (необязательно)",
+  "testDetailVideoHint": "https://…",
+  "testDetailSaveQuestion": "Сохранить вопрос",
+  "testDetailQuestionCreateError": "Не удалось добавить вопрос.",
+  "testDetailQuestionUpdateError": "Не удалось обновить вопрос.",
   "homeworkTitleTeacher": "Домашние задания",
   "homeworkTitleStudent": "Мои задания",
   "homeworkSubtitleTeacher": "Назначайте задания ученикам и следите за их успеваемостью.",

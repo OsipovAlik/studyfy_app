@@ -134,6 +134,30 @@
   "termsOfUse": "Օգտագործման պայմաններ",
   "tabHome": "Գլխավոր",
   "homeSubtitle": "Եվս մեկ շաբաթ՝ հրաշալի առաջընթացով։ Շարունակե՛ք նույն ոգով։",
+  "homeBannerDialogTitle": "Բանների նկար",
+  "homeBannerDialogSubtitle": "Ցուցադրվում է գլխավոր էջի բանների աջ կողմում՝ ձեզ և այս առարկայի աշակերտներին։",
+  "homeBannerNoSubjects": "Նախ ավելացրեք առարկա։",
+  "homeBannerSubjectLabel": "Առարկա",
+  "homeBannerPreviewLabel": "Նախադիտում",
+  "homeBannerChoosePicture": "Ընտրել նկար",
+  "homeBannerSizeHint": "Լավագույն չափսը՝ 1600 × 400 px (4:1)։ Նվազագույնը՝ 1200 × 300 px։",
+  "homeBannerFormatHint": "JPEG, PNG, GIF կամ WebP, մինչև 10 ՄԲ։ Հիմնական մասը դրեք աջ կողմում․ ձախ կողմը կծածկվի տեքստի տակ։",
+  "homeBannerTooSmallWarning": "Այս նկարը {width} × {height} px է, ուստի կարող է լղոզված երևալ։ Օգտագործեք առնվազն 1200 × 300 px։",
+  "@homeBannerTooSmallWarning": {
+    "placeholders": {
+      "width": {
+        "type": "int"
+      },
+      "height": {
+        "type": "int"
+      }
+    }
+  },
+  "homeBannerTooTallWarning": "Այս նկարը բաններից շատ ավելի բարձր է, ուստի դրա վերևն ու ներքևը կկտրվեն։ Ամենալավը կլինի լայն նկարը (մոտ 4:1)։",
+  "homeBannerRemovePicture": "Հեռացնել նկարը",
+  "homeBannerSavePicture": "Պահպանել նկարը",
+  "homeBannerUploadError": "Չհաջողվեց թարմացնել նկարը։",
+  "homeBannerRemoveError": "Չհաջողվեց հեռացնել նկարը։",
   "homeTimetableTitle": "Շաբաթվա ժամանակացույց",
   "homeTimetableSubtitle": "Կրկնվող պարապմունքները ըստ օրերի։",
   "homeTimetableViewCalendar": "Ամբողջ օրացույցը",
@@ -478,6 +502,89 @@
       }
     }
   },
+  "testDetailNotFoundDescription": "Այս թեստը գուցե արդեն ջնջվել է։",
+  "testDetailDraftBannerTitle": "Սևագիր — ուսանողներին անտեսանելի",
+  "testDetailDiscardDraft": "Ջնջել սևագիրը",
+  "testDetailPublishTest": "Հրապարակել թեստը",
+  "testDetailPublishError": "Չհաջողվեց թարմացնել թեստը։",
+  "testDetailDiscardDraftConfirmTitle": "Ջնջե՞լ այս սևագիրը։",
+  "testDetailDiscardDraftConfirmDescription": "Սա կջնջի թեստը և դրա հարցերը։ Այս գործողությունը հնարավոր չէ հետարկել։",
+  "testDetailDiscardError": "Չհաջողվեց ջնջել սևագիրը։",
+  "testDetailUntimedLabel": "Առանց սահմանաչափի",
+  "testDetailMinutesLabel": "{minutes} րոպե",
+  "@testDetailMinutesLabel": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "testDetailTabQuestions": "Հարցեր",
+  "testDetailTabResults": "Արդյունքներ ({count})",
+  "@testDetailTabResults": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "testDetailTabHomework": "Տնային առաջադրանքներ ({count})",
+  "@testDetailTabHomework": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "testDetailQuestionsSubtitle": "Այս թեստի հարցերը կհայտնվեն այստեղ։",
+  "testDetailAddQuestion": "Ավելացնել հարց",
+  "testDetailQuestionsLoadError": "Չհաջողվեց բեռնել հարցերը։",
+  "testDetailFreeTextLabel": "Ազատ տեքստ",
+  "testDetailExpectedAnswerLabel": "Ակնկալվող պատասխան՝ {answer}",
+  "@testDetailExpectedAnswerLabel": {
+    "placeholders": {
+      "answer": {
+        "type": "String"
+      }
+    }
+  },
+  "testDetailDeleteQuestionConfirmTitle": "Ջնջե՞լ այս հարցը։",
+  "testDetailDeleteQuestionConfirmDescription": "Այս գործողությունը հնարավոր չէ հետարկել։",
+  "testDetailQuestionDeleteError": "Չհաջողվեց ջնջել հարցը։",
+  "testDetailResultsEmptyTitle": "Դեռ փորձեր չկան։",
+  "testDetailHomeworkEmptyTitle": "Դեռ ոչ ոքի չի նշանակվել։",
+  "testDetailQuestionFormAddTitle": "Ավելացնել հարց",
+  "testDetailQuestionFormEditTitle": "Խմբագրել հարցը",
+  "testDetailQuestionLabel": "Հարց",
+  "testDetailQuestionTextPlaceholder": "Հարցի տեքստը",
+  "testDetailQuestionTypeLabel": "Տեսակ",
+  "testDetailOptionLabel": "Տարբերակ {letter}",
+  "@testDetailOptionLabel": {
+    "placeholders": {
+      "letter": {
+        "type": "String"
+      }
+    }
+  },
+  "testDetailOptionOptionalLabel": "Տարբերակ {letter} (ըստ ցանկության)",
+  "@testDetailOptionOptionalLabel": {
+    "placeholders": {
+      "letter": {
+        "type": "String"
+      }
+    }
+  },
+  "testDetailCorrectAnswerLabel": "Ճիշտ տարբերակ",
+  "testDetailExpectedTextAnswerPlaceholder": "Ակնկալվող պատասխան",
+  "testDetailImageLabel": "Նկար (ըստ ցանկության)",
+  "testDetailAddImage": "Ավելացնել նկար",
+  "testDetailImageHelpExisting": "Ընտրեք նոր նկար՝ այն փոխարինելու համար, կամ թողեք դատարկ՝ ընթացիկը պահպանելու համար։ JPEG, PNG, GIF կամ WebP, մինչև 10 ՄԲ։",
+  "testDetailImageHelpNew": "JPEG, PNG, GIF կամ WebP, մինչև 10 ՄԲ։",
+  "testDetailVideoPlaceholder": "Տեսանյութի հղում (ըստ ցանկության)",
+  "testDetailVideoHint": "https://…",
+  "testDetailSaveQuestion": "Պահպանել հարցը",
+  "testDetailQuestionCreateError": "Չհաջողվեց ավելացնել հարցը։",
+  "testDetailQuestionUpdateError": "Չհաջողվեց թարմացնել հարցը։",
   "homeworkTitleTeacher": "Տնային առաջադրանքներ",
   "homeworkTitleStudent": "Իմ առաջադրանքները",
   "homeworkSubtitleTeacher": "Հանձնարարեք առաջադրանքներ աշակերտներին և հետևեք նրանց առաջընթացին։",

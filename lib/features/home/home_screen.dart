@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:studify/core/widgets/brand_backdrop.dart';
 import 'package:studify/features/auth/auth_controller.dart';
+import 'package:studify/features/home/home_banner_controller.dart';
 import 'package:studify/features/home/home_stats_controller.dart';
 import 'package:studify/features/home/weekly_activity_controller.dart';
 import 'package:studify/features/home/widgets/home_stats_grid.dart';
@@ -27,12 +28,14 @@ class _HomeScreenState extends State<HomeScreen> {
     unawaited(context.read<TimetableController>().ensureLoaded());
     unawaited(context.read<HomeStatsController>().ensureLoaded());
     unawaited(context.read<WeeklyActivityController>().ensureLoaded());
+    unawaited(context.read<HomeBannerController>().ensureLoaded());
   }
 
   Future<void> _refresh() => Future.wait([
     context.read<TimetableController>().reload(),
     context.read<HomeStatsController>().reload(),
     context.read<WeeklyActivityController>().reload(),
+    context.read<HomeBannerController>().reload(),
   ]);
 
   @override

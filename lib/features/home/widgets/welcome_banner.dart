@@ -1,11 +1,16 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 import 'package:studify/core/theme/app_colors.dart';
 import 'package:studify/features/auth/domain/user_profile.dart';
+import 'package:studify/features/home/home_banner_controller.dart';
+import 'package:studify/features/home/widgets/banner_picture_sheet.dart';
 import 'package:studify/l10n/app_localizations.dart';
 
-/// "Welcome back, Name 👋" over the Paris skyline, with the school's name.
+/// "Welcome back, Name 👋" over the Paris skyline (or, once a teacher
+/// sets one, a subject's own picture), with the school's name.
 class WelcomeBanner extends StatelessWidget {
   const WelcomeBanner({required this.user, super.key});
 
@@ -20,6 +25,9 @@ class WelcomeBanner extends StatelessWidget {
     final muted = isDark
         ? Colors.white.withValues(alpha: 0.62)
         : AppColors.stone700;
+    final bannerController = context.watch<HomeBannerController>();
+    final imageUrl = bannerController.bannerImageUrl;
+    final background = theme.colorScheme.surface;
 
     return ClipRRect(
       borderRadius: BorderRadius.circular(22),
@@ -35,23 +43,44 @@ class WelcomeBanner extends StatelessWidget {
         ),
         child: Stack(
           children: [
-            Positioned.fill(
-              child: SvgPicture.asset(
-                isDark
-                    ? 'assets/svg/banner-default-dark.svg'
-                    : 'assets/svg/banner-default-light.svg',
-                fit: BoxFit.cover,
-                alignment: Alignment.center,
+            if (imageUrl != null) ...[
+              Positioned.fill(
+                child: CachedNetworkImage(
+                  imageUrl: imageUrl,
+                  fit: BoxFit.cover,
+                  alignment: Alignment.centerRight,
+                ),
               ),
-            ),
-            // Fills the whole banner, however tall the text makes it.
-            Positioned.fill(
-              child: ColoredBox(
-                color: isDark
-                    ? Colors.black.withOpacity(0.5)
-                    : Colors.white.withValues(alpha: 0.5),
+              // Keeps the picture's right side visible while the text
+              // on the left stays readable.
+              Positioned.fill(
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [background, background.withValues(alpha: 0)],
+                      stops: const [0.15, 0.65],
+                    ),
+                  ),
+                ),
               ),
-            ),
+            ] else ...[
+              Positioned.fill(
+                child: SvgPicture.asset(
+                  isDark
+                      ? 'assets/svg/banner-default-dark.svg'
+                      : 'assets/svg/banner-default-light.svg',
+                  fit: BoxFit.cover,
+                ),
+              ),
+              // Fills the whole banner, however tall the text makes it.
+              Positioned.fill(
+                child: ColoredBox(
+                  color: isDark
+                      ? Colors.black.withOpacity(0.5)
+                      : Colors.white.withValues(alpha: 0.5),
+                ),
+              ),
+            ],
             ConstrainedBox(
               constraints: const BoxConstraints(minHeight: 160),
               child: Padding(
@@ -102,7 +131,52 @@ class WelcomeBanner extends StatelessWidget {
                 ),
               ),
             ),
+            // Last so it's checked first by hit-testing — otherwise the
+            // welcome text's Expanded Text, which claims taps anywhere
+            // in its laid-out box even past the visible glyphs, would
+            // swallow taps meant for this button.
+            if (bannerController.isTeacher)
+              Positioned(
+                top: 10,
+                right: 10,
+                child: _EditButton(
+                  isDark: isDark,
+                  onTap: () => showBannerPictureSheet(
+                    context,
+                    controller: bannerController,
+                  ),
+                ),
+              ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _EditButton extends StatelessWidget {
+  const _EditButton({required this.isDark, required this.onTap});
+
+  final bool isDark;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: isDark
+          ? Colors.black.withValues(alpha: 0.35)
+          : Colors.white.withValues(alpha: 0.75),
+      shape: const CircleBorder(),
+      child: InkWell(
+        customBorder: const CircleBorder(),
+        onTap: onTap,
+        child: Padding(
+          padding: const EdgeInsets.all(7),
+          child: Icon(
+            CupertinoIcons.camera,
+            size: 16,
+            color: isDark ? Colors.white : AppColors.indigo950,
+          ),
         ),
       ),
     );

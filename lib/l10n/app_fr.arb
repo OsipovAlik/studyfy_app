@@ -134,6 +134,30 @@
   "termsOfUse": "Conditions d'utilisation",
   "tabHome": "Accueil",
   "homeSubtitle": "Encore une semaine de beaux progrès. Continuez comme ça !",
+  "homeBannerDialogTitle": "Image de la bannière",
+  "homeBannerDialogSubtitle": "Affichée à droite de la bannière de l'accueil, pour vous et pour les élèves de cette matière.",
+  "homeBannerNoSubjects": "Ajoutez d'abord une matière.",
+  "homeBannerSubjectLabel": "Matière",
+  "homeBannerPreviewLabel": "Aperçu",
+  "homeBannerChoosePicture": "Choisir une image",
+  "homeBannerSizeHint": "Taille idéale : 1600 × 400 px (4:1). Au moins 1200 × 300 px.",
+  "homeBannerFormatHint": "JPEG, PNG, GIF ou WebP, jusqu'à 10 Mo. Placez l'essentiel à droite : la partie gauche s'estompe sous le texte.",
+  "homeBannerTooSmallWarning": "Cette image fait {width} × {height} px, elle risque donc d'être floue. Utilisez au moins 1200 × 300 px.",
+  "@homeBannerTooSmallWarning": {
+    "placeholders": {
+      "width": {
+        "type": "int"
+      },
+      "height": {
+        "type": "int"
+      }
+    }
+  },
+  "homeBannerTooTallWarning": "Cette image est beaucoup plus haute que la bannière : le haut et le bas seront coupés. Une image large (environ 4:1) convient mieux.",
+  "homeBannerRemovePicture": "Supprimer l'image",
+  "homeBannerSavePicture": "Enregistrer l'image",
+  "homeBannerUploadError": "Impossible de mettre à jour l'image.",
+  "homeBannerRemoveError": "Impossible de supprimer l'image.",
   "homeTimetableTitle": "Emploi du temps de la semaine",
   "homeTimetableSubtitle": "Cours récurrents, jour par jour.",
   "homeTimetableViewCalendar": "Voir tout le calendrier",
@@ -478,6 +502,89 @@
       }
     }
   },
+  "testDetailNotFoundDescription": "Ce test a peut-être déjà été supprimé.",
+  "testDetailDraftBannerTitle": "Brouillon — invisible pour les élèves",
+  "testDetailDiscardDraft": "Abandonner le brouillon",
+  "testDetailPublishTest": "Publier le test",
+  "testDetailPublishError": "Impossible de mettre à jour le test.",
+  "testDetailDiscardDraftConfirmTitle": "Abandonner ce brouillon ?",
+  "testDetailDiscardDraftConfirmDescription": "Cela supprime aussi le test et ses questions. Cette action est irréversible.",
+  "testDetailDiscardError": "Impossible d'abandonner le brouillon.",
+  "testDetailUntimedLabel": "Sans limite",
+  "testDetailMinutesLabel": "{minutes} min",
+  "@testDetailMinutesLabel": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "testDetailTabQuestions": "Questions",
+  "testDetailTabResults": "Résultats ({count})",
+  "@testDetailTabResults": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "testDetailTabHomework": "Devoirs ({count})",
+  "@testDetailTabHomework": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "testDetailQuestionsSubtitle": "Les questions de ce test apparaissent ici.",
+  "testDetailAddQuestion": "Ajouter une question",
+  "testDetailQuestionsLoadError": "Impossible de charger les questions.",
+  "testDetailFreeTextLabel": "Texte libre",
+  "testDetailExpectedAnswerLabel": "Réponse attendue : {answer}",
+  "@testDetailExpectedAnswerLabel": {
+    "placeholders": {
+      "answer": {
+        "type": "String"
+      }
+    }
+  },
+  "testDetailDeleteQuestionConfirmTitle": "Supprimer cette question ?",
+  "testDetailDeleteQuestionConfirmDescription": "Cette action est irréversible.",
+  "testDetailQuestionDeleteError": "Impossible de supprimer la question.",
+  "testDetailResultsEmptyTitle": "Aucune tentative pour le moment.",
+  "testDetailHomeworkEmptyTitle": "Pas encore assigné à qui que ce soit.",
+  "testDetailQuestionFormAddTitle": "Ajouter une question",
+  "testDetailQuestionFormEditTitle": "Modifier la question",
+  "testDetailQuestionLabel": "Question",
+  "testDetailQuestionTextPlaceholder": "Texte de la question",
+  "testDetailQuestionTypeLabel": "Type",
+  "testDetailOptionLabel": "Option {letter}",
+  "@testDetailOptionLabel": {
+    "placeholders": {
+      "letter": {
+        "type": "String"
+      }
+    }
+  },
+  "testDetailOptionOptionalLabel": "Option {letter} (facultatif)",
+  "@testDetailOptionOptionalLabel": {
+    "placeholders": {
+      "letter": {
+        "type": "String"
+      }
+    }
+  },
+  "testDetailCorrectAnswerLabel": "Bonne option",
+  "testDetailExpectedTextAnswerPlaceholder": "Réponse attendue",
+  "testDetailImageLabel": "Image (facultatif)",
+  "testDetailAddImage": "Ajouter une image",
+  "testDetailImageHelpExisting": "Choisissez une nouvelle image pour la remplacer, ou laissez ce champ vide pour conserver l'actuelle. JPEG, PNG, GIF ou WebP, jusqu'à 10 Mo.",
+  "testDetailImageHelpNew": "JPEG, PNG, GIF ou WebP, jusqu'à 10 Mo.",
+  "testDetailVideoPlaceholder": "Lien vidéo (facultatif)",
+  "testDetailVideoHint": "https://…",
+  "testDetailSaveQuestion": "Enregistrer la question",
+  "testDetailQuestionCreateError": "Impossible d'ajouter la question.",
+  "testDetailQuestionUpdateError": "Impossible de mettre à jour la question.",
   "homeworkTitleTeacher": "Devoirs",
   "homeworkTitleStudent": "Mes devoirs",
   "homeworkSubtitleTeacher": "Attribuez des devoirs aux élèves et suivez leur progression.",
