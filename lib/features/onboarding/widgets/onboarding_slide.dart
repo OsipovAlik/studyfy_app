@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:studify/core/theme/app_theme.dart';
 
 class OnboardingSlide extends StatelessWidget {
   const OnboardingSlide({
@@ -162,20 +163,12 @@ class MockCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
-    final isDark = scheme.brightness == Brightness.dark;
     return Container(
       padding: padding,
       decoration: BoxDecoration(
         color: scheme.surfaceContainerLowest,
-        borderRadius: BorderRadius.circular(22),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         border: Border.all(color: scheme.outlineVariant),
-        boxShadow: [
-          BoxShadow(
-            color: scheme.shadow.withValues(alpha: isDark ? 0.4 : 0.08),
-            blurRadius: 32,
-            offset: const Offset(0, 16),
-          ),
-        ],
       ),
       child: child,
     );

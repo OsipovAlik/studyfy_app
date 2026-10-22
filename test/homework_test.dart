@@ -297,10 +297,13 @@ void main() {
     await tester.tap(find.text('Record yourself reading p.12'));
     await settle(tester);
 
+    await tester.scrollUntilVisible(find.text('Read slowly.'), 200);
     expect(find.text('Read slowly.'), findsOneWidget);
 
-    await tester.scrollUntilVisible(find.text('Edit'), 200);
-    await tester.tap(find.text('Edit'));
+    final editButton = find.byKey(const ValueKey('assignment-detail-edit'));
+    await tester.ensureVisible(editButton);
+    await settle(tester);
+    await tester.tap(editButton);
     await settle(tester);
     await tester.enterText(
       find.widgetWithText(TextField, 'Note for the student (optional)'),
@@ -312,16 +315,19 @@ void main() {
 
     final request = app.api.requestsTo('PUT /assignment/1').single;
     expect(app.api.bodyOf(request)['note'], 'Read slowly, twice.');
+    await tester.scrollUntilVisible(find.text('Read slowly, twice.'), 200);
     expect(find.text('Read slowly, twice.'), findsOneWidget);
 
     app.api.on('DELETE /assignment/1', [
       const FakeResponse(200, {'message': 'Assignment deleted successfully'}),
     ]);
-    await tester.scrollUntilVisible(find.text('Delete').first, 200);
-    await tester.tap(find.text('Delete').first);
+    final deleteButton = find.byKey(const ValueKey('assignment-detail-delete'));
+    await tester.ensureVisible(deleteButton);
+    await settle(tester);
+    await tester.tap(deleteButton);
     await settle(tester);
     expect(find.text('Delete "Record yourself reading p.12"?'), findsOneWidget);
-    await tester.tap(find.text('Delete').last);
+    await tester.tap(find.text('Delete'));
     await settle(tester);
 
     expect(app.api.requestsTo('DELETE /assignment/1'), isNotEmpty);
@@ -363,9 +369,11 @@ void main() {
 
     await tester.tap(find.text('Record yourself reading p.12'));
     await settle(tester);
+    await tester.scrollUntilVisible(find.text('I read it twice.'), 200);
     expect(find.text('I read it twice.'), findsOneWidget);
 
-    await tester.scrollUntilVisible(find.text('Grade'), 200);
+    await tester.ensureVisible(find.text('Grade'));
+    await settle(tester);
     await tester.tap(find.text('Grade'));
     await settle(tester);
     await tester.enterText(
@@ -385,7 +393,8 @@ void main() {
         'assignment': _taskAssignment(submissionText: 'I read it twice.'),
       }),
     ]);
-    await tester.scrollUntilVisible(find.text('Unlock'), 200);
+    await tester.ensureVisible(find.text('Unlock'));
+    await settle(tester);
     await tester.tap(find.text('Unlock'));
     await settle(tester);
     expect(app.api.requestsTo('DELETE /assignment/1/grade'), isNotEmpty);
@@ -426,6 +435,8 @@ void main() {
       'Done!',
     );
     await tester.pump();
+    await tester.ensureVisible(find.text('Submit'));
+    await settle(tester);
     await tester.tap(find.text('Submit'));
     await settle(tester);
 
@@ -509,12 +520,13 @@ void main() {
     await tester.tap(find.text('Record yourself reading p.12'));
     await settle(tester);
 
+    await tester.scrollUntilVisible(find.text('instructions.pdf'), 200);
     expect(find.text('instructions.pdf'), findsOneWidget);
     app.api.on('GET /assignment/1/attachments', [
       const FakeResponse(200, {'attachments': <Object?>[]}),
     ]);
 
-    await tester.tap(find.byIcon(CupertinoIcons.trash).first);
+    await tester.tap(find.byKey(const ValueKey('attachment-delete-10')));
     await settle(tester);
 
     expect(app.api.requestsTo('DELETE /assignment/attachments/10'), isNotEmpty);

@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:studify/core/router/app_router.dart';
-import 'package:studify/core/widgets/brand_backdrop.dart';
 import 'package:studify/core/widgets/language_button.dart';
 import 'package:studify/core/widgets/studyfy_logo.dart';
 import 'package:studify/features/contact/contact_sheet.dart';
@@ -53,7 +52,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          const Positioned.fill(child: BrandBackdrop()),
           SafeArea(
             child: Column(
               children: [

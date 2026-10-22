@@ -398,11 +398,10 @@ class _RotatingWordState extends State<_RotatingWord> {
             child: child,
           ),
         ),
-        child: ShaderMask(
+        child: Text(
+          '$word.',
           key: ValueKey(word),
-          blendMode: BlendMode.srcIn,
-          shaderCallback: AppColors.brandGradient.createShader,
-          child: Text('$word.', style: style),
+          style: style?.copyWith(color: AppColors.brandGradient),
         ),
       ),
     );

@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
-import 'package:studify/core/widgets/brand_backdrop.dart';
 import 'package:studify/features/homework/domain/assignment.dart';
 import 'package:studify/features/homework/homework_controller.dart';
 import 'package:studify/features/homework/widgets/assign_homework_sheet.dart';
@@ -69,7 +68,6 @@ class _HomeworkScreenState extends State<HomeworkScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          const Positioned.fill(child: BrandBackdrop()),
           SafeArea(
             child: RefreshIndicator(
               onRefresh: controller.reload,

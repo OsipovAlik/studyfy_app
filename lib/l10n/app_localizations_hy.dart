@@ -1621,6 +1621,27 @@ class AppLocalizationsHy extends AppLocalizations {
   String get homeworkDueDateLabel => 'Վերջնաժամկետ';
 
   @override
+  String get homeworkDetailsLabel => 'Մանրամասներ';
+
+  @override
+  String get homeworkStatusLabel => 'Կարգավիճակ';
+
+  @override
+  String get homeworkTypeLabel => 'Տեսակ';
+
+  @override
+  String get homeworkStudentLabel => 'Աշակերտ';
+
+  @override
+  String get homeworkAssignedLabel => 'Նշանակվել է';
+
+  @override
+  String get homeworkTestNotHandedIn => 'Դեռ չի հանձնվել։';
+
+  @override
+  String get homeworkFilesLabel => 'Ֆայլեր';
+
+  @override
   String get homeworkNoDueDate => 'Առանց վերջնաժամկետի';
 
   @override

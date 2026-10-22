@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:studify/core/theme/app_colors.dart';
-import 'package:studify/core/widgets/brand_backdrop.dart';
+import 'package:studify/core/theme/app_theme.dart';
 import 'package:studify/core/widgets/language_button.dart';
 import 'package:studify/core/widgets/studyfy_logo.dart';
 import 'package:studify/l10n/app_localizations.dart';
@@ -31,8 +31,8 @@ String formatCountdown(int totalSeconds) {
       : '$minutes:${two(seconds)}';
 }
 
-/// Page frame for the signed-out screens: brand glow, logo, language
-/// switcher and a centered, scrollable column.
+/// Page frame for the signed-out screens: logo, language switcher and a
+/// centered, scrollable column.
 class AuthScaffold extends StatelessWidget {
   const AuthScaffold({required this.children, this.onBack, super.key});
 
@@ -42,58 +42,53 @@ class AuthScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          const Positioned.fill(child: BrandBackdrop()),
-          SafeArea(
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(12, 8, 16, 0),
-                  child: Row(
-                    children: [
-                      if (onBack != null)
-                        IconButton(
-                          onPressed: onBack,
-                          tooltip: MaterialLocalizations.of(
-                            context,
-                          ).backButtonTooltip,
-                          icon: const Icon(CupertinoIcons.back),
-                        )
-                      else
-                        const SizedBox(width: 8),
-                      const Expanded(
-                        child: FittedBox(
-                          fit: BoxFit.scaleDown,
-                          alignment: AlignmentDirectional.centerStart,
-                          child: StudyfyLogo(markSize: 28),
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      const LanguageButton(),
-                    ],
+      body: SafeArea(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(12, 8, 16, 0),
+              child: Row(
+                children: [
+                  if (onBack != null)
+                    IconButton(
+                      onPressed: onBack,
+                      tooltip: MaterialLocalizations.of(
+                        context,
+                      ).backButtonTooltip,
+                      icon: const Icon(CupertinoIcons.back),
+                    )
+                  else
+                    const SizedBox(width: 8),
+                  const Expanded(
+                    child: FittedBox(
+                      fit: BoxFit.scaleDown,
+                      alignment: AlignmentDirectional.centerStart,
+                      child: StudyfyLogo(markSize: 28),
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: SingleChildScrollView(
-                    keyboardDismissBehavior:
-                        ScrollViewKeyboardDismissBehavior.onDrag,
-                    padding: const EdgeInsets.fromLTRB(24, 24, 24, 24),
-                    child: Center(
-                      child: ConstrainedBox(
-                        constraints: const BoxConstraints(maxWidth: 440),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          children: children,
-                        ),
-                      ),
+                  const SizedBox(width: 8),
+                  const LanguageButton(),
+                ],
+              ),
+            ),
+            Expanded(
+              child: SingleChildScrollView(
+                keyboardDismissBehavior:
+                    ScrollViewKeyboardDismissBehavior.onDrag,
+                padding: const EdgeInsets.fromLTRB(24, 24, 24, 24),
+                child: Center(
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 440),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: children,
                     ),
                   ),
                 ),
-              ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -108,20 +103,12 @@ class AuthCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
-    final isDark = scheme.brightness == Brightness.dark;
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(24),
+        color: scheme.surfaceContainerLowest,
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         border: Border.all(color: scheme.outlineVariant),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.indigo500.withValues(alpha: isDark ? 0.12 : 0.1),
-            blurRadius: 40,
-            offset: const Offset(0, 18),
-          ),
-        ],
       ),
       child: child,
     );

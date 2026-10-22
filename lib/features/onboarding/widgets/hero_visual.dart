@@ -70,13 +70,7 @@ class _HeroVisualState extends State<HeroVisual>
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(44),
-              boxShadow: [
-                BoxShadow(
-                  color: AppColors.indigo600.withValues(alpha: 0.22),
-                  blurRadius: 40,
-                  offset: const Offset(0, 18),
-                ),
-              ],
+              border: Border.all(color: AppColors.fog),
             ),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(38),
@@ -132,13 +126,6 @@ class _EmojiBubble extends StatelessWidget {
         color: background,
         shape: BoxShape.circle,
         border: Border.all(color: border),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.08),
-            blurRadius: 14,
-            offset: const Offset(0, 6),
-          ),
-        ],
       ),
       child: Text(emoji, style: const TextStyle(fontSize: 22)),
     );
@@ -209,11 +196,10 @@ class _RotatingHeadlineState extends State<RotatingHeadline> {
                   child: child,
                 ),
               ),
-              child: ShaderMask(
+              child: Text(
+                word,
                 key: ValueKey(word),
-                blendMode: BlendMode.srcIn,
-                shaderCallback: AppColors.brandGradient.createShader,
-                child: Text(word, style: style),
+                style: style?.copyWith(color: AppColors.brandGradient),
               ),
             ),
             if (widget.suffix.isNotEmpty) Text(widget.suffix, style: style),

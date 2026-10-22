@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:studify/core/theme/app_colors.dart';
-import 'package:studify/core/widgets/brand_backdrop.dart';
 import 'package:studify/features/sessions/widgets/picker_pill.dart';
 import 'package:studify/features/students/domain/student.dart';
 import 'package:studify/features/students/students_controller.dart';
@@ -37,7 +36,6 @@ class _StudentsScreenState extends State<StudentsScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          const Positioned.fill(child: BrandBackdrop()),
           SafeArea(
             child: RefreshIndicator(
               onRefresh: controller.reload,
@@ -188,7 +186,7 @@ class _Avatar extends StatelessWidget {
       height: 38,
       alignment: Alignment.center,
       decoration: const BoxDecoration(
-        gradient: AppColors.brandGradient,
+        color: AppColors.brandGradient,
         shape: BoxShape.circle,
       ),
       child: Text(

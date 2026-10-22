@@ -7,7 +7,6 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:studify/core/router/app_router.dart';
 import 'package:studify/core/theme/app_colors.dart';
-import 'package:studify/core/widgets/brand_backdrop.dart';
 import 'package:studify/features/results/domain/result.dart';
 import 'package:studify/features/results/results_list_controller.dart';
 import 'package:studify/features/students/domain/student.dart';
@@ -52,7 +51,6 @@ class _StudentDetailScreenState extends State<StudentDetailScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          const Positioned.fill(child: BrandBackdrop()),
           SafeArea(
             child: student == null
                 ? (studentsController.isLoading
@@ -174,7 +172,7 @@ class _HeroCard extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 28, horizontal: 20),
       decoration: BoxDecoration(
-        gradient: AppColors.brandGradient,
+        color: AppColors.brandGradient,
         borderRadius: BorderRadius.circular(28),
       ),
       child: Column(

@@ -1619,6 +1619,27 @@ class AppLocalizationsEn extends AppLocalizations {
   String get homeworkDueDateLabel => 'Due date';
 
   @override
+  String get homeworkDetailsLabel => 'Details';
+
+  @override
+  String get homeworkStatusLabel => 'Status';
+
+  @override
+  String get homeworkTypeLabel => 'Type';
+
+  @override
+  String get homeworkStudentLabel => 'Student';
+
+  @override
+  String get homeworkAssignedLabel => 'Assigned';
+
+  @override
+  String get homeworkTestNotHandedIn => 'Not handed in yet.';
+
+  @override
+  String get homeworkFilesLabel => 'Files';
+
+  @override
   String get homeworkNoDueDate => 'No due date';
 
   @override

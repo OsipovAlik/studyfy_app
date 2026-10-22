@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:studify/core/widgets/brand_backdrop.dart';
 import 'package:studify/features/auth/auth_controller.dart';
 import 'package:studify/features/home/home_banner_controller.dart';
 import 'package:studify/features/home/home_stats_controller.dart';
@@ -44,28 +43,23 @@ class _HomeScreenState extends State<HomeScreen> {
     if (user == null) return const Scaffold();
 
     return Scaffold(
-      body: Stack(
-        children: [
-          const Positioned.fill(child: BrandBackdrop()),
-          // The bottom safe area includes the floating tab bar.
-          SafeArea(
-            child: RefreshIndicator(
-              onRefresh: _refresh,
-              child: ListView(
-                padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
-                physics: const AlwaysScrollableScrollPhysics(),
-                children: [
-                  WelcomeBanner(user: user),
-                  const SizedBox(height: 16),
-                  const HomeStatsGrid(),
-                  const WeeklyTimetableCard(),
-                  const SizedBox(height: 16),
-                  const WeeklyActivityCard(),
-                ],
-              ),
-            ),
+      // The bottom safe area includes the floating tab bar.
+      body: SafeArea(
+        child: RefreshIndicator(
+          onRefresh: _refresh,
+          child: ListView(
+            padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
+            physics: const AlwaysScrollableScrollPhysics(),
+            children: [
+              WelcomeBanner(user: user),
+              const SizedBox(height: 16),
+              const HomeStatsGrid(),
+              const WeeklyTimetableCard(),
+              const SizedBox(height: 16),
+              const WeeklyActivityCard(),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

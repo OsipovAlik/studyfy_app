@@ -1,8 +1,8 @@
 import 'dart:async';
-import 'dart:ui' show ImageFilter;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:studify/core/theme/app_theme.dart';
 
 /// One tab of [GlassNavBar].
 class GlassNavDestination {
@@ -17,8 +17,9 @@ class GlassNavDestination {
   final IconData selectedIcon;
 }
 
-/// A floating, frosted-glass bottom bar: the Android counterpart of the
-/// native iOS Liquid Glass tab bar.
+/// A floating, flat bottom bar: the Android/desktop counterpart of the
+/// native iOS tab bar, drawn in the same flat, hairline-bordered language
+/// as the rest of the app.
 class GlassNavBar extends StatelessWidget {
   const GlassNavBar({
     required this.destinations,
@@ -40,8 +41,6 @@ class GlassNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
-    final isDark = scheme.brightness == Brightness.dark;
-    final radius = BorderRadius.circular(28);
 
     return SafeArea(
       top: false,
@@ -54,54 +53,28 @@ class GlassNavBar extends StatelessWidget {
             constraints: const BoxConstraints(maxWidth: 520),
             child: DecoratedBox(
               decoration: BoxDecoration(
-                borderRadius: radius,
-                boxShadow: [
-                  BoxShadow(
-                    color: scheme.shadow.withValues(
-                      alpha: isDark ? 0.45 : 0.12,
-                    ),
-                    blurRadius: 30,
-                    offset: const Offset(0, 12),
-                  ),
-                ],
+                color: scheme.surface,
+                borderRadius: BorderRadius.circular(AppTheme.cardRadius),
+                border: Border.all(color: scheme.outline),
               ),
-              child: ClipRRect(
-                borderRadius: radius,
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(sigmaX: 24, sigmaY: 24),
-                  child: DecoratedBox(
-                    decoration: BoxDecoration(
-                      color: scheme.surfaceContainerLowest.withValues(
-                        alpha: isDark ? 0.62 : 0.74,
+              child: SizedBox(
+                height: barHeight,
+                child: Row(
+                  children: [
+                    for (var i = 0; i < destinations.length; i++)
+                      Expanded(
+                        child: _GlassNavItem(
+                          destination: destinations[i],
+                          selected: i == selectedIndex,
+                          onTap: () {
+                            if (i != selectedIndex) {
+                              unawaited(HapticFeedback.selectionClick());
+                            }
+                            onSelected(i);
+                          },
+                        ),
                       ),
-                      borderRadius: radius,
-                      border: Border.all(
-                        color: isDark
-                            ? Colors.white.withValues(alpha: 0.08)
-                            : Colors.white.withValues(alpha: 0.7),
-                      ),
-                    ),
-                    child: SizedBox(
-                      height: barHeight,
-                      child: Row(
-                        children: [
-                          for (var i = 0; i < destinations.length; i++)
-                            Expanded(
-                              child: _GlassNavItem(
-                                destination: destinations[i],
-                                selected: i == selectedIndex,
-                                onTap: () {
-                                  if (i != selectedIndex) {
-                                    unawaited(HapticFeedback.selectionClick());
-                                  }
-                                  onSelected(i);
-                                },
-                              ),
-                            ),
-                        ],
-                      ),
-                    ),
-                  ),
+                  ],
                 ),
               ),
             ),

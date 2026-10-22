@@ -1,41 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:studify/core/theme/app_colors.dart';
 
-/// Use this to change a text weight: it also switches to the Nunito file of
-/// that weight (each weight is a separate font), and sets the `wght` axis
-/// of the variable Armenian fallback font.
+/// Use this to change a text weight: Inter and the Armenian fallback are
+/// both variable fonts, so a weight change only has to move the `wght`
+/// axis — no separate font file to switch to.
 extension FontWeightX on TextStyle {
-  TextStyle weight(FontWeight weight) => AppTheme.nunito(
-    copyWith(
-      fontWeight: weight,
-      fontVariations: [FontVariation.weight(weight.value.toDouble())],
-    ),
+  TextStyle weight(FontWeight weight) => copyWith(
+    fontFamily: AppTheme.fontFamily,
+    fontFamilyFallback: AppTheme.fontFallback,
+    fontWeight: weight,
+    fontVariations: [FontVariation.weight(weight.value.toDouble())],
   );
 }
 
 abstract final class AppTheme {
-  /// Nunito, bundled in `assets/google_fonts/` (never downloaded).
-  static final String fontFamily = GoogleFonts.nunito().fontFamily!;
+  /// Inter, bundled as a single variable font in `assets/fonts/`.
+  static const fontFamily = 'Inter';
 
-  /// Nunito has no Armenian letters; they come from Noto Sans Armenian.
+  /// Inter has no Armenian letters; they come from Noto Sans Armenian,
+  /// also bundled as a variable font.
   static const fontFallback = ['NotoSansArmenian'];
 
-  /// [style] in Nunito at its own weight, keeping the Armenian fallback
-  /// (google_fonts replaces the fallback list with its own).
-  static TextStyle nunito(TextStyle style) =>
-      GoogleFonts.nunito(textStyle: style).copyWith(
-        fontFamilyFallback: fontFallback,
-      );
+  /// The pill shape Apple's flat language uses for every button.
+  static const pillShape = StadiumBorder();
 
-  /// Loads every Nunito weight the themes use. Call before the first
-  /// frame: a font that finishes loading between layout and paint trips
-  /// a TextPainter assert, and text would briefly show in the wrong font.
-  static Future<void> preloadFonts() {
-    light;
-    dark;
-    return GoogleFonts.pendingFonts();
-  }
+  /// The radius Apple's flat language uses for cards and sheets.
+  static const cardRadius = 28.0;
 
   static ThemeData get light => _build(
     const ColorScheme(
@@ -59,9 +49,9 @@ abstract final class AppTheme {
       surfaceContainerLow: Colors.white,
       surfaceContainer: AppColors.stone100,
       surfaceContainerHigh: AppColors.stone200,
-      outline: AppColors.stone300,
-      outlineVariant: AppColors.stone200,
-      shadow: AppColors.indigo900,
+      outline: AppColors.stone200,
+      outlineVariant: AppColors.stone100,
+      shadow: Colors.transparent,
     ),
   );
 
@@ -89,17 +79,16 @@ abstract final class AppTheme {
       surfaceContainerHigh: AppColors.stone700,
       outline: AppColors.stone700,
       outlineVariant: AppColors.stone800,
-      shadow: Colors.black,
+      shadow: Colors.transparent,
     ),
   );
 
   static ThemeData _build(ColorScheme scheme) {
     final textTheme = _textTheme(scheme.onSurface);
-    final shape = RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(14),
-    );
-    const buttonPadding = EdgeInsets.symmetric(horizontal: 24, vertical: 16);
-    final buttonText = textTheme.labelLarge?.copyWith(fontSize: 16);
+    const buttonPadding = EdgeInsets.symmetric(horizontal: 24, vertical: 14);
+    final buttonText = textTheme.labelLarge;
+    final hairline = BorderSide(color: scheme.outline);
+    final inputRadius = BorderRadius.circular(12);
 
     return ThemeData(
       useMaterial3: true,
@@ -109,55 +98,180 @@ abstract final class AppTheme {
       fontFamily: fontFamily,
       fontFamilyFallback: fontFallback,
       textTheme: textTheme,
+      splashFactory: NoSplash.splashFactory,
+      highlightColor: Colors.transparent,
+      dividerTheme: DividerThemeData(
+        color: scheme.outline,
+        thickness: 1,
+        space: 1,
+      ),
+      appBarTheme: AppBarTheme(
+        backgroundColor: scheme.surface,
+        foregroundColor: scheme.onSurface,
+        surfaceTintColor: Colors.transparent,
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        centerTitle: false,
+        titleTextStyle: textTheme.headlineSmall,
+        iconTheme: IconThemeData(color: scheme.onSurface),
+      ),
+      cardTheme: CardThemeData(
+        color: scheme.surfaceContainerLowest,
+        elevation: 0,
+        shadowColor: Colors.transparent,
+        surfaceTintColor: Colors.transparent,
+        margin: EdgeInsets.zero,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(cardRadius),
+          side: hairline,
+        ),
+      ),
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
-          shape: shape,
+          shape: pillShape,
           padding: buttonPadding,
           textStyle: buttonText,
-          minimumSize: const Size(64, 54),
+          minimumSize: const Size(64, 50),
+          elevation: 0,
         ),
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
-          shape: shape,
+          shape: pillShape,
           padding: buttonPadding,
           textStyle: buttonText,
-          minimumSize: const Size(64, 54),
-          side: BorderSide(color: scheme.outline),
+          minimumSize: const Size(64, 50),
+          backgroundColor: scheme.surfaceContainer,
           foregroundColor: scheme.onSurface,
+          side: BorderSide.none,
         ),
       ),
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
-          textStyle: textTheme.labelLarge,
-          foregroundColor: scheme.onSurfaceVariant,
+          shape: pillShape,
+          textStyle: textTheme.bodyLarge,
+          foregroundColor: AppColors.deepLinkBlue,
         ),
+      ),
+      iconButtonTheme: IconButtonThemeData(
+        style: IconButton.styleFrom(foregroundColor: scheme.onSurface),
+      ),
+      chipTheme: ChipThemeData(
+        shape: pillShape,
+        side: hairline,
+        backgroundColor: scheme.surfaceContainer,
+        selectedColor: scheme.primary,
+        labelStyle: textTheme.labelMedium,
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       ),
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
-        fillColor: scheme.surfaceContainerLowest,
+        fillColor: scheme.surfaceContainer,
         contentPadding: const EdgeInsets.symmetric(
           horizontal: 16,
           vertical: 16,
         ),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(14),
-          borderSide: BorderSide(color: scheme.outline),
+          borderRadius: inputRadius,
+          borderSide: BorderSide.none,
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(14),
-          borderSide: BorderSide(color: scheme.outline),
+          borderRadius: inputRadius,
+          borderSide: BorderSide.none,
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: inputRadius,
           borderSide: BorderSide(color: scheme.primary, width: 2),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: inputRadius,
+          borderSide: BorderSide(color: scheme.error, width: 1.5),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: inputRadius,
+          borderSide: BorderSide(color: scheme.error, width: 2),
+        ),
+      ),
+      dialogTheme: DialogThemeData(
+        backgroundColor: scheme.surfaceContainerLowest,
+        surfaceTintColor: Colors.transparent,
+        elevation: 0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(cardRadius),
         ),
       ),
       bottomSheetTheme: BottomSheetThemeData(
         backgroundColor: scheme.surfaceContainerLowest,
+        modalBackgroundColor: scheme.surfaceContainerLowest,
+        surfaceTintColor: Colors.transparent,
+        elevation: 0,
+        modalElevation: 0,
         showDragHandle: true,
         shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(top: Radius.circular(28)),
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(cardRadius),
+          ),
+        ),
+      ),
+      snackBarTheme: SnackBarThemeData(
+        backgroundColor: scheme.onSurface,
+        contentTextStyle: textTheme.bodyMedium?.copyWith(
+          color: scheme.surface,
+        ),
+        behavior: SnackBarBehavior.floating,
+        elevation: 0,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(14),
+        ),
+      ),
+      switchTheme: SwitchThemeData(
+        thumbColor: WidgetStateProperty.resolveWith(
+          (states) => states.contains(WidgetState.selected)
+              ? Colors.white
+              : scheme.surface,
+        ),
+        trackColor: WidgetStateProperty.resolveWith(
+          (states) => states.contains(WidgetState.selected)
+              ? scheme.primary
+              : scheme.surfaceContainerHigh,
+        ),
+        trackOutlineColor: const WidgetStatePropertyAll(Colors.transparent),
+      ),
+      checkboxTheme: CheckboxThemeData(
+        fillColor: WidgetStateProperty.resolveWith(
+          (states) => states.contains(WidgetState.selected)
+              ? scheme.primary
+              : Colors.transparent,
+        ),
+        side: hairline,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+      ),
+      radioTheme: RadioThemeData(
+        fillColor: WidgetStateProperty.resolveWith(
+          (states) => states.contains(WidgetState.selected)
+              ? scheme.primary
+              : scheme.outline,
+        ),
+      ),
+      progressIndicatorTheme: ProgressIndicatorThemeData(
+        color: scheme.primary,
+        linearTrackColor: scheme.surfaceContainerHigh,
+        circularTrackColor: scheme.surfaceContainerHigh,
+      ),
+      navigationBarTheme: NavigationBarThemeData(
+        backgroundColor: scheme.surface,
+        surfaceTintColor: Colors.transparent,
+        elevation: 0,
+        indicatorColor: scheme.primary.withValues(alpha: 0.12),
+        indicatorShape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+      ),
+      listTileTheme: ListTileThemeData(
+        iconColor: scheme.onSurfaceVariant,
+        textColor: scheme.onSurface,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(14),
         ),
       ),
     );
@@ -177,34 +291,39 @@ abstract final class AppTheme {
     ).weight(weight);
 
     return TextTheme(
-      displaySmall: style(36, FontWeight.w700, height: 1.1, letterSpacing: -1),
+      displaySmall: style(34, FontWeight.w600, height: 1.1, letterSpacing: -0.8),
       headlineLarge: style(
-        32,
-        FontWeight.w700,
-        height: 1.15,
-        letterSpacing: -0.8,
-      ),
-      headlineMedium: style(
         28,
-        FontWeight.w700,
+        FontWeight.w600,
         height: 1.15,
-        letterSpacing: -0.6,
-      ),
-      headlineSmall: style(
-        24,
-        FontWeight.w700,
-        height: 1.2,
         letterSpacing: -0.4,
       ),
-      titleLarge: style(20, FontWeight.w700, letterSpacing: -0.2),
-      titleMedium: style(16, FontWeight.w700),
-      titleSmall: style(14, FontWeight.w700),
-      bodyLarge: style(16, FontWeight.w400, height: 1.5),
-      bodyMedium: style(14, FontWeight.w400, height: 1.45),
-      bodySmall: style(12, FontWeight.w400, height: 1.4),
-      labelLarge: style(14, FontWeight.w700),
-      labelMedium: style(12, FontWeight.w700),
-      labelSmall: style(11, FontWeight.w600, letterSpacing: 0.2),
+      headlineMedium: style(
+        24,
+        FontWeight.w600,
+        height: 1.18,
+        letterSpacing: -0.3,
+      ),
+      headlineSmall: style(
+        21,
+        FontWeight.w600,
+        height: 1.25,
+        letterSpacing: -0.2,
+      ),
+      titleLarge: style(17, FontWeight.w600, letterSpacing: -0.2),
+      titleMedium: style(15, FontWeight.w600),
+      titleSmall: style(13, FontWeight.w600),
+      bodyLarge: style(17, FontWeight.w400, height: 1.47, letterSpacing: -0.27),
+      bodyMedium: style(
+        14,
+        FontWeight.w400,
+        height: 1.43,
+        letterSpacing: -0.14,
+      ),
+      bodySmall: style(12, FontWeight.w400, height: 1.33, letterSpacing: -0.04),
+      labelLarge: style(16, FontWeight.w600, height: 1.2, letterSpacing: -0.2),
+      labelMedium: style(13, FontWeight.w600, height: 1.2),
+      labelSmall: style(11, FontWeight.w500, height: 1.15, letterSpacing: 0.2),
     );
   }
 }

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:studify/core/theme/app_colors.dart';
 import 'package:studify/core/theme/app_theme.dart';
 
-/// The app mark: an open book on the brand gradient (the website's icon.svg).
+/// The app mark: an open book on a flat brand-colour tile (the website's
+/// icon.svg). Flat fill, no gradient or shadow, per the Apple-style flat
+/// design language.
 class StudyfyMark extends StatelessWidget {
   const StudyfyMark({super.key, this.size = 32});
 
@@ -14,15 +16,8 @@ class StudyfyMark extends StatelessWidget {
       width: size,
       height: size,
       decoration: BoxDecoration(
-        gradient: AppColors.brandGradient,
+        color: AppColors.brandGradient,
         borderRadius: BorderRadius.circular(size * 5.5 / 24),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.indigo600.withValues(alpha: 0.3),
-            blurRadius: size / 3,
-            offset: Offset(0, size / 10),
-          ),
-        ],
       ),
       child: CustomPaint(painter: _BookPainter()),
     );

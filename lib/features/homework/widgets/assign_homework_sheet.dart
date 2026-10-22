@@ -126,6 +126,7 @@ class _AssignHomeworkSheetState extends State<_AssignHomeworkSheet> {
             );
       // The task/test itself is created at this point; a failure past
       // here shouldn't block closing the sheet or imply nothing happened.
+      if (!mounted) return;
       if (_attachment case final file? when created.isNotEmpty) {
         try {
           await context.read<HomeworkRepository>().uploadAttachment(
@@ -324,7 +325,10 @@ class _AssignHomeworkSheetState extends State<_AssignHomeworkSheet> {
                           padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
                           child: Text(
                             l10n.homeworkGroupsLabel,
-                            style: theme.textTheme.labelSmall?.copyWith(color: scheme.onSurfaceVariant, fontWeight: FontWeight(600)),
+                            style: theme.textTheme.labelSmall?.copyWith(
+                              color: scheme.onSurfaceVariant,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
                         ),
                         for (final group in timetable.groups)

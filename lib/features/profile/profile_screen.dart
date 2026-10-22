@@ -6,7 +6,6 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:studify/core/router/app_router.dart';
 import 'package:studify/core/theme/app_colors.dart';
-import 'package:studify/core/widgets/brand_backdrop.dart';
 import 'package:studify/core/widgets/grouped_list.dart';
 import 'package:studify/features/auth/auth_controller.dart';
 import 'package:studify/features/auth/domain/user_profile.dart';
@@ -51,7 +50,6 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          const Positioned.fill(child: BrandBackdrop()),
           // The bottom safe area includes the floating tab bar.
           SafeArea(
             child: RefreshIndicator(
@@ -168,7 +166,7 @@ class _Avatar extends StatelessWidget {
       height: 56,
       alignment: Alignment.center,
       decoration: const BoxDecoration(
-        gradient: AppColors.brandGradient,
+        color: AppColors.brandGradient,
         shape: BoxShape.circle,
       ),
       child: Text(

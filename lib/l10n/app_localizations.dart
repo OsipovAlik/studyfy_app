@@ -3054,6 +3054,48 @@ abstract class AppLocalizations {
   /// **'Due date'**
   String get homeworkDueDateLabel;
 
+  /// No description provided for @homeworkDetailsLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Details'**
+  String get homeworkDetailsLabel;
+
+  /// No description provided for @homeworkStatusLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Status'**
+  String get homeworkStatusLabel;
+
+  /// No description provided for @homeworkTypeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Type'**
+  String get homeworkTypeLabel;
+
+  /// No description provided for @homeworkStudentLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Student'**
+  String get homeworkStudentLabel;
+
+  /// No description provided for @homeworkAssignedLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Assigned'**
+  String get homeworkAssignedLabel;
+
+  /// No description provided for @homeworkTestNotHandedIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Not handed in yet.'**
+  String get homeworkTestNotHandedIn;
+
+  /// No description provided for @homeworkFilesLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Files'**
+  String get homeworkFilesLabel;
+
   /// No description provided for @homeworkNoDueDate.
   ///
   /// In en, this message translates to:

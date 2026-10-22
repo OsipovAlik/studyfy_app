@@ -29,9 +29,7 @@ class AssignmentDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final controller = context.watch<HomeworkController>();
-    final assignment = controller.assignments
-        .where((a) => a.id == assignmentId)
-        .firstOrNull;
+    final assignment = controller.assignments.where((a) => a.id == assignmentId).firstOrNull;
 
     if (assignment == null) {
       return SubPage(
@@ -52,7 +50,9 @@ class AssignmentDetailScreen extends StatelessWidget {
       title: assignment.title,
       onRefresh: controller.reload,
       children: [
-        _StatusHeader(assignment: assignment),
+        _HeroHeader(assignment: assignment, controller: controller),
+        const SizedBox(height: 16),
+        _DetailsCard(assignment: assignment, isTeacher: controller.isTeacher),
         const SizedBox(height: 16),
         if (assignment.note case final note? when note.isNotEmpty) ...[
           _NoteCard(note: note),
@@ -62,19 +62,55 @@ class AssignmentDetailScreen extends StatelessWidget {
           _TestSection(assignment: assignment, controller: controller)
         else
           _TaskSection(assignment: assignment, controller: controller),
-        if (controller.isTeacher) ...[
-          const SizedBox(height: 20),
-          _TeacherActions(assignment: assignment, controller: controller),
-        ],
       ],
     );
   }
 }
 
-class _StatusHeader extends StatelessWidget {
-  const _StatusHeader({required this.assignment});
+class _HeroHeader extends StatelessWidget {
+  const _HeroHeader({required this.assignment, required this.controller});
 
   final Assignment assignment;
+  final HomeworkController controller;
+
+  Future<void> _confirmDelete(BuildContext context) async {
+    final l10n = AppLocalizations.of(context);
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: Text(l10n.homeworkDeleteConfirmTitle(assignment.title)),
+        content: Text(l10n.homeworkDeleteConfirmDescription),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(dialogContext).pop(false),
+            child: Text(l10n.cancel),
+          ),
+          FilledButton(
+            style: FilledButton.styleFrom(
+              backgroundColor: Theme.of(dialogContext).colorScheme.error,
+            ),
+            onPressed: () => Navigator.of(dialogContext).pop(true),
+            child: Text(l10n.homeworkDelete),
+          ),
+        ],
+      ),
+    );
+    if (confirmed != true || !context.mounted) return;
+
+    try {
+      await controller.deleteAssignment(assignment.id);
+      if (context.mounted) context.pop();
+    } on ApiException catch (error) {
+      if (!context.mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            (error.isNetworkError || error.isServerError) ? l10n.homeworkServerUnavailable : error.message ?? l10n.homeworkDeleteError,
+          ),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,39 +118,378 @@ class _StatusHeader extends StatelessWidget {
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
     final locale = Localizations.localeOf(context).toLanguageTag();
-    final color = statusColorOf(assignment.status);
+    final statusColor = statusColorOf(assignment.status);
     final dueDate = assignment.dueDate;
+    final isTeacher = controller.isTeacher;
+    final isTest = assignment.type == AssignmentType.test;
 
     return Container(
+      padding: const EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: scheme.outlineVariant),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            width: 44,
+            height: 44,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: scheme.primary.withValues(alpha: 0.14),
+              borderRadius: BorderRadius.circular(14),
+            ),
+            child: Icon(
+              isTest ? CupertinoIcons.doc_text_fill : CupertinoIcons.pencil_outline,
+              size: 20,
+              color: scheme.primary,
+            ),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            flex: 3,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  children: [
+                    _Badge(
+                      label: isTest ? l10n.homeworkKindTest : l10n.homeworkKindTask,
+                      color: scheme.onSurfaceVariant,
+                      background: scheme.surfaceContainerHigh,
+                    ),
+                    _Badge(
+                      label: statusLabelOf(assignment.status, l10n),
+                      color: statusColor,
+                      background: statusColor.withValues(alpha: 0.14),
+                      dot: true,
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 10),
+                Text(assignment.title, style: theme.textTheme.titleLarge),
+                if (isTeacher) ...[
+                  const SizedBox(height: 10),
+                  Row(
+                    children: [
+                      _InitialsAvatar(name: assignment.studentFullName),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: Text(
+                          assignment.studentFullName,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          style: theme.textTheme.bodyMedium,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+                if (dueDate != null) ...[
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      Icon(
+                        CupertinoIcons.calendar,
+                        size: 14,
+                        color: scheme.onSurfaceVariant,
+                      ),
+                      const SizedBox(width: 6),
+                      Expanded(
+                        child: Text(
+                          l10n.homeworkDueOn(
+                            DateFormat.yMMMd(
+                              locale,
+                            ).add_jm().format(dueDate.toLocal()),
+                          ),
+                          maxLines: 2,
+
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            color: scheme.onSurfaceVariant,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ],
+            ),
+          ),
+          if (isTeacher) ...[
+            IconButton(
+              key: const ValueKey('assignment-detail-edit'),
+              onPressed: () => unawaited(
+                showEditAssignmentSheet(
+                  context,
+                  controller: controller,
+                  assignment: assignment,
+                ),
+              ),
+              icon: const Icon(CupertinoIcons.pencil, size: 18),
+              tooltip: l10n.homeworkEdit,
+            ),
+            IconButton(
+              key: const ValueKey('assignment-detail-delete'),
+              onPressed: () => unawaited(_confirmDelete(context)),
+              icon: Icon(CupertinoIcons.trash, size: 18, color: scheme.error),
+              tooltip: l10n.homeworkDelete,
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+class _Badge extends StatelessWidget {
+  const _Badge({
+    required this.label,
+    required this.color,
+    required this.background,
+    this.dot = false,
+  });
+
+  final String label;
+  final Color color;
+  final Color background;
+  final bool dot;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      decoration: BoxDecoration(
+        color: background,
+        borderRadius: BorderRadius.circular(999),
+      ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (dot) ...[
+            Container(
+              width: 6,
+              height: 6,
+              decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+            ),
+            const SizedBox(width: 6),
+          ],
+          Text(
+            label,
+            style: Theme.of(
+              context,
+            ).textTheme.labelMedium?.copyWith(color: color),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _InitialsAvatar extends StatelessWidget {
+  const _InitialsAvatar({required this.name});
+
+  final String name;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    final initials = name.trim().split(RegExp(r'\s+')).where((part) => part.isNotEmpty).take(2).map((part) => part[0].toUpperCase()).join();
+
+    return Container(
+      width: 26,
+      height: 26,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(color: scheme.primary, shape: BoxShape.circle),
+      child: Text(
+        initials,
+        style: Theme.of(context).textTheme.labelSmall?.copyWith(
+          color: scheme.onPrimary,
+          fontWeight: FontWeight.w700,
+        ),
+      ),
+    );
+  }
+}
+
+class _DetailsCard extends StatelessWidget {
+  const _DetailsCard({required this.assignment, required this.isTeacher});
+
+  final Assignment assignment;
+  final bool isTeacher;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
+    final scheme = theme.colorScheme;
+    final locale = Localizations.localeOf(context).toLanguageTag();
+    final dateFormat = DateFormat.yMMMd(locale).add_jm();
+    final isTest = assignment.type == AssignmentType.test;
+
+    final rows = [
+      _DetailRowData(
+        icon: CupertinoIcons.checkmark_seal,
+        label: l10n.homeworkStatusLabel,
+        value: statusLabelOf(assignment.status, l10n),
+        valueColor: statusColorOf(assignment.status),
+      ),
+      _DetailRowData(
+        icon: isTest ? CupertinoIcons.doc_text : CupertinoIcons.pencil_outline,
+        label: l10n.homeworkTypeLabel,
+        value: isTest ? l10n.homeworkKindTest : l10n.homeworkKindTask,
+      ),
+      if (isTeacher)
+        _DetailRowData(
+          icon: CupertinoIcons.person,
+          label: l10n.homeworkStudentLabel,
+          value: assignment.studentFullName,
+        ),
+      if (assignment.createdAt case final createdAt?)
+        _DetailRowData(
+          icon: CupertinoIcons.calendar,
+          label: l10n.homeworkAssignedLabel,
+          value: dateFormat.format(createdAt.toLocal()),
+        ),
+      if (assignment.dueDate case final dueDate?)
+        _DetailRowData(
+          icon: CupertinoIcons.calendar,
+          label: l10n.homeworkDueDateLabel,
+          value: dateFormat.format(dueDate.toLocal()),
+        ),
+    ];
+
+    return Container(
+      width: double.infinity,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
         borderRadius: BorderRadius.circular(18),
         border: Border.all(color: scheme.outlineVariant),
       ),
-      child: Row(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-            decoration: BoxDecoration(
-              color: color.withValues(alpha: 0.14),
-              borderRadius: BorderRadius.circular(999),
-            ),
-            child: Text(
-              statusLabelOf(assignment.status, l10n),
-              style: theme.textTheme.labelMedium?.copyWith(color: color),
-            ),
+          Text(l10n.homeworkDetailsLabel, style: theme.textTheme.labelLarge),
+          const SizedBox(height: 10),
+          for (var i = 0; i < rows.length; i++) ...[
+            if (i > 0) Divider(height: 20, color: scheme.outlineVariant),
+            _DetailRow(data: rows[i]),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+class _DetailRowData {
+  const _DetailRowData({
+    required this.icon,
+    required this.label,
+    required this.value,
+    this.valueColor,
+  });
+
+  final IconData icon;
+  final String label;
+  final String value;
+  final Color? valueColor;
+}
+
+class _DetailRow extends StatelessWidget {
+  const _DetailRow({required this.data});
+
+  final _DetailRowData data;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final scheme = theme.colorScheme;
+    return Row(
+      children: [
+        Container(
+          width: 32,
+          height: 32,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: scheme.surfaceContainerHigh,
+            borderRadius: BorderRadius.circular(10),
           ),
-          const Spacer(),
-          if (dueDate != null)
-            Text(
-              l10n.homeworkDueOn(
-                DateFormat.yMMMd(locale).format(dueDate.toLocal()),
+          child: Icon(data.icon, size: 16, color: scheme.onSurfaceVariant),
+        ),
+        const SizedBox(width: 10),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                data.label,
+                style: theme.textTheme.bodySmall?.copyWith(
+                  color: scheme.onSurfaceVariant,
+                ),
               ),
-              style: theme.textTheme.bodySmall?.copyWith(
-                color: scheme.onSurfaceVariant,
+              Text(
+                data.value,
+                style: theme.textTheme.bodyMedium?.copyWith(
+                  fontWeight: FontWeight.w600,
+                  color: data.valueColor,
+                ),
               ),
-            ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _SectionCard extends StatelessWidget {
+  const _SectionCard({
+    required this.icon,
+    required this.title,
+    required this.child,
+  });
+
+  final IconData icon;
+  final String title;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final scheme = theme.colorScheme;
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
+        borderRadius: BorderRadius.circular(18),
+        border: Border.all(color: scheme.outlineVariant),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Container(
+                width: 28,
+                height: 28,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: scheme.primary.withValues(alpha: 0.14),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Icon(icon, size: 14, color: scheme.primary),
+              ),
+              const SizedBox(width: 8),
+              Text(title, style: theme.textTheme.labelLarge),
+            ],
+          ),
+          const SizedBox(height: 10),
+          child,
         ],
       ),
     );
@@ -168,6 +543,7 @@ class _TestSection extends StatelessWidget {
     final scheme = theme.colorScheme;
     final percentage = assignment.percentage;
     final resultId = assignment.resultId;
+    final isTeacher = controller.isTeacher;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -182,8 +558,7 @@ class _TestSection extends StatelessWidget {
               ),
             ),
           ),
-        if (assignment.status == AssignmentStatus.completed &&
-            percentage != null) ...[
+        if (assignment.status == AssignmentStatus.completed && percentage != null) ...[
           Container(
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
@@ -207,14 +582,24 @@ class _TestSection extends StatelessWidget {
                 const Spacer(),
                 if (resultId != null)
                   TextButton(
-                    onPressed: () =>
-                        context.push('${AppRoutes.results}/$resultId'),
+                    onPressed: () => context.push('${AppRoutes.results}/$resultId'),
                     child: Text(l10n.homeworkViewResult),
                   ),
               ],
             ),
           ),
-        ] else if (!controller.isTeacher) ...[
+        ] else if (isTeacher) ...[
+          _SectionCard(
+            icon: CupertinoIcons.doc_text,
+            title: l10n.homeworkKindTest,
+            child: Text(
+              l10n.homeworkTestNotHandedIn,
+              style: theme.textTheme.bodyMedium?.copyWith(
+                color: scheme.onSurfaceVariant,
+              ),
+            ),
+          ),
+        ] else ...[
           if (!assignment.testIsActive)
             _Hint(l10n.homeworkTestUnavailable)
           else ...[
@@ -235,6 +620,14 @@ class _TestSection extends StatelessWidget {
             ),
           ],
         ],
+        const SizedBox(height: 18),
+        AttachmentsSection(
+          assignmentId: assignment.id,
+          kind: AttachmentKind.material,
+          title: l10n.homeworkFilesLabel,
+          canUpload: isTeacher,
+          canDelete: isTeacher,
+        ),
       ],
     );
   }
@@ -392,9 +785,7 @@ class _SubmissionFormState extends State<_SubmissionForm> {
     } on ApiException catch (error) {
       if (!mounted) return;
       setState(
-        () => _error = (error.isNetworkError || error.isServerError)
-            ? l10n.homeworkServerUnavailable
-            : error.message ?? l10n.homeworkSubmitError,
+        () => _error = (error.isNetworkError || error.isServerError) ? l10n.homeworkServerUnavailable : error.message ?? l10n.homeworkSubmitError,
       );
     } finally {
       if (mounted) setState(() => _submitting = false);
@@ -447,8 +838,7 @@ class _SubmissionFormState extends State<_SubmissionForm> {
                       ),
                     )
                   : Text(
-                      widget.assignment.submissionText == null ||
-                              widget.assignment.submissionText!.isEmpty
+                      widget.assignment.submissionText == null || widget.assignment.submissionText!.isEmpty
                           ? l10n.homeworkSubmitButton
                           : l10n.homeworkResubmitButton,
                     ),
@@ -475,9 +865,7 @@ class _GradeCard extends StatelessWidget {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            (error.isNetworkError || error.isServerError)
-                ? l10n.homeworkServerUnavailable
-                : error.message ?? l10n.homeworkUnlockError,
+            (error.isNetworkError || error.isServerError) ? l10n.homeworkServerUnavailable : error.message ?? l10n.homeworkUnlockError,
           ),
         ),
       );
@@ -516,8 +904,7 @@ class _GradeCard extends StatelessWidget {
                 ),
             ],
           ),
-          if (assignment.feedback case final feedback?
-              when feedback.isNotEmpty) ...[
+          if (assignment.feedback case final feedback? when feedback.isNotEmpty) ...[
             const SizedBox(height: 6),
             Text(feedback, style: theme.textTheme.bodyMedium),
           ],
@@ -549,89 +936,6 @@ class _Hint extends StatelessWidget {
           context,
         ).textTheme.bodyMedium?.copyWith(color: scheme.onSurfaceVariant),
       ),
-    );
-  }
-}
-
-class _TeacherActions extends StatelessWidget {
-  const _TeacherActions({required this.assignment, required this.controller});
-
-  final Assignment assignment;
-  final HomeworkController controller;
-
-  Future<void> _confirmDelete(BuildContext context) async {
-    final l10n = AppLocalizations.of(context);
-    final confirmed = await showDialog<bool>(
-      context: context,
-      builder: (dialogContext) => AlertDialog(
-        title: Text(l10n.homeworkDeleteConfirmTitle(assignment.title)),
-        content: Text(l10n.homeworkDeleteConfirmDescription),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(dialogContext).pop(false),
-            child: Text(l10n.cancel),
-          ),
-          FilledButton(
-            style: FilledButton.styleFrom(
-              backgroundColor: Theme.of(dialogContext).colorScheme.error,
-            ),
-            onPressed: () => Navigator.of(dialogContext).pop(true),
-            child: Text(l10n.homeworkDelete),
-          ),
-        ],
-      ),
-    );
-    if (confirmed != true || !context.mounted) return;
-
-    try {
-      await controller.deleteAssignment(assignment.id);
-      if (context.mounted) context.pop();
-    } on ApiException catch (error) {
-      if (!context.mounted) return;
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(
-            (error.isNetworkError || error.isServerError)
-                ? l10n.homeworkServerUnavailable
-                : error.message ?? l10n.homeworkDeleteError,
-          ),
-        ),
-      );
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
-    final scheme = Theme.of(context).colorScheme;
-    return Row(
-      children: [
-        Expanded(
-          child: OutlinedButton.icon(
-            onPressed: () => unawaited(
-              showEditAssignmentSheet(
-                context,
-                controller: controller,
-                assignment: assignment,
-              ),
-            ),
-            icon: const Icon(CupertinoIcons.pencil, size: 16),
-            label: Text(l10n.homeworkEdit),
-          ),
-        ),
-        const SizedBox(width: 10),
-        Expanded(
-          child: OutlinedButton.icon(
-            onPressed: () => unawaited(_confirmDelete(context)),
-            style: OutlinedButton.styleFrom(
-              foregroundColor: scheme.error,
-              side: BorderSide(color: scheme.error.withValues(alpha: 0.4)),
-            ),
-            icon: const Icon(CupertinoIcons.trash, size: 16),
-            label: Text(l10n.homeworkDelete),
-          ),
-        ),
-      ],
     );
   }
 }

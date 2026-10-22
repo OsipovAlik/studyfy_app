@@ -1622,6 +1622,27 @@ class AppLocalizationsRu extends AppLocalizations {
   String get homeworkDueDateLabel => 'Срок сдачи';
 
   @override
+  String get homeworkDetailsLabel => 'Детали';
+
+  @override
+  String get homeworkStatusLabel => 'Статус';
+
+  @override
+  String get homeworkTypeLabel => 'Тип';
+
+  @override
+  String get homeworkStudentLabel => 'Ученик';
+
+  @override
+  String get homeworkAssignedLabel => 'Назначено';
+
+  @override
+  String get homeworkTestNotHandedIn => 'Ещё не сдан.';
+
+  @override
+  String get homeworkFilesLabel => 'Файлы';
+
+  @override
   String get homeworkNoDueDate => 'Без срока сдачи';
 
   @override

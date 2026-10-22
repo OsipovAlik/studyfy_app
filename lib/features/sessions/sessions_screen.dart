@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:studify/core/widgets/brand_backdrop.dart';
 import 'package:studify/features/sessions/domain/class_session.dart';
 import 'package:studify/features/sessions/session_display.dart';
 import 'package:studify/features/sessions/timetable_controller.dart';
@@ -46,7 +45,6 @@ class _SessionsScreenState extends State<SessionsScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          const Positioned.fill(child: BrandBackdrop()),
           SafeArea(
             child: RefreshIndicator(
               onRefresh: controller.reload,

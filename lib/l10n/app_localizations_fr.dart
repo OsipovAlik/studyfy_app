@@ -1655,6 +1655,27 @@ class AppLocalizationsFr extends AppLocalizations {
   String get homeworkDueDateLabel => 'Date limite';
 
   @override
+  String get homeworkDetailsLabel => 'Détails';
+
+  @override
+  String get homeworkStatusLabel => 'Statut';
+
+  @override
+  String get homeworkTypeLabel => 'Type';
+
+  @override
+  String get homeworkStudentLabel => 'Élève';
+
+  @override
+  String get homeworkAssignedLabel => 'Assigné';
+
+  @override
+  String get homeworkTestNotHandedIn => 'Pas encore rendu.';
+
+  @override
+  String get homeworkFilesLabel => 'Fichiers';
+
+  @override
   String get homeworkNoDueDate => 'Aucune date limite';
 
   @override

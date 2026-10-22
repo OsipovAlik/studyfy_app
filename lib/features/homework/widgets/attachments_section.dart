@@ -206,6 +206,9 @@ class _AttachmentsSectionState extends State<AttachmentsSection> {
                         onTap: () => unawaited(_open(attachments[i])),
                         trailing: widget.canDelete
                             ? IconButton(
+                                key: ValueKey(
+                                  'attachment-delete-${attachments[i].id}',
+                                ),
                                 icon: Icon(
                                   CupertinoIcons.trash,
                                   color: scheme.error,

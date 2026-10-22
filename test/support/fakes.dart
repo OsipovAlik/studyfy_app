@@ -6,12 +6,10 @@ import 'package:dio/dio.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:studify/app.dart';
 import 'package:studify/core/network/api_client.dart';
 import 'package:studify/core/storage/app_preferences.dart';
-import 'package:studify/core/theme/app_theme.dart';
 import 'package:studify/features/auth/data/session_storage.dart';
 import 'package:studify/features/shell/glass_nav_bar.dart';
 
@@ -128,9 +126,6 @@ class TestApp {
     StoredSession? session,
   }) async {
     SharedPreferences.setMockInitialValues(prefs);
-    // As in the app: fonts come from assets only.
-    GoogleFonts.config.allowRuntimeFetching = false;
-    await AppTheme.preloadFonts();
     final api = FakeApi()
       // Home and Sessions load the schedule as soon as they appear;
       // default to an empty one so tests that don't care about it don't
