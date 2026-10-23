@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:studify/core/network/api_exception.dart';
+import 'package:studify/core/theme/app_theme.dart';
 import 'package:studify/features/sessions/data/sessions_repository.dart';
 import 'package:studify/features/sessions/domain/class_session.dart';
 import 'package:studify/features/sessions/session_display.dart';
@@ -224,9 +225,9 @@ class _SessionFormSheetState extends State<_SessionFormSheet> {
               Material(
                 key: const ValueKey('session-form-time'),
                 color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-                borderRadius: BorderRadius.circular(14),
+                borderRadius: BorderRadius.circular(AppTheme.cardRadius),
                 child: InkWell(
-                  borderRadius: BorderRadius.circular(14),
+                  borderRadius: BorderRadius.circular(AppTheme.cardRadius),
                   onTap: _pickTime,
                   child: Container(
                     padding: const EdgeInsets.symmetric(
@@ -234,7 +235,7 @@ class _SessionFormSheetState extends State<_SessionFormSheet> {
                       vertical: 12,
                     ),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(14),
+                      borderRadius: BorderRadius.circular(AppTheme.cardRadius),
                       border: Border.all(color: scheme.outlineVariant),
                     ),
                     child: Row(
@@ -370,7 +371,7 @@ class _Hint extends StatelessWidget {
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: scheme.surfaceContainerHigh,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
       ),
       child: Text(
         text,

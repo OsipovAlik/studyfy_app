@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:studify/core/network/api_exception.dart';
 import 'package:studify/core/router/app_router.dart';
 import 'package:studify/core/theme/app_colors.dart';
+import 'package:studify/core/theme/app_theme.dart';
 import 'package:studify/features/subjects/data/levels_repository.dart';
 import 'package:studify/features/subjects/data/tests_repository.dart';
 import 'package:studify/features/subjects/domain/level.dart';
@@ -192,7 +193,7 @@ class _HeroCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 28, horizontal: 20),
       decoration: BoxDecoration(
         color: AppColors.brandGradient,
-        borderRadius: BorderRadius.circular(28),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
       ),
       child: Column(
         children: [
@@ -202,7 +203,7 @@ class _HeroCard extends StatelessWidget {
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: Colors.white.withValues(alpha: 0.18),
-              borderRadius: BorderRadius.circular(18),
+              borderRadius: BorderRadius.circular(AppTheme.cardRadius),
             ),
             child: const Icon(
               CupertinoIcons.book_fill,
@@ -295,7 +296,7 @@ class _InfoCard extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         border: Border.all(color: scheme.outlineVariant),
       ),
       child: Column(
@@ -310,7 +311,7 @@ class _InfoCard extends StatelessWidget {
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: scheme.primary.withValues(alpha: 0.14),
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(AppTheme.cardRadius),
                   ),
                   child: Icon(
                     CupertinoIcons.calendar,
@@ -732,7 +733,7 @@ class _TestCard extends StatelessWidget {
         : scheme.onSurfaceVariant;
 
     return InkWell(
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(AppTheme.cardRadius),
       onTap: () => context.push(
         '${AppRoutes.subjects}/${controller.subjectId}/tests/${test.id}',
         extra: test,
@@ -741,7 +742,7 @@ class _TestCard extends StatelessWidget {
         padding: const EdgeInsets.all(14),
         decoration: BoxDecoration(
           color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(AppTheme.cardRadius),
           border: Border.all(color: scheme.outlineVariant),
         ),
         child: Column(
@@ -755,7 +756,7 @@ class _TestCard extends StatelessWidget {
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: scheme.primary.withValues(alpha: 0.14),
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(AppTheme.cardRadius),
                   ),
                   child: Icon(
                     CupertinoIcons.doc_text_fill,
@@ -886,7 +887,7 @@ class _LevelsTab extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 6),
             decoration: BoxDecoration(
               color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-              borderRadius: BorderRadius.circular(18),
+              borderRadius: BorderRadius.circular(AppTheme.cardRadius),
               border: Border.all(color: scheme.outlineVariant),
             ),
             child: Column(
@@ -963,7 +964,7 @@ class _LevelRow extends StatelessWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: scheme.primary.withValues(alpha: 0.14),
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         ),
         child: Icon(
           CupertinoIcons.square_stack_3d_up_fill,

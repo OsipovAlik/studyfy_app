@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:studify/core/network/api_exception.dart';
+import 'package:studify/core/theme/app_theme.dart';
 import 'package:studify/features/homework/domain/assignment.dart';
 import 'package:studify/features/homework/homework_controller.dart';
 import 'package:studify/l10n/app_localizations.dart';
@@ -118,7 +119,7 @@ class _EditAssignmentSheetState extends State<_EditAssignmentSheet> {
       filled: true,
       fillColor: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         borderSide: BorderSide(color: scheme.outlineVariant),
       ),
     );
@@ -155,7 +156,7 @@ class _EditAssignmentSheetState extends State<_EditAssignmentSheet> {
                 const SizedBox(height: 12),
               ],
               InkWell(
-                borderRadius: BorderRadius.circular(14),
+                borderRadius: BorderRadius.circular(AppTheme.cardRadius),
                 onTap: _pickDueDate,
                 child: Container(
                   padding: const EdgeInsets.symmetric(
@@ -163,7 +164,7 @@ class _EditAssignmentSheetState extends State<_EditAssignmentSheet> {
                     vertical: 14,
                   ),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(14),
+                    borderRadius: BorderRadius.circular(AppTheme.cardRadius),
                     border: Border.all(color: scheme.outlineVariant),
                   ),
                   child: Row(

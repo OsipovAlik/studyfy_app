@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:studify/core/network/api_exception.dart';
 import 'package:studify/core/router/app_router.dart';
 import 'package:studify/core/theme/app_colors.dart';
+import 'package:studify/core/theme/app_theme.dart';
 import 'package:studify/features/homework/domain/assignment.dart';
 import 'package:studify/features/homework/domain/homework_attachment.dart';
 import 'package:studify/features/homework/homework_controller.dart';
@@ -127,7 +128,7 @@ class _HeroHeader extends StatelessWidget {
       padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         border: Border.all(color: scheme.outlineVariant),
       ),
       child: Row(
@@ -139,7 +140,7 @@ class _HeroHeader extends StatelessWidget {
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: scheme.primary.withValues(alpha: 0.14),
-              borderRadius: BorderRadius.circular(14),
+              borderRadius: BorderRadius.circular(AppTheme.cardRadius),
             ),
             child: Icon(
               isTest ? CupertinoIcons.doc_text_fill : CupertinoIcons.pencil_outline,
@@ -367,7 +368,7 @@ class _DetailsCard extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         border: Border.all(color: scheme.outlineVariant),
       ),
       child: Column(
@@ -416,7 +417,7 @@ class _DetailRow extends StatelessWidget {
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color: scheme.surfaceContainerHigh,
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(AppTheme.cardRadius),
           ),
           child: Icon(data.icon, size: 16, color: scheme.onSurfaceVariant),
         ),
@@ -466,7 +467,7 @@ class _SectionCard extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         border: Border.all(color: scheme.outlineVariant),
       ),
       child: Column(
@@ -480,7 +481,7 @@ class _SectionCard extends StatelessWidget {
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: scheme.primary.withValues(alpha: 0.14),
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(AppTheme.cardRadius),
                 ),
                 child: Icon(icon, size: 14, color: scheme.primary),
               ),
@@ -510,7 +511,7 @@ class _NoteCard extends StatelessWidget {
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         border: Border.all(color: scheme.outlineVariant),
       ),
       child: Column(
@@ -563,7 +564,7 @@ class _TestSection extends StatelessWidget {
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(AppTheme.cardRadius),
               border: Border.all(color: scheme.outlineVariant),
             ),
             child: Row(
@@ -722,7 +723,7 @@ class _SubmissionReview extends StatelessWidget {
             padding: const EdgeInsets.all(14),
             decoration: BoxDecoration(
               color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-              borderRadius: BorderRadius.circular(14),
+              borderRadius: BorderRadius.circular(AppTheme.cardRadius),
               border: Border.all(color: scheme.outlineVariant),
             ),
             child: Text(text, style: theme.textTheme.bodyMedium),
@@ -813,7 +814,7 @@ class _SubmissionFormState extends State<_SubmissionForm> {
             filled: true,
             fillColor: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(14),
+              borderRadius: BorderRadius.circular(AppTheme.cardRadius),
               borderSide: BorderSide(color: scheme.outlineVariant),
             ),
           ),
@@ -882,7 +883,7 @@ class _GradeCard extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: AppColors.emerald500.withValues(alpha: 0.12),
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         border: Border.all(color: AppColors.emerald500.withValues(alpha: 0.4)),
       ),
       child: Column(
@@ -927,7 +928,7 @@ class _Hint extends StatelessWidget {
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: scheme.surfaceContainerHigh,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
       ),
       child: Text(
         text,

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
+import 'package:studify/core/theme/app_theme.dart';
 
 /// A tappable pill showing the current choice; tapping it opens a sheet
 /// to pick another from [options]. Used for the Sessions list's type/day
@@ -67,14 +68,14 @@ class PickerPill<T> extends StatelessWidget {
       color: scheme.surfaceContainerLowest.withValues(
         alpha: enabled ? 0.92 : 0.5,
       ),
-      borderRadius: BorderRadius.circular(14),
+      borderRadius: BorderRadius.circular(AppTheme.cardRadius),
       child: InkWell(
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         onTap: enabled ? () => _open(context) : null,
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(AppTheme.cardRadius),
             border: Border.all(color: scheme.outlineVariant),
           ),
           child: Row(

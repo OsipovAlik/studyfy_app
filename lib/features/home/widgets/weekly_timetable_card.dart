@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:studify/core/router/app_router.dart';
 import 'package:studify/core/theme/app_colors.dart';
+import 'package:studify/core/theme/app_theme.dart';
 import 'package:studify/features/call/call_screen.dart';
 import 'package:studify/features/sessions/domain/class_session.dart';
 import 'package:studify/features/sessions/session_display.dart';
@@ -29,7 +30,7 @@ class WeeklyTimetableCard extends StatelessWidget {
       padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
         color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(22),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         border: Border.all(color: scheme.outlineVariant),
       ),
       child: Column(
@@ -125,7 +126,7 @@ class _NextSessionCard extends StatelessWidget {
         color: isDark
             ? AppColors.indigo950.withValues(alpha: 0.6)
             : AppColors.indigo50,
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
       ),
       child: Row(
         children: [
@@ -258,7 +259,7 @@ class _DayCard extends StatelessWidget {
         color: isToday
             ? scheme.primaryContainer.withValues(alpha: 0.35)
             : scheme.surfaceContainerLow.withValues(alpha: 0.6),
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         border: Border.all(
           color: isToday ? scheme.primary : scheme.outlineVariant,
           width: isToday ? 1.4 : 1,
@@ -391,7 +392,7 @@ class _IconBadge extends StatelessWidget {
       alignment: Alignment.center,
       decoration: BoxDecoration(
         color: color.withValues(alpha: 0.14),
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
       ),
       child: Icon(icon, color: color, size: 20),
     );

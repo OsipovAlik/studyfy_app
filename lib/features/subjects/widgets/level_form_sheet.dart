@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:studify/core/network/api_exception.dart';
+import 'package:studify/core/theme/app_theme.dart';
 import 'package:studify/features/subjects/domain/level.dart';
 import 'package:studify/features/subjects/subject_detail_controller.dart';
 import 'package:studify/l10n/app_localizations.dart';
@@ -115,7 +116,7 @@ class _LevelFormSheetState extends State<_LevelFormSheet> {
                     alpha: 0.92,
                   ),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(14),
+                    borderRadius: BorderRadius.circular(AppTheme.cardRadius),
                     borderSide: BorderSide(color: scheme.outlineVariant),
                   ),
                 ),

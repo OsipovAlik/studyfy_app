@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:studify/core/network/api_exception.dart';
+import 'package:studify/core/theme/app_theme.dart';
 import 'package:studify/features/call/call_screen.dart';
 import 'package:studify/features/sessions/domain/class_session.dart';
 import 'package:studify/features/sessions/session_display.dart';
@@ -84,7 +85,7 @@ class SessionRow extends StatelessWidget {
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: scheme.surfaceContainerHigh,
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(AppTheme.cardRadius),
                 ),
                 child: Text(
                   session.startTime,

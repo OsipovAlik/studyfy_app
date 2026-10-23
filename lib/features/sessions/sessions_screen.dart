@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:studify/core/theme/app_theme.dart';
 import 'package:studify/features/sessions/domain/class_session.dart';
 import 'package:studify/features/sessions/session_display.dart';
 import 'package:studify/features/sessions/timetable_controller.dart';
@@ -355,7 +356,7 @@ class _DaySection extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 4),
             decoration: BoxDecoration(
               color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-              borderRadius: BorderRadius.circular(18),
+              borderRadius: BorderRadius.circular(AppTheme.cardRadius),
               border: Border.all(color: scheme.outlineVariant),
             ),
             child: Column(
@@ -410,7 +411,7 @@ class _GroupsTab extends StatelessWidget {
               color: Theme.of(
                 context,
               ).colorScheme.surfaceContainerLowest.withValues(alpha: 0.92),
-              borderRadius: BorderRadius.circular(18),
+              borderRadius: BorderRadius.circular(AppTheme.cardRadius),
               border: Border.all(
                 color: Theme.of(context).colorScheme.outlineVariant,
               ),

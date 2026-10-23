@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:studify/core/network/api_exception.dart';
+import 'package:studify/core/theme/app_theme.dart';
 import 'package:studify/features/sessions/widgets/picker_pill.dart';
 import 'package:studify/features/students/students_controller.dart';
 import 'package:studify/l10n/app_localizations.dart';
@@ -93,7 +94,7 @@ class _AddStudentSheetState extends State<_AddStudentSheet> {
       filled: true,
       fillColor: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         borderSide: BorderSide(color: scheme.outlineVariant),
       ),
     );
@@ -208,7 +209,7 @@ class _Hint extends StatelessWidget {
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: scheme.surfaceContainerHigh,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
       ),
       child: Text(
         text,

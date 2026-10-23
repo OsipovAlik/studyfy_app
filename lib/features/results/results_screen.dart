@@ -7,6 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:studify/core/router/app_router.dart';
 import 'package:studify/core/theme/app_colors.dart';
+import 'package:studify/core/theme/app_theme.dart';
 import 'package:studify/features/results/domain/result.dart';
 import 'package:studify/features/results/results_list_controller.dart';
 import 'package:studify/features/sessions/widgets/picker_pill.dart';
@@ -148,7 +149,7 @@ class _ResultsScreenState extends State<ResultsScreen> {
               padding: const EdgeInsets.symmetric(horizontal: 6),
               decoration: BoxDecoration(
                 color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-                borderRadius: BorderRadius.circular(18),
+                borderRadius: BorderRadius.circular(AppTheme.cardRadius),
                 border: Border.all(color: scheme.outlineVariant),
               ),
               child: Column(
@@ -203,7 +204,7 @@ class _ResultRow extends StatelessWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: color.withValues(alpha: 0.16),
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         ),
         child: Text(
           '$percent%',
@@ -257,7 +258,7 @@ class _StatTile extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
       decoration: BoxDecoration(
         color: scheme.surfaceContainerHigh,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

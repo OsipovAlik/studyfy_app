@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:studify/core/network/api_exception.dart';
 import 'package:studify/core/router/app_router.dart';
 import 'package:studify/core/theme/app_colors.dart';
+import 'package:studify/core/theme/app_theme.dart';
 import 'package:studify/features/homework/homework_controller.dart';
 import 'package:studify/features/homework/widgets/homework_row.dart';
 import 'package:studify/features/results/domain/question.dart';
@@ -342,7 +343,7 @@ class _DraftBanner extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: AppColors.amber500.withValues(alpha: 0.12),
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         border: Border.all(color: AppColors.amber500.withValues(alpha: 0.4)),
       ),
       child: Column(
@@ -356,7 +357,7 @@ class _DraftBanner extends StatelessWidget {
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: AppColors.amber500.withValues(alpha: 0.2),
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(AppTheme.cardRadius),
                 ),
                 child: const Icon(
                   CupertinoIcons.sparkles,
@@ -466,7 +467,7 @@ class _HeroCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 28, horizontal: 20),
       decoration: BoxDecoration(
         color: AppColors.brandGradient,
-        borderRadius: BorderRadius.circular(28),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
       ),
       child: Column(
         children: [
@@ -476,7 +477,7 @@ class _HeroCard extends StatelessWidget {
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: Colors.white.withValues(alpha: 0.18),
-              borderRadius: BorderRadius.circular(18),
+              borderRadius: BorderRadius.circular(AppTheme.cardRadius),
             ),
             child: const Icon(
               CupertinoIcons.doc_text_fill,
@@ -730,7 +731,7 @@ class _QuestionCard extends StatelessWidget {
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         border: Border.all(color: scheme.outlineVariant),
       ),
       child: Column(
@@ -875,7 +876,7 @@ class _ResultsTab extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 6),
       decoration: BoxDecoration(
         color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         border: Border.all(color: scheme.outlineVariant),
       ),
       child: Column(
@@ -931,7 +932,7 @@ class _ResultRow extends StatelessWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: color.withValues(alpha: 0.16),
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         ),
         child: Text(
           '$percent%',
@@ -996,7 +997,7 @@ class _HomeworkTab extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 6),
       decoration: BoxDecoration(
         color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         border: Border.all(color: scheme.outlineVariant),
       ),
       child: Column(

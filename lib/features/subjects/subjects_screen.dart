@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:studify/core/theme/app_theme.dart';
 import 'package:studify/features/subjects/domain/subject.dart';
 import 'package:studify/features/subjects/subjects_controller.dart';
 import 'package:studify/features/subjects/widgets/subject_form_sheet.dart';
@@ -112,7 +113,7 @@ class _SubjectList extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 6),
       decoration: BoxDecoration(
         color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         border: Border.all(color: scheme.outlineVariant),
       ),
       child: Column(

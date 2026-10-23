@@ -47,18 +47,13 @@ class _HeroVisualState extends State<HeroVisual>
       child: Stack(
         alignment: Alignment.center,
         children: [
-          // Soft glow behind the card.
+          // Flat tint behind the card.
           Container(
-            width: 250,
-            height: 250,
+            width: 200,
+            height: 200,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
-              gradient: RadialGradient(
-                colors: [
-                  AppColors.indigo500.withValues(alpha: 0.28),
-                  AppColors.indigo500.withValues(alpha: 0),
-                ],
-              ),
+              color: AppColors.indigo500.withValues(alpha: 0.14),
             ),
           ),
           // The logo has a white background, so it sits on a white card

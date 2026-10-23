@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:studify/core/network/api_exception.dart';
+import 'package:studify/core/theme/app_theme.dart';
 import 'package:studify/features/homework/data/homework_repository.dart';
 import 'package:studify/features/homework/homework_controller.dart';
 import 'package:studify/features/sessions/timetable_controller.dart';
@@ -166,7 +167,7 @@ class _AssignHomeworkSheetState extends State<_AssignHomeworkSheet> {
       filled: true,
       fillColor: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         borderSide: BorderSide(color: scheme.outlineVariant),
       ),
     );
@@ -262,7 +263,7 @@ class _AssignHomeworkSheetState extends State<_AssignHomeworkSheet> {
               _FieldLabel(l10n.homeworkDueDateLabel),
               const SizedBox(height: 8),
               InkWell(
-                borderRadius: BorderRadius.circular(14),
+                borderRadius: BorderRadius.circular(AppTheme.cardRadius),
                 onTap: _pickDueDate,
                 child: Container(
                   padding: const EdgeInsets.symmetric(
@@ -270,7 +271,7 @@ class _AssignHomeworkSheetState extends State<_AssignHomeworkSheet> {
                     vertical: 14,
                   ),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(14),
+                    borderRadius: BorderRadius.circular(AppTheme.cardRadius),
                     border: Border.all(color: scheme.outlineVariant),
                   ),
                   child: Row(
@@ -313,7 +314,7 @@ class _AssignHomeworkSheetState extends State<_AssignHomeworkSheet> {
                 Container(
                   constraints: const BoxConstraints(maxHeight: 240),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(14),
+                    borderRadius: BorderRadius.circular(AppTheme.cardRadius),
                     border: Border.all(color: scheme.outlineVariant),
                   ),
                   child: ListView(
@@ -489,7 +490,7 @@ class _Hint extends StatelessWidget {
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: scheme.surfaceContainerHigh,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
       ),
       child: Text(
         text,

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:studify/core/theme/app_colors.dart';
+import 'package:studify/core/theme/app_theme.dart';
 import 'package:studify/features/auth/domain/user_profile.dart';
 import 'package:studify/features/home/home_banner_controller.dart';
 import 'package:studify/features/home/widgets/banner_picture_sheet.dart';
@@ -30,11 +31,11 @@ class WelcomeBanner extends StatelessWidget {
     final background = theme.colorScheme.surface;
 
     return ClipRRect(
-      borderRadius: BorderRadius.circular(22),
+      borderRadius: BorderRadius.circular(AppTheme.cardRadius),
       child: DecoratedBox(
         position: DecorationPosition.foreground,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(22),
+          borderRadius: BorderRadius.circular(AppTheme.cardRadius),
           border: Border.all(
             color: isDark
                 ? Colors.white.withValues(alpha: 0.1)
@@ -52,14 +53,14 @@ class WelcomeBanner extends StatelessWidget {
                 ),
               ),
               // Keeps the picture's right side visible while the text
-              // on the left stays readable.
+              // on the left stays readable: a flat block, not a fade.
               Positioned.fill(
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [background, background.withValues(alpha: 0)],
-                      stops: const [0.15, 0.65],
-                    ),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: FractionallySizedBox(
+                    widthFactor: 0.65,
+                    heightFactor: 1,
+                    child: ColoredBox(color: background),
                   ),
                 ),
               ),
@@ -76,7 +77,7 @@ class WelcomeBanner extends StatelessWidget {
               Positioned.fill(
                 child: ColoredBox(
                   color: isDark
-                      ? Colors.black.withOpacity(0.5)
+                      ? Colors.black.withValues(alpha: 0.5)
                       : Colors.white.withValues(alpha: 0.5),
                 ),
               ),

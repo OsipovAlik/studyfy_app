@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:studify/core/network/api_exception.dart';
 import 'package:studify/core/theme/app_colors.dart';
+import 'package:studify/core/theme/app_theme.dart';
 import 'package:studify/features/home/home_banner_controller.dart';
 import 'package:studify/features/subjects/domain/subject.dart';
 import 'package:studify/l10n/app_localizations.dart';
@@ -168,7 +169,7 @@ class _BannerPictureSheetState extends State<_BannerPictureSheet> {
       filled: true,
       fillColor: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         borderSide: BorderSide(color: scheme.outlineVariant),
       ),
     );
@@ -243,7 +244,7 @@ class _BannerPictureSheetState extends State<_BannerPictureSheet> {
                   width: double.infinity,
                   padding: const EdgeInsets.all(14),
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(14),
+                    borderRadius: BorderRadius.circular(AppTheme.cardRadius),
                     border: Border.all(
                       color: scheme.outlineVariant,
                     ),
@@ -377,7 +378,7 @@ class _BannerPreview extends StatelessWidget {
     final hasImage = imageBytes != null || (imageUrl ?? '').isNotEmpty;
 
     return ClipRRect(
-      borderRadius: BorderRadius.circular(14),
+      borderRadius: BorderRadius.circular(AppTheme.cardRadius),
       child: SizedBox(
         height: 90,
         child: Stack(
@@ -397,12 +398,12 @@ class _BannerPreview extends StatelessWidget {
                 alignment: Alignment.centerRight,
               ),
             if (hasImage)
-              DecoratedBox(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [background, background.withValues(alpha: 0)],
-                    stops: const [0.15, 0.65],
-                  ),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: FractionallySizedBox(
+                  widthFactor: 0.65,
+                  heightFactor: 1,
+                  child: ColoredBox(color: background),
                 ),
               ),
             const Padding(

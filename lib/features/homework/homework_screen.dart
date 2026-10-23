@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import 'package:studify/core/theme/app_theme.dart';
 import 'package:studify/features/homework/domain/assignment.dart';
 import 'package:studify/features/homework/homework_controller.dart';
 import 'package:studify/features/homework/widgets/assign_homework_sheet.dart';
@@ -198,7 +199,7 @@ class _SearchField extends StatelessWidget {
         filled: true,
         fillColor: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(AppTheme.cardRadius),
           borderSide: BorderSide(color: scheme.outlineVariant),
         ),
       ),
@@ -230,9 +231,9 @@ class _StatusGrid extends StatelessWidget {
           color: isSelected
               ? scheme.primary.withValues(alpha: 0.16)
               : Colors.transparent,
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(AppTheme.cardRadius),
           child: InkWell(
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(AppTheme.cardRadius),
             onTap: () => onChanged(isSelected ? null : status),
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
@@ -276,7 +277,7 @@ class _StatusGrid extends StatelessWidget {
       padding: const EdgeInsets.all(4),
       decoration: BoxDecoration(
         color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         border: Border.all(color: scheme.outlineVariant),
       ),
       child: Column(
@@ -350,7 +351,7 @@ class _HomeworkList extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 6),
       decoration: BoxDecoration(
         color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         border: Border.all(color: scheme.outlineVariant),
       ),
       child: Column(
@@ -389,7 +390,7 @@ class _EmptyState extends StatelessWidget {
                   height: 56,
                   decoration: BoxDecoration(
                     color: scheme.primaryContainer.withValues(alpha: 0.7),
-                    borderRadius: BorderRadius.circular(16),
+                    borderRadius: BorderRadius.circular(AppTheme.cardRadius),
                   ),
                   child: Icon(
                     CupertinoIcons.doc_text,
@@ -431,7 +432,7 @@ class DottedBorderBox extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 36, horizontal: 20),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         border: Border.all(color: scheme.outlineVariant),
       ),
       child: child,

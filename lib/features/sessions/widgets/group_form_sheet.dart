@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:studify/core/network/api_exception.dart';
+import 'package:studify/core/theme/app_theme.dart';
 import 'package:studify/features/sessions/domain/group.dart';
 import 'package:studify/features/sessions/timetable_controller.dart';
 import 'package:studify/l10n/app_localizations.dart';
@@ -123,7 +124,7 @@ class _GroupFormSheetState extends State<_GroupFormSheet> {
                     alpha: 0.92,
                   ),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(14),
+                    borderRadius: BorderRadius.circular(AppTheme.cardRadius),
                     borderSide: BorderSide(color: scheme.outlineVariant),
                   ),
                 ),
@@ -139,7 +140,7 @@ class _GroupFormSheetState extends State<_GroupFormSheet> {
                   Container(
                     constraints: const BoxConstraints(maxHeight: 220),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(14),
+                      borderRadius: BorderRadius.circular(AppTheme.cardRadius),
                       border: Border.all(color: scheme.outlineVariant),
                     ),
                     child: ListView(
@@ -225,7 +226,7 @@ class _Hint extends StatelessWidget {
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         color: scheme.surfaceContainerHigh,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
       ),
       child: Text(
         text,

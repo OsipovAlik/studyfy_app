@@ -2,6 +2,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:studify/core/network/api_exception.dart';
+import 'package:studify/core/theme/app_theme.dart';
 import 'package:studify/features/results/domain/question.dart';
 import 'package:studify/features/results/domain/result.dart';
 import 'package:studify/features/subjects/test_detail_controller.dart';
@@ -189,7 +190,7 @@ class _QuestionFormSheetState extends State<_QuestionFormSheet> {
       filled: true,
       fillColor: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         borderSide: BorderSide(color: scheme.outlineVariant),
       ),
     );
@@ -296,7 +297,9 @@ class _QuestionFormSheetState extends State<_QuestionFormSheet> {
                         ] else if (widget.editing?.imageUrl != null) ...[
                           const SizedBox(width: 10),
                           ClipRRect(
-                            borderRadius: BorderRadius.circular(8),
+                            borderRadius: BorderRadius.circular(
+                              AppTheme.cardRadius,
+                            ),
                             child: Image.network(
                               widget.editing!.imageUrl!,
                               width: 36,

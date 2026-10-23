@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:studify/core/router/app_router.dart';
 import 'package:studify/core/theme/app_colors.dart';
+import 'package:studify/core/theme/app_theme.dart';
 import 'package:studify/features/home/home_stats_controller.dart';
 import 'package:studify/l10n/app_localizations.dart';
 
@@ -104,14 +105,14 @@ class _StatCard extends StatelessWidget {
 
     return Material(
       color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-      borderRadius: BorderRadius.circular(18),
+      borderRadius: BorderRadius.circular(AppTheme.cardRadius),
       child: InkWell(
-        borderRadius: BorderRadius.circular(18),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         onTap: onTap,
         child: Container(
           padding: const EdgeInsets.all(14),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(18),
+            borderRadius: BorderRadius.circular(AppTheme.cardRadius),
             border: Border.all(color: scheme.outlineVariant),
           ),
           child: Column(
@@ -125,7 +126,7 @@ class _StatCard extends StatelessWidget {
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color: color.withValues(alpha: 0.14),
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(AppTheme.cardRadius),
                     ),
                     child: Icon(icon, size: 16, color: color),
                   ),

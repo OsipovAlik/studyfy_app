@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:studify/core/network/api_exception.dart';
+import 'package:studify/core/theme/app_theme.dart';
 import 'package:studify/features/homework/data/homework_repository.dart';
 import 'package:studify/features/homework/domain/homework_attachment.dart';
 import 'package:studify/l10n/app_localizations.dart';
@@ -183,7 +184,7 @@ class _AttachmentsSectionState extends State<AttachmentsSection> {
               Container(
                 decoration: BoxDecoration(
                   color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-                  borderRadius: BorderRadius.circular(14),
+                  borderRadius: BorderRadius.circular(AppTheme.cardRadius),
                   border: Border.all(color: scheme.outlineVariant),
                 ),
                 child: Column(

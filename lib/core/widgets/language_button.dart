@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:studify/core/l10n/locale_controller.dart';
+import 'package:studify/core/theme/app_theme.dart';
 import 'package:studify/l10n/app_localizations.dart';
 
 /// Compact language switcher: shows the current language code and opens
@@ -82,7 +83,7 @@ class LanguageButton extends StatelessWidget {
               for (final language in LocaleController.languages)
                 ListTile(
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(14),
+                    borderRadius: BorderRadius.circular(AppTheme.cardRadius),
                   ),
                   selected: language.code == current,
                   selectedTileColor: theme.colorScheme.primaryContainer

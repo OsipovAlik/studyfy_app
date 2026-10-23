@@ -24,8 +24,9 @@ abstract final class AppTheme {
   /// The pill shape Apple's flat language uses for every button.
   static const pillShape = StadiumBorder();
 
-  /// The radius Apple's flat language uses for cards and sheets.
-  static const cardRadius = 28.0;
+  /// The single corner radius used everywhere: cards, sheets, dialogs,
+  /// inputs, and anything else that isn't a pill or a true circle.
+  static const cardRadius = 12.0;
 
   static ThemeData get light => _build(
     const ColorScheme(
@@ -88,7 +89,7 @@ abstract final class AppTheme {
     const buttonPadding = EdgeInsets.symmetric(horizontal: 24, vertical: 14);
     final buttonText = textTheme.labelLarge;
     final hairline = BorderSide(color: scheme.outline);
-    final inputRadius = BorderRadius.circular(12);
+    final inputRadius = BorderRadius.circular(cardRadius);
 
     return ThemeData(
       useMaterial3: true,
@@ -221,7 +222,7 @@ abstract final class AppTheme {
         behavior: SnackBarBehavior.floating,
         elevation: 0,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(cardRadius),
         ),
       ),
       switchTheme: SwitchThemeData(
@@ -264,14 +265,14 @@ abstract final class AppTheme {
         elevation: 0,
         indicatorColor: scheme.primary.withValues(alpha: 0.12),
         indicatorShape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(cardRadius),
         ),
       ),
       listTileTheme: ListTileThemeData(
         iconColor: scheme.onSurfaceVariant,
         textColor: scheme.onSurface,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(14),
+          borderRadius: BorderRadius.circular(cardRadius),
         ),
       ),
     );

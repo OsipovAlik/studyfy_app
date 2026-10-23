@@ -95,7 +95,7 @@ class GroupedTile extends StatelessWidget {
                 height: 34,
                 decoration: BoxDecoration(
                   color: tint.withValues(alpha: 0.14),
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(AppTheme.cardRadius),
                 ),
                 child: Icon(icon, size: 19, color: tint),
               ),

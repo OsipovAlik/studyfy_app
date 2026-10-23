@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:studify/core/network/api_exception.dart';
+import 'package:studify/core/theme/app_theme.dart';
 import 'package:studify/features/subjects/domain/subject.dart';
 import 'package:studify/features/subjects/subjects_controller.dart';
 import 'package:studify/features/subjects/widgets/subject_form_sheet.dart';
@@ -92,7 +93,7 @@ class SubjectRow extends StatelessWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: scheme.primary.withValues(alpha: 0.14),
-          borderRadius: BorderRadius.circular(12),
+          borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         ),
         child: Icon(CupertinoIcons.book_fill, size: 18, color: scheme.primary),
       ),

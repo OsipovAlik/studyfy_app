@@ -91,7 +91,7 @@ class _AnswerOption extends StatelessWidget {
         color: correct
             ? AppColors.emerald500.withValues(alpha: 0.1)
             : scheme.surfaceContainerLowest,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         border: Border.all(color: accent, width: correct ? 1.5 : 1),
       ),
       child: Row(
@@ -357,7 +357,7 @@ class _SessionTile extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(12, 10, 10, 10),
       decoration: BoxDecoration(
         color: color.withValues(alpha: 0.08),
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         border: BorderDirectional(start: BorderSide(color: color, width: 4)),
       ),
       child: Row(
@@ -522,7 +522,7 @@ class _IconTile extends StatelessWidget {
       height: 34,
       decoration: BoxDecoration(
         color: background,
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
       ),
       child: Icon(icon, size: 19, color: color),
     );

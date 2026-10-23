@@ -67,7 +67,7 @@ class _CallScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = context.watch<CallController>();
     return Scaffold(
-      backgroundColor: const Color(0xFF0C0A09),
+      backgroundColor: AppColors.deepAbyss,
       body: SafeArea(
         child: switch (controller.phase) {
           CallPhase.lobby => const _LobbyView(),
@@ -221,7 +221,7 @@ class _CameraPreview extends StatelessWidget {
       return VideoTrackRenderer(track, fit: VideoViewFit.cover);
     }
     return ColoredBox(
-      color: const Color(0xFF1C1917),
+      color: AppColors.indigo950,
       child: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -551,7 +551,7 @@ class _ParticipantTileState extends State<_ParticipantTile> {
     return Stack(
       fit: StackFit.expand,
       children: [
-        const ColoredBox(color: Color(0xFF1C1917)),
+        const ColoredBox(color: AppColors.indigo950),
         if (showVideo)
           VideoTrackRenderer(
             videoTrack,
