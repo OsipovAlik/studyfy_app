@@ -9,6 +9,7 @@ import 'package:studify/core/network/api_exception.dart';
 import 'package:studify/core/router/app_router.dart';
 import 'package:studify/core/theme/app_colors.dart';
 import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/features/auth/widgets/auth_widgets.dart';
 import 'package:studify/features/homework/domain/assignment.dart';
 import 'package:studify/features/homework/domain/homework_attachment.dart';
 import 'package:studify/features/homework/homework_controller.dart';
@@ -140,7 +141,7 @@ class _HeroHeader extends StatelessWidget {
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: scheme.primary.withValues(alpha: 0.14),
-              borderRadius: BorderRadius.circular(AppTheme.cardRadius),
+              shape: BoxShape.circle,
             ),
             child: Icon(
               isTest ? CupertinoIcons.doc_text_fill : CupertinoIcons.pencil_outline,
@@ -417,7 +418,7 @@ class _DetailRow extends StatelessWidget {
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color: scheme.surfaceContainerHigh,
-            borderRadius: BorderRadius.circular(AppTheme.cardRadius),
+            shape: BoxShape.circle,
           ),
           child: Icon(data.icon, size: 16, color: scheme.onSurfaceVariant),
         ),
@@ -481,7 +482,7 @@ class _SectionCard extends StatelessWidget {
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: scheme.primary.withValues(alpha: 0.14),
-                  borderRadius: BorderRadius.circular(AppTheme.cardRadius),
+                  shape: BoxShape.circle,
                 ),
                 child: Icon(icon, size: 14, color: scheme.primary),
               ),
@@ -733,6 +734,9 @@ class _SubmissionReview extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: FilledButton(
+              style: FilledButton.styleFrom(
+                padding: const EdgeInsetsDirectional.only(start: 24, end: 6),
+              ),
               onPressed: () => unawaited(
                 showGradeSheet(
                   context,
@@ -740,7 +744,19 @@ class _SubmissionReview extends StatelessWidget {
                   assignment: assignment,
                 ),
               ),
-              child: Text(l10n.homeworkGradeButton),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Flexible(
+                    child: Text(
+                      l10n.homeworkGradeButton,
+                      overflow: TextOverflow.fade,
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  const CtaArrowBadge(),
+                ],
+              ),
             ),
           ),
         ],
@@ -827,22 +843,14 @@ class _SubmissionFormState extends State<_SubmissionForm> {
           const SizedBox(height: 10),
           SizedBox(
             width: double.infinity,
-            child: FilledButton(
-              onPressed: _submitting ? null : () => unawaited(_submit()),
-              child: _submitting
-                  ? SizedBox(
-                      width: 20,
-                      height: 20,
-                      child: CircularProgressIndicator(
-                        strokeWidth: 2,
-                        color: scheme.onPrimary,
-                      ),
-                    )
-                  : Text(
-                      widget.assignment.submissionText == null || widget.assignment.submissionText!.isEmpty
-                          ? l10n.homeworkSubmitButton
-                          : l10n.homeworkResubmitButton,
-                    ),
+            child: BusyButton(
+              label:
+                  widget.assignment.submissionText == null || widget.assignment.submissionText!.isEmpty
+                      ? l10n.homeworkSubmitButton
+                      : l10n.homeworkResubmitButton,
+              busy: _submitting,
+              showArrow: true,
+              onPressed: () => unawaited(_submit()),
             ),
           ),
         ],

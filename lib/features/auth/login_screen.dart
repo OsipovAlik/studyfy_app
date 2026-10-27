@@ -277,6 +277,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         : l10n.loginSignIn,
                     busyLabel: l10n.loginSigningIn,
                     busy: _busy,
+                    showArrow: !locked,
                     onPressed: locked ? null : _submit,
                   ),
                 ],

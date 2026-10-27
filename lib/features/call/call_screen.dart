@@ -6,6 +6,7 @@ import 'package:livekit_client/livekit_client.dart';
 import 'package:provider/provider.dart';
 import 'package:studify/core/theme/app_colors.dart';
 import 'package:studify/features/auth/auth_controller.dart';
+import 'package:studify/features/auth/widgets/auth_widgets.dart';
 import 'package:studify/features/call/call_controller.dart';
 import 'package:studify/features/sessions/data/sessions_repository.dart';
 import 'package:studify/features/sessions/domain/class_session.dart';
@@ -197,10 +198,25 @@ class _LobbyView extends StatelessWidget {
               onPressed: () => unawaited(controller.join()),
               style: FilledButton.styleFrom(
                 backgroundColor: AppColors.indigo600,
-                padding: const EdgeInsets.symmetric(vertical: 16),
+                padding: const EdgeInsetsDirectional.only(
+                  start: 24,
+                  end: 6,
+                  top: 6,
+                  bottom: 6,
+                ),
+                minimumSize: const Size(64, 56),
                 shape: const StadiumBorder(),
               ),
-              child: Text(l10n.callJoinNow),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Flexible(
+                    child: Text(l10n.callJoinNow, overflow: TextOverflow.fade),
+                  ),
+                  const SizedBox(width: 12),
+                  const CtaArrowBadge(),
+                ],
+              ),
             ),
           ),
         ),

@@ -184,7 +184,7 @@ class _HeroCard extends StatelessWidget {
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: Colors.white.withValues(alpha: 0.18),
-              borderRadius: BorderRadius.circular(AppTheme.cardRadius),
+              shape: BoxShape.circle,
             ),
             child: Text(
               initials.isEmpty ? '?' : initials,
@@ -242,7 +242,7 @@ class _InfoCard extends StatelessWidget {
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color: scheme.primary.withValues(alpha: 0.14),
-            borderRadius: BorderRadius.circular(AppTheme.cardRadius),
+            shape: BoxShape.circle,
           ),
           child: Icon(icon, size: 18, color: scheme.primary),
         ),
@@ -452,7 +452,7 @@ class _ResultRow extends StatelessWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: color.withValues(alpha: 0.16),
-          borderRadius: BorderRadius.circular(AppTheme.cardRadius),
+          shape: BoxShape.circle,
         ),
         child: Text(
           '$percent%',

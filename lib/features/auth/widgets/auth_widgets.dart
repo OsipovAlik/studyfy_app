@@ -241,12 +241,17 @@ class NoticeBanner extends StatelessWidget {
 }
 
 /// A primary button that shows a spinner and a label while busy.
+///
+/// With [showArrow], it takes on the app's "forward" CTA shape: the label
+/// sits to the left and a circular arrow badge is inset on the trailing
+/// edge of the pill, instead of the label just centered.
 class BusyButton extends StatelessWidget {
   const BusyButton({
     required this.label,
     required this.onPressed,
     this.busy = false,
     this.busyLabel,
+    this.showArrow = false,
     super.key,
   });
 
@@ -254,11 +259,17 @@ class BusyButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final bool busy;
   final String? busyLabel;
+  final bool showArrow;
 
   @override
   Widget build(BuildContext context) {
     return FilledButton(
       onPressed: busy ? null : onPressed,
+      style: showArrow
+          ? FilledButton.styleFrom(
+              padding: const EdgeInsetsDirectional.only(start: 24, end: 6),
+            )
+          : null,
       child: busy
           ? Row(
               mainAxisSize: MainAxisSize.min,
@@ -273,7 +284,37 @@ class BusyButton extends StatelessWidget {
                 ),
               ],
             )
+          : showArrow
+          ? Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Flexible(child: Text(label, overflow: TextOverflow.fade)),
+                const SizedBox(width: 12),
+                const CtaArrowBadge(),
+              ],
+            )
           : Text(label),
+    );
+  }
+}
+
+/// The circular arrow badge inset on the trailing edge of a "forward" CTA
+/// pill (e.g. "Get started", "Sign in", "Next").
+class CtaArrowBadge extends StatelessWidget {
+  const CtaArrowBadge({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final onPrimary = Theme.of(context).colorScheme.onPrimary;
+    return Container(
+      width: 32,
+      height: 32,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        color: onPrimary.withValues(alpha: 0.18),
+        shape: BoxShape.circle,
+      ),
+      child: Icon(CupertinoIcons.arrow_right, size: 16, color: onPrimary),
     );
   }
 }

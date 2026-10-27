@@ -8,6 +8,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:studify/core/network/api_exception.dart';
 import 'package:studify/core/theme/app_colors.dart';
 import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/features/auth/widgets/auth_widgets.dart';
 import 'package:studify/features/home/home_banner_controller.dart';
 import 'package:studify/features/subjects/domain/subject.dart';
 import 'package:studify/l10n/app_localizations.dart';
@@ -340,18 +341,10 @@ class _BannerPictureSheetState extends State<_BannerPictureSheet> {
                       child: Text(l10n.cancel),
                     ),
                     const SizedBox(width: 8),
-                    FilledButton(
+                    BusyButton(
+                      label: l10n.homeBannerSavePicture,
+                      busy: _submitting,
                       onPressed: busy || _pickedImage == null ? null : _save,
-                      child: _submitting
-                          ? SizedBox(
-                              width: 18,
-                              height: 18,
-                              child: CircularProgressIndicator(
-                                strokeWidth: 2,
-                                color: scheme.onPrimary,
-                              ),
-                            )
-                          : Text(l10n.homeBannerSavePicture),
                     ),
                   ],
                 ),

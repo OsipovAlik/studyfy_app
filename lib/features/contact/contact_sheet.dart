@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:studify/core/network/api_exception.dart';
 import 'package:studify/core/theme/app_colors.dart';
+import 'package:studify/features/auth/widgets/auth_widgets.dart';
 import 'package:studify/features/contact/contact_repository.dart';
 import 'package:studify/l10n/app_localizations.dart';
 
@@ -160,21 +161,12 @@ class _ContactSheetState extends State<ContactSheet> {
             ),
           ],
           const SizedBox(height: 24),
-          FilledButton(
-            onPressed: _sending ? null : _submit,
-            child: _sending
-                ? Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const SizedBox.square(
-                        dimension: 18,
-                        child: CircularProgressIndicator(strokeWidth: 2.4),
-                      ),
-                      const SizedBox(width: 12),
-                      Text(l10n.registrationSending),
-                    ],
-                  )
-                : Text(l10n.registrationSubmit),
+          BusyButton(
+            label: l10n.registrationSubmit,
+            busyLabel: l10n.registrationSending,
+            busy: _sending,
+            showArrow: true,
+            onPressed: _submit,
           ),
         ],
       ),

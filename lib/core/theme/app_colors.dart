@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
 
-/// Brand palette, built on a navy/steel colour scale (Smart Blue through
-/// Midnight Blue, with Twilight Indigo → Cool Steel for tinted neutrals).
+/// Brand palette, built on a violet scale anchored on the app colour,
+/// #6656E9, with Twilight Indigo → Cool Steel still used for neutrals.
 abstract final class AppColors {
-  // Indigo — primary brand colour, anchored on Smart Blue.
-  static const indigo50 = Color(0xFFF2F7FC);
-  static const indigo100 = Color(0xFFE1EDF8);
-  static const indigo200 = Color(0xFFC3DAF2);
-  static const indigo300 = Color(0xFF9BC2E9);
-  static const indigo400 = Color(0xFF63A0DD);
-  static const indigo500 = Color(0xFF277BD0);
-  static const indigo600 = Color(0xFF0466C8); // Smart Blue
-  static const indigo700 = Color(0xFF0353A4); // Steel Azure
-  static const indigo800 = Color(0xFF023E7D); // Regal Navy
-  static const indigo900 = Color(0xFF002855); // Prussian Blue
-  static const indigo950 = Color(0xFF001845); // Midnight Blue
+  // Indigo — primary brand colour, anchored on the app violet, #6656E9.
+  static const indigo50 = Color(0xFFF6F5FE);
+  static const indigo100 = Color(0xFFEBE9FC);
+  static const indigo200 = Color(0xFFD9D5FA);
+  static const indigo300 = Color(0xFFC2BBF6);
+  static const indigo400 = Color(0xFFA69DF2);
+  static const indigo500 = Color(0xFF887BEE);
+  static const indigo600 = Color(0xFF6656E9); // App Violet
+  static const indigo700 = Color(0xFF5548C4);
+  static const indigo800 = Color(0xFF43389A);
+  static const indigo900 = Color(0xFF312971);
+  static const indigo950 = Color(0xFF241E54);
 
-  /// The darkest navy stop, below indigo950 — used for near-black navy
+  /// The darkest violet stop, below indigo950 — used for near-black
   /// surfaces (e.g. the call screen's backdrop) rather than true black.
-  static const deepAbyss = Color(0xFF001233);
+  static const deepAbyss = Color(0xFF141339);
 
-  /// Inline links, underlined, à la Apple's Deep Link Blue.
-  static const deepLinkBlue = Color(0xFF0353A4); // Steel Azure
+  /// Inline links, underlined — a darker stop of the app violet.
+  static const deepLinkPurple = Color(0xFF5548C4); // indigo700
 
   // Stone — neutrals. The mid stops are tinted with the navy scale's
   // greys (Cool Steel → Twilight Indigo); the light/dark anchors stay

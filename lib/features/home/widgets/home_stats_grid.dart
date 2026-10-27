@@ -121,14 +121,14 @@ class _StatCard extends StatelessWidget {
               Row(
                 children: [
                   Container(
-                    width: 34,
-                    height: 34,
+                    width: 36,
+                    height: 36,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color: color.withValues(alpha: 0.14),
-                      borderRadius: BorderRadius.circular(AppTheme.cardRadius),
+                      shape: BoxShape.circle,
                     ),
-                    child: Icon(icon, size: 16, color: color),
+                    child: Icon(icon, size: 17, color: color),
                   ),
                   const Spacer(),
                   Icon(

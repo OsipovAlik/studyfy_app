@@ -520,9 +520,10 @@ class _IconTile extends StatelessWidget {
     return Container(
       width: 34,
       height: 34,
+      alignment: Alignment.center,
       decoration: BoxDecoration(
         color: background,
-        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
+        shape: BoxShape.circle,
       ),
       child: Icon(icon, size: 19, color: color),
     );

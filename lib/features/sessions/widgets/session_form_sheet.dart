@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:studify/core/network/api_exception.dart';
 import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/features/auth/widgets/auth_widgets.dart';
 import 'package:studify/features/sessions/data/sessions_repository.dart';
 import 'package:studify/features/sessions/domain/class_session.dart';
 import 'package:studify/features/sessions/session_display.dart';
@@ -263,23 +264,11 @@ class _SessionFormSheetState extends State<_SessionFormSheet> {
               const SizedBox(height: 24),
               SizedBox(
                 width: double.infinity,
-                child: FilledButton(
+                child: BusyButton(
+                  label: _isEditing ? l10n.sessionsSave : l10n.sessionsCreate,
+                  busy: _submitting,
+                  showArrow: true,
                   onPressed: _canSubmit ? _submit : null,
-                  style: FilledButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                  ),
-                  child: _submitting
-                      ? SizedBox(
-                          width: 20,
-                          height: 20,
-                          child: CircularProgressIndicator(
-                            strokeWidth: 2,
-                            color: scheme.onPrimary,
-                          ),
-                        )
-                      : Text(
-                          _isEditing ? l10n.sessionsSave : l10n.sessionsCreate,
-                        ),
                 ),
               ),
             ],

@@ -9,6 +9,7 @@ import 'package:studify/core/network/api_exception.dart';
 import 'package:studify/core/router/app_router.dart';
 import 'package:studify/core/theme/app_colors.dart';
 import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/features/auth/widgets/auth_widgets.dart';
 import 'package:studify/features/homework/homework_controller.dart';
 import 'package:studify/features/homework/widgets/homework_row.dart';
 import 'package:studify/features/results/domain/question.dart';
@@ -357,7 +358,7 @@ class _DraftBanner extends StatelessWidget {
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: AppColors.amber500.withValues(alpha: 0.2),
-                  borderRadius: BorderRadius.circular(AppTheme.cardRadius),
+                  shape: BoxShape.circle,
                 ),
                 child: const Icon(
                   CupertinoIcons.sparkles,
@@ -396,8 +397,21 @@ class _DraftBanner extends StatelessWidget {
                   onPressed: busy ? null : onPublish,
                   style: FilledButton.styleFrom(
                     backgroundColor: AppColors.amber500,
+                    padding: const EdgeInsetsDirectional.only(start: 16, end: 6),
                   ),
-                  child: Text(l10n.testDetailPublishTest),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Flexible(
+                        child: Text(
+                          l10n.testDetailPublishTest,
+                          overflow: TextOverflow.fade,
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      const CtaArrowBadge(),
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -477,7 +491,7 @@ class _HeroCard extends StatelessWidget {
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: Colors.white.withValues(alpha: 0.18),
-              borderRadius: BorderRadius.circular(AppTheme.cardRadius),
+              shape: BoxShape.circle,
             ),
             child: const Icon(
               CupertinoIcons.doc_text_fill,
@@ -932,7 +946,7 @@ class _ResultRow extends StatelessWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: color.withValues(alpha: 0.16),
-          borderRadius: BorderRadius.circular(AppTheme.cardRadius),
+          shape: BoxShape.circle,
         ),
         child: Text(
           '$percent%',

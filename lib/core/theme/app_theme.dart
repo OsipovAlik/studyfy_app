@@ -26,7 +26,7 @@ abstract final class AppTheme {
 
   /// The single corner radius used everywhere: cards, sheets, dialogs,
   /// inputs, and anything else that isn't a pill or a true circle.
-  static const cardRadius = 12.0;
+  static const cardRadius = 20.0;
 
   static ThemeData get light => _build(
     const ColorScheme(
@@ -151,7 +151,7 @@ abstract final class AppTheme {
         style: TextButton.styleFrom(
           shape: pillShape,
           textStyle: textTheme.bodyLarge,
-          foregroundColor: AppColors.deepLinkBlue,
+          foregroundColor: AppColors.deepLinkPurple,
         ),
       ),
       iconButtonTheme: IconButtonThemeData(

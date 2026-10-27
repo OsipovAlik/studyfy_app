@@ -7,6 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:studify/core/network/api_exception.dart';
 import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/features/auth/widgets/auth_widgets.dart';
 import 'package:studify/features/homework/data/homework_repository.dart';
 import 'package:studify/features/homework/homework_controller.dart';
 import 'package:studify/features/sessions/timetable_controller.dart';
@@ -384,21 +385,11 @@ class _AssignHomeworkSheetState extends State<_AssignHomeworkSheet> {
               const SizedBox(height: 24),
               SizedBox(
                 width: double.infinity,
-                child: FilledButton(
+                child: BusyButton(
+                  label: l10n.homeworkAssignButton,
+                  busy: _submitting,
+                  showArrow: true,
                   onPressed: _canSubmit ? _submit : null,
-                  style: FilledButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                  ),
-                  child: _submitting
-                      ? SizedBox(
-                          width: 20,
-                          height: 20,
-                          child: CircularProgressIndicator(
-                            strokeWidth: 2,
-                            color: scheme.onPrimary,
-                          ),
-                        )
-                      : Text(l10n.homeworkAssignButton),
                 ),
               ),
             ],

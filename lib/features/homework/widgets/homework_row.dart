@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:studify/core/theme/app_colors.dart';
-import 'package:studify/core/theme/app_theme.dart';
 import 'package:studify/features/homework/domain/assignment.dart';
 import 'package:studify/l10n/app_localizations.dart';
 
@@ -43,7 +42,7 @@ class HomeworkRow extends StatelessWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: scheme.primary.withValues(alpha: 0.14),
-          borderRadius: BorderRadius.circular(AppTheme.cardRadius),
+          shape: BoxShape.circle,
         ),
         child: Icon(
           assignment.type == AssignmentType.test

@@ -388,9 +388,10 @@ class _EmptyState extends StatelessWidget {
                 Container(
                   width: 56,
                   height: 56,
+                  alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: scheme.primaryContainer.withValues(alpha: 0.7),
-                    borderRadius: BorderRadius.circular(AppTheme.cardRadius),
+                    shape: BoxShape.circle,
                   ),
                   child: Icon(
                     CupertinoIcons.doc_text,

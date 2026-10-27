@@ -204,7 +204,7 @@ class _ResultRow extends StatelessWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: color.withValues(alpha: 0.16),
-          borderRadius: BorderRadius.circular(AppTheme.cardRadius),
+          shape: BoxShape.circle,
         ),
         child: Text(
           '$percent%',

@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:studify/core/router/app_router.dart';
 import 'package:studify/core/widgets/language_button.dart';
 import 'package:studify/core/widgets/studyfy_logo.dart';
+import 'package:studify/features/auth/widgets/auth_widgets.dart';
 import 'package:studify/features/contact/contact_sheet.dart';
 import 'package:studify/features/onboarding/widgets/hero_visual.dart';
 import 'package:studify/features/onboarding/widgets/mock_visuals.dart';
@@ -207,12 +208,15 @@ class _NextRow extends StatelessWidget {
         const Spacer(),
         FilledButton(
           onPressed: onNext,
+          style: FilledButton.styleFrom(
+            padding: const EdgeInsetsDirectional.only(start: 24, end: 6),
+          ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(AppLocalizations.of(context).onboardingNext),
-              const SizedBox(width: 8),
-              const Icon(CupertinoIcons.arrow_right, size: 20),
+              const SizedBox(width: 12),
+              const CtaArrowBadge(),
             ],
           ),
         ),
@@ -234,7 +238,7 @@ class _FinalActions extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        FilledButton(onPressed: onSignIn, child: Text(l10n.signIn)),
+        BusyButton(label: l10n.signIn, showArrow: true, onPressed: onSignIn),
         const SizedBox(height: 10),
         OutlinedButton(
           onPressed: onRegister,

@@ -93,9 +93,10 @@ class GroupedTile extends StatelessWidget {
               Container(
                 width: 34,
                 height: 34,
+                alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: tint.withValues(alpha: 0.14),
-                  borderRadius: BorderRadius.circular(AppTheme.cardRadius),
+                  shape: BoxShape.circle,
                 ),
                 child: Icon(icon, size: 19, color: tint),
               ),

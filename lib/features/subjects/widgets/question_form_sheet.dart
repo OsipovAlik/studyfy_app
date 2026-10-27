@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:studify/core/network/api_exception.dart';
 import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/features/auth/widgets/auth_widgets.dart';
 import 'package:studify/features/results/domain/question.dart';
 import 'package:studify/features/results/domain/result.dart';
 import 'package:studify/features/subjects/test_detail_controller.dart';
@@ -394,21 +395,11 @@ class _QuestionFormSheetState extends State<_QuestionFormSheet> {
               const SizedBox(height: 8),
               SizedBox(
                 width: double.infinity,
-                child: FilledButton(
+                child: BusyButton(
+                  label: l10n.testDetailSaveQuestion,
+                  busy: _submitting,
+                  showArrow: true,
                   onPressed: _canSubmit ? _submit : null,
-                  style: FilledButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                  ),
-                  child: _submitting
-                      ? SizedBox(
-                          width: 20,
-                          height: 20,
-                          child: CircularProgressIndicator(
-                            strokeWidth: 2,
-                            color: scheme.onPrimary,
-                          ),
-                        )
-                      : Text(l10n.testDetailSaveQuestion),
                 ),
               ),
             ],

@@ -46,7 +46,7 @@ class WeeklyActivityCard extends StatelessWidget {
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: scheme.primary.withValues(alpha: 0.14),
-                  borderRadius: BorderRadius.circular(AppTheme.cardRadius),
+                  shape: BoxShape.circle,
                 ),
                 child: Icon(
                   CupertinoIcons.chart_bar_alt_fill,
@@ -175,6 +175,7 @@ class _ActivityChart extends StatelessWidget {
                         count: counts[i],
                         maxCount: maxCount,
                         isToday: i == days.length - 1,
+                        isPeak: i == peakIndex,
                         locale: locale,
                       ),
                     ),
@@ -249,6 +250,7 @@ class _DayColumn extends StatelessWidget {
     required this.count,
     required this.maxCount,
     required this.isToday,
+    required this.isPeak,
     required this.locale,
   });
 
@@ -256,6 +258,7 @@ class _DayColumn extends StatelessWidget {
   final int count;
   final int maxCount;
   final bool isToday;
+  final bool isPeak;
   final String locale;
 
   @override
@@ -264,6 +267,14 @@ class _DayColumn extends StatelessWidget {
     final scheme = theme.colorScheme;
     final labelColor = isToday ? scheme.primary : scheme.onSurfaceVariant;
     final labelWeight = isToday ? FontWeight.w700 : FontWeight.w400;
+    // Only the peak day's bar is drawn in the brand colour — the rest
+    // stay a muted neutral, same as the reference chart's single
+    // highlighted bar against a row of quiet grey ones.
+    final barColor = count == 0
+        ? Colors.transparent
+        : isPeak
+        ? scheme.primary
+        : scheme.surfaceContainerHigh;
 
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -277,7 +288,7 @@ class _DayColumn extends StatelessWidget {
               child: Container(
                 margin: const EdgeInsets.symmetric(horizontal: 5),
                 decoration: BoxDecoration(
-                  color: count > 0 ? AppColors.indigo400 : Colors.transparent,
+                  color: barColor,
                   borderRadius: const BorderRadius.vertical(
                     top: Radius.circular(4),
                   ),
@@ -420,7 +431,7 @@ class _RecentResultTile extends StatelessWidget {
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: scheme.primary.withValues(alpha: 0.14),
-                  borderRadius: BorderRadius.circular(AppTheme.cardRadius),
+                  shape: BoxShape.circle,
                 ),
                 child: Icon(
                   CupertinoIcons.doc_text,

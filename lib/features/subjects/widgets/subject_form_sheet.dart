@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:studify/core/network/api_exception.dart';
 import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/features/auth/widgets/auth_widgets.dart';
 import 'package:studify/features/subjects/domain/subject.dart';
 import 'package:studify/features/subjects/subjects_controller.dart';
 import 'package:studify/l10n/app_localizations.dart';
@@ -132,23 +133,11 @@ class _SubjectFormSheetState extends State<_SubjectFormSheet> {
               const SizedBox(height: 24),
               SizedBox(
                 width: double.infinity,
-                child: FilledButton(
+                child: BusyButton(
+                  label: _isEditing ? l10n.subjectsSave : l10n.subjectsCreate,
+                  busy: _submitting,
+                  showArrow: true,
                   onPressed: _canSubmit ? _submit : null,
-                  style: FilledButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                  ),
-                  child: _submitting
-                      ? SizedBox(
-                          width: 20,
-                          height: 20,
-                          child: CircularProgressIndicator(
-                            strokeWidth: 2,
-                            color: scheme.onPrimary,
-                          ),
-                        )
-                      : Text(
-                          _isEditing ? l10n.subjectsSave : l10n.subjectsCreate,
-                        ),
                 ),
               ),
             ],

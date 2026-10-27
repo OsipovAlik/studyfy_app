@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:studify/core/network/api_exception.dart';
-import 'package:studify/core/theme/app_theme.dart';
 import 'package:studify/features/sessions/domain/group.dart';
 import 'package:studify/features/sessions/timetable_controller.dart';
 import 'package:studify/features/sessions/widgets/group_form_sheet.dart';
@@ -76,7 +75,7 @@ class GroupRow extends StatelessWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: scheme.primary.withValues(alpha: 0.14),
-          borderRadius: BorderRadius.circular(AppTheme.cardRadius),
+          shape: BoxShape.circle,
         ),
         child: Icon(
           CupertinoIcons.person_2_fill,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:studify/core/network/api_exception.dart';
 import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/features/auth/widgets/auth_widgets.dart';
 import 'package:studify/features/sessions/widgets/picker_pill.dart';
 import 'package:studify/features/subjects/data/tests_repository.dart';
 import 'package:studify/features/subjects/subject_detail_controller.dart';
@@ -219,33 +220,12 @@ class _GenerateTestSheetState extends State<_GenerateTestSheet> {
                 const SizedBox(height: 24),
                 SizedBox(
                   width: double.infinity,
-                  child: FilledButton(
+                  child: BusyButton(
+                    label: l10n.subjectDetailGenerateButton,
+                    busyLabel: l10n.subjectDetailGenerating,
+                    busy: _submitting,
+                    showArrow: true,
                     onPressed: _canSubmit ? _submit : null,
-                    style: FilledButton.styleFrom(
-                      padding: const EdgeInsets.symmetric(vertical: 16),
-                    ),
-                    child: _submitting
-                        ? Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SizedBox(
-                                width: 20,
-                                height: 20,
-                                child: CircularProgressIndicator(
-                                  strokeWidth: 2,
-                                  color: scheme.onPrimary,
-                                ),
-                              ),
-                              const SizedBox(width: 12),
-                              Flexible(
-                                child: Text(
-                                  l10n.subjectDetailGenerating,
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-                            ],
-                          )
-                        : Text(l10n.subjectDetailGenerateButton),
                   ),
                 ),
               ],

@@ -203,7 +203,7 @@ class _HeroCard extends StatelessWidget {
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: Colors.white.withValues(alpha: 0.18),
-              borderRadius: BorderRadius.circular(AppTheme.cardRadius),
+              shape: BoxShape.circle,
             ),
             child: const Icon(
               CupertinoIcons.book_fill,
@@ -311,7 +311,7 @@ class _InfoCard extends StatelessWidget {
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: scheme.primary.withValues(alpha: 0.14),
-                    borderRadius: BorderRadius.circular(AppTheme.cardRadius),
+                    shape: BoxShape.circle,
                   ),
                   child: Icon(
                     CupertinoIcons.calendar,
@@ -756,7 +756,7 @@ class _TestCard extends StatelessWidget {
                   alignment: Alignment.center,
                   decoration: BoxDecoration(
                     color: scheme.primary.withValues(alpha: 0.14),
-                    borderRadius: BorderRadius.circular(AppTheme.cardRadius),
+                    shape: BoxShape.circle,
                   ),
                   child: Icon(
                     CupertinoIcons.doc_text_fill,
@@ -964,7 +964,7 @@ class _LevelRow extends StatelessWidget {
         alignment: Alignment.center,
         decoration: BoxDecoration(
           color: scheme.primary.withValues(alpha: 0.14),
-          borderRadius: BorderRadius.circular(AppTheme.cardRadius),
+          shape: BoxShape.circle,
         ),
         child: Icon(
           CupertinoIcons.square_stack_3d_up_fill,
