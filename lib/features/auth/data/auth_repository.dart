@@ -54,4 +54,19 @@ class AuthRepository {
     },
     auth: false,
   );
+
+  /// `POST /devices`: registers this device's push token. Safe to call
+  /// repeatedly with the same token — call it right after login, on
+  /// every app start while signed in, and whenever Firebase issues a
+  /// new token. [platform] is `android`, `ios` or `web`.
+  Future<void> registerDevice({
+    required String token,
+    required String platform,
+  }) => _client.post('/devices', data: {'token': token, 'platform': platform});
+
+  /// `DELETE /devices`: stops this device's token from receiving
+  /// pushes. Call before clearing the saved login token — this needs
+  /// it to authenticate. A 200 either way, registered or not.
+  Future<void> unregisterDevice(String token) =>
+      _client.delete('/devices', data: {'token': token});
 }

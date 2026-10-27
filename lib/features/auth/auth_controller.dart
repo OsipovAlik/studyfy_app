@@ -50,8 +50,10 @@ class AuthController extends ChangeNotifier {
     required AuthRepository repository,
     required SessionStorage storage,
     StoredSession? restored,
+    Future<void> Function()? onSignOut,
   }) : _repository = repository,
        _storage = storage,
+       _onSignOut = onSignOut,
        _token = restored?.token,
        _user = restored?.user,
        _remember = restored != null {
@@ -65,6 +67,12 @@ class AuthController extends ChangeNotifier {
 
   final AuthRepository _repository;
   final SessionStorage _storage;
+
+  /// Called right before a voluntary [signOut] clears the token — e.g.
+  /// to unregister this device's push token, which needs that token to
+  /// authenticate. Not called from [_handleUnauthorized]: a session the
+  /// server already ended can't authenticate that call either way.
+  final Future<void> Function()? _onSignOut;
 
   String? _token;
   UserProfile? _user;
@@ -108,7 +116,17 @@ class AuthController extends ChangeNotifier {
   }
 
   /// Logging out only forgets the token: the API has no logout call.
-  Future<void> signOut() => _endSession();
+  Future<void> signOut() async {
+    // Best-effort: signing out must never get stuck because, say, the
+    // device is offline — [_onSignOut] is expected not to throw, but
+    // this doesn't rely on that.
+    try {
+      if (_onSignOut case final onSignOut?) await onSignOut();
+    } on Exception catch (error) {
+      debugPrint('AuthController: onSignOut hook failed: $error');
+    }
+    await _endSession();
+  }
 
   /// Reloads the profile (e.g. at startup, to check the saved token).
   /// A `401` signs the user out through [_handleUnauthorized]; network

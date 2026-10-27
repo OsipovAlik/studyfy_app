@@ -11,10 +11,23 @@
     <uses-permission android:name="android.permission.BLUETOOTH" android:maxSdkVersion="30" />
     <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" android:maxSdkVersion="30" />
+    <!-- Required on Android 13+ (API 33) to show any notification, local
+         or push-triggered; see NotificationsService.init. -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <application
         android:label="Studyfy"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <!-- Used for a notification shown while the app is backgrounded
+             or terminated, before Dart code (and NotificationsService's
+             own channel) ever runs. Must match the channel id created in
+             NotificationsService.init. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="studyfy_notifications" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@mipmap/ic_launcher" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:studify/features/auth/auth_controller.dart';
 import 'package:studify/features/auth/domain/user_profile.dart';
@@ -52,8 +53,14 @@ abstract final class AppRoutes {
   static const Set<String> signedOut = {onboarding, login, forgotPassword};
 }
 
+/// The app's one [Navigator], reachable without a [BuildContext] — for
+/// code outside the widget tree, like a tapped push notification, which
+/// needs to navigate but has no screen's context to do it from.
+final rootNavigatorKey = GlobalKey<NavigatorState>(debugLabel: 'root');
+
 GoRouter createRouter({required AuthController auth}) {
   return GoRouter(
+    navigatorKey: rootNavigatorKey,
     // Signed out, every launch starts with the onboarding.
     initialLocation: auth.isSignedIn ? AppRoutes.home : AppRoutes.onboarding,
     // Re-run [redirect] when the user signs in or out (including a

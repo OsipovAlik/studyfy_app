@@ -10,13 +10,17 @@ void main() {
   late FakeApi api;
   late MemorySessionStorage storage;
 
-  AuthController controller({StoredSession? restored}) {
+  AuthController controller({
+    StoredSession? restored,
+    Future<void> Function()? onSignOut,
+  }) {
     final client = fakeClient(api);
     return AuthController(
       client: client,
       repository: AuthRepository(client),
       storage: storage,
       restored: restored,
+      onSignOut: onSignOut,
     );
   }
 
@@ -263,6 +267,39 @@ void main() {
       expect(auth.isSignedIn, isFalse);
       expect(storage.session, isNull);
       expect(auth.takeNotice(), isNull);
+    });
+
+    test('onSignOut runs while the session is still live', () async {
+      storage.session = saved;
+      var sawSignedInDuringHook = false;
+      late final AuthController auth;
+      auth = controller(
+        restored: saved,
+        onSignOut: () async {
+          sawSignedInDuringHook = auth.isSignedIn;
+        },
+      );
+
+      await auth.signOut();
+
+      // It needs the still-valid token to authenticate its own request
+      // (e.g. unregistering this device's push token) — called too
+      // late, after the token's gone, that request would be rejected.
+      expect(sawSignedInDuringHook, isTrue);
+      expect(auth.isSignedIn, isFalse);
+    });
+
+    test('a failing onSignOut still signs out locally', () async {
+      storage.session = saved;
+      final auth = controller(
+        restored: saved,
+        onSignOut: () => throw Exception('offline'),
+      );
+
+      await auth.signOut();
+
+      expect(auth.isSignedIn, isFalse);
+      expect(storage.session, isNull);
     });
   });
 

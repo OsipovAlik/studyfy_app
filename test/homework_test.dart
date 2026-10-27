@@ -526,7 +526,12 @@ void main() {
       const FakeResponse(200, {'attachments': <Object?>[]}),
     ]);
 
-    await tester.tap(find.byKey(const ValueKey('attachment-delete-10')));
+    final deleteAttachmentButton = find.byKey(
+      const ValueKey('attachment-delete-10'),
+    );
+    await tester.ensureVisible(deleteAttachmentButton);
+    await settle(tester);
+    await tester.tap(deleteAttachmentButton);
     await settle(tester);
 
     expect(app.api.requestsTo('DELETE /assignment/attachments/10'), isNotEmpty);

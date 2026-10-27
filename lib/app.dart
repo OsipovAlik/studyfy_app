@@ -27,6 +27,7 @@ import 'package:studify/features/subjects/data/questions_repository.dart';
 import 'package:studify/features/subjects/data/subjects_repository.dart';
 import 'package:studify/features/subjects/data/tests_repository.dart';
 import 'package:studify/features/subjects/subjects_controller.dart';
+import 'package:studify/firebase/firebase_function.dart';
 import 'package:studify/l10n/app_localizations.dart';
 
 /// Long-lived services, created once at startup (see `main.dart`).
@@ -36,6 +37,7 @@ class AppDependencies {
     required this.client,
     required this.authRepository,
     required this.auth,
+    required this.pushNotifications,
   });
 
   /// Builds the services and restores a saved session, if any.
@@ -46,17 +48,20 @@ class AppDependencies {
   }) async {
     final apiClient = client ?? ApiClient();
     final authRepository = AuthRepository(apiClient);
+    final pushNotifications = FirebasePushService(authRepository);
     final auth = AuthController(
       client: apiClient,
       repository: authRepository,
       storage: sessionStorage,
       restored: await sessionStorage.read(),
+      onSignOut: pushNotifications.unregisterCurrentDevice,
     );
     return AppDependencies._(
       preferences: preferences,
       client: apiClient,
       authRepository: authRepository,
       auth: auth,
+      pushNotifications: pushNotifications,
     );
   }
 
@@ -64,6 +69,7 @@ class AppDependencies {
   final ApiClient client;
   final AuthRepository authRepository;
   final AuthController auth;
+  final FirebasePushService pushNotifications;
 }
 
 class StudyfyApp extends StatefulWidget {
