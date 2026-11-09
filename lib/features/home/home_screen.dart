@@ -7,6 +7,7 @@ import 'package:studify/features/home/home_banner_controller.dart';
 import 'package:studify/features/home/home_stats_controller.dart';
 import 'package:studify/features/home/weekly_activity_controller.dart';
 import 'package:studify/features/home/widgets/home_stats_grid.dart';
+import 'package:studify/features/home/widgets/quick_actions_row.dart';
 import 'package:studify/features/home/widgets/weekly_activity_card.dart';
 import 'package:studify/features/home/widgets/weekly_timetable_card.dart';
 import 'package:studify/features/home/widgets/welcome_banner.dart';
@@ -44,21 +45,22 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       // The bottom safe area includes the floating tab bar.
-      body: SafeArea(
-        child: RefreshIndicator(
-          onRefresh: _refresh,
-          child: ListView(
-            padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
-            physics: const AlwaysScrollableScrollPhysics(),
-            children: [
-              WelcomeBanner(user: user),
-              const SizedBox(height: 16),
-              const HomeStatsGrid(),
-              const WeeklyTimetableCard(),
-              const SizedBox(height: 16),
-              const WeeklyActivityCard(),
-            ],
-          ),
+      body: RefreshIndicator(
+        onRefresh: _refresh,
+        child: ListView(
+          padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
+          physics: const AlwaysScrollableScrollPhysics(),
+          children: [
+            WelcomeBanner(user: user),
+            const SizedBox(height: 16),
+            const QuickActionsRow(),
+            const SizedBox(height: 16),
+            const HomeStatsGrid(),
+            const WeeklyTimetableCard(),
+            const SizedBox(height: 16),
+            const WeeklyActivityCard(),
+            const SizedBox(height: 70),
+          ],
         ),
       ),
     );

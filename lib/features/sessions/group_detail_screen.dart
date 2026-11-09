@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:studify/core/network/api_exception.dart';
-import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/core/widgets/glass_surface.dart';
 import 'package:studify/features/sessions/data/sessions_repository.dart';
 import 'package:studify/features/sessions/domain/group.dart';
 import 'package:studify/features/sessions/timetable_controller.dart';
@@ -212,12 +212,9 @@ class _MembersSection extends StatelessWidget {
             ),
           )
         else
-          Container(
-            decoration: BoxDecoration(
-              color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-              borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-              border: Border.all(color: scheme.outlineVariant),
-            ),
+          GlassSurface(
+            blurred: false,
+            padding: EdgeInsets.zero,
             child: Column(
               children: [
                 for (var i = 0; i < detail.students.length; i++) ...[

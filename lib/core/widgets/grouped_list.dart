@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
-import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/core/widgets/glass_surface.dart';
 
 /// A rounded card of rows, with an optional small heading above it,
 /// like the groups in iOS Settings.
@@ -28,13 +28,9 @@ class GroupedSection extends StatelessWidget {
               ),
             ),
           ),
-        Material(
-          color: scheme.surfaceContainerLowest,
-          clipBehavior: Clip.antiAlias,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-            side: BorderSide(color: scheme.outlineVariant),
-          ),
+        GlassSurface(
+          blurred: false,
+          padding: EdgeInsets.zero,
           child: Column(
             children: [
               for (var i = 0; i < children.length; i++) ...[
@@ -42,7 +38,7 @@ class GroupedSection extends StatelessWidget {
                   Divider(
                     height: 1,
                     indent: 64,
-                    color: scheme.outlineVariant,
+                    color: scheme.onSurfaceVariant.withValues(alpha: 0.12),
                   ),
                 children[i],
               ],

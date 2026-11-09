@@ -5,8 +5,8 @@ import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:studify/core/router/app_router.dart';
-import 'package:studify/core/theme/app_colors.dart';
 import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/core/widgets/glass_surface.dart';
 import 'package:studify/features/call/call_screen.dart';
 import 'package:studify/features/sessions/domain/class_session.dart';
 import 'package:studify/features/sessions/session_display.dart';
@@ -26,28 +26,26 @@ class WeeklyTimetableCard extends StatelessWidget {
     final scheme = theme.colorScheme;
     final controller = context.watch<TimetableController>();
 
-    return Container(
+    return GlassSurface(
+      blurred: false,
       padding: const EdgeInsets.all(18),
-      decoration: BoxDecoration(
-        color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-        border: Border.all(color: scheme.outlineVariant),
-      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _IconBadge(icon: CupertinoIcons.calendar, color: scheme.primary),
-              const SizedBox(width: 12),
+              Icon(CupertinoIcons.calendar, color: scheme.primary, size: 22),
+              const SizedBox(width: 10),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       l10n.homeTimetableTitle,
-                      style: theme.textTheme.titleMedium,
+                      style: theme.textTheme.titleLarge?.copyWith(
+                        fontWeight: FontWeight.w800,
+                      ),
                     ),
                     Text(
                       l10n.homeTimetableSubtitle,
@@ -120,53 +118,63 @@ class _NextSessionCard extends StatelessWidget {
     final session = next.session;
     final isDark = theme.brightness == Brightness.dark;
 
-    return Container(
+    return GlassSurface(
+      blurred: false,
+      tintOpacity: isDark ? 0.4 : 0.55,
       padding: const EdgeInsets.all(14),
-      decoration: BoxDecoration(
-        color: isDark
-            ? AppColors.indigo950.withValues(alpha: 0.6)
-            : AppColors.indigo50,
-        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-      ),
-      child: Row(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _IconBadge(
-            icon: CupertinoIcons.video_camera_solid,
-            color: scheme.primary,
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                width: 44,
+                height: 44,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: scheme.primary,
+                  borderRadius: BorderRadius.circular(14),
+                ),
+                child: Icon(
+                  CupertinoIcons.video_camera_solid,
+                  color: scheme.onPrimary,
+                  size: 20,
+                ),
+              ),
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      next.isHappeningNow ? l10n.homeTimetableLiveNow : l10n.homeTimetableNextSession,
+                      style: theme.textTheme.labelMedium?.copyWith(
+                        color: scheme.primary,
+                      ),
+                    ),
+                    const SizedBox(height: 2),
+                    Text(
+                      '${session.dayOfWeek.label(l10n)} · ${session.startTime} '
+                      '— ${session.type.label(l10n)}',
+                      style: theme.textTheme.titleSmall,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    Text(
+                      controller.label(session, l10n),
+                      style: theme.textTheme.bodySmall?.copyWith(
+                        color: scheme.onSurfaceVariant,
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
-          const SizedBox(width: 14),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  next.isHappeningNow
-                      ? l10n.homeTimetableLiveNow
-                      : l10n.homeTimetableNextSession,
-                  style: theme.textTheme.labelMedium?.copyWith(
-                    color: scheme.primary,
-                  ),
-                ),
-                const SizedBox(height: 2),
-                Text(
-                  '${session.dayOfWeek.label(l10n)} · ${session.startTime} '
-                  '— ${session.type.label(l10n)}',
-                  style: theme.textTheme.titleSmall,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
-                Text(
-                  controller.label(session, l10n),
-                  style: theme.textTheme.bodySmall?.copyWith(
-                    color: scheme.onSurfaceVariant,
-                  ),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(width: 8),
+          const SizedBox(height: 14),
           _JoinCallButton(session: session),
         ],
       ),
@@ -183,15 +191,35 @@ class _JoinCallButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final scheme = Theme.of(context).colorScheme;
-    return FilledButton.icon(
-      onPressed: () => CallScreen.open(context, session),
-      style: FilledButton.styleFrom(
-        backgroundColor: scheme.primary,
-        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-        shape: const StadiumBorder(),
+    return SizedBox(
+      width: double.infinity,
+      child: FilledButton(
+        onPressed: () => CallScreen.open(context, session),
+        child: Row(
+          children: [
+            const SizedBox(width: 20),
+            Expanded(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    CupertinoIcons.video_camera_solid,
+                    size: 17,
+                    color: scheme.onPrimary,
+                  ),
+                  const SizedBox(width: 8),
+                  Text(l10n.sessionJoinCall),
+                ],
+              ),
+            ),
+            Icon(
+              CupertinoIcons.chevron_forward,
+              size: 16,
+              color: scheme.onPrimary,
+            ),
+          ],
+        ),
       ),
-      icon: const Icon(CupertinoIcons.video_camera_solid, size: 17),
-      label: Text(l10n.sessionJoinCall),
     );
   }
 }
@@ -256,9 +284,7 @@ class _DayCard extends StatelessWidget {
       width: 152,
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: isToday
-            ? scheme.primaryContainer.withValues(alpha: 0.35)
-            : scheme.surfaceContainerLow.withValues(alpha: 0.6),
+        color: isToday ? scheme.primaryContainer.withValues(alpha: 0.35) : scheme.surfaceContainerLow.withValues(alpha: 0.6),
         borderRadius: BorderRadius.circular(AppTheme.cardRadius),
         border: Border.all(
           color: isToday ? scheme.primary : scheme.outlineVariant,
@@ -299,14 +325,18 @@ class _DayCard extends StatelessWidget {
           else
             Expanded(
               child: ListView(
+                clipBehavior: Clip.none,
                 padding: EdgeInsets.zero,
                 children: [
                   for (final session in sessions.take(shown))
                     Padding(
                       padding: const EdgeInsets.only(bottom: 4),
                       child: Material(
-                        color: scheme.surfaceContainerHigh,
-                        borderRadius: BorderRadius.circular(5),
+                        color: Colors.transparent,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5),
+                          side: BorderSide(color: scheme.outlineVariant),
+                        ),
                         child: InkWell(
                           borderRadius: BorderRadius.circular(5),
                           onTap: () => CallScreen.open(context, session),
@@ -374,27 +404,6 @@ class _TodayPill extends StatelessWidget {
           color: scheme.onPrimary,
         ),
       ),
-    );
-  }
-}
-
-class _IconBadge extends StatelessWidget {
-  const _IconBadge({required this.icon, required this.color});
-
-  final IconData icon;
-  final Color color;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 40,
-      height: 40,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        color: color.withValues(alpha: 0.14),
-        shape: BoxShape.circle,
-      ),
-      child: Icon(icon, color: color, size: 20),
     );
   }
 }

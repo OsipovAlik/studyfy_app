@@ -9,6 +9,7 @@ import 'package:studify/core/network/api_exception.dart';
 import 'package:studify/core/router/app_router.dart';
 import 'package:studify/core/theme/app_colors.dart';
 import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/core/widgets/glass_surface.dart';
 import 'package:studify/features/auth/widgets/auth_widgets.dart';
 import 'package:studify/features/homework/homework_controller.dart';
 import 'package:studify/features/homework/widgets/homework_row.dart';
@@ -113,7 +114,7 @@ class _TestDetailScreenState extends State<TestDetailScreen> {
     final l10n = AppLocalizations.of(context);
     final confirmed = await showDialog<bool>(
       context: context,
-      builder: (dialogContext) => AlertDialog(
+      builder: (dialogContext) => GlassAlertDialog(
         title: Text(l10n.testDetailDiscardDraftConfirmTitle),
         content: Text(l10n.testDetailDiscardDraftConfirmDescription),
         actions: [
@@ -154,7 +155,7 @@ class _TestDetailScreenState extends State<TestDetailScreen> {
     final l10n = AppLocalizations.of(context);
     final confirmed = await showDialog<bool>(
       context: context,
-      builder: (dialogContext) => AlertDialog(
+      builder: (dialogContext) => GlassAlertDialog(
         title: Text(l10n.testDetailDeleteQuestionConfirmTitle),
         content: Text(l10n.testDetailDeleteQuestionConfirmDescription),
         actions: [
@@ -397,7 +398,10 @@ class _DraftBanner extends StatelessWidget {
                   onPressed: busy ? null : onPublish,
                   style: FilledButton.styleFrom(
                     backgroundColor: AppColors.amber500,
-                    padding: const EdgeInsetsDirectional.only(start: 16, end: 6),
+                    padding: const EdgeInsetsDirectional.only(
+                      start: 16,
+                      end: 6,
+                    ),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -634,13 +638,10 @@ class _SegmentedTabs extends StatelessWidget {
       );
     }
 
-    return Container(
+    return GlassSurface(
+      blurred: false,
+      radius: 999,
       padding: const EdgeInsets.all(4),
-      decoration: BoxDecoration(
-        color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(999),
-        border: Border.all(color: scheme.outlineVariant),
-      ),
       child: Row(
         children: [
           segment(value: _Tab.questions, label: l10n.testDetailTabQuestions),
@@ -741,13 +742,9 @@ class _QuestionCard extends StatelessWidget {
     final scheme = theme.colorScheme;
     final isMultipleChoice = question.type == QuestionType.multipleChoice;
 
-    return Container(
+    return GlassSurface(
+      blurred: false,
       padding: const EdgeInsets.all(14),
-      decoration: BoxDecoration(
-        color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-        border: Border.all(color: scheme.outlineVariant),
-      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -886,13 +883,9 @@ class _ResultsTab extends StatelessWidget {
     }
 
     final locale = Localizations.localeOf(context).toLanguageTag();
-    return Container(
+    return GlassSurface(
+      blurred: false,
       padding: const EdgeInsets.symmetric(horizontal: 6),
-      decoration: BoxDecoration(
-        color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-        border: Border.all(color: scheme.outlineVariant),
-      ),
       child: Column(
         children: [
           for (var i = 0; i < results.length; i++) ...[
@@ -1007,13 +1000,9 @@ class _HomeworkTab extends StatelessWidget {
       return _EmptyHint(text: l10n.testDetailHomeworkEmptyTitle);
     }
 
-    return Container(
+    return GlassSurface(
+      blurred: false,
       padding: const EdgeInsets.symmetric(horizontal: 6),
-      decoration: BoxDecoration(
-        color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-        border: Border.all(color: scheme.outlineVariant),
-      ),
       child: Column(
         children: [
           for (var i = 0; i < assignments.length; i++) ...[

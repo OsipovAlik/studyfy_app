@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:studify/core/router/app_router.dart';
 import 'package:studify/core/theme/app_colors.dart';
-import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/core/widgets/glass_surface.dart';
 import 'package:studify/features/home/home_stats_controller.dart';
 import 'package:studify/l10n/app_localizations.dart';
 
@@ -103,64 +103,85 @@ class _StatCard extends StatelessWidget {
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
 
-    return Material(
-      color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-      borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-        onTap: onTap,
-        child: Container(
-          padding: const EdgeInsets.all(14),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-            border: Border.all(color: scheme.outlineVariant),
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+    return GlassSurface(
+      blurred: false,
+      padding: const EdgeInsets.all(14),
+      onTap: onTap,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
             children: [
-              Row(
-                children: [
-                  Container(
-                    width: 36,
-                    height: 36,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: color.withValues(alpha: 0.14),
-                      shape: BoxShape.circle,
-                    ),
-                    child: Icon(icon, size: 17, color: color),
-                  ),
-                  const Spacer(),
-                  Icon(
-                    CupertinoIcons.chevron_right,
-                    size: 14,
-                    color: scheme.onSurfaceVariant,
-                  ),
-                ],
-              ),
-              const SizedBox(height: 10),
-              Text('${count.total}', style: theme.textTheme.headlineSmall),
-              const SizedBox(height: 2),
-              Text(
-                label,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  color: scheme.onSurfaceVariant,
+              Container(
+                width: 36,
+                height: 36,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: color.withValues(alpha: 0.14),
+                  shape: BoxShape.circle,
                 ),
+                child: Icon(icon, size: 17, color: color),
               ),
-              if (count.newThisWeek > 0) ...[
-                const SizedBox(height: 4),
-                Text(
-                  l10n.homeStatsNewThisWeek(count.newThisWeek),
-                  style: theme.textTheme.labelSmall?.copyWith(
-                    color: AppColors.emerald500,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ],
+              const Spacer(),
+              Icon(
+                CupertinoIcons.chevron_right,
+                size: 14,
+                color: scheme.onSurfaceVariant,
+              ),
             ],
           ),
+          const SizedBox(height: 12),
+          Text(
+            '${count.total}',
+            style: theme.textTheme.headlineMedium?.copyWith(
+              fontWeight: FontWeight.w800,
+            ),
+          ),
+          const SizedBox(height: 2),
+          Text(
+            label,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: theme.textTheme.bodyMedium?.copyWith(
+              color: scheme.onSurfaceVariant,
+            ),
+          ),
+          if (count.newThisWeek > 0) ...[
+            const SizedBox(height: 6),
+            _Pill(
+              text: l10n.homeStatsNewThisWeek(count.newThisWeek),
+              color: AppColors.emerald500,
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+/// A small rounded status badge — "+3 this week" — in the flat
+/// colour-fill style of the reference screens, not the glass one.
+class _Pill extends StatelessWidget {
+  const _Pill({required this.text, required this.color});
+
+  final String text;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
+      decoration: BoxDecoration(
+        color: color.withValues(alpha: 0.16),
+        borderRadius: BorderRadius.circular(999),
+      ),
+      child: Text(
+        text,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
+        style: Theme.of(context).textTheme.labelSmall?.copyWith(
+          color: color,
+          fontWeight: FontWeight.w700,
         ),
       ),
     );

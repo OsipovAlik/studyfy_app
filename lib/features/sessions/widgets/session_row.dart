@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:studify/core/network/api_exception.dart';
 import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/core/widgets/glass_surface.dart';
 import 'package:studify/features/call/call_screen.dart';
 import 'package:studify/features/sessions/domain/class_session.dart';
 import 'package:studify/features/sessions/session_display.dart';
@@ -28,7 +29,7 @@ class SessionRow extends StatelessWidget {
     final l10n = AppLocalizations.of(context);
     final confirmed = await showDialog<bool>(
       context: context,
-      builder: (dialogContext) => AlertDialog(
+      builder: (dialogContext) => GlassAlertDialog(
         title: Text(l10n.sessionsDeleteConfirmTitle),
         content: Text(l10n.sessionsDeleteConfirmDescription),
         actions: [
@@ -55,9 +56,7 @@ class SessionRow extends StatelessWidget {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            (error.isNetworkError || error.isServerError)
-                ? l10n.sessionsServerUnavailable
-                : error.message ?? l10n.sessionsDeleteError,
+            (error.isNetworkError || error.isServerError) ? l10n.sessionsServerUnavailable : error.message ?? l10n.sessionsDeleteError,
           ),
         ),
       );
@@ -89,7 +88,7 @@ class SessionRow extends StatelessWidget {
                 ),
                 child: Text(
                   session.startTime,
-                  style: theme.textTheme.labelLarge,
+                  style: theme.textTheme.labelSmall,
                 ),
               ),
               const SizedBox(width: 12),
@@ -193,9 +192,7 @@ class _TypeTag extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Icon(
-            session.type == SessionType.group
-                ? CupertinoIcons.person_2_fill
-                : CupertinoIcons.calendar,
+            session.type == SessionType.group ? CupertinoIcons.person_2_fill : CupertinoIcons.calendar,
             size: 11,
             color: scheme.onSurfaceVariant,
           ),

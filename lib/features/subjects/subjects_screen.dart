@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/core/widgets/glass_surface.dart';
 import 'package:studify/features/subjects/domain/subject.dart';
 import 'package:studify/features/subjects/subjects_controller.dart';
 import 'package:studify/features/subjects/widgets/subject_form_sheet.dart';
@@ -85,7 +85,9 @@ class _SubjectsScreenState extends State<SubjectsScreen> {
                   else if (subjects.isEmpty)
                     _EmptyState(
                       title: l10n.subjectsEmptyTitle,
-                      description: controller.isTeacher ? l10n.subjectsEmptyDescription : null,
+                      description: controller.isTeacher
+                          ? l10n.subjectsEmptyDescription
+                          : null,
                     )
                   else
                     _SubjectList(subjects: subjects, controller: controller),
@@ -107,15 +109,10 @@ class _SubjectList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final scheme = theme.colorScheme;
-    return Container(
+    final scheme = Theme.of(context).colorScheme;
+    return GlassSurface(
+      blurred: false,
       padding: const EdgeInsets.symmetric(horizontal: 6),
-      decoration: BoxDecoration(
-        color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-        border: Border.all(color: scheme.outlineVariant),
-      ),
       child: Column(
         children: [
           for (var i = 0; i < subjects.length; i++) ...[

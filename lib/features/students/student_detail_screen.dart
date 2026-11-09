@@ -8,6 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:studify/core/router/app_router.dart';
 import 'package:studify/core/theme/app_colors.dart';
 import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/core/widgets/glass_surface.dart';
 import 'package:studify/features/results/domain/result.dart';
 import 'package:studify/features/results/results_list_controller.dart';
 import 'package:studify/features/students/domain/student.dart';
@@ -269,13 +270,8 @@ class _InfoCard extends StatelessWidget {
       ],
     );
 
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-        border: Border.all(color: scheme.outlineVariant),
-      ),
+    return GlassSurface(
+      blurred: false,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -385,30 +381,25 @@ class _ResultsSection extends StatelessWidget {
         .toList();
 
     if (results.isEmpty) {
-      return Container(
-        width: double.infinity,
+      return GlassSurface(
+        blurred: false,
         padding: const EdgeInsets.symmetric(vertical: 36, horizontal: 20),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-          border: Border.all(color: scheme.outlineVariant),
-        ),
-        child: Text(
-          l10n.studentsResultsEmptyHint,
-          textAlign: TextAlign.center,
-          style: Theme.of(
-            context,
-          ).textTheme.bodyMedium?.copyWith(color: scheme.onSurfaceVariant),
+        child: SizedBox(
+          width: double.infinity,
+          child: Text(
+            l10n.studentsResultsEmptyHint,
+            textAlign: TextAlign.center,
+            style: Theme.of(
+              context,
+            ).textTheme.bodyMedium?.copyWith(color: scheme.onSurfaceVariant),
+          ),
         ),
       );
     }
 
-    return Container(
+    return GlassSurface(
+      blurred: false,
       padding: const EdgeInsets.symmetric(horizontal: 6),
-      decoration: BoxDecoration(
-        color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-        border: Border.all(color: scheme.outlineVariant),
-      ),
       child: Column(
         children: [
           for (var i = 0; i < results.length; i++) ...[

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:studify/core/network/api_exception.dart';
 import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/core/widgets/glass_surface.dart';
 import 'package:studify/features/auth/widgets/auth_widgets.dart';
 import 'package:studify/features/sessions/domain/group.dart';
 import 'package:studify/features/sessions/timetable_controller.dart';
@@ -15,9 +16,8 @@ Future<void> showGroupFormSheet(
   required TimetableController controller,
   Group? editing,
 }) {
-  return showModalBottomSheet<void>(
-    context: context,
-    useSafeArea: true,
+  return showGlassSheet<void>(
+    context,
     isScrollControlled: true,
     builder: (_) => _GroupFormSheet(controller: controller, editing: editing),
   );
@@ -120,14 +120,6 @@ class _GroupFormSheetState extends State<_GroupFormSheet> {
                 autofocus: !_isEditing,
                 decoration: InputDecoration(
                   hintText: l10n.groupsNamePlaceholder,
-                  filled: true,
-                  fillColor: scheme.surfaceContainerLowest.withValues(
-                    alpha: 0.92,
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-                    borderSide: BorderSide(color: scheme.outlineVariant),
-                  ),
                 ),
                 onChanged: (_) => setState(() {}),
               ),
@@ -138,31 +130,31 @@ class _GroupFormSheetState extends State<_GroupFormSheet> {
                 if (studentNames.isEmpty)
                   _Hint(l10n.groupsNoStudentsHint)
                 else
-                  Container(
-                    constraints: const BoxConstraints(maxHeight: 220),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-                      border: Border.all(color: scheme.outlineVariant),
-                    ),
-                    child: ListView(
-                      shrinkWrap: true,
-                      padding: const EdgeInsets.symmetric(vertical: 4),
-                      children: [
-                        for (final entry in studentNames.entries)
-                          CheckboxListTile(
-                            key: ValueKey('group-form-student-${entry.key}'),
-                            dense: true,
-                            value: _selectedStudentIds.contains(entry.key),
-                            title: Text(entry.value),
-                            onChanged: (checked) => setState(() {
-                              if (checked ?? false) {
-                                _selectedStudentIds.add(entry.key);
-                              } else {
-                                _selectedStudentIds.remove(entry.key);
-                              }
-                            }),
-                          ),
-                      ],
+                  GlassSurface(
+                    blurred: false,
+                    padding: EdgeInsets.zero,
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(maxHeight: 220),
+                      child: ListView(
+                        shrinkWrap: true,
+                        padding: const EdgeInsets.symmetric(vertical: 4),
+                        children: [
+                          for (final entry in studentNames.entries)
+                            CheckboxListTile(
+                              key: ValueKey('group-form-student-${entry.key}'),
+                              dense: true,
+                              value: _selectedStudentIds.contains(entry.key),
+                              title: Text(entry.value),
+                              onChanged: (checked) => setState(() {
+                                if (checked ?? false) {
+                                  _selectedStudentIds.add(entry.key);
+                                } else {
+                                  _selectedStudentIds.remove(entry.key);
+                                }
+                              }),
+                            ),
+                        ],
+                      ),
                     ),
                   ),
               ],

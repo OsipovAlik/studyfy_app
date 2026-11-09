@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:studify/core/network/api_exception.dart';
-import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/core/widgets/glass_surface.dart';
 import 'package:studify/features/auth/widgets/auth_widgets.dart';
 import 'package:studify/features/homework/domain/assignment.dart';
 import 'package:studify/features/homework/homework_controller.dart';
@@ -15,9 +15,8 @@ Future<void> showEditAssignmentSheet(
   required HomeworkController controller,
   required Assignment assignment,
 }) {
-  return showModalBottomSheet<void>(
-    context: context,
-    useSafeArea: true,
+  return showGlassSheet<void>(
+    context,
     isScrollControlled: true,
     builder: (_) =>
         _EditAssignmentSheet(controller: controller, assignment: assignment),
@@ -115,15 +114,7 @@ class _EditAssignmentSheetState extends State<_EditAssignmentSheet> {
     final scheme = theme.colorScheme;
     final locale = Localizations.localeOf(context).toLanguageTag();
 
-    InputDecoration decoration(String hint) => InputDecoration(
-      hintText: hint,
-      filled: true,
-      fillColor: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-        borderSide: BorderSide(color: scheme.outlineVariant),
-      ),
-    );
+    InputDecoration decoration(String hint) => InputDecoration(hintText: hint);
 
     return SafeArea(
       child: Padding(
@@ -156,43 +147,37 @@ class _EditAssignmentSheetState extends State<_EditAssignmentSheet> {
                 ),
                 const SizedBox(height: 12),
               ],
-              InkWell(
-                borderRadius: BorderRadius.circular(AppTheme.cardRadius),
+              GlassSurface(
+                blurred: false,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 14,
+                  vertical: 14,
+                ),
                 onTap: _pickDueDate,
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 14,
-                    vertical: 14,
-                  ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-                    border: Border.all(color: scheme.outlineVariant),
-                  ),
-                  child: Row(
-                    children: [
-                      Icon(
-                        CupertinoIcons.calendar,
-                        size: 18,
-                        color: scheme.onSurfaceVariant,
+                child: Row(
+                  children: [
+                    Icon(
+                      CupertinoIcons.calendar,
+                      size: 18,
+                      color: scheme.onSurfaceVariant,
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Text(
+                        _dueDate == null
+                            ? l10n.homeworkNoDueDate
+                            : DateFormat.yMMMd(locale).format(_dueDate!),
                       ),
-                      const SizedBox(width: 10),
-                      Expanded(
-                        child: Text(
-                          _dueDate == null
-                              ? l10n.homeworkNoDueDate
-                              : DateFormat.yMMMd(locale).format(_dueDate!),
+                    ),
+                    if (_dueDate != null)
+                      IconButton(
+                        icon: const Icon(
+                          CupertinoIcons.xmark_circle_fill,
+                          size: 18,
                         ),
+                        onPressed: () => setState(() => _dueDate = null),
                       ),
-                      if (_dueDate != null)
-                        IconButton(
-                          icon: const Icon(
-                            CupertinoIcons.xmark_circle_fill,
-                            size: 18,
-                          ),
-                          onPressed: () => setState(() => _dueDate = null),
-                        ),
-                    ],
-                  ),
+                  ],
                 ),
               ),
               const SizedBox(height: 12),

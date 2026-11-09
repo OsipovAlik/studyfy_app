@@ -9,6 +9,7 @@ import 'package:studify/core/network/api_exception.dart';
 import 'package:studify/core/router/app_router.dart';
 import 'package:studify/core/theme/app_colors.dart';
 import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/core/widgets/glass_surface.dart';
 import 'package:studify/features/subjects/data/levels_repository.dart';
 import 'package:studify/features/subjects/data/tests_repository.dart';
 import 'package:studify/features/subjects/domain/level.dart';
@@ -292,13 +293,8 @@ class _InfoCard extends StatelessWidget {
         ? null
         : DateFormat.yMMMMd(locale).format(created.toLocal());
 
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-        border: Border.all(color: scheme.outlineVariant),
-      ),
+    return GlassSurface(
+      blurred: false,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -465,13 +461,10 @@ class _SegmentedTabs extends StatelessWidget {
       );
     }
 
-    return Container(
+    return GlassSurface(
+      blurred: false,
+      radius: 999,
       padding: const EdgeInsets.all(4),
-      decoration: BoxDecoration(
-        color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(999),
-        border: Border.all(color: scheme.outlineVariant),
-      ),
       child: Row(
         children: [
           segment(
@@ -687,7 +680,7 @@ class _TestCard extends StatelessWidget {
     final l10n = AppLocalizations.of(context);
     final confirmed = await showDialog<bool>(
       context: context,
-      builder: (dialogContext) => AlertDialog(
+      builder: (dialogContext) => GlassAlertDialog(
         title: Text(l10n.subjectDetailDeleteTestConfirmTitle(test.title)),
         content: Text(l10n.subjectDetailDeleteTestConfirmDescription),
         actions: [
@@ -732,112 +725,105 @@ class _TestCard extends StatelessWidget {
         ? AppColors.emerald500
         : scheme.onSurfaceVariant;
 
-    return InkWell(
-      borderRadius: BorderRadius.circular(AppTheme.cardRadius),
+    return GlassSurface(
+      blurred: false,
+      padding: const EdgeInsets.all(14),
       onTap: () => context.push(
         '${AppRoutes.subjects}/${controller.subjectId}/tests/${test.id}',
         extra: test,
       ),
-      child: Container(
-        padding: const EdgeInsets.all(14),
-        decoration: BoxDecoration(
-          color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-          borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-          border: Border.all(color: scheme.outlineVariant),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Container(
-                  width: 36,
-                  height: 36,
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: scheme.primary.withValues(alpha: 0.14),
-                    shape: BoxShape.circle,
-                  ),
-                  child: Icon(
-                    CupertinoIcons.doc_text_fill,
-                    size: 16,
-                    color: scheme.primary,
-                  ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Container(
+                width: 36,
+                height: 36,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: scheme.primary.withValues(alpha: 0.14),
+                  shape: BoxShape.circle,
                 ),
-                const SizedBox(width: 12),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(test.title, style: theme.textTheme.titleSmall),
-                      const SizedBox(height: 2),
-                      Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Container(
-                            width: 6,
-                            height: 6,
-                            margin: const EdgeInsets.only(right: 5),
-                            decoration: BoxDecoration(
-                              color: statusColor,
-                              shape: BoxShape.circle,
-                            ),
+                child: Icon(
+                  CupertinoIcons.doc_text_fill,
+                  size: 16,
+                  color: scheme.primary,
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(test.title, style: theme.textTheme.titleSmall),
+                    const SizedBox(height: 2),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Container(
+                          width: 6,
+                          height: 6,
+                          margin: const EdgeInsets.only(right: 5),
+                          decoration: BoxDecoration(
+                            color: statusColor,
+                            shape: BoxShape.circle,
                           ),
-                          Text(
-                            test.isActive
-                                ? l10n.subjectsActiveLabel
-                                : l10n.subjectsInactiveLabel,
-                            style: theme.textTheme.bodySmall?.copyWith(
-                              color: statusColor,
-                            ),
+                        ),
+                        Text(
+                          test.isActive
+                              ? l10n.subjectsActiveLabel
+                              : l10n.subjectsInactiveLabel,
+                          style: theme.textTheme.bodySmall?.copyWith(
+                            color: statusColor,
                           ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 10),
-            Divider(height: 1, color: scheme.outlineVariant),
-            const SizedBox(height: 10),
-            Row(
-              children: [
-                _ActionChip(
-                  key: ValueKey('test-toggle-active-${test.id}'),
-                  icon: CupertinoIcons.bolt_fill,
-                  label: test.isActive
-                      ? l10n.subjectsDeactivate
-                      : l10n.subjectsActivate,
-                  color: AppColors.amber500,
-                  onTap: () => unawaited(_toggleActive(context)),
-                ),
-                const SizedBox(width: 16),
-                _ActionChip(
-                  key: ValueKey('test-edit-${test.id}'),
-                  icon: CupertinoIcons.pencil,
-                  label: l10n.subjectDetailEdit,
-                  color: scheme.onSurface,
-                  onTap: () => unawaited(
-                    showTestFormSheet(
-                      context,
-                      controller: controller,
-                      editing: test,
+                        ),
+                      ],
                     ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 10),
+          Divider(height: 1, color: scheme.outlineVariant),
+          const SizedBox(height: 10),
+          Row(
+            children: [
+              _ActionChip(
+                key: ValueKey('test-toggle-active-${test.id}'),
+                icon: CupertinoIcons.bolt_fill,
+                label: test.isActive
+                    ? l10n.subjectsDeactivate
+                    : l10n.subjectsActivate,
+                color: AppColors.amber500,
+                onTap: () => unawaited(_toggleActive(context)),
+              ),
+              const SizedBox(width: 16),
+              _ActionChip(
+                key: ValueKey('test-edit-${test.id}'),
+                icon: CupertinoIcons.pencil,
+                label: l10n.subjectDetailEdit,
+                color: scheme.onSurface,
+                onTap: () => unawaited(
+                  showTestFormSheet(
+                    context,
+                    controller: controller,
+                    editing: test,
                   ),
                 ),
-                const SizedBox(width: 16),
-                _ActionChip(
-                  key: ValueKey('test-delete-${test.id}'),
-                  icon: CupertinoIcons.trash,
-                  label: l10n.subjectsDelete,
-                  color: AppColors.red500,
-                  onTap: () => unawaited(_confirmDelete(context)),
-                ),
-              ],
-            ),
-          ],
-        ),
+              ),
+              const SizedBox(width: 16),
+              _ActionChip(
+                key: ValueKey('test-delete-${test.id}'),
+                icon: CupertinoIcons.trash,
+                label: l10n.subjectsDelete,
+                color: AppColors.red500,
+                onTap: () => unawaited(_confirmDelete(context)),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -883,13 +869,9 @@ class _LevelsTab extends StatelessWidget {
             description: l10n.subjectDetailLevelsEmptyDescription,
           )
         else
-          Container(
+          GlassSurface(
+            blurred: false,
             padding: const EdgeInsets.symmetric(horizontal: 6),
-            decoration: BoxDecoration(
-              color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-              borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-              border: Border.all(color: scheme.outlineVariant),
-            ),
             child: Column(
               children: [
                 for (var i = 0; i < controller.levels.length; i++) ...[
@@ -917,7 +899,7 @@ class _LevelRow extends StatelessWidget {
     final l10n = AppLocalizations.of(context);
     final confirmed = await showDialog<bool>(
       context: context,
-      builder: (dialogContext) => AlertDialog(
+      builder: (dialogContext) => GlassAlertDialog(
         title: Text(l10n.subjectDetailDeleteLevelConfirmTitle(level.name)),
         content: Text(l10n.subjectDetailDeleteLevelConfirmDescription),
         actions: [

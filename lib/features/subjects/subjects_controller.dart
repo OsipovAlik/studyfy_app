@@ -10,10 +10,12 @@ import 'package:studify/features/subjects/domain/subject.dart';
 /// The school's subjects: every signed-in role can see the list, but only
 /// a teacher may add, rename, activate/deactivate or delete one.
 class SubjectsController extends ChangeNotifier {
-  SubjectsController({required SubjectsRepository repository, required AuthController auth})
-    : _repository = repository,
-      _auth = auth,
-      _lastUserId = auth.user?.id {
+  SubjectsController({
+    required SubjectsRepository repository,
+    required AuthController auth,
+  }) : _repository = repository,
+       _auth = auth,
+       _lastUserId = auth.user?.id {
     _auth.addListener(_handleAuthChange);
   }
 

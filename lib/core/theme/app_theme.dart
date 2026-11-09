@@ -28,6 +28,10 @@ abstract final class AppTheme {
   /// inputs, and anything else that isn't a pill or a true circle.
   static const cardRadius = 20.0;
 
+  /// Backdrop blur strength for every glass panel (see `GlassSurface`) —
+  /// one value so floating chrome reads consistently across the app.
+  static const glassBlurSigma = 24.0;
+
   static ThemeData get light => _build(
     const ColorScheme(
       brightness: Brightness.light,
@@ -122,7 +126,7 @@ abstract final class AppTheme {
         shadowColor: Colors.transparent,
         surfaceTintColor: Colors.transparent,
         margin: EdgeInsets.zero,
-        shape: RoundedRectangleBorder(
+        shape: ContinuousRectangleBorder(
           borderRadius: BorderRadius.circular(cardRadius),
           side: hairline,
         ),
@@ -197,21 +201,23 @@ abstract final class AppTheme {
         backgroundColor: scheme.surfaceContainerLowest,
         surfaceTintColor: Colors.transparent,
         elevation: 0,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(cardRadius),
+        shape: ContinuousRectangleBorder(
+          borderRadius: BorderRadius.circular(28),
         ),
       ),
+      // Fallback only — every call site goes through `showGlassSheet`,
+      // which overrides background/shape itself for the real blurred
+      // glass panel. This stays sane for anything that still calls
+      // `showModalBottomSheet` directly.
       bottomSheetTheme: BottomSheetThemeData(
         backgroundColor: scheme.surfaceContainerLowest,
         modalBackgroundColor: scheme.surfaceContainerLowest,
         surfaceTintColor: Colors.transparent,
         elevation: 0,
         modalElevation: 0,
-        showDragHandle: true,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            top: Radius.circular(cardRadius),
-          ),
+        showDragHandle: false,
+        shape: const ContinuousRectangleBorder(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
         ),
       ),
       snackBarTheme: SnackBarThemeData(
@@ -264,14 +270,14 @@ abstract final class AppTheme {
         surfaceTintColor: Colors.transparent,
         elevation: 0,
         indicatorColor: scheme.primary.withValues(alpha: 0.12),
-        indicatorShape: RoundedRectangleBorder(
+        indicatorShape: ContinuousRectangleBorder(
           borderRadius: BorderRadius.circular(cardRadius),
         ),
       ),
       listTileTheme: ListTileThemeData(
         iconColor: scheme.onSurfaceVariant,
         textColor: scheme.onSurface,
-        shape: RoundedRectangleBorder(
+        shape: ContinuousRectangleBorder(
           borderRadius: BorderRadius.circular(cardRadius),
         ),
       ),
@@ -292,7 +298,12 @@ abstract final class AppTheme {
     ).weight(weight);
 
     return TextTheme(
-      displaySmall: style(34, FontWeight.w600, height: 1.1, letterSpacing: -0.8),
+      displaySmall: style(
+        34,
+        FontWeight.w600,
+        height: 1.1,
+        letterSpacing: -0.8,
+      ),
       headlineLarge: style(
         28,
         FontWeight.w600,

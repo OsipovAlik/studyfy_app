@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
-import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/core/widgets/glass_surface.dart';
 
 /// A tappable pill showing the current choice; tapping it opens a sheet
 /// to pick another from [options]. Used for the Sessions list's type/day
@@ -23,39 +23,33 @@ class PickerPill<T> extends StatelessWidget {
 
   Future<void> _open(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
-    return showModalBottomSheet<void>(
+    return showGlassSheet<void>(
+      context,
       useRootNavigator: true,
-      context: context,
-      useSafeArea: true,
       // A long option list (e.g. every weekday, or every student) can be
       // taller than the sheet's default cap; let it take more room, and
       // scroll past that instead of overflowing.
       isScrollControlled: true,
-      builder: (sheetContext) => SafeArea(
-        child: ConstrainedBox(
-          constraints: BoxConstraints(
-            maxHeight: MediaQuery.sizeOf(sheetContext).height * 0.6,
-          ),
-          child: ListView(
-            shrinkWrap: true,
-            padding: const EdgeInsets.symmetric(vertical: 8),
-            children: [
-              for (final option in options)
-                ListTile(
-                  title: Text(option.label),
-                  trailing: option.value == value
-                      ? Icon(
-                          CupertinoIcons.checkmark_alt,
-                          color: scheme.primary,
-                        )
-                      : null,
-                  onTap: () {
-                    Navigator.of(sheetContext).pop();
-                    onChanged(option.value);
-                  },
-                ),
-            ],
-          ),
+      builder: (sheetContext) => ConstrainedBox(
+        constraints: BoxConstraints(
+          maxHeight: MediaQuery.sizeOf(sheetContext).height * 0.6,
+        ),
+        child: ListView(
+          shrinkWrap: true,
+          padding: const EdgeInsets.fromLTRB(8, 8, 8, 20),
+          children: [
+            for (final option in options)
+              ListTile(
+                title: Text(option.label),
+                trailing: option.value == value
+                    ? Icon(CupertinoIcons.checkmark_alt, color: scheme.primary)
+                    : null,
+                onTap: () {
+                  Navigator.of(sheetContext).pop();
+                  onChanged(option.value);
+                },
+              ),
+          ],
         ),
       ),
     );
@@ -64,40 +58,29 @@ class PickerPill<T> extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
-    return Material(
-      color: scheme.surfaceContainerLowest.withValues(
-        alpha: enabled ? 0.92 : 0.5,
-      ),
-      borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-      child: InkWell(
-        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-        onTap: enabled ? () => _open(context) : null,
-        child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-            border: Border.all(color: scheme.outlineVariant),
-          ),
-          child: Row(
-            children: [
-              Expanded(
-                child: Text(
-                  label,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                    color: enabled ? null : scheme.onSurfaceVariant,
-                  ),
-                ),
+    return GlassSurface(
+      blurred: false,
+      tintOpacity: enabled ? null : 0.4,
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+      onTap: enabled ? () => _open(context) : null,
+      child: Row(
+        children: [
+          Expanded(
+            child: Text(
+              label,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                color: enabled ? null : scheme.onSurfaceVariant,
               ),
-              Icon(
-                CupertinoIcons.chevron_down,
-                size: 14,
-                color: scheme.onSurfaceVariant,
-              ),
-            ],
+            ),
           ),
-        ),
+          Icon(
+            CupertinoIcons.chevron_down,
+            size: 14,
+            color: scheme.onSurfaceVariant,
+          ),
+        ],
       ),
     );
   }

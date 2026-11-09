@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:studify/core/network/api_exception.dart';
-import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/core/widgets/glass_surface.dart';
 import 'package:studify/features/auth/widgets/auth_widgets.dart';
 import 'package:studify/features/subjects/domain/level.dart';
 import 'package:studify/features/subjects/subject_detail_controller.dart';
@@ -13,9 +13,8 @@ Future<void> showLevelFormSheet(
   required SubjectDetailController controller,
   Level? editing,
 }) {
-  return showModalBottomSheet<void>(
-    context: context,
-    useSafeArea: true,
+  return showGlassSheet<void>(
+    context,
     isScrollControlled: true,
     builder: (_) => _LevelFormSheet(controller: controller, editing: editing),
   );
@@ -112,14 +111,6 @@ class _LevelFormSheetState extends State<_LevelFormSheet> {
                 textCapitalization: TextCapitalization.words,
                 decoration: InputDecoration(
                   hintText: l10n.subjectDetailLevelNamePlaceholder,
-                  filled: true,
-                  fillColor: scheme.surfaceContainerLowest.withValues(
-                    alpha: 0.92,
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-                    borderSide: BorderSide(color: scheme.outlineVariant),
-                  ),
                 ),
                 onChanged: (_) => setState(() {}),
                 onSubmitted: (_) => _submit(),

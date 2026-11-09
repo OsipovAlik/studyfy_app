@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:studify/core/network/api_exception.dart';
 import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/core/widgets/glass_surface.dart';
 import 'package:studify/features/auth/widgets/auth_widgets.dart';
 import 'package:studify/features/results/domain/question.dart';
 import 'package:studify/features/results/domain/result.dart';
@@ -16,9 +17,8 @@ Future<void> showQuestionFormSheet(
   required TestDetailController controller,
   Question? editing,
 }) {
-  return showModalBottomSheet<void>(
-    context: context,
-    useSafeArea: true,
+  return showGlassSheet<void>(
+    context,
     isScrollControlled: true,
     builder: (_) =>
         _QuestionFormSheet(controller: controller, editing: editing),
@@ -186,15 +186,8 @@ class _QuestionFormSheetState extends State<_QuestionFormSheet> {
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
 
-    InputDecoration decoration([String? hint]) => InputDecoration(
-      hintText: hint,
-      filled: true,
-      fillColor: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-        borderSide: BorderSide(color: scheme.outlineVariant),
-      ),
-    );
+    InputDecoration decoration([String? hint]) =>
+        InputDecoration(hintText: hint);
 
     Widget labeled(String label, Widget field) => Padding(
       padding: const EdgeInsets.only(bottom: 16),

@@ -147,7 +147,9 @@ class _LobbyView extends StatelessWidget {
                 ),
                 const SizedBox(height: 14),
                 Text(
-                  session.type == SessionType.group ? l10n.callGroupSession : l10n.callIndividualSession,
+                  session.type == SessionType.group
+                      ? l10n.callGroupSession
+                      : l10n.callIndividualSession,
                   style: Theme.of(context).textTheme.titleSmall?.copyWith(
                     color: AppColors.indigo300,
                   ),
@@ -267,16 +269,24 @@ class _LobbyControls extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         _RoundButton(
-          icon: controller.micEnabled ? CupertinoIcons.mic_fill : CupertinoIcons.mic_slash_fill,
+          icon: controller.micEnabled
+              ? CupertinoIcons.mic_fill
+              : CupertinoIcons.mic_slash_fill,
           active: controller.micEnabled,
-          tooltip: controller.micEnabled ? l10n.callTurnOffMic : l10n.callTurnOnMic,
+          tooltip: controller.micEnabled
+              ? l10n.callTurnOffMic
+              : l10n.callTurnOnMic,
           onPressed: () => unawaited(controller.toggleMic()),
         ),
         const SizedBox(width: 16),
         _RoundButton(
-          icon: controller.cameraEnabled ? CupertinoIcons.video_camera_solid : CupertinoIcons.video_camera,
+          icon: controller.cameraEnabled
+              ? CupertinoIcons.video_camera_solid
+              : CupertinoIcons.video_camera,
           active: controller.cameraEnabled,
-          tooltip: controller.cameraEnabled ? l10n.callTurnOffCamera : l10n.callTurnOnCamera,
+          tooltip: controller.cameraEnabled
+              ? l10n.callTurnOffCamera
+              : l10n.callTurnOnCamera,
           onPressed: () => unawaited(controller.toggleCamera()),
         ),
         const SizedBox(width: 16),
@@ -284,7 +294,9 @@ class _LobbyControls extends StatelessWidget {
           icon: CupertinoIcons.switch_camera,
           active: true,
           tooltip: l10n.callSwitchCamera,
-          onPressed: controller.cameraEnabled ? () => unawaited(controller.switchCamera()) : null,
+          onPressed: controller.cameraEnabled
+              ? () => unawaited(controller.switchCamera())
+              : null,
         ),
       ],
     );
@@ -561,7 +573,9 @@ class _ParticipantTileState extends State<_ParticipantTile> {
       TrackSource.microphone,
     );
     final isMuted = micPub?.muted ?? true;
-    final name = widget.displayName.isEmpty ? participant.identity : widget.displayName;
+    final name = widget.displayName.isEmpty
+        ? participant.identity
+        : widget.displayName;
     final isHost = widget.isLocal && context.read<CallController>().isTeacher;
 
     return Stack(
@@ -633,16 +647,24 @@ class _CallControls extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           _RoundButton(
-            icon: controller.micEnabled ? CupertinoIcons.mic_fill : CupertinoIcons.mic_slash_fill,
+            icon: controller.micEnabled
+                ? CupertinoIcons.mic_fill
+                : CupertinoIcons.mic_slash_fill,
             active: controller.micEnabled,
-            tooltip: controller.micEnabled ? l10n.callTurnOffMic : l10n.callTurnOnMic,
+            tooltip: controller.micEnabled
+                ? l10n.callTurnOffMic
+                : l10n.callTurnOnMic,
             onPressed: () => unawaited(controller.toggleMic()),
           ),
           const SizedBox(width: 14),
           _RoundButton(
-            icon: controller.cameraEnabled ? CupertinoIcons.video_camera_solid : CupertinoIcons.video_camera,
+            icon: controller.cameraEnabled
+                ? CupertinoIcons.video_camera_solid
+                : CupertinoIcons.video_camera,
             active: controller.cameraEnabled,
-            tooltip: controller.cameraEnabled ? l10n.callTurnOffCamera : l10n.callTurnOnCamera,
+            tooltip: controller.cameraEnabled
+                ? l10n.callTurnOffCamera
+                : l10n.callTurnOnCamera,
             onPressed: () => unawaited(controller.toggleCamera()),
           ),
           const SizedBox(width: 14),
@@ -650,7 +672,9 @@ class _CallControls extends StatelessWidget {
             icon: CupertinoIcons.switch_camera,
             active: true,
             tooltip: l10n.callSwitchCamera,
-            onPressed: controller.cameraEnabled ? () => unawaited(controller.switchCamera()) : null,
+            onPressed: controller.cameraEnabled
+                ? () => unawaited(controller.switchCamera())
+                : null,
           ),
           const SizedBox(width: 14),
           Material(
@@ -767,7 +791,9 @@ class _EndedView extends StatelessWidget {
                         ),
                       ),
                       child: Text(
-                        reason == CallEndReason.left ? l10n.callRejoin : l10n.callTryAgain,
+                        reason == CallEndReason.left
+                            ? l10n.callRejoin
+                            : l10n.callTryAgain,
                       ),
                     ),
                   ],

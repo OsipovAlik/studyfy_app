@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:studify/core/theme/app_colors.dart';
 import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/core/widgets/glass_surface.dart';
 import 'package:studify/features/auth/domain/user_profile.dart';
 import 'package:studify/features/home/home_banner_controller.dart';
 import 'package:studify/features/home/widgets/banner_picture_sheet.dart';
@@ -23,9 +24,7 @@ class WelcomeBanner extends StatelessWidget {
     final theme = Theme.of(context);
     final isDark = theme.brightness == Brightness.dark;
     final foreground = isDark ? Colors.white : AppColors.indigo950;
-    final muted = isDark
-        ? Colors.white.withValues(alpha: 0.62)
-        : AppColors.stone700;
+    final muted = isDark ? Colors.white.withValues(alpha: 0.62) : AppColors.stone700;
     final bannerController = context.watch<HomeBannerController>();
     final imageUrl = bannerController.bannerImageUrl;
     final background = theme.colorScheme.surface;
@@ -37,9 +36,7 @@ class WelcomeBanner extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(AppTheme.cardRadius),
           border: Border.all(
-            color: isDark
-                ? Colors.white.withValues(alpha: 0.1)
-                : AppColors.indigo200,
+            color: isDark ? Colors.white.withValues(alpha: 0.1) : AppColors.indigo200,
           ),
         ),
         child: Stack(
@@ -49,36 +46,32 @@ class WelcomeBanner extends StatelessWidget {
                 child: CachedNetworkImage(
                   imageUrl: imageUrl,
                   fit: BoxFit.cover,
-                  alignment: Alignment.centerRight,
                 ),
               ),
-              // Keeps the picture's right side visible while the text
-              // on the left stays readable: a flat block, not a fade.
+              // A gradient scrim, not a flat block — the photo shows
+              // across the whole banner while the text on the left
+              // stays readable.
               Positioned.fill(
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: FractionallySizedBox(
-                    widthFactor: 0.65,
-                    heightFactor: 1,
-                    child: ColoredBox(color: background),
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [background, background.withValues(alpha: 0)],
+                      stops: const [0, 0.75],
+                    ),
                   ),
                 ),
               ),
             ] else ...[
               Positioned.fill(
                 child: SvgPicture.asset(
-                  isDark
-                      ? 'assets/svg/banner-default-dark.svg'
-                      : 'assets/svg/banner-default-light.svg',
+                  isDark ? 'assets/svg/banner-default-dark.svg' : 'assets/svg/banner-default-light.svg',
                   fit: BoxFit.cover,
                 ),
               ),
               // Fills the whole banner, however tall the text makes it.
               Positioned.fill(
                 child: ColoredBox(
-                  color: isDark
-                      ? Colors.black.withValues(alpha: 0.5)
-                      : Colors.white.withValues(alpha: 0.5),
+                  color: isDark ? Colors.black.withValues(alpha: 0.5) : Colors.white.withValues(alpha: 0.5),
                 ),
               ),
             ],
@@ -91,22 +84,21 @@ class WelcomeBanner extends StatelessWidget {
                   children: [
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Icon(
                           CupertinoIcons.paperplane,
                           size: 22,
-                          color: isDark
-                              ? AppColors.indigo300
-                              : AppColors.indigo600,
+                          color: isDark ? AppColors.indigo300 : AppColors.indigo600,
                         ),
                         const SizedBox(width: 14),
                         Expanded(
                           child: Text(
                             '${l10n.homeWelcome(user.name)} 👋',
+                            maxLines: 2,
                             style: theme.textTheme.headlineSmall?.copyWith(
                               color: foreground,
                               fontSize: 18,
+                              fontWeight: FontWeight.w800,
                             ),
                           ),
                         ),
@@ -122,11 +114,7 @@ class WelcomeBanner extends StatelessWidget {
                     ),
                     if (user.partnerName.isNotEmpty) ...[
                       const SizedBox(height: 14),
-                      _SchoolChip(
-                        name: user.partnerName,
-                        isDark: isDark,
-                        color: foreground,
-                      ),
+                      _SchoolChip(name: user.partnerName, color: foreground),
                     ],
                   ],
                 ),
@@ -141,7 +129,7 @@ class WelcomeBanner extends StatelessWidget {
                 top: 10,
                 right: 10,
                 child: _EditButton(
-                  isDark: isDark,
+                  color: foreground,
                   onTap: () => showBannerPictureSheet(
                     context,
                     controller: bannerController,
@@ -156,67 +144,53 @@ class WelcomeBanner extends StatelessWidget {
 }
 
 class _EditButton extends StatelessWidget {
-  const _EditButton({required this.isDark, required this.onTap});
+  const _EditButton({required this.color, required this.onTap});
 
-  final bool isDark;
+  final Color color;
   final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: isDark
-          ? Colors.black.withValues(alpha: 0.35)
-          : Colors.white.withValues(alpha: 0.75),
-      shape: const CircleBorder(),
-      child: InkWell(
-        customBorder: const CircleBorder(),
-        onTap: onTap,
-        child: Padding(
-          padding: const EdgeInsets.all(7),
-          child: Icon(
-            CupertinoIcons.camera,
-            size: 16,
-            color: isDark ? Colors.white : AppColors.indigo950,
+    final l10n = AppLocalizations.of(context);
+    return GlassSurface(
+      radius: 999,
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      onTap: onTap,
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(CupertinoIcons.pencil, size: 14, color: color),
+          const SizedBox(width: 6),
+          Text(
+            l10n.homeBannerDialogTitle,
+            style: Theme.of(
+              context,
+            ).textTheme.labelMedium?.copyWith(color: color),
           ),
-        ),
+        ],
       ),
     );
   }
 }
 
 class _SchoolChip extends StatelessWidget {
-  const _SchoolChip({
-    required this.name,
-    required this.isDark,
-    required this.color,
-  });
+  const _SchoolChip({required this.name, required this.color});
 
   final String name;
-  final bool isDark;
   final Color color;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    // Floats over a photo, not flat content — a real blur earns its
+    // keep here, unlike a card in a list.
+    return GlassSurface(
+      radius: 999,
       padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 7),
-      decoration: BoxDecoration(
-        color: isDark
-            ? Colors.white.withValues(alpha: 0.08)
-            : Colors.white.withValues(alpha: 0.75),
-        borderRadius: BorderRadius.circular(999),
-        border: Border.all(
-          color: isDark
-              ? Colors.white.withValues(alpha: 0.14)
-              : AppColors.indigo200,
-        ),
-      ),
       child: Text(
         name,
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
-        style: Theme.of(
-          context,
-        ).textTheme.labelLarge?.copyWith(color: color),
+        style: Theme.of(context).textTheme.labelLarge?.copyWith(color: color),
       ),
     );
   }

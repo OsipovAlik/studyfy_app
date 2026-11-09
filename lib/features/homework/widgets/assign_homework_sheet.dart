@@ -7,6 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:studify/core/network/api_exception.dart';
 import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/core/widgets/glass_surface.dart';
 import 'package:studify/features/auth/widgets/auth_widgets.dart';
 import 'package:studify/features/homework/data/homework_repository.dart';
 import 'package:studify/features/homework/homework_controller.dart';
@@ -22,9 +23,8 @@ Future<void> showAssignHomeworkSheet(
   BuildContext context, {
   required HomeworkController controller,
 }) {
-  return showModalBottomSheet<void>(
-    context: context,
-    useSafeArea: true,
+  return showGlassSheet<void>(
+    context,
     isScrollControlled: true,
     builder: (_) => _AssignHomeworkSheet(controller: controller),
   );
@@ -87,7 +87,8 @@ class _AssignHomeworkSheetState extends State<_AssignHomeworkSheet> {
     if (picked != null) {
       // Due by the end of that day.
       setState(
-        () => _dueDate = DateTime(picked.year, picked.month, picked.day, 23, 59),
+        () =>
+            _dueDate = DateTime(picked.year, picked.month, picked.day, 23, 59),
       );
     }
   }
@@ -148,7 +149,9 @@ class _AssignHomeworkSheetState extends State<_AssignHomeworkSheet> {
       if (!mounted) return;
       setState(() {
         _submitting = false;
-        _error = (error.isNetworkError || error.isServerError) ? l10n.homeworkServerUnavailable : error.message ?? l10n.homeworkAssignError;
+        _error = (error.isNetworkError || error.isServerError)
+            ? l10n.homeworkServerUnavailable
+            : error.message ?? l10n.homeworkAssignError;
       });
     }
   }
@@ -163,15 +166,7 @@ class _AssignHomeworkSheetState extends State<_AssignHomeworkSheet> {
     final subjects = context.watch<SubjectsController>();
     final subjectNameById = {for (final s in subjects.subjects) s.id: s.name};
 
-    InputDecoration decoration(String hint) => InputDecoration(
-      hintText: hint,
-      filled: true,
-      fillColor: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-        borderSide: BorderSide(color: scheme.outlineVariant),
-      ),
-    );
+    InputDecoration decoration(String hint) => InputDecoration(hintText: hint);
 
     return SafeArea(
       child: Padding(
@@ -209,7 +204,9 @@ class _AssignHomeworkSheetState extends State<_AssignHomeworkSheet> {
                         DropdownMenuItem(
                           value: test.id,
                           child: Text(
-                            subjectNameById[test.subjectId] != null ? '${test.title} — ${subjectNameById[test.subjectId]}' : test.title,
+                            subjectNameById[test.subjectId] != null
+                                ? '${test.title} — ${subjectNameById[test.subjectId]}'
+                                : test.title,
                             overflow: TextOverflow.ellipsis,
                           ),
                         ),
@@ -263,41 +260,37 @@ class _AssignHomeworkSheetState extends State<_AssignHomeworkSheet> {
               const SizedBox(height: 16),
               _FieldLabel(l10n.homeworkDueDateLabel),
               const SizedBox(height: 8),
-              InkWell(
-                borderRadius: BorderRadius.circular(AppTheme.cardRadius),
+              GlassSurface(
+                blurred: false,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 14,
+                  vertical: 14,
+                ),
                 onTap: _pickDueDate,
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 14,
-                    vertical: 14,
-                  ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-                    border: Border.all(color: scheme.outlineVariant),
-                  ),
-                  child: Row(
-                    children: [
-                      Icon(
-                        CupertinoIcons.calendar,
-                        size: 18,
-                        color: scheme.onSurfaceVariant,
+                child: Row(
+                  children: [
+                    Icon(
+                      CupertinoIcons.calendar,
+                      size: 18,
+                      color: scheme.onSurfaceVariant,
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Text(
+                        _dueDate == null
+                            ? l10n.homeworkNoDueDate
+                            : DateFormat.yMMMd(locale).format(_dueDate!),
                       ),
-                      const SizedBox(width: 10),
-                      Expanded(
-                        child: Text(
-                          _dueDate == null ? l10n.homeworkNoDueDate : DateFormat.yMMMd(locale).format(_dueDate!),
+                    ),
+                    if (_dueDate != null)
+                      IconButton(
+                        icon: const Icon(
+                          CupertinoIcons.xmark_circle_fill,
+                          size: 18,
                         ),
+                        onPressed: () => setState(() => _dueDate = null),
                       ),
-                      if (_dueDate != null)
-                        IconButton(
-                          icon: const Icon(
-                            CupertinoIcons.xmark_circle_fill,
-                            size: 18,
-                          ),
-                          onPressed: () => setState(() => _dueDate = null),
-                        ),
-                    ],
-                  ),
+                  ],
                 ),
               ),
               const SizedBox(height: 16),
@@ -312,70 +305,72 @@ class _AssignHomeworkSheetState extends State<_AssignHomeworkSheet> {
               if (timetable.groups.isEmpty && timetable.studentNames.isEmpty)
                 _Hint(l10n.homeworkNoStudentsHint)
               else
-                Container(
-                  constraints: const BoxConstraints(maxHeight: 240),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-                    border: Border.all(color: scheme.outlineVariant),
-                  ),
-                  child: ListView(
-                    shrinkWrap: true,
-                    padding: const EdgeInsets.symmetric(vertical: 4),
-                    children: [
-                      if (timetable.groups.isNotEmpty) ...[
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
-                          child: Text(
-                            l10n.homeworkGroupsLabel,
-                            style: theme.textTheme.labelSmall?.copyWith(
-                              color: scheme.onSurfaceVariant,
-                              fontWeight: FontWeight.w600,
+                GlassSurface(
+                  blurred: false,
+                  padding: EdgeInsets.zero,
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxHeight: 240),
+                    child: ListView(
+                      shrinkWrap: true,
+                      padding: const EdgeInsets.symmetric(vertical: 4),
+                      children: [
+                        if (timetable.groups.isNotEmpty) ...[
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
+                            child: Text(
+                              l10n.homeworkGroupsLabel,
+                              style: theme.textTheme.labelSmall?.copyWith(
+                                color: scheme.onSurfaceVariant,
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
                           ),
-                        ),
-                        for (final group in timetable.groups)
-                          CheckboxListTile(
-                            key: ValueKey('assign-homework-group-${group.id}'),
-                            dense: true,
-                            value: _groupIds.contains(group.id),
-                            title: Text(group.name),
-                            onChanged: (checked) => setState(() {
-                              if (checked ?? false) {
-                                _groupIds.add(group.id);
-                              } else {
-                                _groupIds.remove(group.id);
-                              }
-                            }),
+                          for (final group in timetable.groups)
+                            CheckboxListTile(
+                              key: ValueKey(
+                                'assign-homework-group-${group.id}',
+                              ),
+                              dense: true,
+                              value: _groupIds.contains(group.id),
+                              title: Text(group.name),
+                              onChanged: (checked) => setState(() {
+                                if (checked ?? false) {
+                                  _groupIds.add(group.id);
+                                } else {
+                                  _groupIds.remove(group.id);
+                                }
+                              }),
+                            ),
+                        ],
+                        if (timetable.studentNames.isNotEmpty) ...[
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
+                            child: Text(
+                              l10n.homeworkStudentsLabel,
+                              style: theme.textTheme.labelSmall?.copyWith(
+                                color: scheme.onSurfaceVariant,
+                              ),
+                            ),
                           ),
+                          for (final entry in timetable.studentNames.entries)
+                            CheckboxListTile(
+                              key: ValueKey(
+                                'assign-homework-student-${entry.key}',
+                              ),
+                              dense: true,
+                              value: _studentIds.contains(entry.key),
+                              title: Text(entry.value),
+                              onChanged: (checked) => setState(() {
+                                if (checked ?? false) {
+                                  _studentIds.add(entry.key);
+                                } else {
+                                  _studentIds.remove(entry.key);
+                                }
+                              }),
+                            ),
+                        ],
                       ],
-                      if (timetable.studentNames.isNotEmpty) ...[
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
-                          child: Text(
-                            l10n.homeworkStudentsLabel,
-                            style: theme.textTheme.labelSmall?.copyWith(
-                              color: scheme.onSurfaceVariant,
-                            ),
-                          ),
-                        ),
-                        for (final entry in timetable.studentNames.entries)
-                          CheckboxListTile(
-                            key: ValueKey(
-                              'assign-homework-student-${entry.key}',
-                            ),
-                            dense: true,
-                            value: _studentIds.contains(entry.key),
-                            title: Text(entry.value),
-                            onChanged: (checked) => setState(() {
-                              if (checked ?? false) {
-                                _studentIds.add(entry.key);
-                              } else {
-                                _studentIds.remove(entry.key);
-                              }
-                            }),
-                          ),
-                      ],
-                    ],
+                    ),
                   ),
                 ),
               if (_error case final error?) ...[
@@ -435,13 +430,10 @@ class _KindToggle extends StatelessWidget {
       );
     }
 
-    return Container(
+    return GlassSurface(
+      blurred: false,
+      radius: 999,
       padding: const EdgeInsets.all(4),
-      decoration: BoxDecoration(
-        color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(999),
-        border: Border.all(color: scheme.outlineVariant),
-      ),
       child: Row(
         children: [
           segment(_Kind.test, l10n.homeworkKindTest),

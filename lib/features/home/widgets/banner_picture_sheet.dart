@@ -8,6 +8,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:studify/core/network/api_exception.dart';
 import 'package:studify/core/theme/app_colors.dart';
 import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/core/widgets/glass_surface.dart';
 import 'package:studify/features/auth/widgets/auth_widgets.dart';
 import 'package:studify/features/home/home_banner_controller.dart';
 import 'package:studify/features/subjects/domain/subject.dart';
@@ -19,9 +20,8 @@ Future<void> showBannerPictureSheet(
   BuildContext context, {
   required HomeBannerController controller,
 }) {
-  return showModalBottomSheet<void>(
-    context: context,
-    useSafeArea: true,
+  return showGlassSheet<void>(
+    context,
     isScrollControlled: true,
     builder: (_) => _BannerPictureSheet(controller: controller),
   );
@@ -166,14 +166,7 @@ class _BannerPictureSheetState extends State<_BannerPictureSheet> {
     final tooSmall = size != null && (size.width < _minWidth || size.height < _minHeight);
     final tooTall = size != null && (size.width / size.height) < _minAspectRatio;
 
-    InputDecoration decoration() => InputDecoration(
-      filled: true,
-      fillColor: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-        borderSide: BorderSide(color: scheme.outlineVariant),
-      ),
-    );
+    InputDecoration decoration() => const InputDecoration();
 
     return SafeArea(
       child: Padding(
@@ -241,15 +234,8 @@ class _BannerPictureSheetState extends State<_BannerPictureSheet> {
                   imageUrl: _pickedBytes == null ? selected?.mainImageUrl : null,
                 ),
                 const SizedBox(height: 16),
-                Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.all(14),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-                    border: Border.all(
-                      color: scheme.outlineVariant,
-                    ),
-                  ),
+                GlassSurface(
+                  blurred: false,
                   child: Row(
                     children: [
                       Expanded(

@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:studify/core/network/api_exception.dart';
+import 'package:studify/core/widgets/glass_surface.dart';
 import 'package:studify/features/subjects/domain/subject.dart';
 import 'package:studify/features/subjects/subjects_controller.dart';
 import 'package:studify/features/subjects/widgets/subject_form_sheet.dart';
@@ -13,7 +14,11 @@ import 'package:studify/l10n/app_localizations.dart';
 /// status. A student just sees the row; a teacher can rename, activate
 /// or deactivate, and delete it from a menu.
 class SubjectRow extends StatelessWidget {
-  const SubjectRow({required this.subject, required this.controller, super.key});
+  const SubjectRow({
+    required this.subject,
+    required this.controller,
+    super.key,
+  });
 
   final Subject subject;
   final SubjectsController controller;
@@ -22,7 +27,7 @@ class SubjectRow extends StatelessWidget {
     final l10n = AppLocalizations.of(context);
     final confirmed = await showDialog<bool>(
       context: context,
-      builder: (dialogContext) => AlertDialog(
+      builder: (dialogContext) => GlassAlertDialog(
         title: Text(l10n.subjectsDeleteConfirmTitle(subject.name)),
         content: Text(l10n.subjectsDeleteConfirmDescription),
         actions: [

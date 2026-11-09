@@ -177,8 +177,7 @@ class _StudyfyAppState extends State<StudyfyApp> {
               darkTheme: AppTheme.dark,
               themeMode: themeController.mode,
               locale: localeController.locale,
-              // Armenian first: the fallback when the device language is
-              // not one of ours.
+
               supportedLocales: [
                 for (final language in LocaleController.languages)
                   Locale(language.code),

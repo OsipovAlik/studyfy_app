@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:studify/core/network/api_exception.dart';
+import 'package:studify/core/widgets/glass_surface.dart';
 import 'package:studify/features/students/domain/student.dart';
 import 'package:studify/features/students/students_controller.dart';
 import 'package:studify/l10n/app_localizations.dart';
@@ -79,7 +80,7 @@ class _DeleteStudentDialogState extends State<_DeleteStudentDialog> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final scheme = Theme.of(context).colorScheme;
-    return AlertDialog(
+    return GlassAlertDialog(
       title: Text(l10n.studentsDeleteConfirmTitle(widget.student.fullName)),
       content: Column(
         mainAxisSize: MainAxisSize.min,

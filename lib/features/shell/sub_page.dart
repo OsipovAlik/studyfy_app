@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:studify/core/widgets/glass_surface.dart';
 
 /// Page frame for a screen opened from a tab: a fixed back button, then
 /// a large title and scrolling content. Pass [onRefresh] to let the
@@ -37,10 +38,10 @@ class SubPage extends StatelessWidget {
             // Stays put while the content scrolls.
             Padding(
               padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
-              child: IconButton(
+              child: GlassIconButton(
+                icon: CupertinoIcons.back,
                 onPressed: () => context.pop(),
                 tooltip: MaterialLocalizations.of(context).backButtonTooltip,
-                icon: const Icon(CupertinoIcons.back),
               ),
             ),
             Expanded(

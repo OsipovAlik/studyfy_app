@@ -180,6 +180,7 @@ void main() {
       await tester.pumpWidget(app.widget);
       await settle(tester);
 
+      await tester.scrollUntilVisible(find.textContaining('Beginners A1'), 200);
       expect(find.textContaining('Beginners A1'), findsWidgets);
     });
   });

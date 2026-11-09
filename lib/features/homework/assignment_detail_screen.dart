@@ -9,6 +9,7 @@ import 'package:studify/core/network/api_exception.dart';
 import 'package:studify/core/router/app_router.dart';
 import 'package:studify/core/theme/app_colors.dart';
 import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/core/widgets/glass_surface.dart';
 import 'package:studify/features/auth/widgets/auth_widgets.dart';
 import 'package:studify/features/homework/domain/assignment.dart';
 import 'package:studify/features/homework/domain/homework_attachment.dart';
@@ -31,7 +32,9 @@ class AssignmentDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final controller = context.watch<HomeworkController>();
-    final assignment = controller.assignments.where((a) => a.id == assignmentId).firstOrNull;
+    final assignment = controller.assignments
+        .where((a) => a.id == assignmentId)
+        .firstOrNull;
 
     if (assignment == null) {
       return SubPage(
@@ -79,7 +82,7 @@ class _HeroHeader extends StatelessWidget {
     final l10n = AppLocalizations.of(context);
     final confirmed = await showDialog<bool>(
       context: context,
-      builder: (dialogContext) => AlertDialog(
+      builder: (dialogContext) => GlassAlertDialog(
         title: Text(l10n.homeworkDeleteConfirmTitle(assignment.title)),
         content: Text(l10n.homeworkDeleteConfirmDescription),
         actions: [
@@ -107,7 +110,9 @@ class _HeroHeader extends StatelessWidget {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            (error.isNetworkError || error.isServerError) ? l10n.homeworkServerUnavailable : error.message ?? l10n.homeworkDeleteError,
+            (error.isNetworkError || error.isServerError)
+                ? l10n.homeworkServerUnavailable
+                : error.message ?? l10n.homeworkDeleteError,
           ),
         ),
       );
@@ -125,13 +130,9 @@ class _HeroHeader extends StatelessWidget {
     final isTeacher = controller.isTeacher;
     final isTest = assignment.type == AssignmentType.test;
 
-    return Container(
+    return GlassSurface(
+      blurred: false,
       padding: const EdgeInsets.all(8),
-      decoration: BoxDecoration(
-        color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-        border: Border.all(color: scheme.outlineVariant),
-      ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -144,7 +145,9 @@ class _HeroHeader extends StatelessWidget {
               shape: BoxShape.circle,
             ),
             child: Icon(
-              isTest ? CupertinoIcons.doc_text_fill : CupertinoIcons.pencil_outline,
+              isTest
+                  ? CupertinoIcons.doc_text_fill
+                  : CupertinoIcons.pencil_outline,
               size: 20,
               color: scheme.primary,
             ),
@@ -160,7 +163,9 @@ class _HeroHeader extends StatelessWidget {
                   runSpacing: 8,
                   children: [
                     _Badge(
-                      label: isTest ? l10n.homeworkKindTest : l10n.homeworkKindTask,
+                      label: isTest
+                          ? l10n.homeworkKindTest
+                          : l10n.homeworkKindTask,
                       color: scheme.onSurfaceVariant,
                       background: scheme.surfaceContainerHigh,
                     ),
@@ -299,7 +304,13 @@ class _InitialsAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
-    final initials = name.trim().split(RegExp(r'\s+')).where((part) => part.isNotEmpty).take(2).map((part) => part[0].toUpperCase()).join();
+    final initials = name
+        .trim()
+        .split(RegExp(r'\s+'))
+        .where((part) => part.isNotEmpty)
+        .take(2)
+        .map((part) => part[0].toUpperCase())
+        .join();
 
     return Container(
       width: 26,
@@ -364,14 +375,8 @@ class _DetailsCard extends StatelessWidget {
         ),
     ];
 
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-        border: Border.all(color: scheme.outlineVariant),
-      ),
+    return GlassSurface(
+      blurred: false,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -463,36 +468,33 @@ class _SectionCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
-    return Container(
+    return SizedBox(
       width: double.infinity,
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-        border: Border.all(color: scheme.outlineVariant),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            children: [
-              Container(
-                width: 28,
-                height: 28,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: scheme.primary.withValues(alpha: 0.14),
-                  shape: BoxShape.circle,
+      child: GlassSurface(
+        blurred: false,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              children: [
+                Container(
+                  width: 28,
+                  height: 28,
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    color: scheme.primary.withValues(alpha: 0.14),
+                    shape: BoxShape.circle,
+                  ),
+                  child: Icon(icon, size: 14, color: scheme.primary),
                 ),
-                child: Icon(icon, size: 14, color: scheme.primary),
-              ),
-              const SizedBox(width: 8),
-              Text(title, style: theme.textTheme.labelLarge),
-            ],
-          ),
-          const SizedBox(height: 10),
-          child,
-        ],
+                const SizedBox(width: 8),
+                Text(title, style: theme.textTheme.labelLarge),
+              ],
+            ),
+            const SizedBox(height: 10),
+            child,
+          ],
+        ),
       ),
     );
   }
@@ -508,13 +510,9 @@ class _NoteCard extends StatelessWidget {
     final l10n = AppLocalizations.of(context);
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
-    return Container(
+    return GlassSurface(
+      blurred: false,
       padding: const EdgeInsets.all(14),
-      decoration: BoxDecoration(
-        color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-        border: Border.all(color: scheme.outlineVariant),
-      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -560,34 +558,34 @@ class _TestSection extends StatelessWidget {
               ),
             ),
           ),
-        if (assignment.status == AssignmentStatus.completed && percentage != null) ...[
-          Container(
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-              borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-              border: Border.all(color: scheme.outlineVariant),
-            ),
-            child: Row(
-              children: [
-                Text(
-                  '${percentage.round()}%',
-                  style: theme.textTheme.headlineSmall,
-                ),
-                const SizedBox(width: 12),
-                Text(
-                  '${assignment.score} / ${assignment.total}',
-                  style: theme.textTheme.bodyMedium?.copyWith(
-                    color: scheme.onSurfaceVariant,
+        if (assignment.status == AssignmentStatus.completed &&
+            percentage != null) ...[
+          SizedBox(
+            width: double.infinity,
+            child: GlassSurface(
+              blurred: false,
+              child: Row(
+                children: [
+                  Text(
+                    '${percentage.round()}%',
+                    style: theme.textTheme.headlineSmall,
                   ),
-                ),
-                const Spacer(),
-                if (resultId != null)
-                  TextButton(
-                    onPressed: () => context.push('${AppRoutes.results}/$resultId'),
-                    child: Text(l10n.homeworkViewResult),
+                  const SizedBox(width: 12),
+                  Text(
+                    '${assignment.score} / ${assignment.total}',
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      color: scheme.onSurfaceVariant,
+                    ),
                   ),
-              ],
+                  const Spacer(),
+                  if (resultId != null)
+                    TextButton(
+                      onPressed: () =>
+                          context.push('${AppRoutes.results}/$resultId'),
+                      child: Text(l10n.homeworkViewResult),
+                    ),
+                ],
+              ),
             ),
           ),
         ] else if (isTeacher) ...[
@@ -719,15 +717,13 @@ class _SubmissionReview extends StatelessWidget {
             ),
           )
         else
-          Container(
+          SizedBox(
             width: double.infinity,
-            padding: const EdgeInsets.all(14),
-            decoration: BoxDecoration(
-              color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-              borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-              border: Border.all(color: scheme.outlineVariant),
+            child: GlassSurface(
+              blurred: false,
+              padding: const EdgeInsets.all(14),
+              child: Text(text, style: theme.textTheme.bodyMedium),
             ),
-            child: Text(text, style: theme.textTheme.bodyMedium),
           ),
         if (text != null && text.isNotEmpty && !assignment.isGraded) ...[
           const SizedBox(height: 10),
@@ -802,7 +798,9 @@ class _SubmissionFormState extends State<_SubmissionForm> {
     } on ApiException catch (error) {
       if (!mounted) return;
       setState(
-        () => _error = (error.isNetworkError || error.isServerError) ? l10n.homeworkServerUnavailable : error.message ?? l10n.homeworkSubmitError,
+        () => _error = (error.isNetworkError || error.isServerError)
+            ? l10n.homeworkServerUnavailable
+            : error.message ?? l10n.homeworkSubmitError,
       );
     } finally {
       if (mounted) setState(() => _submitting = false);
@@ -825,15 +823,7 @@ class _SubmissionFormState extends State<_SubmissionForm> {
           controller: _text,
           maxLines: 4,
           enabled: !isGraded,
-          decoration: InputDecoration(
-            hintText: l10n.homeworkSubmissionHint,
-            filled: true,
-            fillColor: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-              borderSide: BorderSide(color: scheme.outlineVariant),
-            ),
-          ),
+          decoration: InputDecoration(hintText: l10n.homeworkSubmissionHint),
         ),
         if (_error case final error?) ...[
           const SizedBox(height: 8),
@@ -845,9 +835,10 @@ class _SubmissionFormState extends State<_SubmissionForm> {
             width: double.infinity,
             child: BusyButton(
               label:
-                  widget.assignment.submissionText == null || widget.assignment.submissionText!.isEmpty
-                      ? l10n.homeworkSubmitButton
-                      : l10n.homeworkResubmitButton,
+                  widget.assignment.submissionText == null ||
+                      widget.assignment.submissionText!.isEmpty
+                  ? l10n.homeworkSubmitButton
+                  : l10n.homeworkResubmitButton,
               busy: _submitting,
               showArrow: true,
               onPressed: () => unawaited(_submit()),
@@ -874,7 +865,9 @@ class _GradeCard extends StatelessWidget {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            (error.isNetworkError || error.isServerError) ? l10n.homeworkServerUnavailable : error.message ?? l10n.homeworkUnlockError,
+            (error.isNetworkError || error.isServerError)
+                ? l10n.homeworkServerUnavailable
+                : error.message ?? l10n.homeworkUnlockError,
           ),
         ),
       );
@@ -913,7 +906,8 @@ class _GradeCard extends StatelessWidget {
                 ),
             ],
           ),
-          if (assignment.feedback case final feedback? when feedback.isNotEmpty) ...[
+          if (assignment.feedback case final feedback?
+              when feedback.isNotEmpty) ...[
             const SizedBox(height: 6),
             Text(feedback, style: theme.textTheme.bodyMedium),
           ],

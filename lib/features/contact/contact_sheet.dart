@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:studify/core/network/api_exception.dart';
 import 'package:studify/core/theme/app_colors.dart';
+import 'package:studify/core/widgets/glass_surface.dart';
 import 'package:studify/features/auth/widgets/auth_widgets.dart';
 import 'package:studify/features/contact/contact_repository.dart';
 import 'package:studify/l10n/app_localizations.dart';
@@ -10,10 +11,9 @@ import 'package:studify/l10n/app_localizations.dart';
 /// Opens the "Registration" form: a school leaves an email and phone
 /// number and the Studyfy team gets back to them.
 Future<void> showContactSheet(BuildContext context) {
-  return showModalBottomSheet<void>(
-    context: context,
+  return showGlassSheet<void>(
+    context,
     isScrollControlled: true,
-    useSafeArea: true,
     builder: (_) => const ContactSheet(),
   );
 }

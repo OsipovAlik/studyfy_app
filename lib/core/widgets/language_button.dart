@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:studify/core/l10n/locale_controller.dart';
 import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/core/widgets/glass_surface.dart';
 import 'package:studify/l10n/app_localizations.dart';
 
 /// Compact language switcher: shows the current language code and opens
@@ -27,32 +28,25 @@ class LanguageButton extends StatelessWidget {
     return Semantics(
       button: true,
       label: AppLocalizations.of(context).languageLabel,
-      child: Material(
-        color: theme.colorScheme.surfaceContainerLowest,
-        shape: StadiumBorder(
-          side: BorderSide(color: theme.colorScheme.outlineVariant),
-        ),
-        child: InkWell(
-          customBorder: const StadiumBorder(),
-          onTap: () => _showPicker(context),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Icon(
-                  CupertinoIcons.globe,
-                  size: 18,
-                  color: theme.colorScheme.onSurfaceVariant,
-                ),
-                const SizedBox(width: 6),
-                Text(
-                  _shortLabels[code] ?? code.toUpperCase(),
-                  style: theme.textTheme.labelLarge,
-                ),
-              ],
+      child: GlassSurface(
+        blurred: false,
+        radius: 999,
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        onTap: () => _showPicker(context),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(
+              CupertinoIcons.globe,
+              size: 18,
+              color: theme.colorScheme.onSurfaceVariant,
             ),
-          ),
+            const SizedBox(width: 6),
+            Text(
+              _shortLabels[code] ?? code.toUpperCase(),
+              style: theme.textTheme.labelLarge,
+            ),
+          ],
         ),
       ),
     );
@@ -62,9 +56,8 @@ class LanguageButton extends StatelessWidget {
     final current = Localizations.localeOf(context).languageCode;
     final controller = context.read<LocaleController>();
 
-    return showModalBottomSheet<void>(
-      context: context,
-      useSafeArea: true,
+    return showGlassSheet<void>(
+      context,
       builder: (sheetContext) {
         final theme = Theme.of(sheetContext);
         return Padding(
@@ -82,7 +75,7 @@ class LanguageButton extends StatelessWidget {
               ),
               for (final language in LocaleController.languages)
                 ListTile(
-                  shape: RoundedRectangleBorder(
+                  shape: ContinuousRectangleBorder(
                     borderRadius: BorderRadius.circular(AppTheme.cardRadius),
                   ),
                   selected: language.code == current,

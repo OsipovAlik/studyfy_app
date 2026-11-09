@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:studify/core/network/api_exception.dart';
 import 'package:studify/core/theme/app_colors.dart';
-import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/core/widgets/glass_surface.dart';
 import 'package:studify/features/results/data/results_repository.dart';
 import 'package:studify/features/results/domain/question.dart';
 import 'package:studify/features/results/domain/result.dart';
@@ -150,13 +150,8 @@ class _SummaryHeader extends StatelessWidget {
       if (result.timeTakenSeconds case final seconds?) _formatDuration(seconds),
     ].join(' · ');
 
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-        border: Border.all(color: scheme.outlineVariant),
-      ),
+    return GlassSurface(
+      blurred: false,
       child: Row(
         children: [
           Container(
@@ -222,13 +217,9 @@ class _AnswerCard extends StatelessWidget {
     final color = answer.isCorrect ? AppColors.emerald500 : AppColors.red500;
     final rightAnswer = answer.rightAnswer;
 
-    return Container(
+    return GlassSurface(
+      blurred: false,
       padding: const EdgeInsets.all(14),
-      decoration: BoxDecoration(
-        color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-        border: Border.all(color: scheme.outlineVariant),
-      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

@@ -6,7 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:studify/core/router/app_router.dart';
 import 'package:studify/core/theme/app_colors.dart';
-import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/core/widgets/glass_surface.dart';
 import 'package:studify/core/widgets/grouped_list.dart';
 import 'package:studify/features/auth/auth_controller.dart';
 import 'package:studify/features/auth/domain/user_profile.dart';
@@ -22,7 +22,7 @@ class ProfileScreen extends StatelessWidget {
     final auth = context.read<AuthController>();
     final confirmed = await showDialog<bool>(
       context: context,
-      builder: (dialogContext) => AlertDialog(
+      builder: (dialogContext) => GlassAlertDialog(
         title: Text(l10n.logoutConfirmTitle),
         content: Text(l10n.logoutConfirmDescription),
         actions: [
@@ -113,9 +113,9 @@ class ProfileScreen extends StatelessWidget {
                   OutlinedButton.icon(
                     onPressed: () => _confirmSignOut(context),
                     style: OutlinedButton.styleFrom(
-                      foregroundColor: scheme.error,
+                      foregroundColor: Colors.black,
                       side: BorderSide(
-                        color: scheme.error.withValues(alpha: 0.4),
+                        color: Colors.black.withValues(alpha: 0.4),
                       ),
                     ),
                     icon: const Icon(CupertinoIcons.square_arrow_right),
@@ -138,16 +138,7 @@ class _Card extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-        border: Border.all(color: scheme.outlineVariant),
-      ),
-      child: child,
-    );
+    return GlassSurface(blurred: false, child: child);
   }
 }
 
@@ -158,10 +149,7 @@ class _Avatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final initials = [user.name, user.surname]
-        .where((part) => part.isNotEmpty)
-        .map((part) => part.characters.first.toUpperCase())
-        .join();
+    final initials = [user.name, user.surname].where((part) => part.isNotEmpty).map((part) => part.characters.first.toUpperCase()).join();
     return Container(
       width: 56,
       height: 56,

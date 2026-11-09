@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:studify/core/theme/app_colors.dart';
-import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/core/widgets/glass_surface.dart';
 import 'package:studify/features/sessions/widgets/picker_pill.dart';
 import 'package:studify/features/students/domain/student.dart';
 import 'package:studify/features/students/students_controller.dart';
@@ -58,12 +58,19 @@ class _StudentsScreenState extends State<StudentsScreen> {
                   const SizedBox(height: 18),
                   PickerPill<int?>(
                     value: controller.subjectFilter,
-                    label: controller.subjects.where((s) => s.id == controller.subjectFilter).firstOrNull?.name ?? l10n.studentsFilterAll,
+                    label:
+                        controller.subjects
+                            .where((s) => s.id == controller.subjectFilter)
+                            .firstOrNull
+                            ?.name ??
+                        l10n.studentsFilterAll,
                     options: [
                       (value: null, label: l10n.studentsFilterAll),
-                      for (final subject in controller.subjects) (value: subject.id, label: subject.name),
+                      for (final subject in controller.subjects)
+                        (value: subject.id, label: subject.name),
                     ],
-                    onChanged: (id) => unawaited(controller.setSubjectFilter(id)),
+                    onChanged: (id) =>
+                        unawaited(controller.setSubjectFilter(id)),
                   ),
                   const SizedBox(height: 12),
                   SizedBox(
@@ -119,15 +126,10 @@ class _StudentList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final scheme = theme.colorScheme;
-    return Container(
+    final scheme = Theme.of(context).colorScheme;
+    return GlassSurface(
+      blurred: false,
       padding: const EdgeInsets.symmetric(horizontal: 6),
-      decoration: BoxDecoration(
-        color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-        border: Border.all(color: scheme.outlineVariant),
-      ),
       child: Column(
         children: [
           for (var i = 0; i < students.length; i++) ...[
@@ -178,10 +180,14 @@ class _Avatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final initials = [
-      student.name,
-      student.surname,
-    ].where((part) => part.isNotEmpty).map((part) => part.characters.first.toUpperCase()).join();
+    final initials =
+        [
+              student.name,
+              student.surname,
+            ]
+            .where((part) => part.isNotEmpty)
+            .map((part) => part.characters.first.toUpperCase())
+            .join();
     return Container(
       width: 38,
       height: 38,

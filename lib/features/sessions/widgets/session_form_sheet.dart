@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:studify/core/network/api_exception.dart';
 import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/core/widgets/glass_surface.dart';
 import 'package:studify/features/auth/widgets/auth_widgets.dart';
 import 'package:studify/features/sessions/data/sessions_repository.dart';
 import 'package:studify/features/sessions/domain/class_session.dart';
@@ -19,9 +20,8 @@ Future<void> showSessionFormSheet(
   required TimetableController controller,
   ClassSession? editing,
 }) {
-  return showModalBottomSheet<void>(
-    context: context,
-    useSafeArea: true,
+  return showGlassSheet<void>(
+    context,
     isScrollControlled: true,
     builder: (_) => _SessionFormSheet(controller: controller, editing: editing),
   );
@@ -223,38 +223,28 @@ class _SessionFormSheetState extends State<_SessionFormSheet> {
                 onChanged: (day) => setState(() => _day = day),
               ),
               const SizedBox(height: 16),
-              Material(
+              GlassSurface(
                 key: const ValueKey('session-form-time'),
-                color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-                borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-                child: InkWell(
-                  borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-                  onTap: _pickTime,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 14,
-                      vertical: 12,
+                blurred: false,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 14,
+                  vertical: 12,
+                ),
+                onTap: _pickTime,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        _time?.format(context) ?? l10n.sessionsTimeLabel,
+                        style: theme.textTheme.bodyMedium,
+                      ),
                     ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-                      border: Border.all(color: scheme.outlineVariant),
+                    Icon(
+                      CupertinoIcons.clock,
+                      size: 16,
+                      color: scheme.onSurfaceVariant,
                     ),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            _time?.format(context) ?? l10n.sessionsTimeLabel,
-                            style: theme.textTheme.bodyMedium,
-                          ),
-                        ),
-                        Icon(
-                          CupertinoIcons.clock,
-                          size: 16,
-                          color: scheme.onSurfaceVariant,
-                        ),
-                      ],
-                    ),
-                  ),
+                  ],
                 ),
               ),
               if (_error case final error?) ...[
@@ -314,13 +304,10 @@ class _TypeToggle extends StatelessWidget {
       );
     }
 
-    return Container(
+    return GlassSurface(
+      blurred: false,
+      radius: 999,
       padding: const EdgeInsets.all(4),
-      decoration: BoxDecoration(
-        color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(999),
-        border: Border.all(color: scheme.outlineVariant),
-      ),
       child: Row(
         children: [
           segment(SessionType.group, l10n.sessionTypeGroup),

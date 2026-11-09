@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:studify/core/network/api_exception.dart';
-import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/core/widgets/glass_surface.dart';
 import 'package:studify/features/auth/widgets/auth_widgets.dart';
 import 'package:studify/features/subjects/domain/test.dart';
 import 'package:studify/features/subjects/subject_detail_controller.dart';
@@ -14,9 +14,8 @@ Future<void> showTestFormSheet(
   required SubjectDetailController controller,
   Test? editing,
 }) {
-  return showModalBottomSheet<void>(
-    context: context,
-    useSafeArea: true,
+  return showGlassSheet<void>(
+    context,
     isScrollControlled: true,
     builder: (_) => _TestFormSheet(controller: controller, editing: editing),
   );
@@ -102,15 +101,7 @@ class _TestFormSheetState extends State<_TestFormSheet> {
     final theme = Theme.of(context);
     final scheme = theme.colorScheme;
 
-    InputDecoration decoration(String hint) => InputDecoration(
-      hintText: hint,
-      filled: true,
-      fillColor: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-        borderSide: BorderSide(color: scheme.outlineVariant),
-      ),
-    );
+    InputDecoration decoration(String hint) => InputDecoration(hintText: hint);
 
     return SafeArea(
       child: Padding(

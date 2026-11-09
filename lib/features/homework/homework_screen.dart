@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/core/widgets/glass_surface.dart';
 import 'package:studify/features/homework/domain/assignment.dart';
 import 'package:studify/features/homework/homework_controller.dart';
 import 'package:studify/features/homework/widgets/assign_homework_sheet.dart';
@@ -190,18 +191,11 @@ class _SearchField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    final scheme = Theme.of(context).colorScheme;
     return TextField(
       controller: controller,
       decoration: InputDecoration(
         hintText: l10n.homeworkSearchHint,
         prefixIcon: const Icon(CupertinoIcons.search, size: 20),
-        filled: true,
-        fillColor: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-          borderSide: BorderSide(color: scheme.outlineVariant),
-        ),
       ),
     );
   }
@@ -273,13 +267,9 @@ class _StatusGrid extends StatelessWidget {
       );
     }
 
-    return Container(
+    return GlassSurface(
+      blurred: false,
       padding: const EdgeInsets.all(4),
-      decoration: BoxDecoration(
-        color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-        border: Border.all(color: scheme.outlineVariant),
-      ),
       child: Column(
         children: [
           Row(
@@ -345,15 +335,10 @@ class _HomeworkList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final scheme = theme.colorScheme;
-    return Container(
+    final scheme = Theme.of(context).colorScheme;
+    return GlassSurface(
+      blurred: false,
       padding: const EdgeInsets.symmetric(horizontal: 6),
-      decoration: BoxDecoration(
-        color: scheme.surfaceContainerLowest.withValues(alpha: 0.92),
-        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-        border: Border.all(color: scheme.outlineVariant),
-      ),
       child: Column(
         children: [
           for (var i = 0; i < assignments.length; i++) ...[
@@ -428,15 +413,10 @@ class DottedBorderBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
-    return Container(
-      width: double.infinity,
+    return GlassSurface(
+      blurred: false,
       padding: const EdgeInsets.symmetric(vertical: 36, horizontal: 20),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-        border: Border.all(color: scheme.outlineVariant),
-      ),
-      child: child,
+      child: SizedBox(width: double.infinity, child: child),
     );
   }
 }

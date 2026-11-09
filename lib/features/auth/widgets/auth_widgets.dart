@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:studify/core/theme/app_colors.dart';
-import 'package:studify/core/theme/app_theme.dart';
+import 'package:studify/core/widgets/glass_surface.dart';
 import 'package:studify/core/widgets/language_button.dart';
 import 'package:studify/core/widgets/studyfy_logo.dart';
 import 'package:studify/l10n/app_localizations.dart';
@@ -102,14 +102,9 @@ class AuthCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
-    return Container(
+    return GlassSurface(
+      blurred: false,
       padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: scheme.surfaceContainerLowest,
-        borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-        border: Border.all(color: scheme.outlineVariant),
-      ),
       child: child,
     );
   }
@@ -207,13 +202,10 @@ class NoticeBanner extends StatelessWidget {
 
     return Semantics(
       liveRegion: true,
-      child: Container(
+      child: GlassSurface(
+        blurred: false,
+        tintOpacity: 0.12,
         padding: const EdgeInsets.all(14),
-        decoration: BoxDecoration(
-          color: color.withValues(alpha: 0.1),
-          borderRadius: BorderRadius.circular(AppTheme.cardRadius),
-          border: Border.all(color: color.withValues(alpha: 0.35)),
-        ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
