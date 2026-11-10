@@ -45,22 +45,25 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       // The bottom safe area includes the floating tab bar.
-      body: RefreshIndicator(
-        onRefresh: _refresh,
-        child: ListView(
-          padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
-          physics: const AlwaysScrollableScrollPhysics(),
-          children: [
-            WelcomeBanner(user: user),
-            const SizedBox(height: 16),
-            const QuickActionsRow(),
-            const SizedBox(height: 16),
-            const HomeStatsGrid(),
-            const WeeklyTimetableCard(),
-            const SizedBox(height: 16),
-            const WeeklyActivityCard(),
-            const SizedBox(height: 70),
-          ],
+      body: SafeArea(
+        bottom: false,
+        child: RefreshIndicator(
+          onRefresh: _refresh,
+          child: ListView(
+            padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
+            physics: const AlwaysScrollableScrollPhysics(),
+            children: [
+              WelcomeBanner(user: user),
+              const SizedBox(height: 16),
+              const QuickActionsRow(),
+              const SizedBox(height: 16),
+              const HomeStatsGrid(),
+              const WeeklyTimetableCard(),
+              const SizedBox(height: 16),
+              const WeeklyActivityCard(),
+              const SizedBox(height: 70),
+            ],
+          ),
         ),
       ),
     );

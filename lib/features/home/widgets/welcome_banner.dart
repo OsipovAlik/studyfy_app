@@ -151,24 +151,11 @@ class _EditButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
     return GlassSurface(
-      radius: 999,
+      radius: 200,
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       onTap: onTap,
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(CupertinoIcons.pencil, size: 14, color: color),
-          const SizedBox(width: 6),
-          Text(
-            l10n.homeBannerDialogTitle,
-            style: Theme.of(
-              context,
-            ).textTheme.labelMedium?.copyWith(color: color),
-          ),
-        ],
-      ),
+      child: Icon(CupertinoIcons.pencil, size: 14, color: color),
     );
   }
 }

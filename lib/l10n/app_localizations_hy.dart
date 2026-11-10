@@ -361,6 +361,16 @@ class AppLocalizationsHy extends AppLocalizations {
       'Հաշիվ նորից մտնելու համար անհրաժեշտ կլինի կրկին մուտք գործել։';
 
   @override
+  String get deleteAccount => 'Ջնջել հաշիվը';
+
+  @override
+  String get deleteAccountConfirmTitle => 'Ջնջե՞լ ձեր հաշիվը։';
+
+  @override
+  String get deleteAccountConfirmDescription =>
+      'Սա ձեզ դուրս կբերի Studyfy-ից։';
+
+  @override
   String get cancel => 'Չեղարկել';
 
   @override

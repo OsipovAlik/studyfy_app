@@ -367,6 +367,16 @@ class AppLocalizationsFr extends AppLocalizations {
       'Vous devrez vous reconnecter pour accéder à votre compte.';
 
   @override
+  String get deleteAccount => 'Supprimer le compte';
+
+  @override
+  String get deleteAccountConfirmTitle => 'Supprimer votre compte ?';
+
+  @override
+  String get deleteAccountConfirmDescription =>
+      'Cela vous déconnectera de Studyfy.';
+
+  @override
   String get cancel => 'Annuler';
 
   @override

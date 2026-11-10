@@ -50,8 +50,7 @@ class GroupedSection extends StatelessWidget {
   }
 }
 
-/// A row of a [GroupedSection]: a tinted icon, a label, and a chevron
-/// (or a checkmark when [selected] is set).
+
 class GroupedTile extends StatelessWidget {
   const GroupedTile({
     required this.icon,
@@ -65,12 +64,7 @@ class GroupedTile extends StatelessWidget {
   final IconData icon;
   final String label;
   final VoidCallback onTap;
-
-  /// The icon's tint; the primary color by default.
   final Color? color;
-
-  /// `null` for a row that opens a page; otherwise whether this option
-  /// is the chosen one.
   final bool? selected;
 
   @override

@@ -72,8 +72,8 @@ class MainShell extends StatelessWidget {
     _Tab(
       branchIndex: 3,
       label: l10n.tabStudents,
-      icon: CupertinoIcons.person_3,
-      selectedIcon: CupertinoIcons.person_3_fill,
+      icon: CupertinoIcons.person_2,
+      selectedIcon: CupertinoIcons.person_2_fill,
       sfSymbol: 'person.3.fill',
     ),
     _Tab(
@@ -133,8 +133,7 @@ class MainShell extends StatelessWidget {
         top: false,
         child: CNTabBar(
           items: [
-            for (final tab in tabs)
-              CNTabBarItem(label: tab.label, icon: CNSymbol(tab.sfSymbol)),
+            for (final tab in tabs) CNTabBarItem(label: tab.label, icon: CNSymbol(tab.sfSymbol)),
           ],
           currentIndex: selectedPosition,
           tint: Theme.of(context).colorScheme.primary,

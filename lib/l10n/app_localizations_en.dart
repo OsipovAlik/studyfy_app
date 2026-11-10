@@ -358,6 +358,16 @@ class AppLocalizationsEn extends AppLocalizations {
       'You\'ll need to sign in again to access your account.';
 
   @override
+  String get deleteAccount => 'Delete account';
+
+  @override
+  String get deleteAccountConfirmTitle => 'Delete your account?';
+
+  @override
+  String get deleteAccountConfirmDescription =>
+      'This will sign you out of Studyfy.';
+
+  @override
   String get cancel => 'Cancel';
 
   @override

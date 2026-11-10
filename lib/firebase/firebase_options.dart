@@ -52,7 +52,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyDEPmxDPbr94dJO4v01NgNchcwcKkr0Lq0',
-    appId: '1:3013504298:android:3397a973351e996e274253',
+    appId: '1:3013504298:android:f37783b5982c654f274253',
     messagingSenderId: '3013504298',
     projectId: 'studyfy-app-477d5',
     storageBucket: 'studyfy-app-477d5.firebasestorage.app',
@@ -60,11 +60,11 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyDpZej_NoeisgV-2tAQjPRnQzjyJlmrmjQ',
-    appId: '1:3013504298:ios:e6f34bd6536fd755274253',
+    appId: '1:3013504298:ios:4dd21e2749ae6501274253',
     messagingSenderId: '3013504298',
     projectId: 'studyfy-app-477d5',
     storageBucket: 'studyfy-app-477d5.firebasestorage.app',
-    iosBundleId: 'com.example.studify',
+    iosBundleId: 'am.studyfy.com',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(

@@ -360,6 +360,16 @@ class AppLocalizationsRu extends AppLocalizations {
       'Чтобы снова попасть в аккаунт, нужно будет войти ещё раз.';
 
   @override
+  String get deleteAccount => 'Удалить аккаунт';
+
+  @override
+  String get deleteAccountConfirmTitle => 'Удалить аккаунт?';
+
+  @override
+  String get deleteAccountConfirmDescription =>
+      'Это приведёт к выходу из Studyfy.';
+
+  @override
   String get cancel => 'Отмена';
 
   @override

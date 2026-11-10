@@ -107,19 +107,13 @@ class ProfileScreen extends StatelessWidget {
                         label: l10n.termsOfUse,
                         onTap: () => context.go(AppRoutes.termsOfUse),
                       ),
-                    ],
-                  ),
-                  const SizedBox(height: 24),
-                  OutlinedButton.icon(
-                    onPressed: () => _confirmSignOut(context),
-                    style: OutlinedButton.styleFrom(
-                      foregroundColor: Colors.black,
-                      side: BorderSide(
-                        color: Colors.black.withValues(alpha: 0.4),
+                      GroupedTile(
+                        icon: CupertinoIcons.power,
+                        color: Colors.red,
+                        label: l10n.logout,
+                        onTap: () => _confirmSignOut(context),
                       ),
-                    ),
-                    icon: const Icon(CupertinoIcons.square_arrow_right),
-                    label: Text(l10n.logout),
+                    ],
                   ),
                 ],
               ),

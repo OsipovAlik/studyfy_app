@@ -17,10 +17,6 @@ class GlassNavDestination {
   final IconData selectedIcon;
 }
 
-/// A floating, real Liquid Glass bottom bar (`liquid_glass_widgets`'s
-/// [GlassTabBar], styled `ios27`) — the Android/desktop counterpart of
-/// the native iOS tab bar, now built on the same refraction/blur glass
-/// rendering instead of a flat `BackdropFilter` approximation.
 class GlassNavBar extends StatelessWidget {
   const GlassNavBar({
     required this.destinations,
@@ -29,10 +25,7 @@ class GlassNavBar extends StatelessWidget {
     super.key,
   });
 
-  /// Height of the bar itself, without the space around it.
-  static const barHeight = 64.0;
-
-  /// Gap between the bar and the bottom of the safe area.
+  static const barHeight = 50.0;
   static const bottomGap = 0.0;
 
   final List<GlassNavDestination> destinations;
@@ -49,7 +42,7 @@ class GlassNavBar extends StatelessWidget {
       child: Center(
         heightFactor: 1,
         child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 520),
+          constraints: const BoxConstraints(maxWidth: 600),
           child: GlassTabBar.bottom(
             selectedIndex: selectedIndex,
             onTabSelected: (index) {
@@ -66,10 +59,8 @@ class GlassNavBar extends StatelessWidget {
             tabs: [
               for (final destination in destinations)
                 GlassTab(
-                  icon: Icon(destination.icon, size: 22),
-                  activeIcon: Icon(destination.selectedIcon, size: 22),
-                  label: destination.label,
-                  semanticLabel: destination.label,
+                  icon: Icon(destination.icon, size: 18),
+                  activeIcon: Icon(destination.selectedIcon, size: 18),
                 ),
             ],
           ),

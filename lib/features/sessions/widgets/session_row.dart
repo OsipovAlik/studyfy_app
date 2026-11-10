@@ -129,9 +129,7 @@ class SessionRow extends StatelessWidget {
                     color: scheme.onSurfaceVariant,
                   ),
                   onSelected: (action) {
-                    // Wait a frame: opening another route (the form
-                    // sheet, the confirm dialog) in the same callback
-                    // that closes this menu races its own pop animation.
+                   
                     unawaited(
                       Future<void>.delayed(Duration.zero).then((_) {
                         if (!context.mounted) return Future<void>.value();
@@ -185,7 +183,7 @@ class _TypeTag extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
       decoration: BoxDecoration(
-        color: scheme.surfaceContainerHigh,
+        color: Colors.transparent,
         borderRadius: BorderRadius.circular(999),
       ),
       child: Row(
@@ -193,7 +191,7 @@ class _TypeTag extends StatelessWidget {
         children: [
           Icon(
             session.type == SessionType.group ? CupertinoIcons.person_2_fill : CupertinoIcons.calendar,
-            size: 11,
+            size: 10,
             color: scheme.onSurfaceVariant,
           ),
           const SizedBox(width: 4),
@@ -201,7 +199,7 @@ class _TypeTag extends StatelessWidget {
             session.type.label(l10n),
             style: Theme.of(
               context,
-            ).textTheme.labelSmall?.copyWith(color: scheme.onSurfaceVariant),
+            ).textTheme.labelSmall?.copyWith(color: scheme.onSurfaceVariant, fontSize: 8),
           ),
         ],
       ),

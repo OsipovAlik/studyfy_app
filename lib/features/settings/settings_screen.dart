@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:studify/core/l10n/locale_controller.dart';
 import 'package:studify/core/theme/theme_controller.dart';
+import 'package:studify/core/widgets/glass_surface.dart';
 import 'package:studify/core/widgets/grouped_list.dart';
+import 'package:studify/features/auth/auth_controller.dart';
 import 'package:studify/features/shell/sub_page.dart';
 import 'package:studify/l10n/app_localizations.dart';
 
@@ -13,11 +15,35 @@ import 'package:studify/l10n/app_localizations.dart';
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
 
+  Future<void> _confirmDeleteAccount(BuildContext context) async {
+    final l10n = AppLocalizations.of(context);
+    final auth = context.read<AuthController>();
+    final confirmed = await showDialog<bool>(
+      context: context,
+      builder: (dialogContext) => GlassAlertDialog(
+        title: Text(l10n.deleteAccountConfirmTitle),
+        content: Text(l10n.deleteAccountConfirmDescription),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(dialogContext).pop(false),
+            child: Text(l10n.cancel),
+          ),
+          FilledButton(
+            onPressed: () => Navigator.of(dialogContext).pop(true),
+            child: Text(l10n.deleteAccount),
+          ),
+        ],
+      ),
+    );
+    if (confirmed ?? false) unawaited(auth.signOut());
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
     final locale = context.read<LocaleController>();
     final theme = context.watch<ThemeController>();
+    final scheme = Theme.of(context).colorScheme;
     final language = Localizations.localeOf(context).languageCode;
 
     return SubPage(
@@ -54,6 +80,17 @@ class SettingsScreen extends StatelessWidget {
                 selected: mode == theme.mode,
                 onTap: () => unawaited(theme.setMode(mode)),
               ),
+          ],
+        ),
+        const SizedBox(height: 28),
+        GroupedSection(
+          children: [
+            GroupedTile(
+              icon: CupertinoIcons.trash_fill,
+              color: scheme.error,
+              label: l10n.deleteAccount,
+              onTap: () => _confirmDeleteAccount(context),
+            ),
           ],
         ),
       ],

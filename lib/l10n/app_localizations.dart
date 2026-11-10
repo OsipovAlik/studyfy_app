@@ -744,6 +744,24 @@ abstract class AppLocalizations {
   /// **'You\'ll need to sign in again to access your account.'**
   String get logoutConfirmDescription;
 
+  /// No description provided for @deleteAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete account'**
+  String get deleteAccount;
+
+  /// No description provided for @deleteAccountConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete your account?'**
+  String get deleteAccountConfirmTitle;
+
+  /// No description provided for @deleteAccountConfirmDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'This will sign you out of Studyfy.'**
+  String get deleteAccountConfirmDescription;
+
   /// No description provided for @cancel.
   ///
   /// In en, this message translates to:
